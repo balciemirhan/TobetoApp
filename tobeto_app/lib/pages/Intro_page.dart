@@ -7,12 +7,11 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color.fromARGB(255, 201, 206, 210),
-      body: DecoratedBox(
+      body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/immages/arkaplan.jpg"),
-                fit: BoxFit.cover)),
+                image: AssetImage("assets/images/arkaplan.jpg"),
+                fit: BoxFit.none)),
         child: Center(
           child: Container(
             height: 400,
@@ -20,8 +19,8 @@ class IntroPage extends StatelessWidget {
             decoration: BoxDecoration(
               boxShadow: const [
                 BoxShadow(
-                  color: Color.fromARGB(255, 192, 120, 233),
-                  blurRadius: 8,
+                  color: Colors.black,
+                  blurRadius: 13,
                   spreadRadius: 1,
                   offset: Offset(3, 6),
                 ),
@@ -33,77 +32,20 @@ class IntroPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(30),
                   child: Image(
                     image: AssetImage("assets/images/tobeto.png"),
-                    width: 175,
+                    width: 150,
                   ),
                 ),
-                const SizedBox(
-                  height: 14.99,
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 35,
-                  ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25),
                   child: TextField(
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25)),
                       labelText: "Kullanıcı Kodu",
-                      prefixIcon: Icon(Icons.portable_wifi_off),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 35,
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Parola",
-                      prefixIcon: Icon(Icons.abc),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                GestureDetector(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage())),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 60),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color.fromARGB(226, 161, 54, 200),
-                            offset: Offset(1, 2),
-                            spreadRadius: 2,
-                            blurRadius: 8,
-                          )
-                        ],
-                        color: const Color.fromARGB(255, 146, 92, 199),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 15),
-                        child: Center(
-                          child: Text(
-                            "Giriş yapınız",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
-                          ),
-                        ),
-                      ),
+                      prefixIcon: Icon(Icons.account_circle_rounded),
                     ),
                   ),
                 ),
@@ -111,13 +53,44 @@ class IntroPage extends StatelessWidget {
                   height: 20,
                 ),
                 Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 25,
+                  ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25)),
+                        labelText: "Parola",
+                        prefixIcon: Icon(Icons.lock),
+                        suffixIcon: Icon(Icons.remove_red_eye)),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
+                  child: Text("GİRİŞ YAP",
+                      style: TextStyle(color: Colors.white, fontSize: 15)),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 60),
+                  ),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: TextButton(
                     onPressed: () {},
                     child: const Text(
-                      "Parolamı unuttum",
+                      "Parolamı Unuttum",
                       style: TextStyle(
-                          color: Color.fromARGB(255, 229, 168, 239),
+                          color: Color.fromARGB(174, 27, 6, 31),
                           fontWeight: FontWeight.bold,
                           fontSize: 14),
                     ),
