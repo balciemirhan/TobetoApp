@@ -71,7 +71,7 @@ class IntroPage extends StatelessWidget {
                   child: Text("GİRİŞ YAP",
                       style: TextStyle(color: Colors.white, fontSize: 15)),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+                    backgroundColor: Color.fromARGB(255, 215, 30, 30),
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 60),
                   ),
                 ),
