@@ -1,3 +1,14 @@
-# TobetoApp
+# Tobeto Mobil Uygulama Projesi
 
-<img width="170" alt="v1" src="https://github.com/balciemirhan/TobetoApp/assets/103212238/c6554e29-161c-4127-8b31-6cc913a385c5">
+Tobeto Mobil Uygulaması, Tobeto Eğitim Platformu'nun mobil versiyonudur. Kullanıcıların yüksek kaliteli ve etkileşimli bir deneyimle eğitim içeriklerine ve Tobeto'nun diğer özelliklerine anında erişim sağlar.
+
+
+## Ekip üyeleri
+
+*
+*
+*
+
+
+
+### --> Proje Güncellemelerini Buradan Takip Edebilirsiniz <--
