@@ -14,3 +14,6 @@ Tobeto Mobil Uygulaması, Tobeto Eğitim Platformu'nun mobil versiyonudur. Kulla
 
 
 ### --> Proje Güncellemelerini Buradan Takip Edebilirsiniz <--
+
+
+[tobeto.webm](https://github.com/balciemirhan/TobetoApp/assets/116453429/c56ecb0d-c778-48a8-a8b6-700b666d1794)
