@@ -8,10 +8,6 @@ class IntroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/images/arkaplan.jpg"),
-                fit: BoxFit.none)),
         child: Center(
           child: Container(
             height: 400,
@@ -44,8 +40,7 @@ class IntroPage extends StatelessWidget {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25)),
-                      labelText: "Kullanıcı Kodu",
-                      prefixIcon: Icon(Icons.account_circle_rounded),
+                      labelText: "Kullanıcı Kodu yok",
                     ),
                   ),
                 ),
@@ -60,7 +55,7 @@ class IntroPage extends StatelessWidget {
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(25)),
-                        labelText: "Parola",
+                        labelText: "deneme github",
                         prefixIcon: Icon(Icons.lock),
                         suffixIcon: Icon(Icons.remove_red_eye)),
                   ),
@@ -76,7 +71,7 @@ class IntroPage extends StatelessWidget {
                   child: Text("GİRİŞ YAP",
                       style: TextStyle(color: Colors.white, fontSize: 15)),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple,
+                    backgroundColor: const Color.fromARGB(255, 0, 0, 0),
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 60),
                   ),
                 ),
