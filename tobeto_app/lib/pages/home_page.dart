@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      "Arama",
+                      "Arama deneme",
                       style:
                           TextStyle(color: Color.fromARGB(195, 255, 255, 255)),
                     ),
