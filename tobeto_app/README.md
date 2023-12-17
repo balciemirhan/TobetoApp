@@ -5,6 +5,10 @@ Tobeto Eğitim Platformu, bilgiye erişimi kolaylaştırarak, öğrenmeyi her an
 🛠️ flutter dependencies :
 
 * lottie
+* google_fonts
+* google_nav_bar
+* smooth_page_indicator
+* flutter_advanced_drawer
 
 📱 development stage : 
 
