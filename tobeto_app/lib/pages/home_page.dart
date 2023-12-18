@@ -6,7 +6,6 @@ import 'package:tobeto_app/components/my_appbar.dart';
 import 'package:tobeto_app/components/my_card.dart';
 import 'package:tobeto_app/components/my_drawer.dart';
 import 'package:tobeto_app/components/my_navigationbar.dart';
-import 'package:tobeto_app/config/constant/app_const.dart';
 import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
 
 class HomePage extends StatefulWidget {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -16,20 +17,29 @@ class MyDrawer extends StatelessWidget {
               Spacer(),
               ListTile(
                 onTap: () {},
-                title: const Row(
-                  children: [
-                    CircleAvatar(
-                        radius: 30,
-                        backgroundImage:
-                            AssetImage("assets/images/tobeto-logo.png")),
-                    SizedBox(
-                      width: 10,
+                title: Card(
+                  margin: EdgeInsets.all(40),
+                  shadowColor: Colors.deepPurple,
+                  color: Colors.deepPurple[200],
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                            radius: 30,
+                            backgroundImage:
+                                AssetImage("assets/images/kitty.png")),
+                        SizedBox(
+                          width: 40,
+                        ),
+                        Text(
+                          'Ad Soyad',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.white),
+                        ),
+                      ],
                     ),
-                    Text(
-                      'Ad Soyad',
-                    ),
-                    Spacer(),
-                  ],
+                  ),
                 ),
               ),
               Spacer(),

@@ -6,8 +6,6 @@ import 'package:tobeto_app/components/box_shadow.dart';
 import 'package:tobeto_app/components/global_passwordField.dart';
 import 'package:tobeto_app/components/global_textfield.dart';
 import 'package:tobeto_app/components/my_button.dart';
-import 'package:tobeto_app/components/my_textfield.dart';
-import 'package:tobeto_app/components/my_textfield2.dart';
 import 'package:tobeto_app/components/square_tile.dart';
 import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
 

@@ -11,7 +11,7 @@ final class DarkTheme {
     cardColor: Colors.deepPurple, //drawer + container
     scaffoldBackgroundColor: Color.fromARGB(255, 6, 177, 207),
     canvasColor: Color.fromRGBO(182, 187, 196, 1), //textField 2.numara
-    shadowColor: Colors.deepPurple, //shadow
+    shadowColor: Color.fromRGBO(22, 26, 48, 1), //shadow
     indicatorColor: Color.fromRGBO(49, 48, 77, 1), //3.numara global
     highlightColor: Color.fromRGBO(240, 236, 229, 1),
   ); //1.numaralı buton

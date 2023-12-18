@@ -51,7 +51,7 @@ class _OnbordingPageState extends State<OnbordingPage> {
                         // kullanıcıların cihaz ekranı ile
                         //etkileşimde bulunmasını sağlar ve çeşitli jestlere (dokunma, kaydırma, uzun basma, vb.) tepki verebilir.
                         onTap: () {
-                          Navigator.of(context).pushNamed("/home");
+                          Navigator.of(context).pushNamed("/login");
                         },
                         child: Text("done"),
                       )

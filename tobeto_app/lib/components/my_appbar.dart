@@ -18,7 +18,7 @@ class _MyAppbarState extends State<MyAppbar> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 40, left: 20, right: 20),
-      height: 200,
+      height: 125,
       width: double.infinity,
       decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
@@ -53,43 +53,9 @@ class _MyAppbarState extends State<MyAppbar> {
                     fontSize: 22,
                     fontWeight: FontWeight.bold),
               ),
-              FlutterSwitch(
-                width: 80,
-                height: 40,
-                toggleSize: 45.0,
-                value: status,
-                borderRadius: 30.0,
-                padding: 2.0,
-                activeToggleColor: const Color(0xFF6E40C9),
-                inactiveToggleColor: const Color(0xFF2F363D),
-                activeSwitchBorder: Border.all(
-                  color: const Color(0xFF3C1E70),
-                  width: 6.0,
-                ),
-                inactiveSwitchBorder: Border.all(
-                  color: const Color(0xFFD1D5DA),
-                  width: 6.0,
-                ),
-                activeColor: const Color(0xFF271052),
-                inactiveColor: Colors.white,
-                activeIcon: const Icon(
-                  Icons.nightlight_round,
-                  color: Color(0xFFF8E3A1),
-                ),
-                inactiveIcon: const Icon(
-                  Icons.wb_sunny,
-                  color: Color(0xFFFFDF5D),
-                ),
-                onToggle: (value) {
-                  setState(() {
-                    status = value;
-                    AppConst.themeNotifier.changeTheme();
-                  });
-                },
-              )
             ],
           ),
-          MyTextForm(),
+          //    MyTextForm(),
         ],
       ),
     );
