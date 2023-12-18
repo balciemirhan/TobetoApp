@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 
               // --------------------- ROUTES ---------------------
 
-              initialRoute: AppRoute.login,
+              initialRoute: AppRoute.onboard,
               routes: AppRoute.routes,
 
               // ---------------------- THEME ---------------------
