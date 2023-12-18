@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tobeto_app/components/box_shadow.dart';
+import 'package:tobeto_app/components/global_passwordField.dart';
+import 'package:tobeto_app/components/global_textfield.dart';
 import 'package:tobeto_app/components/my_button.dart';
 import 'package:tobeto_app/components/my_textfield.dart';
 import 'package:tobeto_app/components/my_textfield2.dart';
@@ -86,23 +88,15 @@ class LoginPage extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        MyTextField_2(
-                          controller: usernameController,
-                          hintText: "Adınız",
-                          obscureText: false,
-                          prefixIcon: Icon(
-                            Icons.account_circle,
-                            color: themeManager.theme.indicatorColor,
-                          ),
-                        ),
+                        GlobalTextField(
+                            controller: usernameController,
+                            prefixIcon: Icon(
+                              Icons.account_circle,
+                              color: themeManager.theme.indicatorColor,
+                            ),
+                            hintText: "Adınız"),
                         const SizedBox(height: 15),
-                        MyTextField(
-                          controller: passwordController,
-                          hintText: "Şifreniz",
-                          obscureText: false,
-                          prefixIcon: Icon(Icons.lock,
-                              color: themeManager.theme.indicatorColor),
-                        ),
+                        GlobalPasswordField(controller: passwordController),
                         const SizedBox(height: 20),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 40),

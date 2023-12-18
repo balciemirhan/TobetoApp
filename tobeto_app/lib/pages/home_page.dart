@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tobeto_app/components/my_advanced_drawer.dart';
+import 'package:tobeto_app/components/my_appbar.dart';
 import 'package:tobeto_app/components/my_card.dart';
 import 'package:tobeto_app/components/my_drawer.dart';
 import 'package:tobeto_app/components/my_navigationbar.dart';
@@ -29,51 +30,11 @@ class _HomePageState extends State<HomePage> {
         controller: drawerController,
         child: Scaffold(
           backgroundColor: themeManager.theme.primaryColor,
-          appBar: AppBar(
-            backgroundColor: themeManager.theme.primaryColor,
-            leading: IconButton(
-                onPressed: () {
-                  drawerController.showDrawer();
-                },
-                icon: const Icon(Icons.menu)),
-          ),
+
           body: Center(
               child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.all(12),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 35, vertical: 35),
-                decoration: BoxDecoration(
-                  color: themeManager.theme.cardColor,
-                  // color: const Color.fromARGB(255, 128, 102, 199),
-                  borderRadius: BorderRadius.circular(32),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      "Arama deneme",
-                      style:
-                          TextStyle(color: Color.fromARGB(195, 255, 255, 255)),
-                    ),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.search,
-                          color: Color.fromARGB(195, 255, 255, 255),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            AppConst.themeNotifier.changeTheme();
-                          },
-                          icon: const Icon(Icons.sunny),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              MyAppbar(drawerController: drawerController),
 
               // ---------- Kurs Bölümü ----------
               const Padding(
@@ -82,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment:
                       CrossAxisAlignment.end, // Tümünü gör hizalaması için
-                  children: <Widget>[
+                  children: [
                     Text(
                       "Kurslar 😈",
                       style: TextStyle(
