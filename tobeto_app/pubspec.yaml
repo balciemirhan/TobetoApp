@@ -72,6 +72,9 @@ flutter:
     - assets/images/tobeto-logo-white.png
     - assets/images/tobeto-logo.png
     - assets/images/kitty.png
+    - assets/images/tobeto.png
+    - assets/images/istanbul.png
+    - assets/images/is.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

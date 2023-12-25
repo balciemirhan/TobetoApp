@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:flutter_switch/flutter_switch.dart';
-import 'package:tobeto_app/components/my_textForm.dart';
-import 'package:tobeto_app/config/constant/app_const.dart';
 
 class MyAppbar extends StatefulWidget {
   final AdvancedDrawerController drawerController;
@@ -17,7 +14,7 @@ class _MyAppbarState extends State<MyAppbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 40, left: 20, right: 20),
+      padding: const EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
       height: 125,
       width: double.infinity,
       decoration: const BoxDecoration(
@@ -35,29 +32,21 @@ class _MyAppbarState extends State<MyAppbar> {
                 Color(0xff886ff2),
                 Color(0xff6849ef),
               ])),
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              IconButton(
-                  onPressed: () {
-                    widget.drawerController.showDrawer();
-                  },
-                  icon: Icon(Icons.menu)),
-              const Text(
-                "Hoş geldiniz",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
+          IconButton(
+              onPressed: () {
+                widget.drawerController.showDrawer();
+              },
+              icon: const Icon(Icons.menu)),
+          const Image(
+            image: AssetImage("assets/images/tobeto.png"),
           ),
-          //    MyTextForm(),
         ],
       ),
+      //    MyTextForm(),
     );
   }
 }

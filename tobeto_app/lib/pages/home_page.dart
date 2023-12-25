@@ -1,101 +1,156 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:tobeto_app/components/my_advanced_drawer.dart';
-import 'package:tobeto_app/components/my_appbar.dart';
-import 'package:tobeto_app/components/my_card.dart';
-import 'package:tobeto_app/components/my_drawer.dart';
-import 'package:tobeto_app/components/my_navigationbar.dart';
-import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
+import 'package:tobeto_app/components/drawer/my_advanced_drawer.dart';
+import 'package:tobeto_app/components/drawer/my_appbar.dart';
+import 'package:tobeto_app/components/drawer/my_drawer.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  // pagecontroller
-  final pageController = PageController();
-
   @override
   Widget build(BuildContext context) {
     final drawerController = AdvancedDrawerController();
-    final themeManager = ThemeManager.of(context);
 
     return MyAdvancedDrawer(
-        drawer: const MyDrawer(),
-        controller: drawerController,
-        child: Scaffold(
-          backgroundColor: themeManager.theme.primaryColor,
-
-          body: Center(
-              child: Column(
+      drawer: const MyDrawer(),
+      controller: drawerController,
+      child: Scaffold(
+        body: Expanded(
+          child: Column(
             children: [
               MyAppbar(drawerController: drawerController),
-
-              // ---------- Kurs Bölümü ----------
+              const SizedBox(
+                height: 40,
+              ),
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment:
-                      CrossAxisAlignment.end, // Tümünü gör hizalaması için
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
                   children: [
-                    Text(
-                      "Kurslar 😈",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "TOBETO",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.deepPurple,
+                              fontSize: 24),
+                        ),
+                        Text(
+                          "'ya hoş geldin",
+                          style: TextStyle(fontSize: 24),
+                        ),
+                      ],
                     ),
                     Text(
-                      "Tümünü gör",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(180, 155, 39, 176),
-                      ),
+                      "Kullanıcı",
+                      style: TextStyle(fontSize: 24),
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                      "Yeni nesil öğrenme deneyimi ile Tobeto kariyer yolculuğunda senin yanında!",
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Image(
+                        width: 160,
+                        image: AssetImage("assets/images/istanbul.png")),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Text(
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                      "Ücretsiz eğitimlerle, geleceğin mesleklerinde sen de yerini al.",
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Image(
+                        width: 240, image: AssetImage("assets/images/is.png")),
                   ],
                 ),
               ),
-
-              // ----- MyCard area -----
-              // ignore: sized_box_for_whitespace
-
-              Container(
-                height: 300,
-                // --> ListView yerine --> PageView
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  controller:
-                      pageController, // denetleyici görebilmek için buraya koyduk.
-                  children: const [
-                    MyCard(),
-                    MyCard(),
-                    MyCard(),
-                    MyCard(),
-                  ],
+              // TAB BAR
+              DefaultTabController(
+                length: 4,
+                child: Expanded(
+                  child: Flex(
+                    direction: Axis.vertical,
+                    children: [
+                      const TabBar(
+                        tabs: [
+                          Tab(
+                            text: "Başvurularım",
+                          ),
+                          Tab(
+                            text: "Eğitimlerim",
+                          ),
+                          Tab(
+                            text: "Duyuru ve Haberlerim",
+                          ),
+                          Tab(
+                            text: "Anketim",
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        child: TabBarView(children: [
+                          Container(
+                            child: const Center(
+                              child: Text("1. sayfa"),
+                            ),
+                          ),
+                          Container(
+                            child: const Center(
+                              child: Text("2. sayfa"),
+                            ),
+                          ),
+                          Container(
+                            child: const Center(
+                              child: Text("3. sayfa"),
+                            ),
+                          ),
+                          Container(
+                            child: const Center(
+                              child: Text("4. sayfa"),
+                            ),
+                          )
+                        ]),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              SmoothPageIndicator(
-                controller: pageController,
-                count: 4,
-                effect: const ExpandingDotsEffect(
-                    activeDotColor: Color.fromARGB(91, 158, 158, 158),
-                    dotColor: Colors.grey,
-                    dotHeight: 15,
-                    dotWidth: 15),
+              const SizedBox(
+                height: 50,
               ),
+              const Text(
+                "Sınavlarım",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 60,
+              ),
+              const Image(image: AssetImage("assets/images/istanbul.png"))
             ],
-          )),
-
-          // ------ Button area ------
-
-          // tabs sekmeler --> alt gezinme çubuğundaki ögeler
-          // Gnav -- > buton stilleri
-          bottomNavigationBar: const MyNavigationBar(),
-        ));
+          ),
+        ),
+      ),
+    );
   }
 }

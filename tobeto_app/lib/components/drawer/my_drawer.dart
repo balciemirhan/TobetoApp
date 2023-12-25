@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -14,11 +13,11 @@ class MyDrawer extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Spacer(),
+              const Spacer(),
               ListTile(
                 onTap: () {},
                 title: Card(
-                  margin: EdgeInsets.all(40),
+                  margin: const EdgeInsets.all(40),
                   shadowColor: Colors.deepPurple,
                   color: Colors.deepPurple[200],
                   child: const Padding(
@@ -42,39 +41,39 @@ class MyDrawer extends StatelessWidget {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               ListTile(
                 onTap: () {
                   Navigator.of(context).pushNamed("/home");
                 },
-                title: Text('Anasayfa'),
+                title: const Text('Anasayfa'),
               ),
               ListTile(
                 onTap: () {},
-                title: Text('Değerlendirmeler'),
+                title: const Text('Değerlendirmeler'),
               ),
               ListTile(
                 onTap: () {},
-                title: Text('Profilim'),
+                title: const Text('Profilim'),
               ),
               ListTile(
                 onTap: () {},
-                title: Text('Katalog'),
+                title: const Text('Katalog'),
               ),
               ListTile(
                 onTap: () {},
-                title: Text('Takvim'),
+                title: const Text('Takvim'),
               ),
               ListTile(
                 onTap: () {},
 
-                title: Row(
+                title: const Row(
                   children: [Text('Tobeto '), Icon(Icons.home)],
                 ),
 
                 //enableFeedback: false, // tıklama sesini kapatır
               ),
-              Spacer(flex: 2),
+              const Spacer(flex: 2),
               DefaultTextStyle(
                 style: const TextStyle(
                   fontSize: 12,
@@ -84,7 +83,7 @@ class MyDrawer extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(
                     vertical: 16.0,
                   ),
-                  child: Text('© 2022 Tobeto'),
+                  child: const Text('© 2022 Tobeto'),
                 ),
               ),
             ],
