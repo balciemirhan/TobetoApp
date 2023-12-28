@@ -6,7 +6,7 @@ import 'package:tobeto_app/components/drawer/my_appbar.dart';
 import 'package:tobeto_app/components/drawer/my_drawer.dart';
 
 import 'package:tobeto_app/config/constant/theme/text.dart';
-import 'package:tobeto_app/pages/home_screens/Profile_container.dart';
+import 'package:tobeto_app/pages/home_screens/profile_container.dart';
 import 'package:tobeto_app/pages/home_screens/bottom_widget.dart';
 import 'package:tobeto_app/pages/home_screens/card_exam.dart';
 import 'package:tobeto_app/pages/home_screens/card_tab.dart';

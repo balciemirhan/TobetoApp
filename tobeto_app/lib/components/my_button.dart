@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/components/box_shadow.dart';
+import 'package:tobeto_app/config/constant/theme/color.dart';
 
 class MyButton extends StatelessWidget {
 // Buton dokunma yöntemi. --> onTap()
@@ -18,14 +19,14 @@ class MyButton extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 45),
         decoration: BoxDecoration(
           border: Border.all(color: const Color.fromARGB(255, 143, 101, 215)),
-          color: Colors.black,
+          color: AppColor.lightBg,
           borderRadius: BorderRadius.circular(8),
           boxShadow: [
             //    BoxShadowLogin2().boxShadowLogin2,
             BoxShadowLogin(context).boxShadowLogin
           ],
         ),
-        child: Center(
+        child: const Center(
           child: Text(
             "Oturum Aç",
             style: TextStyle(

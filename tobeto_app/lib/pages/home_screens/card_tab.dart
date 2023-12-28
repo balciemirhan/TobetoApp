@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
-import 'package:tobeto_app/pages/home_screens/education_card.dart';
+// import 'package:tobeto_app/pages/home_screens/education_card.dart';
 
 class CardTab extends StatelessWidget {
   const CardTab({
@@ -171,12 +171,12 @@ class CardTab extends StatelessWidget {
                   // --> ListView yerine --> PageView
                   child: ListView(
                     scrollDirection: Axis.horizontal,
-                    children: const [
-                      EducationCard(),
-                      EducationCard(),
-                      EducationCard(),
-                      EducationCard(),
-                    ],
+                    // children: const [
+                    //   EducationCard(),
+                    //   EducationCard(),
+                    //   EducationCard(),
+                    //   EducationCard(),
+                    // ],
                   ),
                 ),
 

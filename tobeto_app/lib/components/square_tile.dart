@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/components/box_shadow.dart';
+import 'package:tobeto_app/config/constant/theme/color.dart';
 
 class SquareTile extends StatelessWidget {
   final String imagePath; // görüntü yolunun dizesi
@@ -15,7 +16,7 @@ class SquareTile extends StatelessWidget {
       decoration: BoxDecoration(
           border: Border.all(color: const Color.fromARGB(255, 143, 101, 215)),
           borderRadius: BorderRadius.circular(16),
-          color: Colors.black,
+          color: AppColor.lightBg,
           boxShadow: [
             //   BoxShadowLogin2().boxShadowLogin2,
             BoxShadowLogin(context).boxShadowLogin

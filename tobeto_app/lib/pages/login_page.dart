@@ -7,6 +7,7 @@ import 'package:tobeto_app/components/global_passwordField.dart';
 import 'package:tobeto_app/components/global_textfield.dart';
 import 'package:tobeto_app/components/my_button.dart';
 import 'package:tobeto_app/components/square_tile.dart';
+import 'package:tobeto_app/config/constant/theme/color.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class LoginPage extends StatelessWidget {
     return Expanded(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.black,
+        backgroundColor: AppColor.lightBg,
         body: Stack(
           children: [
             Container(
