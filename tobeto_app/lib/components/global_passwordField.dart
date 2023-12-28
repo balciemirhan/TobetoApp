@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/components/global_textfield.dart';
-import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
 
 class GlobalPasswordField extends StatefulWidget {
   const GlobalPasswordField({Key? key, required this.controller})
@@ -28,8 +27,7 @@ class _GlobalPasswordFieldState extends State<GlobalPasswordField> {
   Widget build(BuildContext context) {
     return GlobalTextField(
         controller: widget.controller,
-        prefixIcon: Icon(Icons.lock,
-            color: ThemeManager.of(context).theme.indicatorColor),
+        prefixIcon: Icon(Icons.lock, color: Colors.black),
         hintText: "Parolanız",
         obscureText: isInVisible,
         suffixIcon: IconButton(

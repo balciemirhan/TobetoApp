@@ -2,8 +2,8 @@
 // typedef = tanımlı fonksiyonlar. ( Widget fonskiyo'nun tanımını kısalttım.)
 
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/pages/home_screens/home_page.dart';
 
-import 'package:tobeto_app/pages/home_page.dart';
 import 'package:tobeto_app/pages/login_page.dart';
 import 'package:tobeto_app/pages/onboarding_screen.dart';
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
 
 class BoxShadowLogin {
   final BuildContext context;
@@ -7,13 +6,8 @@ class BoxShadowLogin {
   BoxShadowLogin(this.context);
 
   BoxShadow get boxShadowLogin {
-    final themeManager = ThemeManager.of(context);
-
     return BoxShadow(
-      blurRadius: 40,
-      offset: Offset(15, 15),
-      color: themeManager.theme.shadowColor,
-    );
+        blurRadius: 40, offset: Offset(15, 15), color: Colors.black);
   }
 }
 

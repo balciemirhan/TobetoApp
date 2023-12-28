@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/components/box_shadow.dart';
-import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
 
 class GlobalTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -38,12 +37,10 @@ class GlobalTextField extends StatelessWidget {
             focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color.fromARGB(255, 143, 101, 215)),
             ),
-            fillColor: ThemeManager.of(context).theme.canvasColor,
+            fillColor: Colors.black,
             filled: true,
             hintText: hintText,
-            hintStyle: TextStyle(
-              color: ThemeManager.of(context).theme.indicatorColor,
-            ),
+            hintStyle: TextStyle(color: Colors.black),
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
           ),

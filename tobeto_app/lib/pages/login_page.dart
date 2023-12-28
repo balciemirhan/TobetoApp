@@ -7,7 +7,6 @@ import 'package:tobeto_app/components/global_passwordField.dart';
 import 'package:tobeto_app/components/global_textfield.dart';
 import 'package:tobeto_app/components/my_button.dart';
 import 'package:tobeto_app/components/square_tile.dart';
-import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -19,12 +18,10 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeManager = ThemeManager.of(context);
-
     return Expanded(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: themeManager.theme.primaryColor,
+        backgroundColor: Colors.black,
         body: Stack(
           children: [
             Container(
@@ -90,7 +87,7 @@ class LoginPage extends StatelessWidget {
                             controller: usernameController,
                             prefixIcon: Icon(
                               Icons.account_circle,
-                              color: themeManager.theme.indicatorColor,
+                              color: Colors.black,
                             ),
                             hintText: "Adınız"),
                         const SizedBox(height: 15),

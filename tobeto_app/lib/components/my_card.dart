@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
 
 class MyCard extends StatelessWidget {
   const MyCard({super.key});
@@ -7,8 +6,6 @@ class MyCard extends StatelessWidget {
   // final String egitmen;
   @override
   Widget build(BuildContext context) {
-    final themeManager = ThemeManager.of(context); // color library
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Container(
@@ -23,7 +20,7 @@ class MyCard extends StatelessWidget {
                 offset: Offset(12, 12),
               )
             ],
-            color: themeManager.theme.cardColor,
+            color: Colors.black,
             // color: const Color.fromARGB(255, 128, 102, 199),
             borderRadius: BorderRadius.circular(16)),
         child: const Column(

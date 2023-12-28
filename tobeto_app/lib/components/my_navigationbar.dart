@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
 
 class MyNavigationBar extends StatelessWidget {
   const MyNavigationBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final themeManager = ThemeManager.of(context);
     return Container(
       // color: Colors.black,
-      color: themeManager.theme.primaryColor,
+      color: Colors.black,
       child: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
         child: GNav(

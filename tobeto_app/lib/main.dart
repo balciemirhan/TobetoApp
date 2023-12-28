@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/app_const.dart';
-import 'package:tobeto_app/config/constant/theme/theme_dark.dart';
-import 'package:tobeto_app/config/constant/theme/theme_manager.dart';
+import 'package:tobeto_app/config/constant/theme/theme.dart';
+
 import 'package:tobeto_app/config/route/app_routes.dart';
 
 void main() {
@@ -12,34 +11,21 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  // MaterialApp ' i ThemeManager widget ile sarmaladım. Sonra'da Builder <--> ile. ValueListenableBuilder(mesaj)
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-        valueListenable: AppConst.themeNotifier,
-        builder: (context, themeData, child) {
-          //
-          return ThemeManager(
-            theme: themeData,
-            changeTheme: AppConst.themeNotifier.changeTheme,
-            // ----------------------------------------------------
-            child: MaterialApp(
-              title: "Education App",
-              debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      title: 'Education App',
+      debugShowCheckedModeBanner: false,
 
-              // --------------------- ROUTES ---------------------
+      // --------------------------- THEME ---------------------------
 
-              initialRoute: AppRoute.home,
-              routes: AppRoute.routes,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
 
-              // ---------------------- THEME ---------------------
+      // --------------------------- ROUTE ---------------------------
 
-              theme: themeData,
-              darkTheme: DarkTheme.theme,
-              themeMode: ThemeMode.system, //  reaksiyon
-
-              // ---------------------------------------------------
-            ),
-          );
-        });
+      initialRoute: AppRoute.home,
+      routes: AppRoute.routes,
+    );
   }
 }
