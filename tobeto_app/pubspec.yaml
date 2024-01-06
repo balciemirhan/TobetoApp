@@ -41,6 +41,7 @@ dependencies:
   flutter_advanced_drawer: ^1.3.5
   intro_screen_onboarding_flutter: ^1.0.0
   flutter_switch: ^0.3.2
+  concentric_transition: ^1.0.3
 
 
 dev_dependencies:

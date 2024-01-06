@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_app/pages/home_screens/home_page.dart';
 
 import 'package:tobeto_app/pages/login_page.dart';
-import 'package:tobeto_app/pages/onboarding_screen.dart';
+import 'package:tobeto_app/pages/onboard_screen/onboarding_animation.dart';
 
 typedef AppRouteMapFunction = Widget Function(BuildContext context);
 
@@ -20,8 +20,8 @@ final class AppRoute {
     // onboard:(context) => const OnBoardScreen();
 
     login: (context) => LoginPage(),
-    home: (context) => HomePage(),
-    onboard: (context) => OnbordingPage(),
+    home: (context) => const HomePage(),
+    onboard: (context) => OnboardingAnimation(),
   };
 }
 
