@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/pages/home_screens/home_page.dart';
 
-import 'package:tobeto_app/pages/login_page.dart';
+import 'package:tobeto_app/pages/login_screen/login_page.dart';
 import 'package:tobeto_app/pages/onboard_screen/onboarding_animation.dart';
 
 typedef AppRouteMapFunction = Widget Function(BuildContext context);

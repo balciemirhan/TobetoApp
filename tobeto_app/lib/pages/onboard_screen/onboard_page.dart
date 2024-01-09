@@ -4,6 +4,7 @@ import 'package:tobeto_app/pages/onboard_screen/onboard_model.dart';
 
 class OnboardPage extends StatelessWidget {
   final PageData page;
+
   const OnboardPage({Key? key, required this.page}) : super(key: key);
 
   @override
@@ -15,7 +16,7 @@ class OnboardPage extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           margin: const EdgeInsets.all(16.0),
           child: Lottie.network(page.url),
-        )
+        ),
       ],
     );
   }

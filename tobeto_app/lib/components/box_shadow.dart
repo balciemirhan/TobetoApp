@@ -6,7 +6,7 @@ class BoxShadowLogin {
   BoxShadowLogin(this.context);
 
   BoxShadow get boxShadowLogin {
-    return BoxShadow(
+    return const BoxShadow(
         blurRadius: 40, offset: Offset(15, 15), color: Colors.black);
   }
 }

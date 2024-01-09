@@ -5,5 +5,9 @@ class PageData {
   final Color bgColor;
   final Color btnColor;
 
-  PageData({required this.url, required this.bgColor, required this.btnColor});
+  const PageData({
+    this.url = "",
+    this.bgColor = Colors.white,
+    this.btnColor = Colors.black,
+  });
 }
