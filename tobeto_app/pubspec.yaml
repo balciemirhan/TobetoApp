@@ -42,6 +42,7 @@ dependencies:
   intro_screen_onboarding_flutter: ^1.0.0
   flutter_switch: ^0.3.2
   concentric_transition: ^1.0.3
+  curved_navigation_bar: ^1.0.3
 
 
 dev_dependencies:
@@ -76,6 +77,17 @@ flutter:
     - assets/images/tobeto.png
     - assets/images/istanbul.png
     - assets/images/is.png
+    - assets/images/billboard.gif
+    - assets/images/flutter_icon.png
+    - assets/images/java_icon.png
+    - assets/images/dart_icon.png
+    - assets/images/c#_icon.png
+    - assets/images/react_icon.png
+    - assets/images/ai_icon.png
+    - assets/images/leader_icon.png
+    - assets/images/js_icon.png
+    - assets/images/angular_icon.png
+    - assets/images/vue_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -4,6 +4,8 @@ import 'package:lottie/lottie.dart';
 import 'package:tobeto_app/config/constant/core/global_button.dart';
 import 'package:tobeto_app/config/constant/core/global_passwordField.dart';
 import 'package:tobeto_app/config/constant/login/login_image.dart';
+import 'package:tobeto_app/pages/curved_bar.dart/curved_button.dart';
+import 'package:tobeto_app/pages/home_screens/home_page.dart';
 import 'package:tobeto_app/pages/login_screen/login_logo.dart';
 import 'package:tobeto_app/pages/login_screen/togin_textfield.dart';
 
@@ -16,8 +18,11 @@ class LoginPage extends StatelessWidget {
 
   final passwordController = TextEditingController();
 
-  void SignUserIn() {
-    if (_formKey.currentState!.validate()) {}
+  void SignUserIn(BuildContext context) {
+    if (_formKey.currentState!.validate()) {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const CurvedNavBarWidget()));
+    }
   }
 
   @override
@@ -68,7 +73,7 @@ class LoginPage extends StatelessWidget {
                             width: mWidth / 1.2,
                             text: "Oturum Aç",
                             onTap: (() {
-                              if (_formKey.currentState!.validate()) {}
+                              SignUserIn(context);
                             }),
                           ),
                         ],

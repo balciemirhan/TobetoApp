@@ -2,10 +2,14 @@
 // typedef = tanımlı fonksiyonlar. ( Widget fonskiyo'nun tanımını kısalttım.)
 
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/pages/curved_bar.dart/curved_button.dart';
+import 'package:tobeto_app/pages/favourite_screens/favourite_page.dart';
 import 'package:tobeto_app/pages/home_screens/home_page.dart';
-
 import 'package:tobeto_app/pages/login_screen/login_page.dart';
 import 'package:tobeto_app/pages/onboard_screen/onboarding_animation.dart';
+import 'package:tobeto_app/pages/profile_screen/profile_page.dart';
+import 'package:tobeto_app/pages/search_screen/search_page.dart';
+import 'package:tobeto_app/pages/view_more_screen/view_more_page.dart';
 
 typedef AppRouteMapFunction = Widget Function(BuildContext context);
 
@@ -15,6 +19,11 @@ final class AppRoute {
   static const String onboard = "/onboard";
   static const String login = "/login";
   static const String home = "/home";
+  static const String search = "/search";
+  static const String favourite = "/favourite";
+  static const String profile = "/profile";
+  static const String curved = "/curved";
+  static const String viewmore = "/viewmore";
 
   static Map<String, AppRouteMapFunction> routes = {
     // onboard:(context) => const OnBoardScreen();
@@ -22,6 +31,11 @@ final class AppRoute {
     login: (context) => LoginPage(),
     home: (context) => const HomePage(),
     onboard: (context) => OnboardingAnimation(),
+    search: (context) => const SearchPage(),
+    favourite: (context) => const FavouritePage(),
+    profile: (context) => const ProfilePage(),
+    curved: (context) => const CurvedNavBarWidget(),
+    viewmore: (context) => const ViewMorePage(),
   };
 }
 
