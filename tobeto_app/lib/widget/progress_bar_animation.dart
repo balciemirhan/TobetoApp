@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/neu_box.dart';
 
 class ProgressBarAnimation extends StatefulWidget {
-  const ProgressBarAnimation({Key? key}) : super(key: key);
+  const ProgressBarAnimation({Key? key, required this.progress})
+      : super(key: key);
+  final double progress;
 
   @override
   _ProgressBarAnimationState createState() => _ProgressBarAnimationState();
@@ -18,14 +20,10 @@ class _ProgressBarAnimationState extends State<ProgressBarAnimation>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 3), // Set the duration of the animation
+      duration: const Duration(seconds: 3),
     );
 
     _animation = Tween<double>(begin: 0, end: 1).animate(_animationController);
-
-    // Start the animation and make it repeat
-
-    /*   _animationController.repeat();  */
     _animationController.forward();
   }
 
@@ -33,33 +31,49 @@ class _ProgressBarAnimationState extends State<ProgressBarAnimation>
   Widget build(BuildContext context) {
     return Center(
       child: NeuBox(
-        width: 150,
-        height: 70, // Increased height to accommodate the percentage text
+        width: 300,
+        height: 30,
         child: AnimatedBuilder(
           animation: _animation,
           builder: (context, child) {
-            int percentage = (_animation.value * 41).toInt();
+            double percentage = (_animation.value * widget.progress);
             Color progressColor = _getColorForPercentage(percentage);
 
-            return Column(
+            return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '$percentage%',
+                  percentage.toStringAsFixed(1),
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    fontSize: 13,
                     color: Colors.deepPurple,
                   ),
                 ),
-                SizedBox(
-                  width: 130,
-                  height: 20,
-                  child: LinearProgressIndicator(
-                    borderRadius: const BorderRadius.all(Radius.circular(8)),
-                    value: _animation.value,
-                    valueColor: AlwaysStoppedAnimation<Color>(progressColor),
-                  ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Stack(
+                  children: [
+                    Container(
+                      width: _animation.value * 200,
+                      height: 10,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.grey.shade400),
+                    ),
+                    SizedBox(
+                      width: percentage * 2,
+                      height: 10,
+                      child: LinearProgressIndicator(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(8)),
+                        value: _animation.value * 200,
+                        valueColor:
+                            AlwaysStoppedAnimation<Color>(progressColor),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             );
@@ -69,7 +83,7 @@ class _ProgressBarAnimationState extends State<ProgressBarAnimation>
     );
   }
 
-  Color _getColorForPercentage(int percentage) {
+  Color _getColorForPercentage(double percentage) {
     if (percentage < 50) {
       return Colors.deepPurpleAccent;
     } else if (percentage < 80) {

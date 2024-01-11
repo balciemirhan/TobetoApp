@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/neu_box.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
-import 'package:tobeto_app/pages/last_course/progress_bar_animation.dart';
+import 'package:tobeto_app/widget/progress_bar_animation.dart';
 
 class LastCourseVideo extends StatefulWidget {
   const LastCourseVideo({Key? key}) : super(key: key);
@@ -36,7 +36,9 @@ class _LastCourseVideoState extends State<LastCourseVideo> {
                     image: AssetImage("assets/images/flutter_icon.png"),
                   ),
                 ),
-                const ProgressBarAnimation(),
+                const ProgressBarAnimation(
+                  progress: 55,
+                ),
                 InkWell(
                     onTap: () {},
                     child: const Icon(

@@ -3,8 +3,8 @@ import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 
 // import 'package:tobeto_app/pages/home_screens/education_card.dart';
 
-class CategoryWidget extends StatelessWidget {
-  const CategoryWidget({Key? key}) : super(key: key);
+class CourseWidget extends StatelessWidget {
+  const CourseWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

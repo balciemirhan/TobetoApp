@@ -7,6 +7,7 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListTileTheme(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 30),
         textColor: Colors.white,
         iconColor: Colors.white,
         child: Column(
@@ -71,7 +72,7 @@ class MyDrawer extends StatelessWidget {
                     Icons.home,
                     shadows: [
                       Shadow(blurRadius: 15, color: Colors.deepPurple),
-                      Shadow(blurRadius: 15, color: Colors.deepPurple)
+                      Shadow(blurRadius: 5, color: Colors.black)
                     ],
                   )
                 ],
@@ -81,7 +82,7 @@ class MyDrawer extends StatelessWidget {
                   fontSize: 18,
                   shadows: [
                     Shadow(blurRadius: 15, color: Colors.deepPurple),
-                    Shadow(blurRadius: 15, color: Colors.deepPurple)
+                    Shadow(blurRadius: 5, color: Colors.black)
                   ]),
 
               //enableFeedback: false, // tıklama sesini kapatır

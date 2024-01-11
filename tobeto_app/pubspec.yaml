@@ -88,6 +88,15 @@ flutter:
     - assets/images/js_icon.png
     - assets/images/angular_icon.png
     - assets/images/vue_icon.png
+    - assets/images/course_images/ecmel_ayran.png
+    - assets/images/course_images/istanbul_kod.png
+    - assets/images/course_images/kodlama.png
+    - assets/images/course_images/hosgeldin.png
+    - assets/images/course_images/proje_asamalari.png
+    - assets/images/course_images/mentor.png
+    - assets/images/course_images/mobil_1B.png
+    - assets/images/course_images/mobil_ogrenme.png
+    - assets/images/course_images/softskill.png      
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -3,13 +3,14 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:tobeto_app/components/drawer/my_advanced_drawer.dart';
 import 'package:tobeto_app/components/drawer/my_appbar.dart';
 import 'package:tobeto_app/components/drawer/my_drawer.dart';
-import 'package:tobeto_app/components/popular_widget.dart';
-import 'package:tobeto_app/models/category.dart';
-import 'package:tobeto_app/pages/home_screens/category_item.dart';
+import 'package:tobeto_app/pages/home_screens/popular_widget.dart';
+import 'package:tobeto_app/data/course_data.dart';
+import 'package:tobeto_app/models/course_model.dart';
+import 'package:tobeto_app/pages/home_screens/course_item.dart';
 import 'package:tobeto_app/pages/home_screens/profile.dart';
-import 'package:tobeto_app/pages/home_screens/category_widget.dart';
+import 'package:tobeto_app/pages/home_screens/course_widget.dart';
 import 'package:tobeto_app/pages/home_screens/bill_board.dart';
-import 'package:tobeto_app/pages/last_course/last_course_video.dart';
+import 'package:tobeto_app/pages/home_screens/last_course_video.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -53,7 +54,7 @@ class _HomePageState extends State<HomePage> {
 
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                    child: CategoryWidget(),
+                    child: CourseWidget(),
                   ),
 
                   // ------------ Dinamik Card Tasarımı / Flutter - Java - Dart vs. ------------
@@ -61,17 +62,17 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.all(3.0),
                     child: SizedBox(
-                      height: deviceH / 6.5,
+                      height: deviceH / 5,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: 5,
                         itemBuilder: (context, index) {
-                          return CategoryItem(category: categoryList[index]);
+                          return CourseItem(course: courseList[index]);
                         },
                       ),
                     ),
                   ),
-                  /* const Padding(padding: EdgeInsets.only(top: 20)), */
+                  /* const Padding(padding: EdgeInsets.only(top: 20)), 
 
                   // ------------ Popüler Kurslar ------------
                   const Padding(
@@ -84,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(35),
                     child: LastCourseVideo(),
                   )
-
+*/
                   //   bottomNavigationBari yani alt butonların yönetimi -->
                   //CurvedNavBarWidget() ' da yönetiliyor.
                 ],

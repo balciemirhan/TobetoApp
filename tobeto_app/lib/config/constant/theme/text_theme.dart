@@ -66,6 +66,14 @@ class AppText {
     letterSpacing: -0.04,
     color: darkText,
   );
+  static const TextStyle body3 = TextStyle(
+    // body2 -> body1
+    fontFamily: fontName,
+    fontWeight: FontWeight.bold,
+    fontSize: 16,
+    letterSpacing: 1,
+    color: black54,
+  );
 
   static const TextStyle body2 = TextStyle(
     // body1 -> body2

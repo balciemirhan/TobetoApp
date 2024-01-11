@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/theme.dart';
 
-import 'package:tobeto_app/config/route/app_routes.dart';
+import 'package:tobeto_app/config/routes/app_routes.dart';
 
 void main() {
   runApp(const MyApp());

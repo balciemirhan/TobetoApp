@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/models/category.dart';
-import 'package:tobeto_app/pages/home_screens/category_item_vertical.dart';
+import 'package:tobeto_app/data/course_data.dart';
+import 'package:tobeto_app/models/course_model.dart';
+import 'package:tobeto_app/pages/home_screens/course_item_vertical.dart';
 import 'package:tobeto_app/pages/view_more_screen/top_bar_widget_interval.dart';
 
 class ViewMorePage extends StatelessWidget {
@@ -37,9 +38,9 @@ class ViewMorePage extends StatelessWidget {
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                   ),
-                  itemCount: categoryList.length,
+                  itemCount: courseList.length,
                   itemBuilder: (context, index) {
-                    return CategoryItemVertical(category: categoryList[index]);
+                    return CourseItemVertical(course: courseList[index]);
                   },
                 ),
               )
