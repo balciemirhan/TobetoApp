@@ -28,6 +28,7 @@ class _CurvedNavBarWidgetState extends State<CurvedNavBarWidget> {
   Widget build(BuildContext context) {
     List<Icon> items = curvedItems();
     return Scaffold(
+        extendBody: true,
         body: pages[currentIndex],
         /* body: Center(child: Text('${currentIndex}')), */
 

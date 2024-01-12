@@ -27,7 +27,7 @@ final class AppRoute {
   static const String curved = "/curved";
   static const String viewmore = "/viewmore";
   static const String course = "/course";
-  static const String profileedit = "/profileedit";
+  static const String profiledit = "/profiledit";
 
   static Map<String, AppRouteMapFunction> routes = {
     // onboard:(context) => const OnBoardScreen();
@@ -41,7 +41,7 @@ final class AppRoute {
     curved: (context) => const CurvedNavBarWidget(),
     viewmore: (context) => const ViewMorePage(),
     course: (context) => const CourseViewPage(),
-    profileedit: (context) => const ProfileEditPage(),
+    profiledit: (context) => const ProfileEditPage(),
   };
 }
 

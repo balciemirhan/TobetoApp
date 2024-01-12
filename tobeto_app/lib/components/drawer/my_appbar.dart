@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:tobeto_app/config/constant/core/neu_box.dart';
+import 'package:tobeto_app/config/constant/core/neu_box_animation.dart';
 
 class TopBar extends StatefulWidget {
   const TopBar({
@@ -26,9 +27,7 @@ class _TopBarState extends State<TopBar> {
                 widget.drawerController.showDrawer();
               },
               icon: const NeuBox(child: Icon(Icons.menu))),
-          const NeuBox(
-            width: 50,
-            height: 50,
+          const NeuBoxAnimation(
             child: Image(
               image: AssetImage("assets/images/tobeto-logo.png"),
               height: 25,

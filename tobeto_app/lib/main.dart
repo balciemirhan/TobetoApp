@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
 
       // --------------------------- ROUTE ---------------------------
 
-      initialRoute: AppRoute.profileedit,
+      initialRoute: AppRoute.curved,
       routes: AppRoute.routes,
     );
   }
