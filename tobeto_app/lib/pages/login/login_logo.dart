@@ -10,7 +10,6 @@ class LoginLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double mHeight = mediaQueryData.size.height;
-    final double mwidth = mediaQueryData.size.width;
     Brightness brightness = Theme.of(context).brightness;
 
     return Column(

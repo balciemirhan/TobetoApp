@@ -6,7 +6,7 @@ import 'package:tobeto_app/pages/course_screen/course_view_page.dart';
 import 'package:tobeto_app/pages/curved_bar.dart/curved_button.dart';
 import 'package:tobeto_app/pages/favourite_screens/favourite_page.dart';
 import 'package:tobeto_app/pages/home_screens/home_page.dart';
-import 'package:tobeto_app/pages/login_screen/login_page.dart';
+import 'package:tobeto_app/pages/login/login_page.dart';
 import 'package:tobeto_app/pages/onboard_screen/onboarding_animation.dart';
 import 'package:tobeto_app/pages/profile_edit_screen/profile_edit_page.dart';
 import 'package:tobeto_app/pages/profile_screen/profile_page.dart';

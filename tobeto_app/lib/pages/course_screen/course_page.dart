@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/neu_box.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';

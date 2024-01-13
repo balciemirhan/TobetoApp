@@ -1,6 +1,6 @@
 import 'package:concentric_transition/concentric_transition.dart';
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/pages/login_screen/login_page.dart';
+import 'package:tobeto_app/pages/login/login_page.dart';
 import 'package:tobeto_app/pages/onboard_screen/onboard_data.dart';
 import 'package:tobeto_app/pages/onboard_screen/onboard_page.dart';
 

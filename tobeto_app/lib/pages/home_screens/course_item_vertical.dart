@@ -2,17 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/neu_box.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/course_model.dart';
+import 'package:tobeto_app/pages/course_screen/course_page.dart';
 
 class CourseItemVertical extends StatelessWidget {
-  const CourseItemVertical({Key? key, required this.course}) : super(key: key);
+  const CourseItemVertical({
+    Key? key,
+    required this.course,
+  }) : super(key: key);
   final Course course;
+
+/*   get index => courseList; */
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
         onTap: () {
-          Navigator.of(context).pushNamed("/course", arguments: course);
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => CoursePage(course: course),
+            ),
+          );
         },
         child: Center(
           child: Stack(
@@ -77,7 +87,6 @@ class CourseItemVertical extends StatelessWidget {
               size: 20,
               color: Colors.deepPurple,
             ),
-            const SizedBox(width: 10),
           ],
         ),
       ],
