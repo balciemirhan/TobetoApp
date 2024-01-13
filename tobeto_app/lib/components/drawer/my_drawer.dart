@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/auth/auth_service.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
+
+  Future<void> logout(context) async {
+    final AuthService authService = AuthService();
+    await authService.signOut(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,28 +48,35 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const MyListTile(
+            MyListTile(
               title: "Anasayfa",
               nav: "/home",
+              onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
-            const MyListTile(
+            MyListTile(
               title: "Değerlendirmeler",
               nav: "/home",
+              onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
-            const MyListTile(
+            MyListTile(
               title: "Profilim",
               nav: "/home",
+              onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
-            const MyListTile(
+            MyListTile(
               title: "Katalog",
               nav: "/home",
+              onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
-            const MyListTile(
+            MyListTile(
               title: "Takvim",
               nav: "/home",
+              onTap: () => Navigator.of(context).pushNamed("/calendar"),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                logout(context);
+              },
 
               title: const Row(
                 children: [
@@ -112,15 +125,16 @@ class MyListTile extends StatelessWidget {
     super.key,
     required this.title,
     required this.nav,
+    this.onTap,
   });
   final String title;
   final String nav;
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        Navigator.of(context).pushNamed(nav);
+        onTap!();
       },
       title: Text(title),
       titleTextStyle:

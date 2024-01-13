@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "238720851965",
+    "project_id": "tobetoapp-c22c7",
+    "storage_bucket": "tobetoapp-c22c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238720851965:android:983143fee75732c975c394",
+        "android_client_info": {
+          "package_name": "com.example.tobeto_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxg_jAKFUNaka0QL2QKvr2fZDiJha8718"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,9 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/theme.dart';
 
 import 'package:tobeto_app/config/routes/app_routes.dart';
+import 'package:tobeto_app/firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  // Firebase'in mevcut platform için uygulamayı başlatması:
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -24,7 +29,7 @@ class MyApp extends StatelessWidget {
 
       // --------------------------- ROUTE ---------------------------
 
-      initialRoute: AppRoute.login,
+      initialRoute: AppRoute.authGate,
       routes: AppRoute.routes,
     );
   }

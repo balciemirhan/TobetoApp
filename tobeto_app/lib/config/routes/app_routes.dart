@@ -2,6 +2,9 @@
 // typedef = tanımlı fonksiyonlar. ( Widget fonskiyo'nun tanımını kısalttım.)
 
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/auth/auth_gate.dart';
+import 'package:tobeto_app/auth/login_or_register.dart';
+import 'package:tobeto_app/pages/calendar_page.dart';
 import 'package:tobeto_app/pages/course_screen/course_view_page.dart';
 import 'package:tobeto_app/pages/curved_bar.dart/curved_button.dart';
 import 'package:tobeto_app/pages/favourite_screens/favourite_page.dart';
@@ -28,6 +31,9 @@ final class AppRoute {
   static const String viewmore = "/viewmore";
   static const String course = "/course";
   static const String profiledit = "/profiledit";
+  static const String loginOrRegister = "/loginOrRegister";
+  static const String authGate = "/authGate";
+  static const String calendar = "/calendar";
 
   static Map<String, AppRouteMapFunction> routes = {
     // onboard:(context) => const OnBoardScreen();
@@ -42,6 +48,9 @@ final class AppRoute {
     viewmore: (context) => const ViewMorePage(),
     course: (context) => const CourseViewPage(),
     profiledit: (context) => const ProfileEditPage(),
+    loginOrRegister: (context) => const LoginOrRegister(),
+    authGate: (context) => const AuthGate(),
+    calendar: (context) => CalendarPage(),
   };
 }
 

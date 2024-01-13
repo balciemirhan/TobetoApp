@@ -36,7 +36,7 @@ class MyTextformfield extends StatelessWidget {
           onSaved: onSaved,
           validator: validator,
           controller: controller,
-          obscureText: obscureText!,
+          obscureText: obscureText ?? false,
           decoration: InputDecoration(
             enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(

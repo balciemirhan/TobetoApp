@@ -41,6 +41,10 @@ dependencies:
   concentric_transition: ^1.0.3
   curved_navigation_bar: ^1.0.3
   popover: ^0.2.9
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  google_sign_in: ^6.2.1
+  syncfusion_flutter_calendar: ^24.1.45
 
 dev_dependencies:
   flutter_test:
@@ -95,6 +99,10 @@ flutter:
     - assets/images/course_images/softskill.png
     - assets/images/whatsapp_icon.png
     - assets/images/chatbot_icon.png
+    - assets/images/github_icon.png
+    - assets/images/register_decor_top.gif
+    - assets/images/register_decor_bottom.png
+    - assets/images/cat_profile.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

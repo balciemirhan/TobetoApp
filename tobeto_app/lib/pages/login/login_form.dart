@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/auth/auth_service.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/widget/auth_button.dart';
 import 'package:tobeto_app/widget/my_textformfield.dart';
@@ -21,14 +22,36 @@ class _LoginFormState extends State<LoginForm> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-// Firebase ile oluşturacağım kullanıcı girişi fonksiyonunu, => auth klasöründe
+// Firebase ile oluşturacağım kullanıcı girişi fonksiyonunu, => auth/auth_Service klasöründe
 //butona atamak için oluşturduğum fonksiyon. => login()
 
-  Future<void> login() async {}
+  Future<void> login(context) async {
+    // giriş  düğmesine tıkladığımızda yapmak istediklerimiz:
+    // auth service getiriyorum:
+
+    final AuthService authService = AuthService();
+
+    // herhangi bir hata varsa try-catch bloğu ile yakalayalım.
+
+    try {
+      await authService.signInWithEmailAndPassword(
+          emailController.text, passwordController.text);
+    } catch (e) {
+      // hata olur ise Alert Dialog göstersin.
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(
+            e.toString(),
+          ),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    // MyTextformfield'larımı Form'a sarmaladım 'ki formun key aracı ile validate olabilsinler
+    // Oluşturduğum MyTextformfield'ları Form'a sarmaladım 'ki formun key aracı ile validate olabilsinler
     // ve takip edilebilsinler.
     return Form(
       key: widget.formkey,
@@ -54,10 +77,13 @@ class _LoginFormState extends State<LoginForm> {
 
           /* ----------------------- Auth Button -----------------------  */
 
-          AuthButton(
-            formKey: widget.formkey,
-            buttonTitle: "asd",
-            auth: () => login(),
+          Padding(
+            padding: const EdgeInsets.only(top: 30),
+            child: AuthButton(
+              formKey: widget.formkey,
+              buttonTitle: loginButtonTitle,
+              auth: () => login(context),
+            ),
           )
         ],
       ),

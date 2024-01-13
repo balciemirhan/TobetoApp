@@ -27,6 +27,7 @@ const String email = "e-posta";
 const String validEmail = "Lütfen geçerli bir e-posta girin";
 const String already = "Zaten bir hesabınız var mı?";
 const String loginNow = "Şimdi Giriş Yapın";
+const String loginButtonTitle = "Giriş";
 
 // --------------------------- Register ---------------------------
 
@@ -35,3 +36,5 @@ const String confirmPassword = "Şifreyi Onayla";
 const String validPassword = "Lütfen geçerli bir Şifre girin";
 const String member = "Üye değil misiniz?";
 const String registerNow = "Şimdi Kaydolun";
+const String registerButtonTitle = "Kayıt";
+const String dontMatch = "Parolalar eşleşmiyor!";
