@@ -3,14 +3,11 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:tobeto_app/components/drawer/my_advanced_drawer.dart';
 import 'package:tobeto_app/components/drawer/my_appbar.dart';
 import 'package:tobeto_app/components/drawer/my_drawer.dart';
-import 'package:tobeto_app/pages/home_screens/popular_widget.dart';
 import 'package:tobeto_app/data/course_data.dart';
-import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/pages/home_screens/course_item.dart';
 import 'package:tobeto_app/pages/home_screens/profile.dart';
 import 'package:tobeto_app/pages/home_screens/course_widget.dart';
 import 'package:tobeto_app/pages/home_screens/bill_board.dart';
-import 'package:tobeto_app/pages/home_screens/last_course_video.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

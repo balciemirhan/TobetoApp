@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/neu_box.dart';
 
 class ProfileEditPage extends StatelessWidget {
   const ProfileEditPage({Key? key}) : super(key: key);
