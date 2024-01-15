@@ -12,6 +12,7 @@ class MyTextformfield extends StatelessWidget {
     this.onSaved,
     this.validator,
     this.keyboardType,
+    this.autocorrect,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -22,6 +23,7 @@ class MyTextformfield extends StatelessWidget {
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
+  final bool? autocorrect;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,9 @@ class MyTextformfield extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: TextFormField(
+          /*   autovalidateMode: AutovalidateMode.onUserInteraction, */
+          /*    textInputAction: TextInputAction.next,  */
+          autocorrect: autocorrect ?? false,
           keyboardType: keyboardType,
           onSaved: onSaved,
           validator: validator,

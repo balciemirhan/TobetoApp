@@ -1,4 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Silme:
+
+// Hali hazırda login - register ve signout yapıları oluşturuldu yani
+// bura'nın işlevselliği devre dışı bırakıldı ancak silinmesin.
+
+/* import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AuthService {
@@ -48,3 +54,4 @@ class AuthService {
   // -------------------- Google Authentication sign in --------------------
   // yapılacak...
 }
+ */

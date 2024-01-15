@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/auth/auth_service.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
+import 'package:tobeto_app/rules/rules.dart';
 import 'package:tobeto_app/widget/auth_button.dart';
 import 'package:tobeto_app/widget/my_textformfield.dart';
+import 'package:tobeto_app/widget/snackbar_widget.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({Key? key, required this.formKey}) : super(key: key);
@@ -10,7 +12,7 @@ class RegisterForm extends StatefulWidget {
   final GlobalKey<FormState> formKey;
 
   @override
-  _RegisterFormState createState() => _RegisterFormState();
+  State<RegisterForm> createState() => _RegisterFormState();
 }
 
 class _RegisterFormState extends State<RegisterForm> {
@@ -19,48 +21,69 @@ class _RegisterFormState extends State<RegisterForm> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-// Firebase ile oluşturacağım kullanıcı oluştur fonksiyonunu, => auth klasöründe
 //butona atamak için oluşturduğum fonksiyon. => register()
 
-  Future<void> register(context) async {
+/* ----------------------- Register Function -----------------------  */
+
+/*   Future register(context) async {
     // kayıt düğmesine tıkladığımızda yapmak istediklerimiz:
-    // auth service getiriyorum:
-    final AuthService authService = AuthService();
+    // herhangi bir hata varsa try-catch bloğu ile yakalayalım.
+    // parola ve doğrulanmış parola birbirine eşit ise kullanıcı oluşsun.
+    // birbirine eşit değil ise 'Parolalar Eşleşmiyor' uyarsı versin.
 
-    // Şifremiz ve onaylanmış olan şifremiz eşleşirse o zaman kayıt olma işlemi gerçekleşsin:
-
-    if (passwordController.text == confirmPasswordController.text) {
-      try {
-        // Firebase üzerinde kullanıcı oluştur
-        await authService.createUserWithEmailAndPassword(
-            emailController.text, passwordController.text);
-        // Kullanıcı oluşturma başarılı olur ise loginOrRegister yönledir.
-        Navigator.of(context).pushNamed("/loginOrRegister");
-      } catch (e) {
-        showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text(
-              e.toString(),
-            ),
-          ),
-        );
-      }
+    if (passwordController.text.trim() ==
+        confirmPasswordController.text.trim()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
     } else {
-      // Parolalar eşleşmiyorsa kullanıcıya uyarı göster:
-      showDialog(
-        context: context,
-        builder: (context) => const AlertDialog(
-          title: Text(
-            dontMatch,
-            style: TextStyle(
-              color: Colors.red,
-              fontWeight: FontWeight.bold,
-            ),
+      return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.red,
+          content: const Text('Parolalar Eşleşmiyor'),
+          action: SnackBarAction(
+            textColor: Colors.white,
+            label: "Kapat",
+            onPressed: () =>
+                ScaffoldMessenger.of(context).hideCurrentSnackBar(),
           ),
         ),
       );
     }
+  } */
+
+  Future register(context) async {
+    // kayıt düğmesine tıkladığımızda yapmak istediklerimiz:
+    // herhangi bir hata varsa try-catch bloğu ile yakalayalım.(hata yönetimi)
+    // parola ve doğrulanmış parola birbirine eşit ise kullanıcı oluşsun.
+    // birbirine eşit değil ise 'Parolalar Eşleşmiyor' uyarsı versin.
+    String message;
+    try {
+      if (passwordController.text.trim() ==
+          confirmPasswordController.text.trim()) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+        );
+      } else {
+        message = " Parolalar Eşleşmiyor";
+        return snackBarMessage(context, message);
+      } // ---------- catch bloğu içerisinde Hata yönetimi: ----------
+    } on FirebaseAuthException catch (e) {
+      String message = firebaseAuthExceptionRules[e.code]!;
+      snackBarMessage(context, message);
+    }
+  }
+
+// controller'ı , form süreci sonrası imha et.
+
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.text.trim();
+    passwordController.text.trim();
+    confirmPasswordController.text.trim();
   }
 
   @override
@@ -92,7 +115,7 @@ class _RegisterFormState extends State<RegisterForm> {
               prefixIcon: const Icon(Icons.email_outlined),
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
-                if (value == null || value.isEmpty) {
+                if (value != null && value.length < 6) {
                   return validPassword;
                 }
                 return null;
@@ -105,7 +128,7 @@ class _RegisterFormState extends State<RegisterForm> {
             prefixIcon: const Icon(Icons.email_outlined),
             keyboardType: TextInputType.emailAddress,
             validator: (value) {
-              if (value == null || value.isEmpty) {
+              if (value != null && value.length < 6) {
                 return validPassword;
               }
               return null;

@@ -1,12 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/auth/auth_service.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
 
+//butona atamak için oluşturduğum fonksiyon. => logout()
+
+/* ----------------------- logout Function -----------------------  */
+
   Future<void> logout(context) async {
-    final AuthService authService = AuthService();
-    await authService.signOut(context);
+    // çıkış düğmesine tıkladığımızda yapmak istediklerimiz:
+    // hem firebase'den çıkış yapsın hem' de uygulamadan.
+
+    await FirebaseAuth.instance.signOut().whenComplete(
+          () => Navigator.of(context).pushNamed("/authGate"),
+        );
   }
 
   @override

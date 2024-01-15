@@ -1,8 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/auth/auth_service.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/widget/auth_button.dart';
 import 'package:tobeto_app/widget/my_textformfield.dart';
+import 'package:tobeto_app/widget/snackbar_widget.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({
@@ -18,35 +19,50 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
 // text editin controller:
-
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-// Firebase ile oluşturacağım kullanıcı girişi fonksiyonunu, => auth/auth_Service klasöründe
 //butona atamak için oluşturduğum fonksiyon. => login()
 
-  Future<void> login(context) async {
+/* ----------------------- login Function -----------------------  */
+
+  Future login(context) async {
     // giriş  düğmesine tıkladığımızda yapmak istediklerimiz:
-    // auth service getiriyorum:
-
-    final AuthService authService = AuthService();
-
     // herhangi bir hata varsa try-catch bloğu ile yakalayalım.
 
     try {
-      await authService.signInWithEmailAndPassword(
-          emailController.text, passwordController.text);
-    } catch (e) {
-      // hata olur ise Alert Dialog göstersin.
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(
-            e.toString(),
-          ),
-        ),
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
+      // ---------- catch bloğu içerisinde Hata yönetimi: ----------
+    } on FirebaseAuthException catch (e) {
+      String message;
+      if (e.code == 'user-not-found') {
+        message = "Kullanıcı Bulunamadı";
+        snackBarMessage(context, message);
+      } else if (e.code == 'wrong-password') {
+        message = "Hatalı Şifre";
+      } else if (e.code == 'invalid-email') {
+        message = "Geçersiz E-posta";
+        snackBarMessage(context, message);
+      } else if (e.code == 'network-request-failed') {
+        message = "Ağ Hatası";
+        snackBarMessage(context, message);
+      } else {
+        message = "Bilinmeyen Hata: ${e.code}";
+        snackBarMessage(context, message);
+      }
     }
+  }
+
+// controller'ı , form süreci sonrası imha et.
+
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.text.trim();
+    passwordController.text.trim();
   }
 
   @override
