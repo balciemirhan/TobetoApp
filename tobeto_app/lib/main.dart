@@ -12,12 +12,16 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
+// Tüm navigator nesnelerine erişim.
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       title: 'Education App',
       debugShowCheckedModeBanner: false,
 

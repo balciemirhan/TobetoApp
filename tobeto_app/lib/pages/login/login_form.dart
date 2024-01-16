@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
+import 'package:tobeto_app/main.dart';
+import 'package:tobeto_app/rules/rules.dart';
 import 'package:tobeto_app/widget/auth_button.dart';
 import 'package:tobeto_app/widget/my_textformfield.dart';
+import 'package:tobeto_app/widget/show_dialog_widget.dart';
 import 'package:tobeto_app/widget/snackbar_widget.dart';
 
 class LoginForm extends StatefulWidget {
@@ -30,33 +33,26 @@ class _LoginFormState extends State<LoginForm> {
     // giriş  düğmesine tıkladığımızda yapmak istediklerimiz:
     // herhangi bir hata varsa try-catch bloğu ile yakalayalım.
 
+    // başlangıçta CircularProgressIndicator göster.
+    showDialogWidget(context);
+
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
+
       // ---------- catch bloğu içerisinde Hata yönetimi: ----------
     } on FirebaseAuthException catch (e) {
-      String message;
-      if (e.code == 'user-not-found') {
-        message = "Kullanıcı Bulunamadı";
-        snackBarMessage(context, message);
-      } else if (e.code == 'wrong-password') {
-        message = "Hatalı Şifre";
-      } else if (e.code == 'invalid-email') {
-        message = "Geçersiz E-posta";
-        snackBarMessage(context, message);
-      } else if (e.code == 'network-request-failed') {
-        message = "Ağ Hatası";
-        snackBarMessage(context, message);
-      } else {
-        message = "Bilinmeyen Hata: ${e.code}";
-        snackBarMessage(context, message);
-      }
+      String message =
+          firebaseAuthExceptionRulesLogin[e.code] ?? "Lütfen bir Değer girin";
+      snackBarMessage(context, message);
     }
+    navigatorKey.currentState!
+        .pop(); // =>  CircularProgressIndicator 'ı sonlandırır.
   }
 
-// controller'ı , form süreci sonrası imha et.
+// ----------  controller'ı , form süreci sonrası imha et. ----------
 
   @override
   void dispose() {

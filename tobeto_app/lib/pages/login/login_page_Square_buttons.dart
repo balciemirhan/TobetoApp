@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/auth/google_auth_service.dart';
 import 'package:tobeto_app/widget/square_auth_buttons.dart';
 
 class LoginPageSquareButtons extends StatelessWidget {
@@ -13,18 +14,21 @@ class LoginPageSquareButtons extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         /* itemExtent: 70, */
         scrollDirection: Axis.horizontal,
-        children: const [ 
+        children: [
           SquareAuthButtons(
             imagePath: "assets/images/google.png",
+            onTap: () => GoogleAuthenticationService().signInWithGoogle(),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: SquareAuthButtons(
               imagePath: "assets/images/apple.png",
+              onTap: () {},
             ),
           ),
           SquareAuthButtons(
             imagePath: "assets/images/github_icon.png",
+            onTap: () {},
           ),
         ],
       ),

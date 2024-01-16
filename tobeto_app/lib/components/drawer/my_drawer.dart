@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/auth/google_auth_service.dart';
+import 'package:tobeto_app/main.dart';
+import 'package:tobeto_app/widget/show_dialog_widget.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -9,12 +12,24 @@ class MyDrawer extends StatelessWidget {
 /* ----------------------- logout Function -----------------------  */
 
   Future<void> logout(context) async {
-    // çıkış düğmesine tıkladığımızda yapmak istediklerimiz:
+    // Çıkış düğmesine tıkladığımızda yapmak istediklerimiz:
     // hem firebase'den çıkış yapsın hem' de uygulamadan.
+    // Google ile de çıkış yap.
 
-    await FirebaseAuth.instance.signOut().whenComplete(
-          () => Navigator.of(context).pushNamed("/authGate"),
-        );
+    /* ------------ GoogleOut  ------------ */
+    showDialogWidget(context);
+
+    final GoogleAuthenticationService authentication =
+        GoogleAuthenticationService();
+
+    await authentication.signOutWithGoogle();
+
+    /* ------------ Firebase'dan çıkış yap ------------ */
+
+    await FirebaseAuth.instance.signOut();
+
+    navigatorKey.currentState!.pop();
+    Navigator.of(context).pushNamed("/authGate");
   }
 
   @override

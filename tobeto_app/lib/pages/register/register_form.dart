@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
+import 'package:tobeto_app/main.dart';
 import 'package:tobeto_app/rules/rules.dart';
 import 'package:tobeto_app/widget/auth_button.dart';
 import 'package:tobeto_app/widget/my_textformfield.dart';
+import 'package:tobeto_app/widget/show_dialog_widget.dart';
 import 'package:tobeto_app/widget/snackbar_widget.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -25,39 +27,15 @@ class _RegisterFormState extends State<RegisterForm> {
 
 /* ----------------------- Register Function -----------------------  */
 
-/*   Future register(context) async {
-    // kayıt düğmesine tıkladığımızda yapmak istediklerimiz:
-    // herhangi bir hata varsa try-catch bloğu ile yakalayalım.
-    // parola ve doğrulanmış parola birbirine eşit ise kullanıcı oluşsun.
-    // birbirine eşit değil ise 'Parolalar Eşleşmiyor' uyarsı versin.
-
-    if (passwordController.text.trim() ==
-        confirmPasswordController.text.trim()) {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-      );
-    } else {
-      return ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          backgroundColor: Colors.red,
-          content: const Text('Parolalar Eşleşmiyor'),
-          action: SnackBarAction(
-            textColor: Colors.white,
-            label: "Kapat",
-            onPressed: () =>
-                ScaffoldMessenger.of(context).hideCurrentSnackBar(),
-          ),
-        ),
-      );
-    }
-  } */
-
   Future register(context) async {
     // kayıt düğmesine tıkladığımızda yapmak istediklerimiz:
     // herhangi bir hata varsa try-catch bloğu ile yakalayalım.(hata yönetimi)
     // parola ve doğrulanmış parola birbirine eşit ise kullanıcı oluşsun.
     // birbirine eşit değil ise 'Parolalar Eşleşmiyor' uyarsı versin.
+
+// başlangıçta CircularProgressIndicator göster.
+    showDialogWidget(context);
+
     String message;
     try {
       if (passwordController.text.trim() ==
@@ -71,12 +49,15 @@ class _RegisterFormState extends State<RegisterForm> {
         return snackBarMessage(context, message);
       } // ---------- catch bloğu içerisinde Hata yönetimi: ----------
     } on FirebaseAuthException catch (e) {
-      String message = firebaseAuthExceptionRules[e.code]!;
+      message = firebaseAuthExceptionRulesRegister[e.code] ??
+          "Lütfen bir Değer girin";
       snackBarMessage(context, message);
-    }
+    } finally {
+      navigatorKey.currentState!.pop();
+    } // =>  CircularProgressIndicator'ı sonlandırır.
   }
 
-// controller'ı , form süreci sonrası imha et.
+// ----------  controller'ı , form süreci sonrası imha et. ----------
 
   @override
   void dispose() {

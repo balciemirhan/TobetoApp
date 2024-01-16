@@ -5,11 +5,11 @@ class SquareAuthButtons extends StatelessWidget {
   const SquareAuthButtons({
     Key? key,
     required this.imagePath,
-    this.onTap,
+    required this.onTap,
   }) : super(key: key);
 
   final String imagePath;
-  final VoidCallback? onTap;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
