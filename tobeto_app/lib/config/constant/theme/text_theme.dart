@@ -31,11 +31,11 @@ class AppText {
       color: Colors.white,
       shadows: [
         Shadow(
-          blurRadius: 20,
+          blurRadius: 10,
           color: deepPurple,
         ),
         Shadow(
-          blurRadius: 20,
+          blurRadius: 10,
           color: deepPurple,
         ),
       ]);
@@ -49,11 +49,11 @@ class AppText {
       color: Colors.white,
       shadows: [
         Shadow(
-          blurRadius: 20,
+          blurRadius: 10,
           color: Colors.black,
         ),
         Shadow(
-          blurRadius: 20,
+          blurRadius: 10,
           color: Colors.black,
         ),
       ]);

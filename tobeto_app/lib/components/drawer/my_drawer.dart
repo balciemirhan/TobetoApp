@@ -96,6 +96,11 @@ class MyDrawer extends StatelessWidget {
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/calendar"),
             ),
+            MyListTile(
+              title: "Ayarlar",
+              nav: "/home",
+              onTap: () => Navigator.of(context).pushNamed("/setting"),
+            ),
             ListTile(
               onTap: () {
                 logout(context);

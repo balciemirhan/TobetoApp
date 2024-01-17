@@ -14,6 +14,7 @@ import 'package:tobeto_app/pages/onboard_screen/onboarding_animation.dart';
 import 'package:tobeto_app/pages/profile_edit_screen/profile_edit_page.dart';
 import 'package:tobeto_app/pages/profile_screen/profile_page.dart';
 import 'package:tobeto_app/pages/search_screen/search_page.dart';
+import 'package:tobeto_app/pages/setting_screen/setting_page.dart';
 import 'package:tobeto_app/pages/view_more_screen/view_more_page.dart';
 
 typedef AppRouteMapFunction = Widget Function(BuildContext context);
@@ -34,6 +35,7 @@ final class AppRoute {
   static const String loginOrRegister = "/loginOrRegister";
   static const String authGate = "/authGate";
   static const String calendar = "/calendar";
+  static const String setting = "/setting";
 
   static Map<String, AppRouteMapFunction> routes = {
     // onboard:(context) => const OnBoardScreen();
@@ -50,7 +52,8 @@ final class AppRoute {
     profiledit: (context) => const ProfileEditPage(),
     loginOrRegister: (context) => const LoginOrRegister(),
     authGate: (context) => const AuthGate(),
-    calendar: (context) => CalendarPage(),
+    calendar: (context) => const CalendarPage(),
+    setting: (context) => const SettingPage(),
   };
 }
 

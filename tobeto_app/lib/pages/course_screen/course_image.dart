@@ -23,9 +23,18 @@ class CourseImage extends StatelessWidget {
             ),
           ),
         ),
+        Positioned(
+            top: 30,
+            left: 10,
+            child: IconButton(
+                onPressed: () => Navigator.of(context).pushNamed("/viewmore"),
+                icon: const Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  size: 30,
+                ))),
         const Positioned(
-            top: 20,
-            left: 20,
+            bottom: 0,
+            left: 30,
             child: LottieButton(
               url:
                   "https://assets5.lottiefiles.com/packages/lf20_xdfeea13.json",
