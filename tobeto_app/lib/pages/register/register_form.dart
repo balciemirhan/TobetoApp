@@ -61,10 +61,10 @@ class _RegisterFormState extends State<RegisterForm> {
 
   @override
   void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
-    emailController.text.trim();
-    passwordController.text.trim();
-    confirmPasswordController.text.trim();
   }
 
   @override

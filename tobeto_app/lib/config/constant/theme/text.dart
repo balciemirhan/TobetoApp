@@ -28,6 +28,7 @@ const String validEmail = "Lütfen geçerli bir e-posta girin";
 const String already = "Zaten bir hesabınız var mı?";
 const String loginNow = "Şimdi Giriş Yapın";
 const String loginButtonTitle = "Giriş";
+const String forgetText = "Şifreni mi unuttun?";
 
 // --------------------------- Register ---------------------------
 

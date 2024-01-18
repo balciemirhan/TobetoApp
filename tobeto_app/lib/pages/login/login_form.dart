@@ -56,9 +56,9 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
     super.dispose();
-    emailController.text.trim();
-    passwordController.text.trim();
   }
 
   @override
@@ -87,15 +87,26 @@ class _LoginFormState extends State<LoginForm> {
 
           buildPasswordFormField(),
 
-          /* ----------------------- Auth Button -----------------------  */
+          /* --------------------------Forgot area ------------- */
 
           Padding(
-            padding: const EdgeInsets.only(top: 30),
-            child: AuthButton(
-              formKey: widget.formkey,
-              buttonTitle: loginButtonTitle,
-              auth: () => login(context),
+            padding: const EdgeInsets.only(top: 8, bottom: 8, right: 18),
+            child: Container(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/forgot");
+                  },
+                  child: const Text(forgetText)),
             ),
+          ),
+
+          /* ----------------------- Auth Button -----------------------  */
+
+          AuthButton(
+            formKey: widget.formkey,
+            buttonTitle: loginButtonTitle,
+            auth: () => login(context),
           )
         ],
       ),

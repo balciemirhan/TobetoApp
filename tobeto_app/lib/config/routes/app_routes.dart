@@ -8,6 +8,7 @@ import 'package:tobeto_app/pages/calendar_page.dart';
 import 'package:tobeto_app/pages/course_screen/course_view_page.dart';
 import 'package:tobeto_app/pages/curved_bar.dart/curved_button.dart';
 import 'package:tobeto_app/pages/favourite_screens/favourite_page.dart';
+import 'package:tobeto_app/pages/forgot/forgot_password_page.dart';
 import 'package:tobeto_app/pages/home_screens/home_page.dart';
 import 'package:tobeto_app/pages/login/login_page.dart';
 import 'package:tobeto_app/pages/onboard_screen/onboarding_animation.dart';
@@ -36,6 +37,7 @@ final class AppRoute {
   static const String authGate = "/authGate";
   static const String calendar = "/calendar";
   static const String setting = "/setting";
+  static const String forgot = "/forgot";
 
   static Map<String, AppRouteMapFunction> routes = {
     // onboard:(context) => const OnBoardScreen();
@@ -54,6 +56,7 @@ final class AppRoute {
     authGate: (context) => const AuthGate(),
     calendar: (context) => const CalendarPage(),
     setting: (context) => const SettingPage(),
+    forgot: (context) => ForgotPasswordPage(),
   };
 }
 

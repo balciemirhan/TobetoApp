@@ -8,6 +8,9 @@
 
 // yani [e.code] == email-already-in-use ise 'E-posta Zaten Kullanılıyor.' mesajını döndürür. vs.
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:tobeto_app/widget/snackbar_widget.dart';
+
 const firebaseAuthExceptionRulesRegister = {
   'email-already-in-use': 'E-posta Zaten Kullanılıyor',
   'wrong-password': 'Hatalı Şifre',
@@ -23,7 +26,17 @@ const firebaseAuthExceptionRulesLogin = {
   'too-many-requests': 'Çok Fazla İstek',
 };
 
-
+String forgotPasswordRules(FirebaseAuthException e, String message, context) {
+  if (e.code == "invalid-email") {
+    message = "Geçersiz e-posta";
+  } else if (e.code == "network-request-failed") {
+    message = "Ağ Hatası";
+  } else if (e.code == "user-not-found") {
+    message = "Kullanıcı bulunamadı.";
+  }
+  snackBarMessage(context, message);
+  return message;
+}
 
 /* String message = firebaseAuthExceptionRules[e.code]!;
       snackBarMessage(context, message); */

@@ -79,18 +79,17 @@ class TabBarExample extends StatelessWidget {
             unselectedLabelColor: Colors.grey.shade700,
             labelColor: Colors.deepPurple,
             labelStyle:
-                const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                const TextStyle(fontSize: 16.5, fontWeight: FontWeight.bold),
             unselectedLabelStyle:
                 const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
             indicator: BoxDecoration(
                 color: Colors.grey.shade300,
-                boxShadow: const [
-                  BoxShadow(blurRadius: 10, color: Colors.white)
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 10,
+                      offset: const Offset(5, 5),
+                      color: Colors.grey.shade500)
                 ],
-                border: Border.all(
-                  color: Colors.white,
-                  width: 3,
-                ),
                 borderRadius: const BorderRadius.all(Radius.circular(30))),
             tabs: const [
               Tab(

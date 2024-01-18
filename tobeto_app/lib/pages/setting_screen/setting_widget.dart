@@ -23,38 +23,36 @@ class SettingsWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(5),
           child: NeuBox(
-            width: 250,
-            height: 80,
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: NeuBox(
-                          width: 40,
-                          height: 40,
-                          child: leadingIcon,
-                        ),
+            width: 300,
+            height: 70,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: NeuBox(
+                        width: 40,
+                        height: 40,
+                        child: leadingIcon,
                       ),
-                      Text(titleText),
-                      const Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: NeuBox(
-                          width: 40,
-                          height: 40,
-                          child: iconButton,
-                        ),
+                    ),
+                    Text(titleText),
+                    const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: NeuBox(
+                        width: 40,
+                        height: 40,
+                        child: iconButton,
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
