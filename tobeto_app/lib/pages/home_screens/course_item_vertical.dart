@@ -18,11 +18,14 @@ class CourseItemVertical extends StatelessWidget {
     return Scaffold(
       body: GestureDetector(
         onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => CoursePage(course: course),
-            ),
-          );
+          Navigator.pushNamed(context, "/course", arguments: course.title);
+
+          // Navigator.of(context).push(
+          //MaterialPageRoute( // indexe göre sayfaya gitmek için
+          // builder: (context) => CoursePage(course: course),
+          // ),
+
+          // );
         },
         child: Center(
           child: Stack(

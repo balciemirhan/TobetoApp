@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/core/neu_box.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/rules/rules.dart';
 import 'package:tobeto_app/widget/auth_button.dart';
@@ -43,34 +44,43 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: widget.formKey,
-      child: Column(
-        children: [
-          const Text(
-            "Şifre sıfırlama bağlantısı için mail adresinizi giriniz.",
-            textAlign: TextAlign.center,
+    return NeuBox(
+      height: 300,
+      width: 300,
+      child: Form(
+        key: widget.formKey,
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const Text(
+                "Şifre sıfırlama bağlantısı için mail adresinizi giriniz.",
+                style: TextStyle(fontSize: 15),
+                textWidthBasis: TextWidthBasis.longestLine,
+              ),
+              MyTextformfield(
+                prefixIcon: const Icon(Icons.email_outlined),
+                hintText: "E-mail",
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Bir değer giriniz";
+                  }
+                  return null;
+                },
+                controller: passwordController,
+                keyboardType: TextInputType.emailAddress,
+              ),
+              AuthButton(
+                formKey: widget.formKey,
+                buttonTitle: "Şifre resetleme",
+                auth: () {
+                  return passwordReset(context);
+                },
+              )
+            ],
           ),
-          MyTextformfield(
-            prefixIcon: const Icon(Icons.email_outlined),
-            hintText: "E-mail",
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return "Bir değer giriniz";
-              }
-              return null;
-            },
-            controller: passwordController,
-            keyboardType: TextInputType.emailAddress,
-          ),
-          AuthButton(
-            formKey: widget.formKey,
-            buttonTitle: "Şifre resetleme",
-            auth: () {
-              return passwordReset(context);
-            },
-          )
-        ],
+        ),
       ),
     );
   }

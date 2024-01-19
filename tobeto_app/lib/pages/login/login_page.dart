@@ -19,64 +19,54 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double mHeight = mediaQueryData.size.height;
-    /* final double mWidth = mediaQueryData.size.width; */
+    final double mWidth = mediaQueryData.size.width;
 
     //Brightness brightness = Theme.of(context).brightness;
 
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: mHeight / 50),
+    return Container(
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage("assets/images/tobeto_background.gif"))),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        resizeToAvoidBottomInset: false,
+        body: Padding(
+          padding: EdgeInsets.only(
+              left: mWidth / 50, right: mWidth / 50, top: mHeight / 2.8),
           child: Stack(
             children: [
-              Container(
-                /* ----------------------- Login Animation Background -----------------------  */
-                child: Lottie.network(
-                  height: mHeight / 2.2,
-                  loginBackgroundLottie,
-                ),
-              ),
               Center(
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      /* ----------------------- Login Tobeto Logo -----------------------  */
-                      Padding(
-                          padding:
-                              EdgeInsets.symmetric(vertical: mHeight / 6.5),
-                          child: const LoginLogo()),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    /* ----------------------- Login Form -----------------------  */
 
-                      /* ----------------------- Login Form -----------------------  */
+                    LoginForm(formkey: formKey),
 
-                      LoginForm(formkey: formKey),
+                    /* ----------------------- Login Divider -----------------------  */
 
-                      /* ----------------------- Login Divider -----------------------  */
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: mHeight / 25),
+                      child: const LoginDivider(),
+                    ),
 
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: mHeight / 25),
-                        child: const LoginDivider(),
+                    /* --------  Square Auth Buttons (Google / Apple Authentication) --------  */
+
+                    const LoginPageSquareButtons(),
+
+                    /* ----------------------- Login Now -----------------------  */
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 25),
+                      child: NowBottom(
+                        text: member,
+                        text2: registerNow,
+                        onTap: () => onTap!(),
                       ),
-
-                      /* --------  Square Auth Buttons (Google / Apple Authentication) --------  */
-
-                      const LoginPageSquareButtons(),
-
-                      /* ----------------------- Login Now -----------------------  */
-
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 25),
-                        child: NowBottom(
-                          text: member,
-                          text2: registerNow,
-                          onTap: () => onTap!(),
-                        ),
-                      )
-                      /* const LoginNow() */
-                    ],
-                  ),
+                    )
+                    /* const LoginNow() */
+                  ],
                 ),
               ),
             ],
