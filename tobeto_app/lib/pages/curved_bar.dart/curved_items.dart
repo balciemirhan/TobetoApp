@@ -7,7 +7,7 @@ List<Icon> curvedItems() {
       /* color: Colors.white, */
     ),
     const Icon(
-      Icons.search,
+      Icons.bookmark,
 
       /* color: Colors.white, */
     ),

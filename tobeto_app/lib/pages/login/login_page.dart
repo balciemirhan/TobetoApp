@@ -1,11 +1,7 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:tobeto_app/config/constant/login/login_image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/login/login_divider.dart';
 import 'package:tobeto_app/pages/login/login_form.dart';
-import 'package:tobeto_app/pages/login/login_logo.dart';
 import 'package:tobeto_app/pages/login/login_page_Square_buttons.dart';
 import 'package:tobeto_app/widget/now_bottom.dart';
 

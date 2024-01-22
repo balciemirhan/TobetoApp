@@ -2,23 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/neu_box.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/course_model.dart';
-import 'package:tobeto_app/pages/course_screen/course_page.dart';
+import 'package:tobeto_app/pages/bookmark/bookmark_list.dart';
 
-class CourseItemVertical extends StatelessWidget {
+class CourseItemVertical extends StatefulWidget {
   const CourseItemVertical({
     Key? key,
     required this.course,
   }) : super(key: key);
   final Course course;
 
-/*   get index => courseList; */
+  @override
+  State<CourseItemVertical> createState() => _CourseItemVerticalState();
+}
 
+class _CourseItemVerticalState extends State<CourseItemVertical> {
+/*   get index => courseList; */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, "/course", arguments: course.title);
+          Navigator.pushNamed(context, "/course",
+              arguments: widget.course.title);
 
           // Navigator.of(context).push(
           //MaterialPageRoute( // indexe göre sayfaya gitmek için
@@ -36,7 +41,11 @@ class CourseItemVertical extends StatelessWidget {
                 child: _buildCategoryContent(),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    _addToBookMark(context, widget.course);
+                  });
+                },
                 icon: const Icon(
                   Icons.bookmark_add_outlined,
                   size: 30,
@@ -64,7 +73,7 @@ class CourseItemVertical extends StatelessWidget {
               width: 100,
               height: 100,
               image: AssetImage(
-                course.imagePath,
+                widget.course.imagePath,
               ),
             ),
           ),
@@ -73,7 +82,7 @@ class CourseItemVertical extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Text(
-            course.title,
+            widget.course.title,
             style: AppText.body2,
             textAlign: TextAlign.center,
           ),
@@ -82,9 +91,9 @@ class CourseItemVertical extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(course.lessonCount),
+            Text(widget.course.lessonCount),
             const SizedBox(width: 10),
-            Text("${course.rating}"),
+            Text("${widget.course.rating}"),
             const Icon(
               Icons.star,
               size: 20,
@@ -95,4 +104,10 @@ class CourseItemVertical extends StatelessWidget {
       ],
     );
   }
+}
+
+// <----------------- BookMark ADD functions ----------------->
+
+void _addToBookMark(BuildContext context, Course course) {
+  BookMarkList.addToBookMark(course);
 }

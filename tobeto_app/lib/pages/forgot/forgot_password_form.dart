@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/neu_box.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/rules/rules.dart';
 import 'package:tobeto_app/widget/auth_button.dart';
 import 'package:tobeto_app/widget/my_textformfield.dart';

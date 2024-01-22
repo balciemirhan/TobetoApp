@@ -39,3 +39,14 @@ const String member = "Üye değil misiniz?";
 const String registerNow = "Şimdi Kaydolun";
 const String registerButtonTitle = "Kayıt";
 const String dontMatch = "Parolalar eşleşmiyor!";
+
+// --------------------------- CourseListFilter Page ---------------------------
+
+const String all = "Tümü";
+const String softWare = "Yazılım";
+const String softSkill = "Softskill";
+const String other = "Diğer";
+const String notFound = "Sonuç Bulunamadı !";
+
+// --------------------------- TextFieldFilter ---------------------------
+const String searchText = "Arama";
