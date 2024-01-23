@@ -1,12 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/auth/signin_auth.dart';
+import 'package:tobeto_app/config/constant/core/widget/auth_button.dart';
+import 'package:tobeto_app/config/constant/core/widget/my_textformfield.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
-import 'package:tobeto_app/main.dart';
-import 'package:tobeto_app/rules/rules.dart';
-import 'package:tobeto_app/widget/auth_button.dart';
-import 'package:tobeto_app/widget/my_textformfield.dart';
-import 'package:tobeto_app/widget/show_dialog_widget.dart';
-import 'package:tobeto_app/widget/snackbar_widget.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({
@@ -24,33 +20,6 @@ class _LoginFormState extends State<LoginForm> {
 // text editin controller:
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
-//butona atamak için oluşturduğum fonksiyon. => login()
-
-/* ----------------------- login Function -----------------------  */
-
-  Future login(context) async {
-    // giriş  düğmesine tıkladığımızda yapmak istediklerimiz:
-    // herhangi bir hata varsa try-catch bloğu ile yakalayalım.
-
-    // başlangıçta CircularProgressIndicator göster.
-    showDialogWidget(context);
-
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-      );
-
-      // ---------- catch bloğu içerisinde Hata yönetimi: ----------
-    } on FirebaseAuthException catch (e) {
-      String message =
-          firebaseAuthExceptionRulesLogin[e.code] ?? "Lütfen bir Değer girin";
-      snackBarMessage(context, message);
-    }
-    navigatorKey.currentState!
-        .pop(); // =>  CircularProgressIndicator 'ı sonlandırır.
-  }
 
 // ----------  controller'ı , form süreci sonrası imha et. ----------
 
@@ -71,12 +40,12 @@ class _LoginFormState extends State<LoginForm> {
         children: [
           MyTextformfield(
             controller: emailController,
-            hintText: email,
+            hintText: AppText.email,
             prefixIcon: const Icon(Icons.email_outlined),
             keyboardType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return validEmail;
+                return AppText.validEmail;
               }
               return null;
             },
@@ -97,7 +66,7 @@ class _LoginFormState extends State<LoginForm> {
                   onPressed: () {
                     Navigator.of(context).pushNamed("/forgot");
                   },
-                  child: const Text(forgetText)),
+                  child: const Text(AppText.forgetText)),
             ),
           ),
 
@@ -105,8 +74,9 @@ class _LoginFormState extends State<LoginForm> {
 
           AuthButton(
             formKey: widget.formkey,
-            buttonTitle: loginButtonTitle,
-            auth: () => login(context),
+            buttonTitle: AppText.loginButtonTitle,
+            auth: () => SignIn.login(context, emailController.text.trim(),
+                passwordController.text.trim()),
           )
         ],
       ),
@@ -122,7 +92,7 @@ class _LoginFormState extends State<LoginForm> {
       builder: (context, setState) {
         return MyTextformfield(
           controller: passwordController,
-          hintText: password,
+          hintText: AppText.password,
           prefixIcon: const Icon(Icons.lock_outline),
           suffixIcon: IconButton(
             onPressed: () {
@@ -139,7 +109,7 @@ class _LoginFormState extends State<LoginForm> {
           obscureText: isPasswordVisible,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return validPassword;
+              return AppText.validPassword;
             }
             return null;
           },

@@ -9,7 +9,7 @@
 // yani [e.code] == email-already-in-use ise 'E-posta Zaten Kullanılıyor.' mesajını döndürür. vs.
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:tobeto_app/widget/snackbar_widget.dart';
+import 'package:tobeto_app/config/constant/core/widget/snackbar_widget.dart';
 
 const firebaseAuthExceptionRulesRegister = {
   'email-already-in-use': 'E-posta Zaten Kullanılıyor',

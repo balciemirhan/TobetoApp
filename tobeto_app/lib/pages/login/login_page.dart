@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/login/login_divider.dart';
 import 'package:tobeto_app/pages/login/login_form.dart';
 import 'package:tobeto_app/pages/login/login_page_Square_buttons.dart';
-import 'package:tobeto_app/widget/now_bottom.dart';
+import 'package:tobeto_app/config/constant/core/widget/now_bottom.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key, this.onTap}) : super(key: key);
@@ -22,8 +23,7 @@ class LoginPage extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage("assets/images/tobeto_background.gif"))),
+              fit: BoxFit.cover, image: AssetImage(AppImage.loginBg))),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         resizeToAvoidBottomInset: false,
@@ -56,8 +56,8 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 25),
                       child: NowBottom(
-                        text: member,
-                        text2: registerNow,
+                        text: AppText.member,
+                        text2: AppText.registerNow,
                         onTap: () => onTap!(),
                       ),
                     )

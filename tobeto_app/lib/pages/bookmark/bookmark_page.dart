@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/pages/bookmark/bookmark_add.dart';
 import 'package:tobeto_app/pages/bookmark/bookmark_list.dart';
-import 'package:tobeto_app/pages/bookmark/course_item_extended.dart';
-import 'package:tobeto_app/pages/curved_bar.dart/top_bar_widget.dart';
+
+import 'package:tobeto_app/config/constant/core/widget/top_bar_widget.dart';
 
 class BookmarkPage extends StatefulWidget {
   const BookmarkPage({Key? key}) : super(key: key);
@@ -43,10 +44,9 @@ class _FavouritePageState extends State<BookmarkPage> {
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                   ),
-                  itemCount: BookMarkList.bookMark.length,
+                  itemCount: BookMarkAdd.bookMark.length,
                   itemBuilder: (context, index) {
-                    return CourseItemExtended(
-                        course: BookMarkList.bookMark[index]);
+                    return BookMarkList(course: BookMarkAdd.bookMark[index]);
                   },
                 ),
               ),

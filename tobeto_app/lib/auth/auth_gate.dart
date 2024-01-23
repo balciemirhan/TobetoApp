@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/auth/login_or_register.dart';
-import 'package:tobeto_app/pages/curved_bar.dart/curved_button.dart';
+import 'package:tobeto_app/pages/curved/curved_button.dart';
 
 // Dinleyici --> kullanıcı'nın giriş yapıp yapmadığını kontrol edeceğim.
 

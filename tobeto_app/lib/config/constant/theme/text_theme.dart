@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppText {
+class AppTextTheme {
   //AppText._(); // Bu class'ın içerisindekilere yalnızca bu class'dan erişebilirsin anlamını taşıyor.
 
 // Yalnızca static alanlar const olarak bildirilebilir. (static'lik bize sadece bu class'dan erişim iznini sağlar yani dışarıdan değiştirilemez.)

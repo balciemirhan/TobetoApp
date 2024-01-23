@@ -1,22 +1,19 @@
 // route = sayfa geçişleri yönetimi için kullanılır.
 // typedef = tanımlı fonksiyonlar. ( Widget fonskiyo'nun tanımını kısalttım.)
-
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/auth/auth_gate.dart';
 import 'package:tobeto_app/auth/login_or_register.dart';
-import 'package:tobeto_app/pages/calendar_page.dart';
-import 'package:tobeto_app/pages/course_screen/course_view_page.dart';
-import 'package:tobeto_app/pages/curved_bar.dart/curved_button.dart';
-import 'package:tobeto_app/pages/favourite_screens/favourite_page.dart';
+import 'package:tobeto_app/pages/calendar/calendar_page.dart';
+import 'package:tobeto_app/pages/course/course_view_page.dart';
+import 'package:tobeto_app/pages/curved/curved_button.dart';
 import 'package:tobeto_app/pages/forgot/forgot_password_page.dart';
-import 'package:tobeto_app/pages/home_screens/home_page.dart';
+import 'package:tobeto_app/pages/home/home_page.dart';
 import 'package:tobeto_app/pages/login/login_page.dart';
-import 'package:tobeto_app/pages/onboard_screen/onboarding_animation.dart';
-import 'package:tobeto_app/pages/profile_edit_screen/profile_edit_page.dart';
-import 'package:tobeto_app/pages/profile_screen/profile_page.dart';
-import 'package:tobeto_app/pages/search_screen/search_page.dart';
-import 'package:tobeto_app/pages/setting_screen/setting_page.dart';
-import 'package:tobeto_app/pages/view_more_screen/view_more_page.dart';
+import 'package:tobeto_app/pages/onboard/onboarding_animation.dart';
+import 'package:tobeto_app/pages/profile_edit/profile_edit_page.dart';
+import 'package:tobeto_app/pages/profile/profile_page.dart';
+import 'package:tobeto_app/pages/settings/setting_page.dart';
+import 'package:tobeto_app/pages/view_more/view_more_page.dart';
 
 typedef AppRouteMapFunction = Widget Function(BuildContext context);
 
@@ -45,8 +42,6 @@ final class AppRoute {
     login: (context) => LoginPage(),
     home: (context) => const HomePage(),
     onboard: (context) => OnboardingAnimation(),
-    search: (context) => const SearchPage(),
-    favourite: (context) => const FavouritePage(),
     profile: (context) => const ProfilePage(),
     curved: (context) => const CurvedNavBarWidget(),
     viewmore: (context) => const ViewMorePage(),
