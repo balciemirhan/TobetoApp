@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 
 class MyDialog extends StatelessWidget {
   final String title;
@@ -54,7 +55,7 @@ class MyDialog extends StatelessWidget {
                       ),
                     ),
                     child: const Text(
-                      "Okay",
+                      AppText.dialogYes,
                       style: TextStyle(color: Colors.white),
                     ),
                   ),

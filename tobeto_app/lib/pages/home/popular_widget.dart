@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 
 class PopularWidget extends StatelessWidget {
@@ -13,7 +14,7 @@ class PopularWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("Popüler Kurslar", style: AppTextTheme.title),
+          AppTextTheme.small(AppText.popularCourses, context),
           NeuBox(
               child: InkWell(
                   onTap: () {},

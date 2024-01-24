@@ -1,27 +1,33 @@
 import 'package:flutter/material.dart';
 
-final class LightColor {
-// Light Color
-  static Color lightBg = Colors.grey.shade300;
-  static Color white = Colors.white;
-  static Color deepPurple = Colors.deepPurple;
-  static Color black = Colors.black;
+final class AppColor {
+  const AppColor._();
+
+  // --------------------------- Light Mode Colors ---------------------------
+
+  static const Color lightBg = Color(0xFFEEEEEE);
+  /* static const Color lightPrimary = Color(0xFF9E9E9E);
+  static const Color lightSecondary = Color(0xFFE0E0E0);
+  static const Color lightTertiary = Color(0xFFFFFFFF);
+  static const Color lightInversePrimary = Color(0xFF212121); */
+
+  // --------------------------- Dark Mode Colors ---------------------------
+
+/*   static const Color lightBg = Color(0xFFEEEEEE);
+  static const Color lightPrimary = Color(0xFF9E9E9E);
+  static const Color lightSecondary = Color(0xFFE0E0E0);
+  static const Color lightTertiary = Color(0xFFFFFFFF);
+  static const Color lightInversePrimary = Color(0xFF212121); */
+
+  // --------------------------- NeuBox Color Light Theme---------------------------
+
+  static const Color neuBoxColorLight = Color(0xFFE0E0E0);
+  static const Color neuBoxShadowColorBRLight = Color(0xFF9E9E9E);
+  static const Color neuBoxShadowColorTLLight = Color(0xFFFFFFFF);
+
+  // --------------------------- NeuBox Color Dark Theme ---------------------------
+
+  static const Color neuBoxColorDark = Color.fromARGB(255, 1, 5, 18);
+  static const Color neuBoxShadowColorBRDark = Colors.deepPurple;
+  static const Color neuBoxShadowColorTLDark = Colors.pink;
 }
-
-final class DarkColor {
-// Dark Color
-  static Color darkBg = Colors.grey.shade900;
-  static Color black = Colors.black;
-  static Color deepPurple = Colors.deepPurple;
-  static Color white = Colors.white;
-}
-
-//  static const Color containerBg = Colors.deepOrange;
-//  static Color? cardBg = Colors.grey[200];
-//  static const Color shadowBlack = Colors.black;
-//  static const Color buttonText = Colors.black;
-
-  // appbar colors
-  // static const Color color1 = Colors.orange;
-  // static const Color color2 = Colors.deepOrange;
-

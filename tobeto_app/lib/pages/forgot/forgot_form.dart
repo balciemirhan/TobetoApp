@@ -3,6 +3,7 @@ import 'package:tobeto_app/auth/forgot_auth.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 import 'package:tobeto_app/config/constant/core/widget/auth_button.dart';
 import 'package:tobeto_app/config/constant/core/widget/my_textformfield.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 
 class ForgotPasswordForm extends StatefulWidget {
   const ForgotPasswordForm({
@@ -37,16 +38,16 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               const Text(
-                "Şifre sıfırlama bağlantısı için mail adresinizi giriniz.",
+                AppText.passwordResetLink,
                 style: TextStyle(fontSize: 15),
                 textWidthBasis: TextWidthBasis.longestLine,
               ),
               MyTextformfield(
                 prefixIcon: const Icon(Icons.email_outlined),
-                hintText: "E-mail",
+                hintText: AppText.email,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "Bir değer giriniz";
+                    return AppText.enterValue;
                   }
                   return null;
                 },
@@ -55,7 +56,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
               ),
               AuthButton(
                   formKey: widget.formKey,
-                  buttonTitle: "Şifre resetleme",
+                  buttonTitle: AppText.passwordReset,
                   auth: () => Forgot.passwordReset(
                       context, emailController.text.trim()))
             ],

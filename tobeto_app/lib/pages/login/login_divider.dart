@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 
 class LoginDivider extends StatelessWidget {
   const LoginDivider({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class LoginDivider extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              "Devam edin",
+              AppText.continueOn,
               style: TextStyle(color: Colors.grey[700]),
             ),
           ),

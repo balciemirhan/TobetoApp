@@ -22,7 +22,7 @@ class TopBarWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(titleText, style: AppTextTheme.headline),
+          AppTextTheme.small(titleText, context),
           NeuBox(child: leadingIcon)
         ],
       ),

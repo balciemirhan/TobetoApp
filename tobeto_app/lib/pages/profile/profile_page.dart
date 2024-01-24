@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/profile/profile_list.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -65,10 +66,10 @@ class ProfilePage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("isim"),
-                    Text("dogumtarihi"),
-                    Text("telefon numarası"),
-                    Text("e posta"),
+                    Text(AppText.myName),
+                    Text(AppText.myBirthDate),
+                    Text(AppText.myPhone),
+                    Text(AppText.myEmail),
                   ],
                 )),
             Expanded(

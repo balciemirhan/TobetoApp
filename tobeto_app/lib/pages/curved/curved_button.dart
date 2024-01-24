@@ -25,6 +25,8 @@ class _CurvedNavBarWidgetState extends State<CurvedNavBarWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     List<Icon> items = curvedItems();
     return Scaffold(
         extendBody: true,
@@ -36,8 +38,9 @@ class _CurvedNavBarWidgetState extends State<CurvedNavBarWidget> {
               .copyWith(iconTheme: const IconThemeData(color: Colors.white)),
           child: CurvedNavigationBar(
             backgroundColor: Colors.transparent,
-            /*  key: navigationKey, */
-            color: Colors.deepPurple.shade200,
+            color: theme.brightness == Brightness.light
+                ? Colors.deepPurple.shade200
+                : Colors.deepPurple,
             buttonBackgroundColor: Colors.deepPurple,
             animationDuration: const Duration(milliseconds: 300),
             animationCurve: Curves.easeInOut,

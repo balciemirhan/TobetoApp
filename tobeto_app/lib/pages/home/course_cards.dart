@@ -35,11 +35,8 @@ class CourseCards extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
-              course.title,
-              style: AppTextTheme.body3,
-              textAlign: TextAlign.center,
-            )
+            AppTextTheme.small(course.title, context,
+                textAlign: TextAlign.center, fontWeight: FontWeight.normal)
           ],
         ),
       ),

@@ -23,7 +23,7 @@ class TopBarWidgetInterval extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(onPressed: () {}, icon: NeuBox(child: iconButton)),
-          Text(titleText, style: AppTextTheme.headline),
+          AppTextTheme.large(titleText, context),
           NeuBox(child: leadingIcon)
         ],
       ),

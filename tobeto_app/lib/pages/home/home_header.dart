@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -7,7 +8,7 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: const Text("Hoş Geldin Kullanıcı ", style: AppTextTheme.headline),
+      child: AppTextTheme.large(AppText.homeWelcome, context),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/profile/information.dart';
 
 class ProfileList extends StatelessWidget {
@@ -37,49 +38,49 @@ class ProfileList extends StatelessWidget {
           children: [
             profileList(
               context,
-              "BİLGİLERİM",
+              AppText.information,
               Icons.person,
               const Information(),
             ),
             profileList(
               context,
-              "BİLDİRİMLER",
+              AppText.notificatiOn,
               Icons.notifications,
               const Information(),
             ),
             profileList(
               context,
-              "AYARLAR",
+              AppText.settings,
               Icons.settings,
               const Information(),
             ),
             profileList(
               context,
-              "HAKKIMDA",
+              AppText.myAbout,
               Icons.info,
               const Information(),
             ),
             profileList(
               context,
-              "YETENEKLERİM",
+              AppText.mySkills,
               Icons.star,
               const Information(),
             ),
             profileList(
               context,
-              "YABANCI DİLLERİM",
+              AppText.myLanguages,
               Icons.language,
               const Information(),
             ),
             profileList(
               context,
-              "SERTİFİKALARIM",
+              AppText.myCertificates,
               Icons.badge,
               const Information(),
             ),
             profileList(
               context,
-              "MEDYA HESAPLARI",
+              AppText.mediaAccounts,
               Icons.account_circle,
               const Information(),
             ),

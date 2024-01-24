@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/config/constant/core/widget/progress_bar_animation.dart';
 
@@ -21,9 +22,9 @@ class _LastCourseVideoState extends State<LastCourseVideo> {
         width: 600,
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.all(12.0),
-              child: Text("En son izlediğiniz ders", style: AppTextTheme.title),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: AppTextTheme.small(AppText.lastVideo, context),
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,

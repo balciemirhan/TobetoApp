@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 
 ///Renders calendar widget
 
@@ -47,12 +48,12 @@ class _MyHomePageState extends State<CalendarPage> {
         DateTime(today.year, today.month, today.day, 9, 0, 0);
     final DateTime endTime = startTime.add(const Duration(hours: 2));
     meetings.add(
-      _Meeting('Mentor Buluşması', startTime, endTime, const Color(0xFF0F8644),
-          false),
+      _Meeting(AppText.calendarMentor, startTime, endTime,
+          const Color(0xFF0F8644), false),
     );
     meetings.add(
-      _Meeting('Kampüs Buluşması', startTime, endTime, const Color(0xFF0F8644),
-          false),
+      _Meeting(AppText.calendarCampus, startTime, endTime,
+          const Color(0xFF0F8644), false),
     );
     return meetings;
   }

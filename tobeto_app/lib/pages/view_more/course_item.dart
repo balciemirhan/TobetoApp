@@ -81,11 +81,8 @@ class _CourseItemState extends State<CourseItem> {
         const SizedBox(height: 8),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Text(
-            widget.course.title,
-            style: AppTextTheme.body2,
-            textAlign: TextAlign.center,
-          ),
+          child: AppTextTheme.small(widget.course.title, context,
+              fontWeight: FontWeight.normal, textAlign: TextAlign.center),
         ),
         const SizedBox(height: 4),
         Row(

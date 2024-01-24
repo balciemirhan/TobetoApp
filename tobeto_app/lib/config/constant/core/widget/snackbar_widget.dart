@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 
 ScaffoldFeatureController<SnackBar, SnackBarClosedReason> snackBarMessage(
     context, String content,
@@ -11,7 +12,7 @@ ScaffoldFeatureController<SnackBar, SnackBarClosedReason> snackBarMessage(
       behavior: SnackBarBehavior.floating,
       action: SnackBarAction(
         textColor: Colors.white,
-        label: "Kapat",
+        label: AppText.snackBarClose,
         onPressed: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
       ),
     ),

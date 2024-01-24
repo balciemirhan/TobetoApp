@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/auth/signout_auth.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -33,7 +34,7 @@ class MyDrawer extends StatelessWidget {
                         width: 40,
                       ),
                       Text(
-                        'Ad Soyad',
+                        AppText.drawerNameSurname,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, color: Colors.white),
                       ),
@@ -44,32 +45,32 @@ class MyDrawer extends StatelessWidget {
             ),
             const Spacer(),
             MyListTile(
-              title: "Anasayfa",
+              title: AppText.drawerHome,
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
             MyListTile(
-              title: "Değerlendirmeler",
+              title: AppText.drawerRating,
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
             MyListTile(
-              title: "Profilim",
+              title: AppText.drawerProfile,
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
             MyListTile(
-              title: "Katalog",
+              title: AppText.drawerCatalog,
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
             MyListTile(
-              title: "Takvim",
+              title: AppText.drawerCalendar,
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/calendar"),
             ),
             MyListTile(
-              title: "Ayarlar",
+              title: AppText.settings,
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/setting"),
             ),
@@ -80,7 +81,7 @@ class MyDrawer extends StatelessWidget {
 
               title: const Row(
                 children: [
-                  Text('Tobeto '),
+                  Text(AppText.tobeto),
                   Icon(
                     Icons.home,
                     shadows: [
@@ -110,7 +111,7 @@ class MyDrawer extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(
                   vertical: 16.0,
                 ),
-                child: const Text('© 2022 Tobeto'),
+                child: const Text(AppText.drawerCopyRight),
               ),
             ),
           ],

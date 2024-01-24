@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/widget/top_bar_widget_interval.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/view_more/course_list_filter.dart';
 
 class ViewMorePage extends StatelessWidget {
@@ -21,7 +22,7 @@ class ViewMorePage extends StatelessWidget {
                       Navigator.of(context).pushNamed("/curved");
                     },
                     icon: const Icon(Icons.arrow_back)),
-                titleText: "Kurslar",
+                titleText: AppText.courses,
                 leadingIcon: const Icon(Icons.cast_for_education_rounded),
               ),
 

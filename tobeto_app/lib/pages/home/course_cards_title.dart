@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 
 // import 'package:tobeto_app/pages/home_screens/education_card.dart';
@@ -14,13 +15,13 @@ class CourseCardsTitle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("Kategoriler", style: AppTextTheme.title),
+          AppTextTheme.large(AppText.courseCategories, context),
           InkWell(
-            onTap: () {
-              Navigator.of(context).pushNamed("/viewmore");
-            },
-            child: const Text("Tümünü Gör", style: AppTextTheme.caption),
-          ),
+              onTap: () {
+                Navigator.of(context).pushNamed("/viewmore");
+              },
+              child: AppTextTheme.small(AppText.courseViewMore, context,
+                  fontWeight: FontWeight.normal)),
         ],
       ),
     );

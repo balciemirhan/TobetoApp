@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 
 class ProfileEditPage extends StatelessWidget {
   const ProfileEditPage({Key? key}) : super(key: key);
@@ -60,19 +61,19 @@ class ProfileEditPage extends StatelessWidget {
         ),
         body: const TabBarView(children: [
           Center(
-            child: Text("1. sayfa"),
+            child: Text(AppText.firstPage),
           ),
           Center(
-            child: Text("2. sayfa"),
+            child: Text(AppText.secondPage),
           ),
           Center(
-            child: Text("3. sayfa"),
+            child: Text(AppText.thirdPage),
           ),
           Center(
-            child: Text("4. sayfa"),
+            child: Text(AppText.fourthPage),
           ),
           Center(
-            child: Text("5. sayfa"),
+            child: Text(AppText.fifthPage),
           )
         ]),
       ),

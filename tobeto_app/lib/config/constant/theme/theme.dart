@@ -1,22 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/color.dart';
 
-final class AppTheme {
-  static ThemeData lightTheme = ThemeData.light(useMaterial3: true).copyWith(
-      brightness: Brightness.light,
-      scaffoldBackgroundColor: LightColor.lightBg,
-      inputDecorationTheme: InputDecorationTheme(
-          fillColor: LightColor.white,
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: LightColor.deepPurple)),
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: LightColor.white)),
-          hintStyle: TextStyle(color: LightColor.black)));
+class AppTheme {
+  AppTheme._();
 
-  static ThemeData darkTheme = ThemeData.dark(useMaterial3: true).copyWith(
+  /* ------------- Light Theme ------------- */
+
+  static final ThemeData lightMode = ThemeData(
+    brightness: Brightness.light,
+    useMaterial3: true,
+    colorScheme: const ColorScheme.light(
+      background: AppColor.lightBg,
+      /* primary: Color.fromARGB(255, 0, 0, 0),
+      onBackground: Colors.blue,
+      onPrimary: Colors.white, */
+    ),
+  );
+
+  /* ------------- Dark theme ------------- */
+
+  static final ThemeData darkMode = ThemeData(
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: DarkColor.darkBg,
+    useMaterial3: true,
+    colorScheme: const ColorScheme.dark(
+      background: Color.fromARGB(255, 2, 7, 22),
+      /* primary: Color.fromARGB(255, 255, 255, 255),
+      onBackground: Colors.deepPurple,
+      onPrimary: Colors.black, */
+    ),
   );
 }

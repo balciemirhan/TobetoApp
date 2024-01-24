@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/pages/course/course_image.dart';
@@ -20,10 +21,7 @@ class CoursePage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  Text(
-                    course.title,
-                    style: AppTextTheme.body1,
-                  ),
+                  AppTextTheme.small(course.title, context),
                   const SizedBox(
                     height: 20,
                   ),
@@ -93,10 +91,10 @@ class TabBarExample extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(30))),
             tabs: const [
               Tab(
-                text: "İçerik",
+                text: AppText.courseContent,
               ),
               Tab(
-                text: "Hakkında",
+                text: AppText.courseAbout,
               ),
             ],
           ),
@@ -104,10 +102,10 @@ class TabBarExample extends StatelessWidget {
             child: TabBarView(
               children: [
                 Center(
-                  child: Text("Videolar"),
+                  child: Text(AppText.courseVideos),
                 ),
                 Center(
-                  child: Text("Hakkında"),
+                  child: Text(AppText.courseAbout),
                 ),
               ],
             ),

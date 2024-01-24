@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/bookmark/bookmark_add.dart';
 import 'package:tobeto_app/pages/bookmark/bookmark_list.dart';
 
@@ -27,7 +28,7 @@ class _FavouritePageState extends State<BookmarkPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const TopBarWidget(
-                titleText: "Kaydetmeler",
+                titleText: AppText.bookMarkSave,
                 leadingIcon: Icon(
                   Icons.bookmark_add,
                   color: Colors.green,
