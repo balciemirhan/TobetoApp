@@ -62,7 +62,7 @@ class MyDrawer extends StatelessWidget {
             MyListTile(
               title: AppText.drawerCatalog,
               nav: "/home",
-              onTap: () => Navigator.of(context).pushNamed("/curved"),
+              onTap: () => Navigator.of(context).pushNamed("/catalog"),
             ),
             MyListTile(
               title: AppText.drawerCalendar,
