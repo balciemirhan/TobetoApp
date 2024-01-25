@@ -135,4 +135,8 @@ class AppText {
   static const String innovations = "Yenilikler";
   static const String help = "Yardım";
   static const String signOut = "Çıkış Yap";
+
+  // --------------------------- catalog _page ---------------------------
+
+  static const String catalog = "Katalog";
 }
