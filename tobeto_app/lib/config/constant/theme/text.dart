@@ -13,10 +13,11 @@ class AppText {
   static const String drawerNameSurname = "Ad Soyad";
   static const String drawerHome = "Anasayfa";
   static const String drawerRating = "Değerlendirmeler";
-  static const String drawerProfile = "Profilim";
+  static const String drawerNotice = "Duyurular";
   static const String drawerCatalog = "Katalog";
   static const String drawerCalendar = "Takvim";
   static const String drawerCopyRight = "© 2022 Tobeto";
+  static const String drawerSurvey = "Anketler";
 
 // --------------------------- Login Page ---------------------------
 

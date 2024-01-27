@@ -105,6 +105,8 @@ flutter:
     - assets/images/cat_profile.png
     - assets/images/tobeto_background.gif
     - assets/images/not_found_cat.gif
+    - assets/images/forgot_background.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
