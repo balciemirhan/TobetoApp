@@ -20,7 +20,8 @@ class MyDrawer extends StatelessWidget {
             ListTile(
               onTap: () {},
               title: Card(
-                margin: const EdgeInsets.all(40),
+                elevation: 25,
+                margin: const EdgeInsets.only(left: 20, right: 65),
                 shadowColor: Colors.deepPurple,
                 color: Colors.deepPurple[200],
                 child: const Padding(
@@ -45,62 +46,47 @@ class MyDrawer extends StatelessWidget {
             ),
             const Spacer(),
             MyListTile(
+              icon: const Icon(Icons.home_rounded),
               title: AppText.drawerHome,
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
             MyListTile(
+              icon: const Icon(Icons.reviews_rounded),
               title: AppText.drawerRating,
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
             MyListTile(
-              title: AppText.drawerProfile,
+              icon: const Icon(Icons.notifications_rounded),
+              title: AppText.drawerNotice,
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
             MyListTile(
+              icon: const Icon(Icons.poll_rounded),
+              title: AppText.drawerSurvey,
+              nav: "/home",
+              onTap: () => Navigator.of(context).pushNamed("/setting"),
+            ),
+            MyListTile(
+              icon: const Icon(Icons.menu_book_rounded),
               title: AppText.drawerCatalog,
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/catalog"),
             ),
             MyListTile(
+              icon: const Icon(Icons.calendar_month_rounded),
               title: AppText.drawerCalendar,
               nav: "/home",
               onTap: () => Navigator.of(context).pushNamed("/calendar"),
             ),
             MyListTile(
-              title: AppText.settings,
-              nav: "/home",
-              onTap: () => Navigator.of(context).pushNamed("/setting"),
-            ),
-            ListTile(
-              onTap: () {
-                SignOut.logout(context);
-              },
-
-              title: const Row(
-                children: [
-                  Text(AppText.tobeto),
-                  Icon(
-                    Icons.home,
-                    shadows: [
-                      Shadow(blurRadius: 15, color: Colors.deepPurple),
-                      Shadow(blurRadius: 5, color: Colors.black)
-                    ],
-                  )
-                ],
-              ),
-              titleTextStyle: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  shadows: [
-                    Shadow(blurRadius: 15, color: Colors.deepPurple),
-                    Shadow(blurRadius: 5, color: Colors.black)
-                  ]),
-
-              //enableFeedback: false, // tıklama sesini kapatır
-            ),
+                image: Image.asset("assets/images/tobeto-logo-white.png",
+                    width: 25),
+                title: AppText.tobeto,
+                nav: "/home",
+                onTap: () => SignOut.logout(context)),
             const Spacer(flex: 2),
             DefaultTextStyle(
               style: const TextStyle(
@@ -127,22 +113,44 @@ class MyListTile extends StatelessWidget {
     required this.title,
     required this.nav,
     this.onTap,
+    this.icon,
+    this.image,
   });
   final String title;
   final String nav;
   final void Function()? onTap;
+  final Icon? icon;
+  final Image? image;
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: () {
-        onTap!();
-      },
-      title: Text(title),
-      titleTextStyle:
-          const TextStyle(fontWeight: FontWeight.bold, fontSize: 18, shadows: [
-        Shadow(blurRadius: 15, color: Colors.deepPurple),
-        Shadow(blurRadius: 5, color: Colors.black)
-      ]),
+    return Card(
+      color: Colors.transparent,
+      shape: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: const BorderSide(
+            color: Colors.grey,
+          )),
+      //LinearBorder(side: BorderSide(color: Colors.black)),
+      //Border.all(color: Colors.white, width: 2),
+      elevation: 25,
+      surfaceTintColor: Colors.white,
+      margin: const EdgeInsets.only(
+          left: 10, right: 55, bottom: 10), // Adjust margin
+
+      child: ListTile(
+        onTap: () {
+          onTap!();
+        },
+        title: Text(title),
+        leading: icon ?? image,
+        titleTextStyle: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+            shadows: [
+              Shadow(blurRadius: 15, color: Colors.deepPurple),
+              Shadow(blurRadius: 5, color: Colors.black)
+            ]),
+      ),
     );
   }
 }

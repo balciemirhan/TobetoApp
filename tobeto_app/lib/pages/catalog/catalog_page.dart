@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/widget/top_bar_widget_interval.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/catalog/catalog_course_filter.dart';
-import 'package:tobeto_app/pages/view_more/course_list_filter.dart';
 
 class CatalogPage extends StatelessWidget {
   const CatalogPage({Key? key}) : super(key: key);

@@ -8,27 +8,21 @@ class LoginPageSquareButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 250,
-      height: 70,
-      child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        /* itemExtent: 70, */
-        scrollDirection: Axis.horizontal,
-        children: [
-          SquareAuthButtons(
-            imagePath: AppImage.googleButtonImage,
-            onTap: () => GoogleAuthenticationService().signInWithGoogle(),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: SquareAuthButtons(
-              imagePath: AppImage.appleButtonImage,
-              onTap: () {},
-            ),
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SquareAuthButtons(
+          imagePath: AppImage.googleButtonImage,
+          onTap: () => GoogleAuthenticationService().signInWithGoogle(),
+        ),
+        const SizedBox(
+          width: 20,
+        ),
+        SquareAuthButtons(
+          imagePath: AppImage.appleButtonImage,
+          onTap: () {},
+        ),
+      ],
     );
   }
 }
