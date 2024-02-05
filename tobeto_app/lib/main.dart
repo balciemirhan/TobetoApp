@@ -1,5 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_app/business_logic/blocs/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_app/business_logic/repositories/auth_repository.dart';
+import 'package:tobeto_app/business_logic/repositories/user_repository.dart';
 import 'package:tobeto_app/config/constant/theme/theme.dart';
 
 import 'package:tobeto_app/config/routes/app_routes.dart';
@@ -20,21 +24,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: navigatorKey,
-      title: 'Education App',
-      debugShowCheckedModeBanner: false,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => AuthBloc(AuthRepository(), UserRepository(),),
+        )
+      ],
+      child: MaterialApp(
+        navigatorKey: navigatorKey,
+        title: 'Education App',
+        debugShowCheckedModeBanner: false,
 
-      // --------------------------- THEME ---------------------------
+        // --------------------------- THEME ---------------------------
 
-      theme: AppTheme.lightMode,
-      darkTheme: AppTheme.darkMode,
-      themeMode: ThemeMode.system,
+        theme: AppTheme.lightMode,
+        darkTheme: AppTheme.darkMode,
+        themeMode: ThemeMode.system,
 
-      // --------------------------- ROUTE ---------------------------
+        // --------------------------- ROUTE ---------------------------
 
-      initialRoute: AppRoute.authGate,
-      routes: AppRoute.routes,
+        initialRoute: AppRoute.login,
+        routes: AppRoute.routes,
+      ),
     );
   }
 }

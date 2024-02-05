@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/auth/signout_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_app/business_logic/blocs/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_app/business_logic/blocs/auth_bloc/auth_event.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 
@@ -86,7 +88,10 @@ class MyDrawer extends StatelessWidget {
                     width: 25),
                 title: AppText.tobeto,
                 nav: "/home",
-                onTap: () => SignOut.logout(context)),
+                onTap: () {
+                  context.read<AuthBloc>().add(UserOut());
+                  Navigator.of(context).pushNamed("/login");
+                }),
             const Spacer(flex: 2),
             DefaultTextStyle(
               style: const TextStyle(

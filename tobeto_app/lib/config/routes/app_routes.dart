@@ -1,8 +1,7 @@
 // route = sayfa geçişleri yönetimi için kullanılır.
 // typedef = tanımlı fonksiyonlar. ( Widget fonskiyo'nun tanımını kısalttım.)
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/auth/auth_gate.dart';
-import 'package:tobeto_app/auth/login_or_register.dart';
+
 import 'package:tobeto_app/pages/calendar/calendar_page.dart';
 import 'package:tobeto_app/pages/catalog/catalog_page.dart';
 import 'package:tobeto_app/pages/course/course_view_page.dart';
@@ -13,6 +12,7 @@ import 'package:tobeto_app/pages/login/login_page.dart';
 import 'package:tobeto_app/pages/onboard/onboarding_animation.dart';
 import 'package:tobeto_app/pages/profile_edit/profile_edit_page.dart';
 import 'package:tobeto_app/pages/profile/profile_page.dart';
+import 'package:tobeto_app/pages/register/register_page.dart';
 import 'package:tobeto_app/pages/settings/setting_page.dart';
 import 'package:tobeto_app/pages/view_more/view_more_page.dart';
 
@@ -32,11 +32,11 @@ final class AppRoute {
   static const String course = "/course";
   static const String profiledit = "/profiledit";
   static const String loginOrRegister = "/loginOrRegister";
-  static const String authGate = "/authGate";
   static const String calendar = "/calendar";
   static const String setting = "/setting";
-  static const String forgot = "/forgot";
+  // static const String forgot = "/forgot";
   static const String catalog = "/catalog";
+  static const String register = "/register";
 
   static Map<String, AppRouteMapFunction> routes = {
     // onboard:(context) => const OnBoardScreen();
@@ -49,12 +49,11 @@ final class AppRoute {
     viewmore: (context) => const ViewMorePage(),
     course: (context) => const CourseViewPage(),
     profiledit: (context) => const ProfileEditPage(),
-    loginOrRegister: (context) => const LoginOrRegister(),
-    authGate: (context) => const AuthGate(),
     calendar: (context) => const CalendarPage(),
     setting: (context) => const SettingPage(),
-    forgot: (context) => ForgotPasswordPage(),
+    //forgot: (context) => ForgotPasswordPage(),
     catalog: (context) => const CatalogPage(),
+    register: (context) => RegisterPage(),
   };
 }
 

@@ -5,6 +5,7 @@ import 'package:tobeto_app/pages/login/login_divider.dart';
 import 'package:tobeto_app/pages/login/login_form.dart';
 import 'package:tobeto_app/pages/login/login_page_Square_buttons.dart';
 import 'package:tobeto_app/config/constant/core/widget/now_bottom.dart';
+import 'package:tobeto_app/pages/register/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key, this.onTap}) : super(key: key);
@@ -58,7 +59,8 @@ class LoginPage extends StatelessWidget {
                       child: NowBottom(
                         text: AppText.member,
                         text2: AppText.registerNow,
-                        onTap: () => onTap!(),
+                        onTap: () =>
+                            Navigator.of(context).pushNamed("/register"),
                       ),
                     )
                     /* const LoginNow() */
