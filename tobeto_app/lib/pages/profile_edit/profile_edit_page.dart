@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
+import 'package:tobeto_app/pages/profile_edit/certificate_page.dart';
+import 'package:tobeto_app/pages/profile_edit/competence_page.dart';
+import 'package:tobeto_app/pages/profile_edit/person_page.dart';
 
 class ProfileEditPage extends StatelessWidget {
   const ProfileEditPage({Key? key}) : super(key: key);
@@ -59,23 +62,19 @@ class ProfileEditPage extends StatelessWidget {
                 Tab(icon: Icon(Icons.adjust))
               ]),
         ),
-        body: const TabBarView(children: [
-          Center(
-            child: Text(AppText.firstPage),
-          ),
-          Center(
-            child: Text(AppText.secondPage),
-          ),
-          Center(
-            child: Text(AppText.thirdPage),
-          ),
-          Center(
-            child: Text(AppText.fourthPage),
-          ),
-          Center(
-            child: Text(AppText.fifthPage),
-          )
-        ]),
+        body: const TabBarView(
+            physics: NeverScrollableScrollPhysics(),
+            children: [
+              PersonPage(),
+              CompetencePage(),
+              CertificatePage(),
+              Center(
+                child: Text(AppText.fourthPage),
+              ),
+              Center(
+                child: Text(AppText.fifthPage),
+              )
+            ]),
       ),
     );
   }

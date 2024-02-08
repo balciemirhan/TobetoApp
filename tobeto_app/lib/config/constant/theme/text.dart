@@ -117,10 +117,10 @@ class AppText {
 
   // --------------------------- profile / profile_page ---------------------------
 
-  static const String myName = "İsim";
-  static const String myBirthDate = "Doğum Tarihi";
-  static const String myPhone = "Telefon Numarası";
-  static const String myEmail = "e posta";
+  static const String myName = "Adınız Soyadınız";
+  static const String myBirthDate = "01.01.2024";
+  static const String myPhone = "05556661212";
+  static const String myEmail = "email@gmail.com";
 
   // --------------------------- profile_edit ---------------------------
 
@@ -140,4 +140,7 @@ class AppText {
   // --------------------------- catalog _page ---------------------------
 
   static const String catalog = "Katalog";
+
+  static const String about =
+      "Deneyimli yazılım mühendisiyim. 10 yılı aşkın süredir yazılım geliştirme alanında çalışıyorum. Java, Python ve C++ gibi çeşitli programlama dillerinde deneyimliyim. Ayrıca, nesne yönelimli programlama ve veritabanı yönetimi konusunda uzmanım.";
 }

@@ -30,4 +30,10 @@ final class AppColor {
   static const Color neuBoxColorDark = Color.fromARGB(255, 1, 5, 18);
   static const Color neuBoxShadowColorBRDark = Colors.deepPurple;
   static const Color neuBoxShadowColorTLDark = Colors.pink;
+
+  static const active0 = Color(0xFFCACACA);
+  static const active1 = Color(0xFFB963F2);
+  static const active2 = Color(0xFF9857F2);
+  static const active3 = Color(0xFF4C2E8C);
+  static const active4 = Color(0xFF341959);
 }

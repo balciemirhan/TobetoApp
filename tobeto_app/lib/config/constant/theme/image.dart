@@ -46,6 +46,15 @@ class AppImage {
 
   // --------------------------- tema logo ---------------------------
 
+// --------------------------- profile logo ---------------------------
+
+  static const String user = "assets/images/user.png";
+  static const String calendar = "assets/images/calendar.png";
+  static const String phone = "assets/images/phone.png";
+  static const String email = "assets/images/email.png";
+  static const String lottieNext =
+      "https://lottie.host/2270e771-24cf-45cf-afb5-9179c2b775d8/bFmu0rdyVz.json";
+
 /* const tobetoLightIcon = "assets/images/tobeto-logo.png";
 const tobetoDarkIcon = "assets/images/tobeto-logo-white.png";
 

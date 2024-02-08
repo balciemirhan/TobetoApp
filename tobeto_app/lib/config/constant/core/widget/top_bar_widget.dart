@@ -5,14 +5,16 @@ import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 class TopBarWidget extends StatelessWidget {
   const TopBarWidget({
     Key? key,
-    required this.leadingIcon,
+    this.leadingIcon,
     required this.titleText,
+    this.iconButton,
 
     /* required this.titleStyle */
   }) : super(key: key);
 
-  final Icon leadingIcon;
+  final Icon? leadingIcon;
   final String titleText;
+  final IconButton? iconButton;
 
   /*  final TextStyle titleStyle; */
   @override
@@ -22,8 +24,8 @@ class TopBarWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AppTextTheme.small(titleText, context),
-          NeuBox(child: leadingIcon)
+          AppTextTheme.font(titleText, context),
+          NeuBox(child: leadingIcon ?? iconButton)
         ],
       ),
     );

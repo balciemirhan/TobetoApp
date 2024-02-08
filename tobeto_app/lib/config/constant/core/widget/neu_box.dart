@@ -26,10 +26,9 @@ class NeuBox extends StatelessWidget {
     }
 
     return Container(
-      width: width ?? 50,
-      height: height ?? 50,
-      child: Center(
-        child: child,
+      constraints: BoxConstraints(
+        minHeight: height ?? 50, // Set a minimum height as fallback
+        maxWidth: width ?? 50,
       ),
       decoration: BoxDecoration(
         color: theme.brightness == Brightness.light
@@ -52,6 +51,9 @@ class NeuBox extends StatelessWidget {
             offset: -offset,
           ),
         ],
+      ),
+      child: Center(
+        child: child,
       ),
     );
   }

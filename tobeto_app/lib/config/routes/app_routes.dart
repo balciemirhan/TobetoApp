@@ -10,6 +10,7 @@ import 'package:tobeto_app/pages/forgot/forgot_password_page.dart';
 import 'package:tobeto_app/pages/home/home_page.dart';
 import 'package:tobeto_app/pages/login/login_page.dart';
 import 'package:tobeto_app/pages/onboard/onboarding_animation.dart';
+import 'package:tobeto_app/pages/profile/personal/personal_page.dart';
 import 'package:tobeto_app/pages/profile_edit/profile_edit_page.dart';
 import 'package:tobeto_app/pages/profile/profile_page.dart';
 import 'package:tobeto_app/pages/register/register_page.dart';
@@ -37,6 +38,7 @@ final class AppRoute {
   // static const String forgot = "/forgot";
   static const String catalog = "/catalog";
   static const String register = "/register";
+  static const String personall = "/personal";
 
   static Map<String, AppRouteMapFunction> routes = {
     // onboard:(context) => const OnBoardScreen();
@@ -54,6 +56,7 @@ final class AppRoute {
     //forgot: (context) => ForgotPasswordPage(),
     catalog: (context) => const CatalogPage(),
     register: (context) => RegisterPage(),
+    personall: (context) => const PersonalPage(),
   };
 }
 
