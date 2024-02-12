@@ -6,7 +6,6 @@ import 'package:tobeto_app/pages/calendar/calendar_page.dart';
 import 'package:tobeto_app/pages/catalog/catalog_page.dart';
 import 'package:tobeto_app/pages/course/course_view_page.dart';
 import 'package:tobeto_app/pages/curved/curved_button.dart';
-import 'package:tobeto_app/pages/forgot/forgot_password_page.dart';
 import 'package:tobeto_app/pages/home/home_page.dart';
 import 'package:tobeto_app/pages/login/login_page.dart';
 import 'package:tobeto_app/pages/onboard/onboarding_animation.dart';

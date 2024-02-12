@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/widget/top_bar_widget.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/profile/personal/about.dart';
 import 'package:tobeto_app/pages/profile/personal/certificate.dart';
 import 'package:tobeto_app/pages/profile/personal/competence.dart';

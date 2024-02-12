@@ -40,9 +40,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     _firebaseAuth.authStateChanges().listen((user) {
       if (user != null) {
-        emit(Authenticated(user: user));
+        (Authenticated(user: user));
       } else {
-        emit(NotAuthenticated());
+        (NotAuthenticated());
       }
     });
   }
