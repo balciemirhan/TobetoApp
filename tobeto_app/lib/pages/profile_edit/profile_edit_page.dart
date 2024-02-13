@@ -18,7 +18,7 @@ class ProfileEditPage extends StatelessWidget {
             child: InkWell(
               child: IconButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed("/profile");
+                    Navigator.pop(context);
                   },
                   icon: const Icon(Icons.arrow_back_ios_new_rounded)),
             ),

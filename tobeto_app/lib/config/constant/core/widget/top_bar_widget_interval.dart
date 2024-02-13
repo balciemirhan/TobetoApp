@@ -5,15 +5,17 @@ import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 class TopBarWidgetInterval extends StatelessWidget {
   const TopBarWidgetInterval({
     Key? key,
-    required this.leadingIcon,
+    this.leadingIcon,
     required this.titleText,
     required this.iconButton,
+    this.iconButton2,
     /* required this.titleStyle */
   }) : super(key: key);
 
-  final Icon leadingIcon;
+  final Icon? leadingIcon;
   final String titleText;
   final IconButton iconButton;
+  final IconButton? iconButton2;
   /*  final TextStyle titleStyle; */
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class TopBarWidgetInterval extends StatelessWidget {
         children: [
           IconButton(onPressed: () {}, icon: NeuBox(child: iconButton)),
           AppTextTheme.large(titleText, context),
-          NeuBox(child: leadingIcon)
+          NeuBox(child: leadingIcon ?? iconButton2)
         ],
       ),
     );

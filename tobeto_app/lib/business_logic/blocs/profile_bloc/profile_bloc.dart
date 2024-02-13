@@ -1,16 +1,19 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/business_logic/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/business_logic/blocs/profile_bloc/profile_state.dart';
+import 'package:tobeto_app/business_logic/repositories/storage_repository.dart';
 import 'package:tobeto_app/business_logic/repositories/user_repository.dart';
 import 'package:tobeto_app/models/user_model.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final UserRepository _userRepository;
+  final StorageRepository _storageRepository;
 
-  ProfileBloc(this._userRepository) : super(ProfileInitial()) {
+  ProfileBloc(this._userRepository, this._storageRepository)
+      : super(ProfileInitial()) {
     on<FetchProfileInfo>(_onFetchProfileInfo);
     on<UpdateProfile>(_onUpdateProfile);
-    on<CloseEvent>(_close);
+    on<ClearState>(_onClearState);
   }
 // -------------------- Verileri getir - oku --------------------
 
@@ -28,11 +31,15 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   }
 
   // -------------------- Verileri güncelle--------------------
-
+  // Burada hem kullanıcı'nın profile bilgilerini hem de resmini güncelleme işlemi yaptırıyorum.
   Future<void> _onUpdateProfile(
       UpdateProfile event, Emitter<ProfileState> emit) async {
     emit(ProfileLoading());
     try {
+      if (event.photo != null) {
+        await _storageRepository
+            .uploadPhoto(event.photo!); // fotoğrafı güncelle
+      }
       await _userRepository.updateUser(event.user);
       emit(ProfileUpdated());
     } catch (e) {
@@ -40,8 +47,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     }
   }
 
-  Future<void> _close(CloseEvent event, Emitter<ProfileState> emit) async {
-    await super.close();
-    emit(CloseBloc());
+  void _onClearState(ClearState event, Emitter<ProfileState> emit) {
+    emit(
+        ProfileInitial()); // ClearState eventi alındığında state'i Initial olarak ayarlıyor
   }
 }

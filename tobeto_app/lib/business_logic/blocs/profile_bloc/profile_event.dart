@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:tobeto_app/models/user_model.dart';
 
 abstract class ProfileEvent {}
@@ -14,7 +16,15 @@ class FetchProfileInfo extends ProfileEvent {}
 class UpdateProfile extends ProfileEvent {
   // kimin?
   UserModel user;
-  UpdateProfile({required this.user});
+  File? photo;
+  UpdateProfile({required this.user, this.photo});
 }
 
-class CloseEvent extends ProfileEvent {}
+//---------- Temizle -----------------
+class ClearState extends ProfileEvent {}
+
+class UploadProfilePhoto extends ProfileEvent {
+  final File photo;
+
+  UploadProfilePhoto({required this.photo});
+}

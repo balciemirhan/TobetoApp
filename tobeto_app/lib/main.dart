@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/business_logic/blocs/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_app/business_logic/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/business_logic/repositories/auth_repository.dart';
+import 'package:tobeto_app/business_logic/repositories/storage_repository.dart';
 import 'package:tobeto_app/business_logic/repositories/user_repository.dart';
 import 'package:tobeto_app/config/constant/theme/theme.dart';
 import 'package:tobeto_app/config/routes/app_routes.dart';
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
         BlocProvider<ProfileBloc>(
-            create: (context) => ProfileBloc(UserRepository())),
+            create: (context) =>
+                ProfileBloc(UserRepository(), StorageRepository())),
       ],
       child: MaterialApp(
         navigatorKey: navigatorKey,

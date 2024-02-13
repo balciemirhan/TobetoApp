@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/core/widget/top_bar_widget.dart';
+import 'package:tobeto_app/config/constant/core/widget/top_bar_widget_interval.dart';
 import 'package:tobeto_app/pages/profile/personal/about.dart';
 import 'package:tobeto_app/pages/profile/personal/certificate.dart';
 import 'package:tobeto_app/pages/profile/personal/competence.dart';
@@ -20,13 +21,22 @@ class PersonalPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                TopBarWidget(
-                    iconButton: IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed("/profiledit");
-                        },
-                        icon: const Icon(Icons.edit)),
-                    titleText: "Bilgilerim"),
+                TopBarWidgetInterval(
+                  iconButton: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.arrow_back_ios_new_rounded)),
+                  titleText: "Bilgilerim",
+                  iconButton2: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed("/profiledit");
+                      },
+                      icon: const Icon(
+                        Icons.edit,
+                        color: Colors.red,
+                      )),
+                ),
                 const About(),
                 const Competence(),
                 const ForeignLanguage(),

@@ -75,9 +75,13 @@ class ProfilePage extends StatelessWidget {
                                   image: AppImage.email, text: '${user.email}'),
                             ],
                           ),
-                          const Image(
-                              height: 100,
-                              image: AssetImage(AppImage.profileImage))
+                          CircleAvatar(
+                            minRadius: 40,
+                            maxRadius: 60,
+                            backgroundImage: NetworkImage(
+                              user.profilePhoto!,
+                            ),
+                          )
                         ],
                       )),
                   Expanded(

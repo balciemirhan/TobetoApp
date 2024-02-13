@@ -39,9 +39,9 @@ class ProfileInfoFetchFailed extends ProfileState {
 class ProfileUpdated extends ProfileState {}
 
 class ProfileUpdatedFailed extends ProfileState {
-  String message;
+  String errorMessage;
   ProfileUpdatedFailed({
-    required this.message,
+    required this.errorMessage,
   });
 }
 
