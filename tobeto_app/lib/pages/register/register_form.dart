@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tobeto_app/business_logic/blocs/auth_bloc/auth_bloc.dart';
-import 'package:tobeto_app/business_logic/blocs/auth_bloc/auth_event.dart';
-import 'package:tobeto_app/business_logic/blocs/auth_bloc/auth_state.dart';
+import 'package:tobeto_app/api/blocs/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_app/api/blocs/auth_bloc/auth_event.dart';
+import 'package:tobeto_app/api/blocs/auth_bloc/auth_state.dart';
 import 'package:tobeto_app/config/constant/core/widget/auth_button.dart';
 import 'package:tobeto_app/config/constant/core/widget/my_textformfield.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
-import 'package:tobeto_app/business_logic/blocs/profile_bloc/profile_bloc.dart';
-import 'package:tobeto_app/business_logic/blocs/profile_bloc/profile_event.dart';
-import 'package:tobeto_app/business_logic/blocs/profile_bloc/profile_state.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/core/widget/top_bar_widget.dart';
 import 'package:tobeto_app/config/constant/format/date_formatter.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/top_bar_widget.dart';
 import 'package:tobeto_app/config/constant/core/widget/top_bar_widget_interval.dart';
-import 'package:tobeto_app/pages/profile/personal/about.dart';
-import 'package:tobeto_app/pages/profile/personal/certificate.dart';
-import 'package:tobeto_app/pages/profile/personal/competence.dart';
-import 'package:tobeto_app/pages/profile/personal/foreignLanguage.dart';
-import 'package:tobeto_app/pages/profile/personal/socialMedia.dart';
+import 'package:tobeto_app/pages/personal_information/about.dart';
+import 'package:tobeto_app/pages/personal_information/certificate.dart';
+import 'package:tobeto_app/pages/personal_information/competence.dart';
+import 'package:tobeto_app/pages/personal_information/foreignLanguage.dart';
+import 'package:tobeto_app/pages/personal_information/socialMedia.dart';
 
 class PersonalPage extends StatelessWidget {
   const PersonalPage({Key? key}) : super(key: key);

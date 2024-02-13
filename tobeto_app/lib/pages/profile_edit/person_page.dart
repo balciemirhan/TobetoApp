@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:tobeto_app/business_logic/blocs/profile_bloc/profile_bloc.dart';
-import 'package:tobeto_app/business_logic/blocs/profile_bloc/profile_event.dart';
-import 'package:tobeto_app/business_logic/blocs/profile_bloc/profile_state.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/models/user_model.dart';
 

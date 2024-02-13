@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
 
     final drawerController = AdvancedDrawerController();
     return MyAdvancedDrawer(
-        drawer: const MyDrawer(),
+        drawer: MyDrawer(),
         controller: drawerController,
         child: Scaffold(
           extendBody: true, // button

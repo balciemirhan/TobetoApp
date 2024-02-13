@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/pages/profile/personal/personal_widget.dart';
+import 'package:tobeto_app/pages/personal_information/personal_widget.dart';
 
 class SocialMedia extends StatelessWidget {
   const SocialMedia({Key? key}) : super(key: key);

@@ -9,7 +9,7 @@ import 'package:tobeto_app/pages/curved/curved_button.dart';
 import 'package:tobeto_app/pages/home/home_page.dart';
 import 'package:tobeto_app/pages/login/login_page.dart';
 import 'package:tobeto_app/pages/onboard/onboarding_animation.dart';
-import 'package:tobeto_app/pages/profile/personal/personal_page.dart';
+import 'package:tobeto_app/pages/personal_information/personal_page.dart';
 import 'package:tobeto_app/pages/profile_edit/profile_edit_page.dart';
 import 'package:tobeto_app/pages/profile/profile_page.dart';
 import 'package:tobeto_app/pages/register/register_page.dart';

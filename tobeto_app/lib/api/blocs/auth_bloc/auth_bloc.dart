@@ -15,10 +15,10 @@ Bloc, event'leri ve state'leri asenkron olarak işler */
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tobeto_app/business_logic/blocs/auth_bloc/auth_event.dart';
-import 'package:tobeto_app/business_logic/blocs/auth_bloc/auth_state.dart';
-import 'package:tobeto_app/business_logic/repositories/auth_repository.dart';
-import 'package:tobeto_app/business_logic/repositories/user_repository.dart';
+import 'package:tobeto_app/api/blocs/auth_bloc/auth_event.dart';
+import 'package:tobeto_app/api/blocs/auth_bloc/auth_state.dart';
+import 'package:tobeto_app/api/repositories/auth_repository.dart';
+import 'package:tobeto_app/api/repositories/user_repository.dart';
 import 'package:tobeto_app/models/user_model.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {

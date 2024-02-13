@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 
-import 'package:tobeto_app/pages/profile/personal/personal_widget.dart';
+import 'package:tobeto_app/pages/personal_information/personal_widget.dart';
 
 class ForeignLanguage extends StatelessWidget {
   const ForeignLanguage({Key? key}) : super(key: key);
