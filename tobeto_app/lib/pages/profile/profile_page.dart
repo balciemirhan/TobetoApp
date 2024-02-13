@@ -12,9 +12,14 @@ import 'package:tobeto_app/models/user_model.dart';
 import 'package:tobeto_app/pages/profile/activity_map.dart';
 import 'package:tobeto_app/pages/profile/rozet.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   personal(BuildContext context,
       {required String image, required String text}) {
     return Row(

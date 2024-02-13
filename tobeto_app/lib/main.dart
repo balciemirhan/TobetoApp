@@ -2,13 +2,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_app/api/blocs/course_bloc/course_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/repositories/auth_repository.dart';
+import 'package:tobeto_app/api/repositories/course_repository.dart';
 import 'package:tobeto_app/api/repositories/storage_repository.dart';
 import 'package:tobeto_app/api/repositories/user_repository.dart';
 import 'package:tobeto_app/config/constant/theme/theme.dart';
 import 'package:tobeto_app/config/routes/app_routes.dart';
 import 'package:tobeto_app/firebase_options.dart';
+import 'package:tobeto_app/models/course_model.dart';
 
 Future<void> main() async {
   // Firebase'in mevcut platform için uygulamayı başlatması:
@@ -36,6 +39,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<ProfileBloc>(
             create: (context) =>
                 ProfileBloc(UserRepository(), StorageRepository())),
+        BlocProvider<CourseBloc>(
+          create: (context) => CourseBloc(CourseRepository()),
+        )
       ],
       child: MaterialApp(
         navigatorKey: navigatorKey,

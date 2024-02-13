@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_app/api/blocs/course_bloc/course_bloc.dart';
+import 'package:tobeto_app/api/blocs/course_bloc/course_event.dart';
+import 'package:tobeto_app/api/blocs/course_bloc/course_state.dart';
 import 'package:tobeto_app/config/constant/core/widget/top_bar_widget_interval.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/view_more/course_list_filter.dart';
@@ -28,7 +32,30 @@ class ViewMorePage extends StatelessWidget {
 
               //  <------- CourseListFilter (Search and Gridview (CourseItemVertical)) ------->
 
-              const CourseListFilter(),
+              BlocBuilder<CourseBloc, CourseState>(
+                builder: (context, state) {
+                  if (state is CourseInitial) {
+                    context.read<CourseBloc>().add(GetCourse());
+                    return const Center(child: Text("İstek Atılıyor..."));
+                  }
+                  if (state is CourseLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  if (state is CourseLoaded) {
+                    final course = state.course;
+
+                    return CourseListFilter(course: course);
+                  }
+                  if (state is CourseError) {
+                    return Center(
+                      child: Text(state.message),
+                    );
+                  }
+                  return const Center(
+                    child: Text("Geçmiş Olsun... "),
+                  );
+                },
+              ),
             ],
           ),
         ),

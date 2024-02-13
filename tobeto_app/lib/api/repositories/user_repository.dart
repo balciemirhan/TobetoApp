@@ -25,6 +25,7 @@ class UserRepository {
     userModel.userId = _auth.currentUser!.uid;
 
     await users.doc(userModel.userId).set(userModel.toMap());
+   // await users.add(userModel.toMap());
   }
 
   // ------------------------------- READ -------------------------------

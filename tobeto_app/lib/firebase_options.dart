@@ -66,6 +66,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '238720851965',
     projectId: 'tobetoapp-c22c7',
     storageBucket: 'tobetoapp-c22c7.appspot.com',
+    androidClientId: '238720851965-4avsnr6ntaflj28h1o3h211u195okpvp.apps.googleusercontent.com',
+    iosClientId: '238720851965-umkmmmim87ou6t8il3e2c8vchfclu77a.apps.googleusercontent.com',
     iosBundleId: 'com.example.tobetoApp',
   );
 
@@ -75,6 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '238720851965',
     projectId: 'tobetoapp-c22c7',
     storageBucket: 'tobetoapp-c22c7.appspot.com',
+    androidClientId: '238720851965-4avsnr6ntaflj28h1o3h211u195okpvp.apps.googleusercontent.com',
+    iosClientId: '238720851965-r541ro0l5l6jvb3vdl8vp0m9oij4qc1g.apps.googleusercontent.com',
     iosBundleId: 'com.example.tobetoApp.RunnerTests',
   );
 }

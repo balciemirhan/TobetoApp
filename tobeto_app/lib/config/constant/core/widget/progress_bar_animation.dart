@@ -4,7 +4,7 @@ import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 class ProgressBarAnimation extends StatefulWidget {
   const ProgressBarAnimation({Key? key, required this.progress})
       : super(key: key);
-  final double progress;
+  final num progress;
 
   @override
   State<StatefulWidget> createState() => _ProgressBarAnimationState();

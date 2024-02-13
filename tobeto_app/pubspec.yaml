@@ -50,6 +50,9 @@ dependencies:
   intl: ^0.19.0
   firebase_storage: ^11.6.5
   image_picker: ^1.0.7
+  video_player: ^2.8.2
+  flick_video_player: ^0.7.0
+  visibility_detector: ^0.4.0+2
 
 dev_dependencies:
   flutter_test:

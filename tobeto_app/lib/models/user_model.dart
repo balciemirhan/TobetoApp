@@ -52,6 +52,8 @@ class UserModel {
 // Map<k = key
 // Map<v = value
 
+// filtreleme:::
+
   Map<String, dynamic> toMap() {
     final classMap = _createMap();
     final Map<String, dynamic> map = {};

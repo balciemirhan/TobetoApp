@@ -6,6 +6,15 @@ import 'package:tobeto_app/models/course_model.dart';
   3 -> diğer
  */
 
+// firestore = haritalı
+// firestora dan gelirken fromMap => haritadan ilgili nesne ye dönüştür.
+
+List videoLink = [
+  "https://cdn.cms.medianova.com/p/132/sp/13200/serveFlavor/entryId/0_402pg2wr/v/2/ev/10/flavorId/0_jpibng14/forceproxy/true/name/a.mp4",
+  "https://cdn.cms.medianova.com/p/132/sp/13200/serveFlavor/entryId/0_1d1xnbrn/v/2/ev/10/flavorId/0_ccav4sj4/forceproxy/true/name/a.mp4",
+  "https://cdn.cms.medianova.com/p/132/sp/13200/serveFlavor/entryId/0_yiu6meor/v/2/ev/10/flavorId/0_t84jbjzz/forceproxy/true/name/a.mp4"
+];
+
 List<Course> courseList = <Course>[
   Course(
     title: "Dr. Ecmel Ayral'dan Hoşgeldin Mesajı",
@@ -15,6 +24,7 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/ecmel_ayran.png",
     progress: 100,
     filterNumber: 3,
+    videoLink: videoLink[0],
   ),
   Course(
     title: "Eğitimlere Nasıl Katılırım?",
@@ -24,6 +34,7 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/istanbul_kod.png",
     progress: 100,
     filterNumber: 3,
+    videoLink: videoLink[1],
   ),
   Course(
     title: "Herkes İçin Kodlama - 2B",
@@ -33,6 +44,7 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/kodlama.png",
     progress: 100,
     filterNumber: 3,
+    videoLink: videoLink[2],
   ),
   Course(
     title: "Hoşgeldin Buluşması - 2",

@@ -7,12 +7,13 @@ import 'package:tobeto_app/config/constant/core/widget/textfield_filter.dart';
 import 'package:tobeto_app/pages/view_more/course_item.dart';
 
 class CourseListFilter extends StatefulWidget {
-  const CourseListFilter({Key? key}) : super(key: key);
-
+  const CourseListFilter({Key? key, required this.course}) : super(key: key);
+  final List<Course> course;
   @override
   State createState() => _CourseListState();
 }
-
+// courseList = fakedata 
+// course = fire
 class _CourseListState extends State<CourseListFilter> {
   String searchText = "";
   List<Course> filteredCourses = [];
@@ -22,7 +23,7 @@ class _CourseListState extends State<CourseListFilter> {
   // Başlangıçta Tüm kurslar gözüksün
   void initState() {
     super.initState();
-    filteredCourses = courseList;
+    filteredCourses = widget.course;
   }
 
   // <---------- Filter Systems ---------->

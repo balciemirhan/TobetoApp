@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_advanced_drawer.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_appbar.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_drawer.dart';
+import 'package:tobeto_app/config/constant/format/collections.dart';
 import 'package:tobeto_app/data/course_data.dart';
 import 'package:tobeto_app/pages/home/course_cards.dart';
 import 'package:tobeto_app/pages/home/home_header.dart';
@@ -17,10 +19,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
+    final courseCollection = _firebaseFirestore.collection(Collections.course);
     /* final double deviceW = mediaQueryData.size.width; */
 
     final drawerController = AdvancedDrawerController();
@@ -46,6 +50,22 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(35),
                     child: BillBoard(),
                   ),
+
+                  // ------------ Firestore'a veri yükleme ------------
+
+                  /*   ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var course in courseList) {
+                          await courseCollection.add(course.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("firestore veri yükle..."),
+                  ), */
 
                   // ------------ Kategoriler / Tümünü Gör ------------
 
