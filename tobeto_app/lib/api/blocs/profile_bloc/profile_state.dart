@@ -19,30 +19,23 @@ class ProfileLoading extends ProfileState {
 // loaded
 // yüklendi...
 
-class ProfileInfoFetched extends ProfileState {
+class ProfileLoaded extends ProfileState {
   // profile bilgileri getireceğiz
   // ekrana yansıyan kısım
   UserModel user;
-  ProfileInfoFetched({
+  ProfileLoaded({
     required this.user,
   });
 }
 
-class ProfileInfoFetchFailed extends ProfileState {
+class ProfileError extends ProfileState {
   // veri yoksa
   String errorMessage;
-  ProfileInfoFetchFailed({
+  ProfileError({
     required this.errorMessage,
   });
 }
 
 class ProfileUpdated extends ProfileState {}
-
-class ProfileUpdatedFailed extends ProfileState {
-  String errorMessage;
-  ProfileUpdatedFailed({
-    required this.errorMessage,
-  });
-}
 
 class CloseBloc extends ProfileState {}

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/course_bloc/course_bloc.dart';
 import 'package:tobeto_app/api/blocs/course_bloc/course_event.dart';
 import 'package:tobeto_app/api/blocs/course_bloc/course_state.dart';
-import 'package:tobeto_app/data/course_data.dart';
 import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/pages/course/course_page.dart';
 

@@ -25,7 +25,7 @@ class UserRepository {
     userModel.userId = _auth.currentUser!.uid;
 
     await users.doc(userModel.userId).set(userModel.toMap());
-   // await users.add(userModel.toMap());
+    // await users.add(userModel.toMap());
   }
 
   // ------------------------------- READ -------------------------------
@@ -48,7 +48,7 @@ class UserRepository {
     if (documentSnapshot.exists) {
       return UserModel.fromMap(documentSnapshot.data() as Map<String, dynamic>);
     } else {
-      throw Exception("Hata !!!");
+      throw Exception("Hata!!!");
     }
   }
 

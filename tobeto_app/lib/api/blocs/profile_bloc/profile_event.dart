@@ -9,7 +9,7 @@ abstract class ProfileEvent {}
 // hali hazırdaki verilerim:
 // otomatik olarak userModel var
 
-class FetchProfileInfo extends ProfileEvent {}
+class GetProfil extends ProfileEvent {}
 
 // --------------- profile bilgilerimi güncelle---------------
 
@@ -20,11 +20,11 @@ class UpdateProfile extends ProfileEvent {
   UpdateProfile({required this.user, this.photo});
 }
 
-//---------- Temizle -----------------
-class ClearState extends ProfileEvent {}
-
 class UploadProfilePhoto extends ProfileEvent {
   final File photo;
 
   UploadProfilePhoto({required this.photo});
 }
+
+//---------- Temizle -----------------
+class ClearState extends ProfileEvent {}

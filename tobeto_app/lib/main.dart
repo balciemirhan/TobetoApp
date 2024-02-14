@@ -11,7 +11,6 @@ import 'package:tobeto_app/api/repositories/user_repository.dart';
 import 'package:tobeto_app/config/constant/theme/theme.dart';
 import 'package:tobeto_app/config/routes/app_routes.dart';
 import 'package:tobeto_app/firebase_options.dart';
-import 'package:tobeto_app/models/course_model.dart';
 
 Future<void> main() async {
   // Firebase'in mevcut platform için uygulamayı başlatması:

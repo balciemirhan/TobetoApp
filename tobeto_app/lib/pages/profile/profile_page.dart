@@ -42,13 +42,13 @@ class _ProfilePageState extends State<ProfilePage> {
       body: BlocBuilder<ProfileBloc, ProfileState>(
         builder: (context, state) {
           if (state is ProfileInitial || state is ProfileUpdated) {
-            context.read<ProfileBloc>().add(FetchProfileInfo());
+            context.read<ProfileBloc>().add(GetProfil());
             return const Center(child: Text("İstek Atılıyor..."));
           }
           if (state is ProfileLoading) {
             return const Center(child: CircularProgressIndicator());
           }
-          if (state is ProfileInfoFetched) {
+          if (state is ProfileLoaded) {
             UserModel user = state.user;
             return Container(
               padding: const EdgeInsets.only(top: 40),
@@ -122,7 +122,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             );
           }
-          if (state is ProfileInfoFetchFailed) {
+          if (state is ProfileError) {
             return Center(child: Text(state.errorMessage));
           }
           return Center(

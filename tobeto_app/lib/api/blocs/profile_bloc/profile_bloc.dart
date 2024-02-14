@@ -12,22 +12,22 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc(this._userRepository, this._storageRepository)
       : super(ProfileInitial()) {
     //context.read<CourseBloc>.add(FetchProfileInfo)
-    on<FetchProfileInfo>(_onFetchProfileInfo);
+    on<GetProfil>(_onGetProfile);
     on<UpdateProfile>(_onUpdateProfile);
-    on<ClearState>(_onClearState);
+    on<ClearState>(_onClear);
   }
 // -------------------- Verileri getir - oku --------------------
 
-  Future<void> _onFetchProfileInfo(
-      FetchProfileInfo event, Emitter<ProfileState> emit) async {
+  Future<void> _onGetProfile(
+      GetProfil event, Emitter<ProfileState> emit) async {
     emit(ProfileLoading()); // circular progress indicator
     try {
       // profil bilgilerinbi getiren fonksiyon
       UserModel user = await _userRepository.getUser(UserModel());
       // getirilen fonksiyon yay.UI yay.
-      emit(ProfileInfoFetched(user: user));
+      emit(ProfileLoaded(user: user));
     } catch (e) {
-      emit(ProfileInfoFetchFailed(errorMessage: "Hata"));
+      emit(ProfileError(errorMessage: e.toString()));
     }
   }
 
@@ -44,11 +44,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       await _userRepository.updateUser(event.user);
       emit(ProfileUpdated());
     } catch (e) {
-      emit(ProfileInfoFetchFailed(errorMessage: (e.toString())));
+      emit(ProfileError(errorMessage: (e.toString())));
     }
   }
 
-  void _onClearState(ClearState event, Emitter<ProfileState> emit) {
+  void _onClear(ClearState event, Emitter<ProfileState> emit) {
     emit(
         ProfileInitial()); // ClearState eventi alındığında state'i Initial olarak ayarlıyor
   }

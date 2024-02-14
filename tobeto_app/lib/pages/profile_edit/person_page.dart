@@ -46,7 +46,7 @@ class _PersonPageState extends State<PersonPage> {
         if (state is ProfileInitial) {
           //  context.read<ProfileBloc>().add(FetchProfileInfo());
         }
-        if (state is ProfileInfoFetched) {
+        if (state is ProfileLoaded) {
           UserModel user = state.user;
           _nameController.text = user.name ?? '';
           _surNameController.text = user.surname ?? '';

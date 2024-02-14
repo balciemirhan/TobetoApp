@@ -15,19 +15,19 @@ class CourseImage extends StatelessWidget {
       children: [
         // CustomVideoPlayer(videoLink: course.videoLink!),
         Container(
-          child: CustomVideoPlayer(
-            videoLink: course.videoLink!,
-          ),
           margin: const EdgeInsets.only(bottom: 20),
-          decoration: BoxDecoration(
-            boxShadow: const [
+          decoration: const BoxDecoration(
+            boxShadow: [
               BoxShadow(
                   blurRadius: 10, color: Color.fromARGB(255, 251, 251, 251))
             ],
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(50),
               bottomRight: Radius.circular(50),
             ),
+          ),
+          child: CustomVideoPlayer(
+            videoLink: course.videoLink!,
           ),
         ),
         Positioned(
