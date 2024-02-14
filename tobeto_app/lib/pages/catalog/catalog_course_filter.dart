@@ -7,7 +7,8 @@ import 'package:tobeto_app/config/constant/core/widget/textfield_filter.dart';
 import 'package:tobeto_app/pages/catalog/catalog_course_item.dart';
 
 class CatalogCourseFilter extends StatefulWidget {
-  const CatalogCourseFilter({Key? key}) : super(key: key);
+  const CatalogCourseFilter({Key? key, required this.catalog}) : super(key: key);
+  final List<CatalogCourse> catalog;
 
   @override
   State createState() => _CatalogCourseListState();
@@ -22,14 +23,14 @@ class _CatalogCourseListState extends State<CatalogCourseFilter> {
   // Başlangıçta Tüm kurslar gözüksün
   void initState() {
     super.initState();
-    filteredCatalogCourses = catalogCourseList;
+    filteredCatalogCourses = widget.catalog;
   }
 
   // <---------- Filter Systems ---------->
 
   void filterCatalogCourses() {
     setState(() {
-      filteredCatalogCourses = catalogCourseList
+      filteredCatalogCourses = widget.catalog
           .where((catalogCourse) =>
               catalogCourse.title
                   .toLowerCase()

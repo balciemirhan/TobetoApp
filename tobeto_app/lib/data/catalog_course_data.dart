@@ -14,7 +14,8 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/ecmel_ayran.png",
       progress: 45,
       filterNumber: 1,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen",
+      money: 0),
   CatalogCourse(
       title: "Sürdürülebilir Bir Dünya için Bireysel Farkındalık",
       lessonCount: "40 dk",
@@ -22,7 +23,8 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/istanbul_kod.png",
       progress: 70,
       filterNumber: 2,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen",
+      money: 0),
   CatalogCourse(
       title: "Hibrit Yaşamda Duyguyu Düzenleme",
       lessonCount: "53 dk",
@@ -30,7 +32,8 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/kodlama.png",
       progress: 50,
       filterNumber: 3,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen",
+      money: 0),
   CatalogCourse(
       title: "Dinle, Anla, İfade Et: Etkili İletişim Gelişim Yolculuğu",
       lessonCount: "3 sa 49 dk",
@@ -38,7 +41,8 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/ecmel_ayran.png",
       progress: 45,
       filterNumber: 1,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen",
+      money: 0),
   CatalogCourse(
       title: "Sürdürülebilir Bir Dünya için Bireysel Farkındalık",
       lessonCount: "40 dk",
@@ -46,7 +50,8 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/istanbul_kod.png",
       progress: 70,
       filterNumber: 2,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen",
+      money: 0),
   CatalogCourse(
       title: "Hibrit Yaşamda Duyguyu Düzenleme",
       lessonCount: "53 dk",
@@ -54,7 +59,8 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/kodlama.png",
       progress: 50,
       filterNumber: 3,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen",
+      money: 0),
   CatalogCourse(
       title: "Dinle, Anla, İfade Et: Etkili İletişim Gelişim Yolculuğu",
       lessonCount: "3 sa 49 dk",
@@ -62,7 +68,8 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/ecmel_ayran.png",
       progress: 45,
       filterNumber: 1,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen",
+      money: 0),
   CatalogCourse(
       title: "Sürdürülebilir Bir Dünya için Bireysel Farkındalık",
       lessonCount: "40 dk",
@@ -70,7 +77,8 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/istanbul_kod.png",
       progress: 70,
       filterNumber: 2,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen",
+      money: 0),
   CatalogCourse(
       title: "Hibrit Yaşamda Duyguyu Düzenleme",
       lessonCount: "53 dk",
@@ -78,7 +86,7 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/kodlama.png",
       progress: 50,
       filterNumber: 3,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen", money: 0),
   CatalogCourse(
       title: "Dinle, Anla, İfade Et: Etkili İletişim Gelişim Yolculuğu",
       lessonCount: "3 sa 49 dk",
@@ -86,7 +94,7 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/ecmel_ayran.png",
       progress: 45,
       filterNumber: 1,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen", money: 0),
   CatalogCourse(
       title: "Sürdürülebilir Bir Dünya için Bireysel Farkındalık",
       lessonCount: "40 dk",
@@ -94,7 +102,16 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/istanbul_kod.png",
       progress: 70,
       filterNumber: 2,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen", money: 0),
+      CatalogCourse(
+      title: "Sürdürülebilir Bir Dünya için Bireysel Farkındalık",
+      lessonCount: "40 dk",
+      rating: 4.3,
+      imagePath: "assets/images/course_images/istanbul_kod.png",
+      progress: 70,
+      filterNumber: 2,
+      instructor: "Gürkan İlişen",
+      money: 0),
   CatalogCourse(
       title: "Hibrit Yaşamda Duyguyu Düzenleme",
       lessonCount: "53 dk",
@@ -102,7 +119,7 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/kodlama.png",
       progress: 50,
       filterNumber: 3,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen", money: 0),
   CatalogCourse(
       title: "Dinle, Anla, İfade Et: Etkili İletişim Gelişim Yolculuğu",
       lessonCount: "3 sa 49 dk",
@@ -110,7 +127,7 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/ecmel_ayran.png",
       progress: 45,
       filterNumber: 1,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen", money: 0),
   CatalogCourse(
       title: "Sürdürülebilir Bir Dünya için Bireysel Farkındalık",
       lessonCount: "40 dk",
@@ -118,37 +135,6 @@ List<CatalogCourse> catalogCourseList = <CatalogCourse>[
       imagePath: "assets/images/course_images/istanbul_kod.png",
       progress: 70,
       filterNumber: 2,
-      instructor: "Gürkan İlişen"),
-  CatalogCourse(
-      title: "Hibrit Yaşamda Duyguyu Düzenleme",
-      lessonCount: "53 dk",
-      rating: 3.9,
-      imagePath: "assets/images/course_images/kodlama.png",
-      progress: 50,
-      filterNumber: 3,
-      instructor: "Gürkan İlişen"),
-  CatalogCourse(
-      title: "Dinle, Anla, İfade Et: Etkili İletişim Gelişim Yolculuğu",
-      lessonCount: "3 sa 49 dk",
-      rating: 4.6,
-      imagePath: "assets/images/course_images/ecmel_ayran.png",
-      progress: 45,
-      filterNumber: 1,
-      instructor: "Gürkan İlişen"),
-  CatalogCourse(
-      title: "Sürdürülebilir Bir Dünya için Bireysel Farkındalık",
-      lessonCount: "40 dk",
-      rating: 4.3,
-      imagePath: "assets/images/course_images/istanbul_kod.png",
-      progress: 70,
-      filterNumber: 2,
-      instructor: "Gürkan İlişen"),
-  CatalogCourse(
-      title: "Hibrit Yaşamda Duyguyu Düzenleme",
-      lessonCount: "53 dk",
-      rating: 3.9,
-      imagePath: "assets/images/course_images/kodlama.png",
-      progress: 50,
-      filterNumber: 3,
-      instructor: "Gürkan İlişen"),
+      instructor: "Gürkan İlişen", money: 0),
+  
 ];

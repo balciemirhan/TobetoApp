@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_app/api/blocs/catalog_bloc/catalog_bloc.dart';
+import 'package:tobeto_app/api/blocs/catalog_bloc/catalog_event.dart';
+import 'package:tobeto_app/api/blocs/catalog_bloc/catalog_state.dart';
 import 'package:tobeto_app/config/constant/core/widget/top_bar_widget_interval.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/catalog/catalog_course_filter.dart';
@@ -27,7 +31,29 @@ class CatalogPage extends StatelessWidget {
 
               //  <------- CourseListFilter (Search and Gridview (CourseItemVertical)) ------->
 
-              const CatalogCourseFilter(),
+              BlocBuilder<CatalogBloc, CatalogState>(
+                builder: (context, state) {
+                  if (state is CatalogInitial) {
+                    context.read<CatalogBloc>().add(GetCatalog());
+                  }
+                  if (state is CatalogLoading) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  if (state is CatalogLoaded) {
+                    final catalog = state.catalog;
+                    return CatalogCourseFilter(
+                      catalog: catalog,
+                    );
+                  }
+                  if (state is CatalogError) {
+                    return Center(child: Text(state.message));
+                  }
+
+                  return Container();
+                },
+              ),
             ],
           ),
         ),

@@ -5,6 +5,7 @@ import 'package:tobeto_app/config/constant/core/widget/drawer/my_advanced_drawer
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_appbar.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_drawer.dart';
 import 'package:tobeto_app/config/constant/format/collections.dart';
+import 'package:tobeto_app/data/catalog_course_data.dart';
 import 'package:tobeto_app/data/course_data.dart';
 import 'package:tobeto_app/pages/home/course_cards.dart';
 import 'package:tobeto_app/pages/home/home_header.dart';
@@ -25,6 +26,8 @@ class _HomePageState extends State<HomePage> {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
     final courseCollection = _firebaseFirestore.collection(Collections.course);
+    final catalogCourseCollection =
+        _firebaseFirestore.collection(Collections.catalogCourse);
     /* final double deviceW = mediaQueryData.size.width; */
 
     final drawerController = AdvancedDrawerController();
@@ -51,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                     child: BillBoard(),
                   ),
 
-                  // ------------ Firestore'a veri yükleme ------------
+                  // ------------ Firestore'a  course  veri yükleme ------------
 
                   /*   ElevatedButton.icon(
                     onPressed: () async {
@@ -66,6 +69,22 @@ class _HomePageState extends State<HomePage> {
                     icon: const Icon(Icons.upload),
                     label: const Text("firestore veri yükle..."),
                   ), */
+
+                  // ------------ Firestore'a  catalog   veri yükleme ------------
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var catalogCourse in catalogCourseList) {
+                          await catalogCourseCollection
+                              .add(catalogCourse.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("firestore veri yükle..."),
+                  ),
 
                   // ------------ Kategoriler / Tümünü Gör ------------
 
