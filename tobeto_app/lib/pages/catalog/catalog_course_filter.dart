@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
-import 'package:tobeto_app/data/catalog_course_data.dart';
 import 'package:tobeto_app/models/catalog_course_model.dart';
 import 'package:tobeto_app/config/constant/core/widget/textfield_filter.dart';
 import 'package:tobeto_app/pages/catalog/catalog_course_item.dart';
 
 class CatalogCourseFilter extends StatefulWidget {
-  const CatalogCourseFilter({Key? key, required this.catalog}) : super(key: key);
+  const CatalogCourseFilter({Key? key, required this.catalog})
+      : super(key: key);
   final List<CatalogCourse> catalog;
 
   @override

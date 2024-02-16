@@ -21,7 +21,17 @@ class CoursePage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  AppTextTheme.small(course.title, context),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      AppTextTheme.small(course.title, context),
+                      IconButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/note");
+                          },
+                          icon: const Icon(Icons.note_alt_outlined))
+                    ],
+                  ),
                   const SizedBox(
                     height: 20,
                   ),

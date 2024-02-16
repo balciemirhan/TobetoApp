@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_app/api/blocs/auth_bloc/auth_event.dart';
+import 'package:tobeto_app/api/blocs/note_model/note_bloc.dart';
+import 'package:tobeto_app/api/blocs/note_model/note_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
@@ -183,6 +185,7 @@ void _handleMenuSelection(BuildContext context, dynamic value) {
     case _MenuValues.exit:
       context.read<AuthBloc>().add(UserOut());
       context.read<ProfileBloc>().add(ClearState());
+      context.read<NoteBloc>().add(ClearNote());
       Navigator.of(context).pushNamed("/login");
       break;
   }

@@ -1,5 +1,5 @@
+/* import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flick_video_player/flick_video_player.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -62,36 +62,50 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
           flickManager.flickControlManager?.autoResume();
         }
       },
-      child: FlickVideoPlayer(
-        flickManager: flickManager,
-        flickVideoWithControls: FlickVideoWithControls(
-          closedCaptionTextStyle: const TextStyle(fontSize: 8),
-          controls: FlickPortraitControls(
-              iconSize: 30,
-              progressBarSettings: FlickProgressBarSettings(
-                playedColor: Colors.amber,
-                handleColor: Colors.black,
-                backgroundColor: Colors.green,
-                handleRadius: 10,
-                height: 10,
-                bufferedColor: Colors.transparent,
-              )),
-          iconThemeData: const IconThemeData(color: Colors.red),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 20),
+        decoration: BoxDecoration(
+          boxShadow: const [BoxShadow(blurRadius: 10, color: Colors.black)],
+          image: DecorationImage(
+              image: AssetImage(widget.videoLink), fit: BoxFit.cover),
+          borderRadius: const BorderRadius.only(
+            bottomLeft: Radius.circular(50),
+            bottomRight: Radius.circular(50),
+          ),
         ),
-        flickVideoWithControlsFullscreen: FlickVideoWithControls(
-          controls: FlickPortraitControls(
-              iconSize: 30,
-              progressBarSettings: FlickProgressBarSettings(
-                playedColor: Colors.amber,
-                handleColor: Colors.black,
-                backgroundColor: Colors.green,
-                handleRadius: 10,
-                height: 10,
-                bufferedColor: Colors.transparent,
-              )),
-          iconThemeData: const IconThemeData(color: Colors.red),
+        //color: Colors.grey,
+        child: FlickVideoPlayer(
+          flickManager: flickManager,
+          flickVideoWithControls: FlickVideoWithControls(
+            closedCaptionTextStyle: const TextStyle(fontSize: 8),
+            controls: FlickPortraitControls(
+                iconSize: 30,
+                progressBarSettings: FlickProgressBarSettings(
+                  playedColor: Colors.amber,
+                  handleColor: Colors.black,
+                  backgroundColor: Colors.green,
+                  handleRadius: 10,
+                  height: 10,
+                  bufferedColor: Colors.transparent,
+                )),
+            iconThemeData: const IconThemeData(color: Colors.red),
+          ),
+          flickVideoWithControlsFullscreen: FlickVideoWithControls(
+            controls: FlickPortraitControls(
+                iconSize: 30,
+                progressBarSettings: FlickProgressBarSettings(
+                  playedColor: Colors.amber,
+                  handleColor: Colors.black,
+                  backgroundColor: Colors.green,
+                  handleRadius: 10,
+                  height: 10,
+                  bufferedColor: Colors.transparent,
+                )),
+            iconThemeData: const IconThemeData(color: Colors.red),
+          ),
         ),
       ),
     );
   }
 }
+ */

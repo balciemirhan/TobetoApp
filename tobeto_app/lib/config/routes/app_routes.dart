@@ -8,6 +8,7 @@ import 'package:tobeto_app/pages/course/course_view_page.dart';
 import 'package:tobeto_app/pages/curved/curved_button.dart';
 import 'package:tobeto_app/pages/home/home_page.dart';
 import 'package:tobeto_app/pages/login/login_page.dart';
+import 'package:tobeto_app/pages/note/note_page.dart';
 import 'package:tobeto_app/pages/onboard/onboarding_animation.dart';
 import 'package:tobeto_app/pages/personal_information/personal_page.dart';
 import 'package:tobeto_app/pages/profile_edit/profile_edit_page.dart';
@@ -38,6 +39,7 @@ final class AppRoute {
   static const String catalog = "/catalog";
   static const String register = "/register";
   static const String personall = "/personal";
+  static const String note = "/note";
 
   static Map<String, AppRouteMapFunction> routes = {
     // onboard:(context) => const OnBoardScreen();
@@ -56,6 +58,7 @@ final class AppRoute {
     catalog: (context) => const CatalogPage(),
     register: (context) => RegisterPage(),
     personall: (context) => const PersonalPage(),
+    note: (context) => const NotePage(),
   };
 }
 

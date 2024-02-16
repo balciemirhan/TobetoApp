@@ -1,16 +1,14 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_advanced_drawer.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_appbar.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_drawer.dart';
-import 'package:tobeto_app/config/constant/format/collections.dart';
-import 'package:tobeto_app/data/catalog_course_data.dart';
 import 'package:tobeto_app/data/course_data.dart';
 import 'package:tobeto_app/pages/home/course_cards.dart';
 import 'package:tobeto_app/pages/home/home_header.dart';
 import 'package:tobeto_app/pages/home/course_cards_title.dart';
 import 'package:tobeto_app/pages/home/bill_board.dart';
+import 'package:tobeto_app/pages/home/last_course_video.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,14 +18,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+  //final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
-    final courseCollection = _firebaseFirestore.collection(Collections.course);
+    /*  final courseCollection = _firebaseFirestore.collection(Collections.course);
     final catalogCourseCollection =
-        _firebaseFirestore.collection(Collections.catalogCourse);
+        _firebaseFirestore.collection(Collections.catalogCourse); */
     /* final double deviceW = mediaQueryData.size.width; */
 
     final drawerController = AdvancedDrawerController();
@@ -71,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                   ), */
 
                   // ------------ Firestore'a  catalog   veri yükleme ------------
-                  ElevatedButton.icon(
+                  /* ElevatedButton.icon(
                     onPressed: () async {
                       bool dataAdded = false;
                       if (!dataAdded) {
@@ -84,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     icon: const Icon(Icons.upload),
                     label: const Text("firestore veri yükle..."),
-                  ),
+                  ), */
 
                   // ------------ Kategoriler / Tümünü Gör ------------
 
@@ -108,20 +106,20 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  /* const Padding(padding: EdgeInsets.only(top: 20)), 
+                  const Padding(padding: EdgeInsets.only(top: 20)),
 
                   // ------------ Popüler Kurslar ------------
-                  const Padding(
+                  /*   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                     child: PopularWidget(),
-                  ),
+                  ), */
 
                   // ------------ En son izlediğiniz ders ------------
-                  const Padding(
+                  /*   const Padding(
                     padding: EdgeInsets.all(35),
                     child: LastCourseVideo(),
-                  )
-*/
+                  ) */
+
                   //   bottomNavigationBari yani alt butonların yönetimi -->
                   //CurvedNavBarWidget() ' da yönetiliyor.
                 ],
