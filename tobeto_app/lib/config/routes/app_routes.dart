@@ -1,7 +1,6 @@
 // route = sayfa geçişleri yönetimi için kullanılır.
 // typedef = tanımlı fonksiyonlar. ( Widget fonskiyo'nun tanımını kısalttım.)
 import 'package:flutter/material.dart';
-
 import 'package:tobeto_app/pages/calendar/calendar_page.dart';
 import 'package:tobeto_app/pages/catalog/catalog_page.dart';
 import 'package:tobeto_app/pages/course/course_view_page.dart';

@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/note_model/note_bloc.dart';
 import 'package:tobeto_app/api/blocs/note_model/note_event.dart';
 import 'package:tobeto_app/api/blocs/note_model/note_state.dart';
-import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 import 'package:tobeto_app/models/note_model.dart';
 
 class NotePage extends StatelessWidget {
@@ -61,7 +60,7 @@ class NotePage extends StatelessWidget {
                               showDialog(
                                 context: context,
                                 builder: (context) => AlertDialog(
-                                  content: Container(
+                                  content: SizedBox(
                                     height: 300,
                                     width: 300,
                                     child: TextField(
@@ -122,7 +121,7 @@ class NotePage extends StatelessWidget {
               context: context,
               builder: (context) => AlertDialog(
                     scrollable: true,
-                    content: Container(
+                    content: SizedBox(
                       height: 300,
                       width: 300,
                       child: TextField(

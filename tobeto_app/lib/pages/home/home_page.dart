@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_advanced_drawer.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_appbar.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_drawer.dart';
+import 'package:tobeto_app/config/constant/format/collections.dart';
+import 'package:tobeto_app/data/classes_data.dart';
 import 'package:tobeto_app/data/course_data.dart';
 import 'package:tobeto_app/pages/home/course_cards.dart';
 import 'package:tobeto_app/pages/home/home_header.dart';
@@ -18,11 +21,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  //final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
+    final classesCollection =
+        _firebaseFirestore.collection(Collections.classes);
     /*  final courseCollection = _firebaseFirestore.collection(Collections.course);
     final catalogCourseCollection =
         _firebaseFirestore.collection(Collections.catalogCourse); */
@@ -83,6 +88,22 @@ class _HomePageState extends State<HomePage> {
                     icon: const Icon(Icons.upload),
                     label: const Text("firestore veri yükle..."),
                   ), */
+
+                  // ------------ Firestore'a  classes   veri yükleme ------------
+
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var classes in classesList) {
+                          await classesCollection.add(classes.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("firestore veri yükle..."),
+                  ),
 
                   // ------------ Kategoriler / Tümünü Gör ------------
 

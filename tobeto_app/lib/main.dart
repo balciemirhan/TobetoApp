@@ -2,11 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_app/api/blocs/calendar_bloc/calendar_bloc.dart';
 import 'package:tobeto_app/api/blocs/catalog_bloc/catalog_bloc.dart';
 import 'package:tobeto_app/api/blocs/course_bloc/course_bloc.dart';
 import 'package:tobeto_app/api/blocs/note_model/note_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/repositories/auth_repository.dart';
+import 'package:tobeto_app/api/repositories/calendar_repository.dart';
 import 'package:tobeto_app/api/repositories/catalog_repository.dart';
 import 'package:tobeto_app/api/repositories/course_repository.dart';
 import 'package:tobeto_app/api/repositories/note_repository.dart';
@@ -47,6 +49,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<CatalogBloc>(
           create: (context) => CatalogBloc(CatalogRepository()),
+        ),
+        BlocProvider<ClassesBloc>(
+          create: (context) => ClassesBloc(CalendarRepository()),
         ),
         BlocProvider<NoteBloc>(
           create: (context) => NoteBloc(

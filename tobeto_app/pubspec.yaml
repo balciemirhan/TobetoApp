@@ -53,6 +53,7 @@ dependencies:
   video_player: ^2.8.2
   visibility_detector: ^0.4.0+2
   flick_video_player: ^0.7.0
+  flutter_neat_and_clean_calendar: ^0.3.16+36
 
 dev_dependencies:
   flutter_test:

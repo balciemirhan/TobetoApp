@@ -1,101 +1,84 @@
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
-
-///Renders calendar widget
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_neat_and_clean_calendar/flutter_neat_and_clean_calendar.dart';
+import 'package:tobeto_app/api/blocs/calendar_bloc/calendar_bloc.dart';
+import 'package:tobeto_app/api/blocs/calendar_bloc/calendar_event.dart';
+import 'package:tobeto_app/api/blocs/calendar_bloc/calendar_state.dart';
+import 'package:tobeto_app/models/classes_model.dart';
+import 'package:tobeto_app/pages/calendar/calendar_item.dart';
 
 class CalendarPage extends StatefulWidget {
-  const CalendarPage({Key? key}) : super(key: key);
+  const CalendarPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<CalendarPage> createState() => _MyHomePageState();
+  State<CalendarPage> createState() => _CalendarPageState();
 }
 
-class _MyHomePageState extends State<CalendarPage> {
+class _CalendarPageState extends State<CalendarPage> {
+  late Classes classes;
+  late EventsData eventsData;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () => Navigator.of(context).pushNamed("/curved"),
-            icon: const Icon(Icons.arrow_back),
-          ),
+      body: SafeArea(
+        child: BlocBuilder<ClassesBloc, ClassesState>(
+          builder: (context, state) {
+            if (state is ClassesInitial) {
+              context.read<ClassesBloc>().add(GetClasses());
+            }
+            if (state is ClassesLoading) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if (state is ClassesLoaded) {
+              final classesList = state.classes;
+              eventsData = EventsData(classesList);
+
+              return Calendar(
+                //Takvim o haftayı gösteriyo
+                //Başlangıç gününü mevcut günün bulunduğu pazartesi seçmesini istedim
+                startOnMonday: true,
+                //Hafta günlerinin kısaltmalarını buraya giriyoruz.
+                weekDays: const [
+                  "Pzt",
+                  "Sal",
+                  "Çar",
+                  "Per",
+                  "Cum",
+                  "Cmt",
+                  "Paz"
+                ],
+                //Bulunduğu günü ay görünümüne büyütmek için
+                isExpandable: false,
+                todayColor: Colors.red,
+                todayButtonText: "Bugüne Git",
+
+                eventsList: eventsData.baseList,
+                //Expandable kısmı  türkçeleştiriyor
+                locale: "tr_TR",
+                //AllDay evenet text'ini set ediyoruz
+                allDayEventText: "Tüm gün",
+                //Çoklu gün etkinliği son gün gösterimini set ediyoruz
+                multiDayEndText: "Son gün",
+                isExpanded: true,
+                eventTileHeight: MediaQuery.of(context).size.height * 0.10,
+              );
+            }
+            if (state is ClassesError) {
+              return Center(child: Text(state.message));
+            }
+            return Container();
+          },
         ),
-        body: SfCalendar(
-          /*     headerHeight: 70, */
-          headerStyle: const CalendarHeaderStyle(
-            backgroundColor: Color.fromARGB(255, 183, 143, 252),
-            textStyle: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2,
-            ),
-          ),
-          backgroundColor: Colors.grey[200],
-          view: CalendarView.month,
-          dataSource: _MeetingDataSource(_getDataSource()),
-          monthViewSettings: const MonthViewSettings(
-              appointmentDisplayMode: MonthAppointmentDisplayMode.appointment,
-              showAgenda: true),
-        ));
-  }
-
-  List<_Meeting> _getDataSource() {
-    final List<_Meeting> meetings = <_Meeting>[];
-    final DateTime today = DateTime.now();
-    final DateTime startTime =
-        DateTime(today.year, today.month, today.day, 9, 0, 0);
-    final DateTime endTime = startTime.add(const Duration(hours: 2));
-    meetings.add(
-      _Meeting(AppText.calendarMentor, startTime, endTime,
-          const Color(0xFF0F8644), false),
+      ),
     );
-    meetings.add(
-      _Meeting(AppText.calendarCampus, startTime, endTime,
-          const Color(0xFF0F8644), false),
-    );
-    return meetings;
   }
 }
 
-class _MeetingDataSource extends CalendarDataSource {
-  _MeetingDataSource(List<_Meeting> source) {
-    appointments = source;
-  }
 
-  @override
-  DateTime getStartTime(int index) {
-    return appointments![index].from;
-  }
 
-  @override
-  DateTime getEndTime(int index) {
-    return appointments![index].to;
-  }
-
-  @override
-  String getSubject(int index) {
-    return appointments![index].eventName;
-  }
-
-  @override
-  Color getColor(int index) {
-    return appointments![index].background;
-  }
-
-  @override
-  bool isAllDay(int index) {
-    return appointments![index].isAllDay;
-  }
-}
-
-class _Meeting {
-  _Meeting(this.eventName, this.from, this.to, this.background, this.isAllDay);
-
-  String eventName;
-  DateTime from;
-  DateTime to;
-  Color background;
-  bool isAllDay;
-}
+//---------------Days Datas-----------------------

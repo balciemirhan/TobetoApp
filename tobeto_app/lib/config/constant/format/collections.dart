@@ -4,4 +4,5 @@ class Collections {
   static const String course = "course";
   static const String catalogCourse = "catalogCourse";
   static const String note = "note";
+  static const String classes = "classes";
 }
