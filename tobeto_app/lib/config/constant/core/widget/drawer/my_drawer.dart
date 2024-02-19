@@ -6,8 +6,10 @@ import 'package:tobeto_app/api/blocs/note_model/note_bloc.dart';
 import 'package:tobeto_app/api/blocs/note_model/note_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
+import 'package:tobeto_app/config/constant/core/widget/drawer/selaction.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
+import 'package:tobeto_app/data/application.dart';
 
 class MyDrawer extends StatelessWidget {
   MyDrawer({Key? key}) : super(key: key);
@@ -67,6 +69,9 @@ class MyDrawer extends StatelessWidget {
                     width: 25),
                 title: AppText.tobeto,
                 onTap: () {}),
+            MySecondListTile(
+              applicationList: applicationList,
+            ),
             const Spacer(flex: 2),
             DefaultTextStyle(
               style: const TextStyle(
