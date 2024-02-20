@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                     label: const Text("firestore veri yükle..."),
                   ),
                   */
-                  ElevatedButton.icon(
+                 /* ElevatedButton.icon(
                     onPressed: () async {
                       bool dataAdded = false;
                       if (!dataAdded) {
@@ -138,6 +138,7 @@ class _HomePageState extends State<HomePage> {
                     icon: const Icon(Icons.upload),
                     label: const Text("firestore veri yükle..."),
                   ),
+                  */
 
                   // ------------ Kategoriler / Tümünü Gör ------------
 
