@@ -14,6 +14,7 @@ import 'package:tobeto_app/pages/profile_edit/profile_edit_page.dart';
 import 'package:tobeto_app/pages/profile/profile_page.dart';
 import 'package:tobeto_app/pages/register/register_page.dart';
 import 'package:tobeto_app/pages/settings/setting_page.dart';
+import 'package:tobeto_app/pages/start/start_page.dart';
 import 'package:tobeto_app/pages/view_more/view_more_page.dart';
 
 typedef AppRouteMapFunction = Widget Function(BuildContext context);
@@ -39,6 +40,7 @@ final class AppRoute {
   static const String register = "/register";
   static const String personall = "/personal";
   static const String note = "/note";
+  static const String start = "/start";
 
   static Map<String, AppRouteMapFunction> routes = {
     // onboard:(context) => const OnBoardScreen();
@@ -58,6 +60,7 @@ final class AppRoute {
     register: (context) => RegisterPage(),
     personall: (context) => const PersonalPage(),
     note: (context) => const NotePage(),
+    start: (context) => const StartPage(),
   };
 }
 

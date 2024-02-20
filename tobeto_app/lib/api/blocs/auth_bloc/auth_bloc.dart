@@ -40,9 +40,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     _firebaseAuth.authStateChanges().listen((user) {
       if (user != null) {
-        (Authenticated(user: user));
+        emit(Authenticated(user: user));
       } else {
-        (NotAuthenticated());
+        emit(NotAuthenticated());
       }
     });
   }
@@ -51,6 +51,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   // emit =>  bir Bloc sınıfının durumunu güncellemek için kullanılır ve yalnızca Bloc sınıfının içinde kullanılabilir.
 
   void _onLoginUser(LoginUser event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
     try {
       await _authRepository.loginUser(event.email, event.password);
       emit(Authenticated(user: _firebaseAuth.currentUser));
@@ -60,6 +61,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   void _onCreateUser(CreateUser event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
     try {
       await _authRepository.createUser(
           event.email, event.password, event.confirmPassword);

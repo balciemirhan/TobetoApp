@@ -61,7 +61,7 @@ class RegisterPage extends StatelessWidget {
                     child: NowBottom(
                       text: AppText.already,
                       text2: AppText.loginNow,
-                      onTap: () => Navigator.pushNamed(context, "/login"),
+                      onTap: onTap,
                     ),
                   )
                 ],

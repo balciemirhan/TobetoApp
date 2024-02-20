@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/config/constant/core/widget/lottie_button.dart';
+import 'package:tobeto_app/pages/course/video_player.dart';
 
 class CourseImage extends StatelessWidget {
   const CourseImage({Key? key, required this.course}) : super(key: key);
@@ -12,7 +13,6 @@ class CourseImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        //CustomVideoPlayer(videoLink: course.videoLink!),
         Container(
           margin: const EdgeInsets.only(bottom: 20),
           decoration: const BoxDecoration(
@@ -25,9 +25,9 @@ class CourseImage extends StatelessWidget {
               bottomRight: Radius.circular(50),
             ),
           ),
-          /*  child: CustomVideoPlayer(
+          child: CustomVideoPlayer(
             videoLink: course.videoLink!,
-          ), */
+          ),
         ),
         Positioned(
             top: 30,

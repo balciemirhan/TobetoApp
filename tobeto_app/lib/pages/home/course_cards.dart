@@ -11,33 +11,38 @@ class CourseCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(10),
-      child: NeuBox(
-        width: 200,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: NeuBox(
-                height: 80,
-                width: 80,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image(
-                    image: AssetImage(
-                      course.imagePath,
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, "/course", arguments: course.title);
+      },
+      child: Container(
+        margin: const EdgeInsets.all(10),
+        child: NeuBox(
+          width: 200,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: NeuBox(
+                  height: 80,
+                  width: 80,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image(
+                      image: AssetImage(
+                        course.imagePath,
+                      ),
+                      fit: BoxFit.cover,
                     ),
-                    fit: BoxFit.cover,
                   ),
                 ),
               ),
-            ),
-            AppTextTheme.small(course.title, context,
-                textAlign: TextAlign.center, fontWeight: FontWeight.normal)
-          ],
+              AppTextTheme.small(course.title, context,
+                  textAlign: TextAlign.center, fontWeight: FontWeight.normal)
+            ],
+          ),
         ),
       ),
     );

@@ -26,10 +26,11 @@ class CreateUser extends AuthEvent {
   final String password;
   final String confirmPassword;
 
-  CreateUser(
-      {required this.email,
-      required this.password,
-      required this.confirmPassword});
+  CreateUser({
+    required this.email,
+    required this.password,
+    required this.confirmPassword,
+  });
 }
 
 // ------------- singOut -------------

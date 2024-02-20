@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tobeto_app/api/blocs/note_model/note_bloc.dart';
-import 'package:tobeto_app/api/blocs/note_model/note_event.dart';
-import 'package:tobeto_app/api/blocs/note_model/note_state.dart';
+import 'package:tobeto_app/api/blocs/note_bloc/note_bloc.dart';
+import 'package:tobeto_app/api/blocs/note_bloc/note_event.dart';
+import 'package:tobeto_app/api/blocs/note_bloc/note_state.dart';
 import 'package:tobeto_app/models/note_model.dart';
 
 class NotePage extends StatelessWidget {

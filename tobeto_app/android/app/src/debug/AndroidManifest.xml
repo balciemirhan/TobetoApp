@@ -7,7 +7,5 @@
     
 Put this in your AndroidManifest.xml
 
-<application>
-android:usesCleartextTraffic="true"
- </application>
+
 </manifest>

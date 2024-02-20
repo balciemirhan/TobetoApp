@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
+
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/models/user_model.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({Key? key}) : super(key: key);
-
+  const HomeHeader({
+    Key? key,
+    required this.user,
+  }) : super(key: key);
+  final UserModel user;
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: AppTextTheme.large(AppText.homeWelcome, context),
-    );
+        child: user.name != null
+            ? AppTextTheme.large("Hoş Geldin, ${user.name}", context)
+            : AppTextTheme.large("Hoş Geldin 👋", context));
   }
 }

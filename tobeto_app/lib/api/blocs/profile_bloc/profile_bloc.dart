@@ -11,7 +11,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   ProfileBloc(this._userRepository, this._storageRepository)
       : super(ProfileInitial()) {
-    //context.read<CourseBloc>.add(FetchProfileInfo)
     on<GetProfil>(_onGetProfile);
     on<UpdateProfile>(_onUpdateProfile);
     on<ClearState>(_onClear);

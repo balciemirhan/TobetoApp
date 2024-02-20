@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tobeto_app/api/blocs/note_model/note_event.dart';
-import 'package:tobeto_app/api/blocs/note_model/note_state.dart';
+import 'package:tobeto_app/api/blocs/note_bloc/note_event.dart';
+import 'package:tobeto_app/api/blocs/note_bloc/note_state.dart';
 import 'package:tobeto_app/api/repositories/note_repository.dart';
 import 'package:tobeto_app/models/note_model.dart';
 

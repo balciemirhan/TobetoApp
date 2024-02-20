@@ -9,9 +9,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AuthState {}
 
-class AuthInitial extends AuthState {} // ---> başlangıç
+class AuthInitial extends AuthState {}
 
-class Authenticated extends AuthState { // ---> giriş yap
+class AuthLoading extends AuthState {} // ---> başlangıç
+
+class Authenticated extends AuthState {
+  // ---> giriş yap
   User? user; // kullanıcının user verir. Buna göre de giriş izni.
 
   Authenticated({
@@ -24,10 +27,9 @@ class Authenticated extends AuthState { // ---> giriş yap
 
 class NotAuthenticated extends AuthState {} //  --> giriş yapmadan önceki sayfa.
 
-class AuthError extends AuthState { // ---> Error
+class AuthError extends AuthState {
+  // ---> Error
   final String message;
 
   AuthError({required this.message});
 }
-
-

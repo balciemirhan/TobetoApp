@@ -7,7 +7,7 @@ import 'package:tobeto_app/api/blocs/calendar_bloc/calendar_bloc.dart';
 import 'package:tobeto_app/api/blocs/catalog_bloc/catalog_bloc.dart';
 import 'package:tobeto_app/api/blocs/course_bloc/course_bloc.dart';
 import 'package:tobeto_app/api/blocs/exam_bloc/exam_bloc.dart';
-import 'package:tobeto_app/api/blocs/note_model/note_bloc.dart';
+import 'package:tobeto_app/api/blocs/note_bloc/note_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/repositories/application_repository.dart';
 import 'package:tobeto_app/api/repositories/auth_repository.dart';
@@ -21,7 +21,6 @@ import 'package:tobeto_app/api/repositories/user_repository.dart';
 import 'package:tobeto_app/config/constant/theme/theme.dart';
 import 'package:tobeto_app/config/routes/app_routes.dart';
 import 'package:tobeto_app/firebase_options.dart';
-import 'package:tobeto_app/models/application_model.dart';
 
 Future<void> main() async {
   // Firebase'in mevcut platform için uygulamayı başlatması:
@@ -41,10 +40,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthBloc>(
-          create: (context) => AuthBloc(
-            AuthRepository(),
-            UserRepository(),
-          ),
+          create: (context) => AuthBloc(AuthRepository(), UserRepository()),
         ),
         BlocProvider<ProfileBloc>(
             create: (context) =>
@@ -65,9 +61,7 @@ class MyApp extends StatelessWidget {
           create: (context) => ApplicationBloc(ApplicationRepostiory()),
         ),
         BlocProvider<NoteBloc>(
-          create: (context) => NoteBloc(
-            NoteRepository(),
-          ),
+          create: (context) => NoteBloc(NoteRepository()),
         )
       ],
       child: MaterialApp(
@@ -83,7 +77,7 @@ class MyApp extends StatelessWidget {
 
         // --------------------------- ROUTE ---------------------------
 
-        initialRoute: AppRoute.curved,
+        initialRoute: AppRoute.start,
         routes: AppRoute.routes,
       ),
     );

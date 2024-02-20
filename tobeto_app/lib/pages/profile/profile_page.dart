@@ -43,7 +43,6 @@ class _ProfilePageState extends State<ProfilePage> {
         builder: (context, state) {
           if (state is ProfileInitial || state is ProfileUpdated) {
             context.read<ProfileBloc>().add(GetProfil());
-            return const Center(child: Text("İstek Atılıyor..."));
           }
           if (state is ProfileLoading) {
             return const Center(child: CircularProgressIndicator());

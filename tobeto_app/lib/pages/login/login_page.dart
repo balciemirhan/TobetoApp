@@ -58,8 +58,7 @@ class LoginPage extends StatelessWidget {
                       child: NowBottom(
                         text: AppText.member,
                         text2: AppText.registerNow,
-                        onTap: () =>
-                            Navigator.of(context).pushNamed("/register"),
+                        onTap: onTap,
                       ),
                     )
                     /* const LoginNow() */
