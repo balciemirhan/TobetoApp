@@ -5,8 +5,10 @@ import 'package:tobeto_app/config/constant/core/widget/drawer/my_advanced_drawer
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_appbar.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_drawer.dart';
 import 'package:tobeto_app/config/constant/format/collections.dart';
+import 'package:tobeto_app/data/application.dart';
 import 'package:tobeto_app/data/classes_data.dart';
 import 'package:tobeto_app/data/course_data.dart';
+import 'package:tobeto_app/data/exam_model.dart';
 import 'package:tobeto_app/pages/home/course_cards.dart';
 import 'package:tobeto_app/pages/home/home_header.dart';
 import 'package:tobeto_app/pages/home/course_cards_title.dart';
@@ -31,6 +33,9 @@ class _HomePageState extends State<HomePage> {
     /*  final courseCollection = _firebaseFirestore.collection(Collections.course);
     final catalogCourseCollection =
         _firebaseFirestore.collection(Collections.catalogCourse); */
+    final examCollection = _firebaseFirestore.collection(Collections.exam);
+    final applicationCollection =
+        _firebaseFirestore.collection(Collections.application);
     /* final double deviceW = mediaQueryData.size.width; */
 
     final drawerController = AdvancedDrawerController();
@@ -91,12 +96,41 @@ class _HomePageState extends State<HomePage> {
 
                   // ------------ Firestore'a  classes   veri yükleme ------------
 
-                  ElevatedButton.icon(
+                  /*ElevatedButton.icon(
                     onPressed: () async {
                       bool dataAdded = false;
                       if (!dataAdded) {
                         for (var classes in classesList) {
                           await classesCollection.add(classes.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("firestore veri yükle..."),
+                  ),*/
+
+                  //--------------------------*****EXAM VERİSİ YÜKLEME
+                  /*ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var exam in examList) {
+                          await examCollection.add(exam.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("firestore veri yükle..."),
+                  ),
+                  */
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var application in applicationList) {
+                          await applicationCollection.add(application.toMap());
                         }
                         dataAdded = true;
                       }

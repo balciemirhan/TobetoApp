@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/drawer/cotom.dart';
+import 'package:tobeto_app/config/constant/core/widget/drawer/customDilok.dart';
 import 'package:tobeto_app/models/application_model.dart';
 
 class MySecondListTile extends StatelessWidget {
@@ -28,14 +28,14 @@ class MySecondListTile extends StatelessWidget {
           showDialog(
             context: context,
             builder: (BuildContext context) {
-              return CustomDialog(applicationList: applicationList);
+              return CustomDialog();
             },
           );
         },
         title: Column(
           children: [
             const SizedBox(height: 10),
-            const Text("İstanbul Kodluyoruz"), // Örnek bir başlık
+            const Text("Başvurularım"), // Örnek bir başlık
           ],
         ),
         leading: Image.asset(

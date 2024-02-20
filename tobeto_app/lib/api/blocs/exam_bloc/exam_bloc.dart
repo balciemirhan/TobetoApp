@@ -20,7 +20,7 @@ class ExamBloc extends Bloc<ExamEvent, ExamState> {
 
     try {
       final List<Exam> exam =
-          await _examRepostiory.getExam(); // exeam yerine exams yazıldı
+          await _examRepostiory.getExam(); 
       emit(ExamLoaded(exam: exam));
     } catch (e) {
       emit(ExamError(message: "Hata!!!"));
