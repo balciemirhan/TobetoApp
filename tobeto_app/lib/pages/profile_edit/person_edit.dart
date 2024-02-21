@@ -24,12 +24,12 @@ class _PersonEditState extends State<PersonEdit> {
   File? _selectedPhoto;
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _surNameController = TextEditingController();
-  final TextEditingController _dateController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
   final TextEditingController _tcController = TextEditingController();
+  final TextEditingController _cityController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _countryController = TextEditingController();
-  final TextEditingController _aboutController = TextEditingController();
   DateTime _dateOfBirth = DateTime.now();
   final DateFormat _dateFormat = DateFormat('dd/MM/yyyy');
 
@@ -59,6 +59,10 @@ class _PersonEditState extends State<PersonEdit> {
           _phoneController.text = user.phone ?? '';
           _dateController.text =
               _dateFormat.format(user.dateOfBirth ?? DateTime.now());
+          _tcController.text = user.tcNo ?? '';
+          _cityController.text = user.city ?? '';
+          _descriptionController.text = user.description ?? '';
+          _emailController.text = user.email ?? '';
 
           return SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -126,30 +130,37 @@ class _PersonEditState extends State<PersonEdit> {
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                 ),
-                const EditDropdownField(text: "Şehir", items: [
-                  DropdownMenuItem(value: "İstanbul", child: Text("İstanbul")),
-                  DropdownMenuItem(value: "Ankara", child: Text("Ankara")),
-                  DropdownMenuItem(value: "Kocaeli", child: Text("Kocaeli")),
-                  DropdownMenuItem(value: "Bursa", child: Text("Bursa")),
-                  DropdownMenuItem(value: "Manisa", child: Text("Manisa")),
-                  DropdownMenuItem(value: "Bolu", child: Text("Bolu")),
-                  DropdownMenuItem(value: "Yalova", child: Text("Yalova")),
-                ]),
+                const EditDropdownField(
+                  text: "Şehir",
+                  items: [
+                    DropdownMenuItem(
+                        value: "İstanbul", child: Text("İstanbul")),
+                    DropdownMenuItem(value: "Ankara", child: Text("Ankara")),
+                    DropdownMenuItem(value: "Kocaeli", child: Text("Kocaeli")),
+                    DropdownMenuItem(value: "Bursa", child: Text("Bursa")),
+                    DropdownMenuItem(value: "Manisa", child: Text("Manisa")),
+                    DropdownMenuItem(value: "Bolu", child: Text("Bolu")),
+                    DropdownMenuItem(value: "Yalova", child: Text("Yalova")),
+                  ],
+                ),
                 EditTextField(
                   label: "Hakkımda",
                   keyboardType: TextInputType.text,
-                  controller: _aboutController,
+                  controller: _descriptionController,
                 ),
                 ElevatedButton(
                     onPressed: () {
                       var profileBloc = context.read<ProfileBloc>();
 
                       UserModel user = UserModel(
-                        name: _nameController.text,
-                        surname: _surNameController.text,
-                        phone: _phoneController.text,
-                        dateOfBirth: _dateOfBirth,
-                      );
+                          name: _nameController.text,
+                          surname: _surNameController.text,
+                          phone: _phoneController.text,
+                          dateOfBirth: _dateOfBirth,
+                          tcNo: _tcController.text,
+                          city: _cityController.text,
+                          description: _descriptionController.text,
+                          email: _emailController.text);
 
                       profileBloc.add(
                           UpdateProfile(photo: _selectedPhoto, user: user));
