@@ -11,10 +11,13 @@ import 'package:tobeto_app/models/user_model.dart';
 import 'package:tobeto_app/pages/profile/about.dart';
 import 'package:tobeto_app/pages/profile/certificate.dart';
 import 'package:tobeto_app/pages/profile/competence.dart';
+import 'package:tobeto_app/pages/profile/education.dart';
+import 'package:tobeto_app/pages/profile/experience.dart';
 import 'package:tobeto_app/pages/profile/foreignLanguage.dart';
 import 'package:tobeto_app/pages/profile/socialMedia.dart';
 import 'package:tobeto_app/pages/profile/activity_map.dart';
 import 'package:tobeto_app/pages/profile/rozet.dart';
+import 'package:tobeto_app/pages/profile_edit/education_edit.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -99,6 +102,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   Expanded(
                     flex: 7,
                     child: Container(
+                      padding: const EdgeInsets.only(bottom: 60),
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(color: Colors.grey.shade700, blurRadius: 10)
@@ -113,6 +117,8 @@ class _ProfilePageState extends State<ProfilePage> {
                           children: [
                             ActivityMapWidget(),
                             About(),
+                            Education(),
+                            Experience(),
                             Competence(),
                             ForeignLanguage(),
                             Certificate(),
