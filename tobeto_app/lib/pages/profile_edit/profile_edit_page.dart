@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
-import 'package:tobeto_app/pages/profile_edit/certificate_page.dart';
-import 'package:tobeto_app/pages/profile_edit/competence_page.dart';
-import 'package:tobeto_app/pages/profile_edit/person_page.dart';
+import 'package:tobeto_app/pages/profile_edit/certificate_edit.dart';
+import 'package:tobeto_app/pages/profile_edit/competence_edit.dart';
+import 'package:tobeto_app/pages/profile_edit/education_edit.dart';
+import 'package:tobeto_app/pages/profile_edit/experience_edit.dart';
+import 'package:tobeto_app/pages/profile_edit/foreign_language_edit.dart';
+import 'package:tobeto_app/pages/profile_edit/password_edit.dart';
+import 'package:tobeto_app/pages/profile_edit/person_edit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tobeto_app/pages/profile_edit/social_edit.dart';
 
 class ProfileEditPage extends StatelessWidget {
   const ProfileEditPage({Key? key}) : super(key: key);
@@ -10,7 +15,7 @@ class ProfileEditPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 8,
       child: Scaffold(
         appBar: AppBar(
           leading: Padding(
@@ -55,25 +60,51 @@ class ProfileEditPage extends StatelessWidget {
                   ],
                   borderRadius: const BorderRadius.all(Radius.circular(30))),
               tabs: const [
-                Tab(icon: Icon(Icons.person_outline_rounded)),
-                Tab(icon: Icon(Icons.menu_book_rounded)),
-                Tab(icon: Icon(Icons.ac_unit_rounded)),
-                Tab(icon: Icon(Icons.card_membership)),
-                Tab(icon: Icon(Icons.adjust))
+                Tab(
+                    icon: Icon(
+                  FontAwesomeIcons.solidUser,
+                )),
+                Tab(
+                    icon: Icon(
+                  FontAwesomeIcons.briefcase,
+                )),
+                Tab(
+                    icon: Icon(
+                  FontAwesomeIcons.graduationCap,
+                )),
+                Tab(
+                    icon: Icon(
+                  FontAwesomeIcons.solidStar,
+                )),
+                Tab(
+                    icon: Icon(
+                  FontAwesomeIcons.certificate,
+                )),
+                Tab(
+                    icon: Icon(
+                  FontAwesomeIcons.hashtag,
+                )),
+                Tab(
+                    icon: Icon(
+                  FontAwesomeIcons.globe,
+                )),
+                Tab(
+                    icon: Icon(
+                  FontAwesomeIcons.gear,
+                ))
               ]),
         ),
         body: const TabBarView(
             physics: NeverScrollableScrollPhysics(),
             children: [
-              PersonPage(),
-              CompetencePage(),
-              CertificatePage(),
-              Center(
-                child: Text(AppText.fourthPage),
-              ),
-              Center(
-                child: Text(AppText.fifthPage),
-              )
+              PersonEdit(),
+              ExperienceEdit(),
+              EducationEdit(),
+              CompetenceEdit(),
+              CertificateEdit(),
+              SocialEdit(),
+              ForeignLanguageEdit(),
+              PasswordEdit()
             ]),
       ),
     );

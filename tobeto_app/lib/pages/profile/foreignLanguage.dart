@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 
-import 'package:tobeto_app/pages/personal_information/personal_widget.dart';
+import 'package:tobeto_app/pages/profile/personal_widget.dart';
 
 class ForeignLanguage extends StatelessWidget {
   const ForeignLanguage({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class ForeignLanguage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PersonalWidget(
+    return ProfilWidget(
         text: "Yabancı Dillerim",
         widget: Column(
           children: [

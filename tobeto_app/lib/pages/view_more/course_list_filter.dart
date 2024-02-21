@@ -12,7 +12,8 @@ class CourseListFilter extends StatefulWidget {
   @override
   State createState() => _CourseListState();
 }
-// courseList = fakedata 
+
+// courseList = fakedata
 // course = fire
 class _CourseListState extends State<CourseListFilter> {
   String searchText = "";
@@ -74,46 +75,42 @@ class _CourseListState extends State<CourseListFilter> {
         ),
 
         // <---------- GridView (CourseItemVertical) ---------->
-
         SizedBox(
           height: deviceH / 1.55,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: filteredCourses.isNotEmpty
-                ? GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 300,
-                      mainAxisExtent: 220,
-                      childAspectRatio: 1,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20,
-                    ),
-                    itemCount: filteredCourses.length,
-                    itemBuilder: (context, index) {
-                      final course = filteredCourses[index];
-                      return CourseItem(course: course);
-                    },
-                  )
+          child: filteredCourses.isNotEmpty
+              ? GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 300,
+                    mainAxisExtent: 200,
+                    childAspectRatio: 1,
+                    crossAxisSpacing: 15,
+                    mainAxisSpacing: 15,
+                  ),
+                  padding: const EdgeInsets.all(15),
+                  itemCount: filteredCourses.length,
+                  itemBuilder: (context, index) {
+                    final course = filteredCourses[index];
+                    return CourseItem(course: course);
+                  },
+                )
 
-                // <---------- Not found : ---------->
+              // <---------- Not found : ---------->
 
-                : const Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Center(
-                        child: Text(
-                          AppText.notFound,
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 22,
-                          ),
+              : const Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Center(
+                      child: Text(
+                        AppText.notFound,
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 22,
                         ),
                       ),
-                      Image(image: AssetImage(AppImage.notFoundImage))
-                    ],
-                  ),
-          ),
+                    ),
+                    Image(image: AssetImage(AppImage.notFoundImage))
+                  ],
+                ),
         ),
       ],
     );
@@ -151,7 +148,7 @@ class _CourseListState extends State<CourseListFilter> {
         padding: const EdgeInsets.symmetric(horizontal: 6),
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(6),
+            borderRadius: BorderRadius.circular(20),
             color: filterButtonColors[filter],
           ),
           alignment: Alignment.center,

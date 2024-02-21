@@ -16,8 +16,9 @@ class TextFieldFilter extends StatelessWidget {
           color: Colors.grey,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(30),
         ),
+        contentPadding: const EdgeInsets.symmetric(vertical: 5),
       ),
     );
   }

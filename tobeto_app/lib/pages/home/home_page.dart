@@ -174,12 +174,15 @@ class _HomePageState extends State<HomePage> {
                         return Padding(
                           padding: const EdgeInsets.all(3.0),
                           child: SizedBox(
-                            height: deviceH / 5,
+                            height: deviceH / 6,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
                               itemCount: 5,
                               itemBuilder: (context, index) {
-                                return CourseCards(course: course[index]);
+                                return Padding(
+                                  padding: const EdgeInsets.all(11),
+                                  child: CourseCards(course: course[index]),
+                                );
                               },
                             ),
                           ),

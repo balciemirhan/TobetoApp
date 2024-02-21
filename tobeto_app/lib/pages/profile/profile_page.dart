@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
@@ -9,6 +8,11 @@ import 'package:tobeto_app/config/constant/format/date_formatter.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/models/user_model.dart';
+import 'package:tobeto_app/pages/profile/about.dart';
+import 'package:tobeto_app/pages/profile/certificate.dart';
+import 'package:tobeto_app/pages/profile/competence.dart';
+import 'package:tobeto_app/pages/profile/foreignLanguage.dart';
+import 'package:tobeto_app/pages/profile/socialMedia.dart';
 import 'package:tobeto_app/pages/profile/activity_map.dart';
 import 'package:tobeto_app/pages/profile/rozet.dart';
 
@@ -54,8 +58,12 @@ class _ProfilePageState extends State<ProfilePage> {
               color: Colors.deepPurple.shade100,
               child: Column(
                 children: [
-                  const TopBarWidget(
-                      leadingIcon: Icon(Icons.person_2_rounded),
+                  TopBarWidget(
+                      widget: IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pushNamed("/profiledit");
+                          },
+                          icon: const Icon(Icons.edit)),
                       titleText: AppText.profile),
                   Expanded(
                       flex: 2,
@@ -99,19 +107,17 @@ class _ProfilePageState extends State<ProfilePage> {
                         borderRadius: const BorderRadius.vertical(
                             top: Radius.circular(50)),
                       ),
-                      child: SingleChildScrollView(
+                      child: const SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Column(
                           children: [
-                            const ActivityMapWidget(),
-                            const Rozet(),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).pushNamed("/personal");
-                              },
-                              child: Lottie.network(
-                                  height: 70, AppImage.lottieNext),
-                            )
+                            ActivityMapWidget(),
+                            About(),
+                            Competence(),
+                            ForeignLanguage(),
+                            Certificate(),
+                            Rozet(),
+                            SocialMedia(),
                           ],
                         ),
                       ),

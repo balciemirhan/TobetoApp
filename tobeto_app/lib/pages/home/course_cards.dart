@@ -11,40 +11,37 @@ class CourseCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.pushNamed(context, "/course", arguments: course.title);
-      },
-      child: Container(
-        margin: const EdgeInsets.all(10),
-        child: NeuBox(
-          width: 200,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: NeuBox(
-                  height: 80,
-                  width: 80,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image(
-                      image: AssetImage(
-                        course.imagePath,
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+    return NeuBox(
+      width: 130,
+      child: Stack(alignment: Alignment.center, children: [
+        Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+                  course.imagePath,
                 ),
-              ),
-              AppTextTheme.small(course.title, context,
-                  textAlign: TextAlign.center, fontWeight: FontWeight.normal)
-            ],
+                fit: BoxFit.fill),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(12),
+            ),
           ),
         ),
-      ),
+        Positioned(
+          bottom: 0,
+          child: Container(
+            alignment: Alignment.center,
+            width: 130,
+            height: 40,
+            decoration: const BoxDecoration(
+              color: Colors.white38,
+              borderRadius:
+                  BorderRadius.vertical(top: Radius.elliptical(40, 20)),
+            ),
+            child: AppTextTheme.xxSmall(course.title, context,
+                textAlign: TextAlign.center, fontWeight: FontWeight.normal),
+          ),
+        )
+      ]),
     );
   }
 }
