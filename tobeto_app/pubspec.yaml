@@ -56,6 +56,7 @@ dependencies:
   flutter_neat_and_clean_calendar: ^0.3.16+36
   file_picker: ^5.2.10
   font_awesome_flutter: ^10.7.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -129,6 +130,9 @@ flutter:
     - assets/images/linkedin.png
     - assets/images/github.png
     - assets/images/animation_circular.gif
+    - assets/images/light_background.gif
+    - assets/images/dark_background.gif
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

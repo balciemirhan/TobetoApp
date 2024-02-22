@@ -48,7 +48,7 @@ class MyDrawer extends StatelessWidget {
             MyListTile(
               icon: const Icon(Icons.notifications_rounded),
               title: AppText.drawerNotice,
-              onTap: () => Navigator.of(context).pushNamed("/notice"),
+              onTap: () => Navigator.of(context).pushNamed("/announcement"),
             ),
             MyListTile(
               icon: const Icon(Icons.menu_book_rounded),

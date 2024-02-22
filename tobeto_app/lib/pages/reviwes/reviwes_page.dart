@@ -22,7 +22,7 @@ class Revister extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _buildMainContent(),
-             const SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildContainer(),
               const SizedBox(height: 20),
               _buildSecondRow(),
@@ -107,15 +107,14 @@ class Revister extends StatelessWidget {
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {},
-            child:  Text("BAŞLA"),
             style: ElevatedButton.styleFrom(
-              primary: Colors.deepPurple,
-              onPrimary: Colors.white,
+              backgroundColor: Colors.deepPurple,
               textStyle: const TextStyle(fontSize: 15),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
+            child: const Text("BAŞLA"),
           ),
         ],
       ),
