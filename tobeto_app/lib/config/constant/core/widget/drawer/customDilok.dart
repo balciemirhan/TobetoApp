@@ -3,9 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/application_bloc/application_bloc.dart';
 import 'package:tobeto_app/api/blocs/application_bloc/application_event.dart';
 import 'package:tobeto_app/api/blocs/application_bloc/application_state.dart';
+import 'package:tobeto_app/models/application_model.dart';
 
 class CustomDialog extends StatelessWidget {
-  const CustomDialog({Key? key}) : super(key: key);
+  final List<Application> applicationList;
+
+  const CustomDialog({Key? key, required this.applicationList})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,35 +28,34 @@ class CustomDialog extends StatelessWidget {
           );
         }
         if (state is ApplicationLoaded) {
-          return AlertDialog(
-            backgroundColor: Colors.blueGrey,
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: state.application.map((application) {
-                return ListTile(
-                  title: Text(application.title),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(application.subtitle),
-                      Text(application.subtitle1),
-                      Text(application.state)
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop(); // Dialog kapatma
-                },
-                child: Text('Kapat'),
+          final application =
+              applicationList[0]; // applicationList'den ilk öğeyi alıyoruz
+          return Container(
+            height: 200,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(20.0),
               ),
-            ],
+            ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(application.title, style: TextStyle(fontSize: 24)),
+                  Text(application.subtitle,style: TextStyle(fontWeight: FontWeight.bold),),
+                  Text(application.subtitle1),
+                  Text(application.state),
+                  ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Text('Kapat'),
+                  ),
+                ],
+              ),
+            ),
           );
         }
-
         if (state is ApplicationError) {
           // Hata durumunda hata mesajını göster
           return Center(

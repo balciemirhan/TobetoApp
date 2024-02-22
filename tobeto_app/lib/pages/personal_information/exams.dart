@@ -46,7 +46,7 @@ class Exams extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(exam.content),
-                            SizedBox(height: 10),
+                           const SizedBox(height: 10),
                             Text("Sınav Süresi ${exam.time}"),
                             Text("Soru sayısı ${exam.questionNumber}"),
                             Text("Soru TİPİ ${exam.examType}"),
@@ -58,7 +58,7 @@ class Exams extends StatelessWidget {
                               // Dialog kapatılacak
                               Navigator.of(context).pop();
                             },
-                            child: Text("Kapat"),
+                            child:const Text("Kapat"),
                           ),
                         ],
                       );
@@ -73,16 +73,16 @@ class Exams extends StatelessWidget {
                     children: [
                       Text(
                         exam.name,
-                        style: TextStyle(fontSize: 20),
+                        style:const TextStyle(fontSize: 20),
                       ),
-                      SizedBox(height: 10),
+                     const SizedBox(height: 10),
                       Text(
                         exam.examClass,
-                        style: TextStyle(fontSize: 16),
+                        style:const TextStyle(fontSize: 16),
                       ),
                       Text(
                         exam.time.toString(),
-                        style: TextStyle(fontSize: 16),
+                        style:const TextStyle(fontSize: 16),
                       ),
                     ],
                   ),

@@ -13,6 +13,7 @@ import 'package:tobeto_app/pages/personal_information/personal_page.dart';
 import 'package:tobeto_app/pages/profile_edit/profile_edit_page.dart';
 import 'package:tobeto_app/pages/profile/profile_page.dart';
 import 'package:tobeto_app/pages/register/register_page.dart';
+import 'package:tobeto_app/pages/reviwes/reviwes_page.dart';
 import 'package:tobeto_app/pages/settings/setting_page.dart';
 import 'package:tobeto_app/pages/start/start_page.dart';
 import 'package:tobeto_app/pages/view_more/view_more_page.dart';
@@ -40,6 +41,7 @@ final class AppRoute {
   static const String register = "/register";
   static const String personall = "/personal";
   static const String note = "/note";
+  static const String reviews = "/degerlendirmeler";
   static const String start = "/start";
 
   static Map<String, AppRouteMapFunction> routes = {
@@ -60,6 +62,7 @@ final class AppRoute {
     register: (context) => RegisterPage(),
     personall: (context) => const PersonalPage(),
     note: (context) => const NotePage(),
+    reviews: (context) => const Revister(),
     start: (context) => const StartPage(),
   };
 }
