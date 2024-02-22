@@ -111,19 +111,21 @@ class _ProfilePageState extends State<ProfilePage> {
                         borderRadius: const BorderRadius.vertical(
                             top: Radius.circular(50)),
                       ),
-                      child: const SingleChildScrollView(
+                      child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Column(
                           children: [
-                            ActivityMapWidget(),
-                            About(),
-                            Education(),
-                            Experience(),
-                            Competence(),
-                            ForeignLanguage(),
-                            Certificate(),
-                            Rozet(),
-                            SocialMedia(),
+                            const ActivityMapWidget(),
+                            About(
+                              description: " ${user.description}",
+                            ),
+                            const Education(),
+                            const Experience(),
+                            const Competence(),
+                            const ForeignLanguage(),
+                            const Certificate(),
+                            const Rozet(),
+                            const SocialMedia(),
                           ],
                         ),
                       ),

@@ -12,13 +12,15 @@ class SocialEdit extends StatefulWidget {
 }
 
 class _SocialEditState extends State<SocialEdit> {
+  final List<String> _selectedCompetences = [];
+  String? _selectedDropdownItem;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const EditDropdownField(
+        EditDropdownField(
           text: "Seçiniz",
-          items: [
+          items: const [
             DropdownMenuItem(
                 value: "İnstagram",
                 child: Row(
@@ -74,6 +76,11 @@ class _SocialEditState extends State<SocialEdit> {
                   ],
                 )),
           ],
+          onChanged: (value) {
+            setState(() {
+              _selectedDropdownItem = value.toString();
+            });
+          },
         ),
         const EditTextField(
           label: "https://",

@@ -12,6 +12,8 @@ class ExperienceEdit extends StatefulWidget {
 }
 
 class _ExperienceEditState extends State<ExperienceEdit> {
+  final List<String> _selectedCompetences = [];
+  String? _selectedDropdownItem;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -23,15 +25,22 @@ class _ExperienceEditState extends State<ExperienceEdit> {
               label: "Pozisyon", keyboardType: TextInputType.text),
           const EditTextField(
               label: "Sektör", keyboardType: TextInputType.text),
-          const EditDropdownField(text: "Şehir", items: [
-            DropdownMenuItem(value: "İstanbul", child: Text("İstanbul")),
-            DropdownMenuItem(value: "Ankara", child: Text("Ankara")),
-            DropdownMenuItem(value: "Kocaeli", child: Text("Kocaeli")),
-            DropdownMenuItem(value: "Bursa", child: Text("Bursa")),
-            DropdownMenuItem(value: "Manisa", child: Text("Manisa")),
-            DropdownMenuItem(value: "Bolu", child: Text("Bolu")),
-            DropdownMenuItem(value: "Yalova", child: Text("Yalova")),
-          ]),
+          EditDropdownField(
+              text: "Şehir",
+              items: const [
+                DropdownMenuItem(value: "İstanbul", child: Text("İstanbul")),
+                DropdownMenuItem(value: "Ankara", child: Text("Ankara")),
+                DropdownMenuItem(value: "Kocaeli", child: Text("Kocaeli")),
+                DropdownMenuItem(value: "Bursa", child: Text("Bursa")),
+                DropdownMenuItem(value: "Manisa", child: Text("Manisa")),
+                DropdownMenuItem(value: "Bolu", child: Text("Bolu")),
+                DropdownMenuItem(value: "Yalova", child: Text("Yalova")),
+              ],
+              onChanged: (value) {
+                setState(() {
+                  _selectedDropdownItem = value;
+                });
+              }),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

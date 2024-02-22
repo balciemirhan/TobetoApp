@@ -20,6 +20,8 @@ class PersonEdit extends StatefulWidget {
 }
 
 class _PersonEditState extends State<PersonEdit> {
+  final List<String> _selectedCompetences = [];
+  String? _selectedDropdownItem;
   final ImagePicker _picker = ImagePicker();
   File? _selectedPhoto;
   final TextEditingController _nameController = TextEditingController();
@@ -130,9 +132,9 @@ class _PersonEditState extends State<PersonEdit> {
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                 ),
-                const EditDropdownField(
+                EditDropdownField(
                   text: "Şehir",
-                  items: [
+                  items: const [
                     DropdownMenuItem(
                         value: "İstanbul", child: Text("İstanbul")),
                     DropdownMenuItem(value: "Ankara", child: Text("Ankara")),
@@ -142,6 +144,11 @@ class _PersonEditState extends State<PersonEdit> {
                     DropdownMenuItem(value: "Bolu", child: Text("Bolu")),
                     DropdownMenuItem(value: "Yalova", child: Text("Yalova")),
                   ],
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedDropdownItem = value.toString();
+                    });
+                  },
                 ),
                 EditTextField(
                   label: "Hakkımda",
