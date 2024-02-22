@@ -6,7 +6,7 @@ import 'package:tobeto_app/api/blocs/note_bloc/note_bloc.dart';
 import 'package:tobeto_app/api/blocs/note_bloc/note_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
-import 'package:tobeto_app/config/constant/core/widget/drawer/selaction.dart';
+import 'package:tobeto_app/config/constant/core/widget/drawer/customDilok.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/data/application.dart';
@@ -42,7 +42,8 @@ class MyDrawer extends StatelessWidget {
             MyListTile(
               icon: const Icon(Icons.reviews_rounded),
               title: AppText.drawerRating,
-              onTap: () => Navigator.of(context).pushNamed("/curved"),
+              onTap: () => Navigator.of(context).pushNamed(
+                  "/degerlendirmeler"), //bu değerlendirmelere gidicek
             ),
             MyListTile(
               icon: const Icon(Icons.notifications_rounded),
@@ -64,9 +65,19 @@ class MyDrawer extends StatelessWidget {
                     width: 25),
                 title: AppText.tobeto,
                 onTap: () {}),
-            MySecondListTile(
-              applicationList: applicationList,
-            ),
+            MyListTile(
+                title: "Başvurularım",
+                image: Image.asset(
+                  "assets/images/tobeto-logo-white.png",
+                  width: 25,
+                ),
+                onTap: () {
+                  showBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return CustomDialog(applicationList: applicationList);
+                      });
+                }),
             const Spacer(flex: 2),
             DefaultTextStyle(
               style: const TextStyle(
