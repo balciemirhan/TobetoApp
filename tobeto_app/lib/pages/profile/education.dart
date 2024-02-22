@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/pages/profile/personal_widget.dart';
 
 class Education extends StatelessWidget {
@@ -8,27 +9,44 @@ class Education extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ProfilWidget(
-      text: "Eğitim",
-      widget: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Kocaeli Üniversitesi"),
-              Text("Lisans"),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Yazılım Mühendisliği"),
-              Text("İstanbul"),
-            ],
-          ),
-          Text("20/03/2020 - 05/01/2022"),
-        ],
-      ),
+    return BlocBuilder<ProfileBloc, ProfileState>(
+      builder: (context, state) {
+        if (state is ProfileLoaded) {
+          final user = state.user;
+          return ProfilWidget(
+              text: "Eğitim",
+              widget: user.educationHistory != null
+                  ? ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: user.educationHistory!.length,
+                      itemBuilder: (context, index) {
+                        final education = user.educationHistory![index];
+                        return Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(education.schoolName!),
+                                Text(education.department!),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(education.city!),
+                                Text(education.educationStatus!),
+                              ],
+                            ),
+                            Text(
+                                "${education.startDate} - ${education.endDate}"),
+                          ],
+                        );
+                      },
+                    )
+                  : const SizedBox());
+        }
+        return Container();
+      },
     );
   }
 }

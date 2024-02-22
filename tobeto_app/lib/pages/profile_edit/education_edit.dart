@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/models/user_profile_model/education_history.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_dropdownField.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_select_date.dart';
@@ -9,7 +14,7 @@ class EducationEdit extends StatefulWidget {
   const EducationEdit({Key? key}) : super(key: key);
 
   @override
-  _EducationEditState createState() => _EducationEditState();
+  State<StatefulWidget> createState() => _EducationEditState();
 }
 
 class _EducationEditState extends State<EducationEdit> {
@@ -79,84 +84,114 @@ class _EducationEditState extends State<EducationEdit> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          EditDropdownField(
-              text: "Eğitim Durumu",
-              items: const [
-                DropdownMenuItem(value: "Lisans", child: Text("Lisans")),
-                DropdownMenuItem(value: "Ön Lisans", child: Text("Ön Lisans")),
-                DropdownMenuItem(
-                    value: "Yüksek Lisans", child: Text("Yüksek Lisans")),
-                DropdownMenuItem(value: "Doktora", child: Text("Doktora")),
-              ],
-              onChanged: (value) {
-                setState(() {
-                  _selectededucationStatus = value;
-                });
-              }),
-          EditTextField(
-            label: "Okulun Adı",
-            keyboardType: TextInputType.text,
-            controller: _schoolController,
-          ),
-          EditTextField(
-            label: "Bölüm",
-            keyboardType: TextInputType.text,
-            controller: _departmentController,
-          ),
-          EditDropdownField(
-            text: "Şehir",
-            items: const [
-              DropdownMenuItem(value: "İstanbul", child: Text("İstanbul")),
-              DropdownMenuItem(value: "Ankara", child: Text("Ankara")),
-              DropdownMenuItem(value: "Kocaeli", child: Text("Kocaeli")),
-              DropdownMenuItem(value: "Bursa", child: Text("Bursa")),
-              DropdownMenuItem(value: "Manisa", child: Text("Manisa")),
-              DropdownMenuItem(value: "Bolu", child: Text("Bolu")),
-              DropdownMenuItem(value: "Yalova", child: Text("Yalova")),
-            ],
-            onChanged: (value) {
-              setState(() {
-                _selectedCity = value;
-              });
-            },
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              EditSelectDate(text: "Giriş Tarihi"),
-              EditSelectDate(
-                text: "Çıkış Tarihi",
-              )
-            ],
-          ),
-          EditButton(
-              text: "Ekle",
-              onTap: () {
-                if (_selectededucationStatus != null && _selectedCity != null) {
-                  setState(() {
-                    _educationList.add({
-                      "status": _selectededucationStatus!,
-                      "city": _selectedCity!,
-                      "department": _departmentController.text,
-                      "school": _schoolController.text
+    return BlocBuilder<ProfileBloc, ProfileState>(
+      builder: (context, state) {
+        if (state is ProfileInitial) {
+          context.read<ProfileBloc>().add(GetProfil());
+        }
+        if (state is ProfileLoading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (state is ProfileLoaded) {
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                EditDropdownField(
+                    text: "Eğitim Durumu",
+                    items: const [
+                      DropdownMenuItem(value: "Lisans", child: Text("Lisans")),
+                      DropdownMenuItem(
+                          value: "Ön Lisans", child: Text("Ön Lisans")),
+                      DropdownMenuItem(
+                          value: "Yüksek Lisans", child: Text("Yüksek Lisans")),
+                      DropdownMenuItem(
+                          value: "Doktora", child: Text("Doktora")),
+                    ],
+                    onChanged: (value) {
+                      setState(() {
+                        _selectededucationStatus = value;
+                      });
+                    }),
+                EditTextField(
+                  label: "Okulun Adı",
+                  keyboardType: TextInputType.text,
+                  controller: _schoolController,
+                ),
+                EditTextField(
+                  label: "Bölüm",
+                  keyboardType: TextInputType.text,
+                  controller: _departmentController,
+                ),
+                EditDropdownField(
+                  text: "Şehir",
+                  items: const [
+                    DropdownMenuItem(
+                        value: "İstanbul", child: Text("İstanbul")),
+                    DropdownMenuItem(value: "Ankara", child: Text("Ankara")),
+                    DropdownMenuItem(value: "Kocaeli", child: Text("Kocaeli")),
+                    DropdownMenuItem(value: "Bursa", child: Text("Bursa")),
+                    DropdownMenuItem(value: "Manisa", child: Text("Manisa")),
+                    DropdownMenuItem(value: "Bolu", child: Text("Bolu")),
+                    DropdownMenuItem(value: "Yalova", child: Text("Yalova")),
+                  ],
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedCity = value;
                     });
-                    _selectededucationStatus = null;
-                  });
-                }
-              }),
-          for (Map<String, String> competence in _educationList)
-            _competence(
-              context,
-              status: competence["status"] ?? '',
-              department: competence['department'] ?? '',
-              school: competence['school'] ?? '',
-              city: competence['city'] ?? '',
+                  },
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    EditSelectDate(text: "Giriş Tarihi"),
+                    EditSelectDate(
+                      text: "Çıkış Tarihi",
+                    )
+                  ],
+                ),
+                EditButton(
+                  text: "Ekle",
+                  onTap: () {
+                    if (state.user.educationHistory != null) {
+                      state.user.educationHistory!.add(
+                        EducationHistory(
+                          educationStatus: _selectededucationStatus,
+                          schoolName: _schoolController.text,
+                          department: _departmentController.text,
+                          city: _selectedCity,
+                        ),
+                      );
+                    } else {
+                      state.user.educationHistory = List.of(
+                        [
+                          EducationHistory(
+                            educationStatus: _selectededucationStatus,
+                            schoolName: _schoolController.text,
+                            department: _departmentController.text,
+                            city: _selectedCity,
+                          )
+                        ],
+                      );
+                    }
+                    context
+                        .read<ProfileBloc>()
+                        .add(UpdateProfile(user: state.user));
+                  },
+                ),
+                for (Map<String, String> competence in _educationList)
+                  _competence(
+                    context,
+                    status: competence["status"] ?? '',
+                    department: competence['department'] ?? '',
+                    school: competence['school'] ?? '',
+                    city: competence['city'] ?? '',
+                  ),
+              ],
             ),
-        ],
-      ),
+          );
+        }
+        return Container();
+      },
     );
   }
 }

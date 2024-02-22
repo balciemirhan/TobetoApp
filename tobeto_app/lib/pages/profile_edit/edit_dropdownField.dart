@@ -20,15 +20,16 @@ class _EditDropdownFieldState extends State<EditDropdownField> {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: DropdownButtonFormField(
-          decoration: InputDecoration(
-            labelText: widget.text,
-            border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-            ),
+        decoration: InputDecoration(
+          labelText: widget.text,
+          border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
           ),
-          items: widget.items,
-          value: selectedOption,
-          onChanged: widget.onChanged),
+        ),
+        items: widget.items,
+        value: selectedOption,
+        onChanged: widget.onChanged,
+      ),
     );
   }
 }

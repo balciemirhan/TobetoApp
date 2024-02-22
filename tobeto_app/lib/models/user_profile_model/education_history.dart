@@ -1,17 +1,17 @@
 class EducationHistory {
-  String educationStatus;
-  String schoolName;
-  String department;
-  String city;
-  String startDate;
-  String endDate;
+  String? educationStatus;
+  String? schoolName;
+  String? department;
+  String? city;
+  String? startDate;
+  String? endDate;
   EducationHistory({
-    required this.educationStatus,
-    required this.schoolName,
-    required this.department,
-    required this.city,
-    required this.startDate,
-    required this.endDate,
+    this.educationStatus,
+    this.schoolName,
+    this.department,
+    this.city,
+    this.startDate,
+    this.endDate,
   });
 
   Map<String, dynamic> toMap() {
@@ -27,12 +27,12 @@ class EducationHistory {
 
   factory EducationHistory.fromMap(Map<String, dynamic> map) {
     return EducationHistory(
-      educationStatus: map['educationStatus'],
-      schoolName: map['schoolName'],
-      department: map['department'],
-      city: map['city'],
-      startDate: map['startDate'],
-      endDate: map['endDate'],
+      educationStatus: map['educationStatus'] ?? '',
+      schoolName: map['schoolName'] ?? '',
+      department: map['department'] ?? '' ?? '',
+      city: map['city'] ?? '',
+      startDate: map['startDate'] ?? '',
+      endDate: map['endDate'] ?? '',
     );
   }
 }
