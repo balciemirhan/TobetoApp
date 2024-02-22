@@ -24,35 +24,11 @@ class _CourseItemState extends State<CourseItem> {
         onTap: () {
           Navigator.pushNamed(context, "/course",
               arguments: widget.course.title);
-
-          // Navigator.of(context).push(
-          //MaterialPageRoute( // indexe göre sayfaya gitmek için
-          // builder: (context) => CoursePage(course: course),
-          // ),
-
-          // );
         },
         child: Center(
-          child: Stack(
-            children: [
-              NeuBox(
-                width: 200,
-                height: 200,
-                child: _buildCategoryContent(),
-              ),
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    _addToBookMark(context, widget.course);
-                  });
-                },
-                icon: const Icon(
-                  Icons.bookmark_add_outlined,
-                  size: 30,
-                  color: Colors.deepPurple,
-                ),
-              ),
-            ],
+          child: NeuBox(
+            width: 200,
+            child: _buildCategoryContent(),
           ),
         ),
       ),
@@ -62,41 +38,32 @@ class _CourseItemState extends State<CourseItem> {
   Widget _buildCategoryContent() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        NeuBox(
-          width: 100,
-          height: 100,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image(
-              width: 100,
-              height: 100,
-              image: AssetImage(
-                widget.course.imagePath,
-              ),
-            ),
+        Container(
+          height: 120,
+          decoration: BoxDecoration(
+            boxShadow: [BoxShadow(color: Colors.grey.shade700, blurRadius: 10)],
+            image: DecorationImage(
+                image: AssetImage(
+                  widget.course.imagePath,
+                ),
+                fit: BoxFit.cover),
+            borderRadius: const BorderRadius.vertical(
+                bottom: Radius.circular(50), top: Radius.circular(10)),
           ),
         ),
-        const SizedBox(height: 8),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: AppTextTheme.small(widget.course.title, context,
-              fontWeight: FontWeight.normal, textAlign: TextAlign.center),
-        ),
-        const SizedBox(height: 4),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(widget.course.lessonCount),
-            const SizedBox(width: 10),
-            Text("${widget.course.rating}"),
-            const Icon(
-              Icons.star,
-              size: 20,
-              color: Colors.deepPurple,
-            ),
-          ],
+        Container(
+          margin: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(10),
+          height: 50,
+          decoration: BoxDecoration(
+            boxShadow: [BoxShadow(color: Colors.grey.shade700, blurRadius: 10)],
+            color: Colors.grey[300],
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+          ),
+          child: AppTextTheme.xxSmall(widget.course.title, context,
+              textAlign: TextAlign.center),
         ),
       ],
     );

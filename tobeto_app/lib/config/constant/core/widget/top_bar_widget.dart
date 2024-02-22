@@ -7,14 +7,14 @@ class TopBarWidget extends StatelessWidget {
     Key? key,
     this.leadingIcon,
     required this.titleText,
-    this.iconButton,
+    this.widget,
 
     /* required this.titleStyle */
   }) : super(key: key);
 
   final Icon? leadingIcon;
   final String titleText;
-  final IconButton? iconButton;
+  final Widget? widget;
 
   /*  final TextStyle titleStyle; */
   @override
@@ -25,7 +25,7 @@ class TopBarWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           AppTextTheme.font(titleText, context),
-          NeuBox(child: leadingIcon ?? iconButton)
+          NeuBox(child: leadingIcon ?? widget)
         ],
       ),
     );

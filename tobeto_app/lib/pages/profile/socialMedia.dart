@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/pages/personal_information/personal_widget.dart';
+import 'package:tobeto_app/pages/profile/personal_widget.dart';
 
 class SocialMedia extends StatelessWidget {
   const SocialMedia({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class SocialMedia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PersonalWidget(
+    return ProfilWidget(
         text: "Medya Hesaplarım",
         widget: Row(
           mainAxisAlignment: MainAxisAlignment.center,

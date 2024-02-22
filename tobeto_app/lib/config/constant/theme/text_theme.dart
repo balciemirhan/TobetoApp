@@ -2,12 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTextTheme {
-// <---------------------------------- text Small ---------------------------------->
+  // <---------------------------------- text xxSmall ---------------------------------->
+
+  static textStylexXSmall(bool isLight, FontWeight fontWeight) {
+    return TextStyle(
+      fontWeight: fontWeight,
+      fontSize: 12,
+      letterSpacing: 0.4,
+      color: isLight ? Colors.black : Colors.white,
+    );
+  }
+
+  static Widget xxSmall(String text, BuildContext context,
+      {TextAlign? textAlign, FontWeight? fontWeight}) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
+    return Text(
+      text,
+      textAlign: textAlign,
+      style: textStylexXSmall(isLight, fontWeight ?? FontWeight.bold),
+    );
+  }
+
+// <---------------------------------- text xSmall ---------------------------------->
 
   static textStyleXSmall(bool isLight, FontWeight fontWeight) {
     return TextStyle(
       fontWeight: fontWeight,
-      fontSize: 12,
+      fontSize: 15,
       letterSpacing: 0.4,
       color: isLight ? Colors.black : Colors.white,
     );

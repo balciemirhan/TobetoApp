@@ -63,12 +63,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   void _onCreateUser(CreateUser event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     try {
-      await _authRepository.createUser(
-          event.email, event.password, event.confirmPassword);
-      await _userRepository.addUser(
-        UserModel(email: event.email),
-      );
-      emit(Authenticated(user: _firebaseAuth.currentUser));
+      if (event.password == event.confirmPassword) {
+        await _authRepository.createUser(
+            event.email, event.password, event.confirmPassword);
+        await _userRepository.addUser(
+          UserModel(email: event.email),
+        );
+        emit(Authenticated(user: _firebaseAuth.currentUser));
+      }
     } catch (e) {
       emit(AuthError(message: "Kayıt Başarısız..."));
     }

@@ -9,7 +9,6 @@ import 'package:tobeto_app/pages/home/home_page.dart';
 import 'package:tobeto_app/pages/login/login_page.dart';
 import 'package:tobeto_app/pages/note/note_page.dart';
 import 'package:tobeto_app/pages/onboard/onboarding_animation.dart';
-import 'package:tobeto_app/pages/personal_information/personal_page.dart';
 import 'package:tobeto_app/pages/profile_edit/profile_edit_page.dart';
 import 'package:tobeto_app/pages/profile/profile_page.dart';
 import 'package:tobeto_app/pages/register/register_page.dart';
@@ -60,7 +59,6 @@ final class AppRoute {
     //forgot: (context) => ForgotPasswordPage(),
     catalog: (context) => const CatalogPage(),
     register: (context) => RegisterPage(),
-    personall: (context) => const PersonalPage(),
     note: (context) => const NotePage(),
     reviews: (context) => const Revister(),
     start: (context) => const StartPage(),

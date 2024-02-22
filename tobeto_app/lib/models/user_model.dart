@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tobeto_app/models/user_profile_model/education_history.dart';
+import 'package:tobeto_app/models/user_profile_model/work_history.dart';
 
 class UserModel {
   String? userId; // doc.set => id'yi alır.
@@ -10,10 +12,15 @@ class UserModel {
   String? linkedin;
   String? email;
   String? phone;
-  String? profilePhoto; // imgURL(String)
-  DateTime? dateOfBirth; //  dd-mm-yy formatta olmalıdır. => Datetimeç.now()
-  // dd-mm-yy + 20.25 34s 33sls.
-  // dd-mm-yy formatter
+  String? profilePhoto;
+  DateTime? dateOfBirth;
+  // yeni eklenenler:
+  String? tcNo;
+  String? country;
+  String? city;
+  String? address;
+  List<EducationHistory>? educationHistory;
+  List<WorkHistory>? workHistory;
 
   UserModel({
     this.name,
@@ -27,10 +34,17 @@ class UserModel {
     this.email,
     this.phone,
     this.dateOfBirth,
+    this.tcNo,
+    this.country,
+    this.city,
+    this.address,
+    this.educationHistory,
+    this.workHistory,
   });
-// -------------------------------------------------
 
-// ------------------------- (firestore bilgi çekme:) -------------------------
+  // -------------------------------------------------
+
+  // ------------------------- (firestore bilgi çekme:) -------------------------
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
       userId: map['userId'] ?? "",
@@ -44,15 +58,26 @@ class UserModel {
       linkedin: map['linkedin'] ?? "",
       profilePhoto: map['profilePhoto'] ?? "",
       dateOfBirth: (map['dateOfBirth'] as Timestamp?)?.toDate(),
+      tcNo: map["tcNo"] ?? "",
+      country: map['country'] ?? "",
+      city: map['city'] ?? "",
+      address: map['address'] ?? "",
+      educationHistory: (map['educationHistory'] as List?)
+          ?.map((e) => EducationHistory.fromMap(e as Map<String, dynamic>))
+          .toList(),
+      workHistory: (map['workHistory'] as List?)
+          ?.map((e) => WorkHistory.fromMap(e as Map<String, dynamic>))
+          .toList(),
     );
   }
-// ------------------------- (firestore bilgi gönderme:) -------------------------
 
-// Map<k,v> = entries
-// Map<k = key
-// Map<v = value
+  // ------------------------- (firestore bilgi gönderme:) -------------------------
 
-// filtreleme:::
+  // Map<k,v> = entries
+  // Map<k = key
+  // Map<v = value
+
+  // filtreleme:::
 
   Map<String, dynamic> toMap() {
     final classMap = _createMap();
@@ -65,7 +90,7 @@ class UserModel {
     return map;
   }
 
-// filtereleeme nin amacı: firestor'a null olanları kaydetme.
+  // filtereleeme nin amacı: firestor'a null olanları kaydetme.
 
   Map<String, dynamic> _createMap() {
     // value = email.textcontroller
@@ -81,25 +106,12 @@ class UserModel {
       'linkedin': linkedin,
       'profilePhoto': profilePhoto,
       'dateOfBirth': dateOfBirth,
+      'tcNo': tcNo,
+      'country': country,
+      'city': city,
+      'address': address,
+      'educationHistory': educationHistory?.map((e) => e.toMap()).toList(),
+      'workHistory': workHistory?.map((e) => e.toMap()).toList(),
     };
   }
 }
-
-
-
-
-//modellemeye ne gerek var???
-// ---> profesyonellik
-
-// ---> veri alışverilerinde kullanmak için modelleme ye ihtiyaç duyuyorum.
-// (firebase database)  Map<String,dynamic>
-
-
-// toMap ---> dartı  nesneden haritaya çevir. firebase aktar.   Map<String,dynamic>
-
-
-
-// fromMap ---> verilerimi çek haritadan UserModel nesnesi'ne çevir.
-
-
-

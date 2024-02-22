@@ -9,21 +9,27 @@ import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/models/user_model.dart';
+import 'package:tobeto_app/pages/profile_edit/edit_dropdownField.dart';
+import 'package:tobeto_app/pages/profile_edit/edit_textfield.dart';
 
-class PersonPage extends StatefulWidget {
-  const PersonPage({Key? key}) : super(key: key);
+class PersonEdit extends StatefulWidget {
+  const PersonEdit({Key? key}) : super(key: key);
 
   @override
-  State<PersonPage> createState() => _PersonPageState();
+  State<PersonEdit> createState() => _PersonEditState();
 }
 
-class _PersonPageState extends State<PersonPage> {
+class _PersonEditState extends State<PersonEdit> {
   final ImagePicker _picker = ImagePicker();
   File? _selectedPhoto;
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _surNameController = TextEditingController();
-  final TextEditingController _dateController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _tcController = TextEditingController();
+  final TextEditingController _cityController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   DateTime _dateOfBirth = DateTime.now();
   final DateFormat _dateFormat = DateFormat('dd/MM/yyyy');
 
@@ -53,6 +59,10 @@ class _PersonPageState extends State<PersonPage> {
           _phoneController.text = user.phone ?? '';
           _dateController.text =
               _dateFormat.format(user.dateOfBirth ?? DateTime.now());
+          _tcController.text = user.tcNo ?? '';
+          _cityController.text = user.city ?? '';
+          _descriptionController.text = user.description ?? '';
+          _emailController.text = user.email ?? '';
 
           return SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -76,22 +86,22 @@ class _PersonPageState extends State<PersonPage> {
                               image: AssetImage(AppImage.profileImage),
                             ),
                 ),
-                personTextField(
+                EditTextField(
                   label: "Adınız",
                   keyboardType: TextInputType.text,
                   controller: _nameController,
                 ),
-                personTextField(
+                EditTextField(
                   label: "Soyadınız",
                   keyboardType: TextInputType.text,
                   controller: _surNameController,
                 ),
-                personTextField(
+                EditTextField(
                   label: "Telefon Numaranız",
                   keyboardType: TextInputType.phone,
                   controller: _phoneController,
                 ),
-                personTextField(
+                EditTextField(
                   label: "Doğum Tarihiniz",
                   keyboardType: TextInputType.datetime,
                   controller: _dateController,
@@ -110,31 +120,47 @@ class _PersonPageState extends State<PersonPage> {
                     }
                   },
                 ),
-                const personTextField(
+                EditTextField(
                   label: "TC Kimlik No",
                   keyboardType: TextInputType.number,
+                  controller: _tcController,
                 ),
-                const personTextField(
+                EditTextField(
                   label: "E-posta",
+                  controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                 ),
-                const personTextField(
-                  label: "Ülke",
+                const EditDropdownField(
+                  text: "Şehir",
+                  items: [
+                    DropdownMenuItem(
+                        value: "İstanbul", child: Text("İstanbul")),
+                    DropdownMenuItem(value: "Ankara", child: Text("Ankara")),
+                    DropdownMenuItem(value: "Kocaeli", child: Text("Kocaeli")),
+                    DropdownMenuItem(value: "Bursa", child: Text("Bursa")),
+                    DropdownMenuItem(value: "Manisa", child: Text("Manisa")),
+                    DropdownMenuItem(value: "Bolu", child: Text("Bolu")),
+                    DropdownMenuItem(value: "Yalova", child: Text("Yalova")),
+                  ],
                 ),
-                const personTextField(
+                EditTextField(
                   label: "Hakkımda",
                   keyboardType: TextInputType.text,
+                  controller: _descriptionController,
                 ),
                 ElevatedButton(
                     onPressed: () {
                       var profileBloc = context.read<ProfileBloc>();
 
                       UserModel user = UserModel(
-                        name: _nameController.text,
-                        surname: _surNameController.text,
-                        phone: _phoneController.text,
-                        dateOfBirth: _dateOfBirth,
-                      );
+                          name: _nameController.text,
+                          surname: _surNameController.text,
+                          phone: _phoneController.text,
+                          dateOfBirth: _dateOfBirth,
+                          tcNo: _tcController.text,
+                          city: _cityController.text,
+                          description: _descriptionController.text,
+                          email: _emailController.text);
 
                       profileBloc.add(
                           UpdateProfile(photo: _selectedPhoto, user: user));
@@ -148,38 +174,6 @@ class _PersonPageState extends State<PersonPage> {
         }
         return Container();
       },
-    );
-  }
-}
-
-class personTextField extends StatelessWidget {
-  const personTextField({
-    super.key,
-    required this.label,
-    this.keyboardType,
-    this.controller,
-    this.onTap,
-  });
-  final String label;
-  final TextInputType? keyboardType;
-  final TextEditingController? controller;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: TextFormField(
-        onTap: onTap,
-        controller: controller,
-        keyboardType: keyboardType,
-        minLines: 1,
-        maxLines: null,
-        decoration: InputDecoration(
-            labelText: label,
-            border: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(15)))),
-      ),
     );
   }
 }
