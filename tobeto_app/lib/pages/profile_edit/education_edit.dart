@@ -4,6 +4,7 @@ import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/models/user_model.dart';
 import 'package:tobeto_app/models/user_profile_model/education_history.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_dropdownField.dart';
@@ -33,6 +34,7 @@ class _EducationEditState extends State<EducationEdit> {
     required String school,
     required String department,
     required String city,
+    required void Function()? onPressed,
   }) {
     return Container(
       decoration: BoxDecoration(
@@ -65,12 +67,7 @@ class _EducationEditState extends State<EducationEdit> {
               ],
             ),
             IconButton(
-              onPressed: () {
-                setState(() {
-                  _educationList
-                      .removeWhere((item) => item['school'] == school);
-                });
-              },
+              onPressed: onPressed,
               icon: Icon(
                 Icons.delete_rounded,
                 color: Colors.deepPurple.shade900,
@@ -86,7 +83,7 @@ class _EducationEditState extends State<EducationEdit> {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(
       builder: (context, state) {
-        if (state is ProfileInitial) {
+        if (state is ProfileInitial || state is ProfileUpdated) {
           context.read<ProfileBloc>().add(GetProfil());
         }
         if (state is ProfileLoading) {
@@ -178,14 +175,25 @@ class _EducationEditState extends State<EducationEdit> {
                         .add(UpdateProfile(user: state.user));
                   },
                 ),
-                for (Map<String, String> competence in _educationList)
-                  _competence(
-                    context,
-                    status: competence["status"] ?? '',
-                    department: competence['department'] ?? '',
-                    school: competence['school'] ?? '',
-                    city: competence['city'] ?? '',
-                  ),
+                SizedBox(
+                    height: 300,
+                    child: state.user.educationHistory != null
+                        ? ListView.builder(
+                            itemCount: state.user.educationHistory!.length,
+                            itemBuilder: (context, index) {
+                              final education =
+                                  state.user.educationHistory![index];
+                              return _competence(
+                                context,
+                                status: education.educationStatus!,
+                                school: education.schoolName!,
+                                department: education.department!,
+                                city: education.city!,
+                                onPressed: () {},
+                              );
+                            },
+                          )
+                        : Container()),
               ],
             ),
           );

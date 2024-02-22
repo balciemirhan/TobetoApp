@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tobeto_app/config/constant/format/collections.dart';
 import 'package:tobeto_app/models/user_model.dart';
+import 'package:tobeto_app/models/user_profile_model/education_history.dart';
 
 // CRUD operations:
 
@@ -66,4 +67,9 @@ class UserRepository {
     userModel.userId = _auth.currentUser!.uid;
     await users.doc(userModel.userId).delete();
   }
+
+  /* Future<void> deleteEducation(UserModel userModel) async {
+    final CollectionReference users = _firestore.collection(Collections.users);
+
+  } */
 }

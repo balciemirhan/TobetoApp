@@ -1,6 +1,8 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
 
 import 'package:tobeto_app/models/user_model.dart';
+import 'package:tobeto_app/models/user_profile_model/education_history.dart';
 
 abstract class ProfileEvent {}
 
@@ -24,6 +26,19 @@ class UploadProfilePhoto extends ProfileEvent {
   final File photo;
 
   UploadProfilePhoto({required this.photo});
+}
+
+class DeleteProfile extends ProfileEvent {
+  final UserModel user;
+
+  DeleteProfile({required this.user});
+}
+
+class DeleteEducation extends ProfileEvent {
+  final EducationHistory educationHistory;
+  DeleteEducation({
+    required this.educationHistory,
+  });
 }
 
 //---------- Temizle -----------------
