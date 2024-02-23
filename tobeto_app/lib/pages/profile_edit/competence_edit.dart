@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/models/user_profile_model/competence_history.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_dropdownField.dart';
 
@@ -11,10 +16,13 @@ class CompetenceEdit extends StatefulWidget {
 }
 
 class _CompetenceEditState extends State<CompetenceEdit> {
-  final List<String> _selectedCompetences = [];
-  String? _selectedDropdownItem;
+  String? _selectedCompetence;
 
-  _competence(BuildContext context, {required String text}) {
+  _competence(
+    BuildContext context, {
+    required String competence,
+    required void Function()? onPressed,
+  }) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -29,13 +37,10 @@ class _CompetenceEditState extends State<CompetenceEdit> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            AppTextTheme.small(text, fontWeight: FontWeight.normal, context),
+            AppTextTheme.small(
+                competence, fontWeight: FontWeight.normal, context),
             IconButton(
-              onPressed: () {
-                setState(() {
-                  _selectedCompetences.remove(text);
-                });
-              },
+              onPressed: onPressed,
               icon: Icon(
                 Icons.delete_rounded,
                 color: Colors.deepPurple.shade900,
@@ -49,39 +54,80 @@ class _CompetenceEditState extends State<CompetenceEdit> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        EditDropdownField(
-          text: 'Yetkinlikler',
-          items: const [
-            DropdownMenuItem(
-              value: "Muhasebe",
-              child: Text("Muhasebe"),
+    return BlocBuilder<ProfileBloc, ProfileState>(
+      builder: (context, state) {
+        if (state is ProfileInitial || state is ProfileUpdated) {
+          context.read<ProfileBloc>().add(GetProfil());
+        }
+        if (state is ProfileLoading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (state is ProfileLoaded) {
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                EditDropdownField(
+                  text: 'Yetkinlikler',
+                  items: const [
+                    DropdownMenuItem(
+                      value: "Muhasebe",
+                      child: Text("Muhasebe"),
+                    ),
+                    DropdownMenuItem(value: "C#", child: Text("C#")),
+                    DropdownMenuItem(
+                        value: "Aktif Öğrenme", child: Text("Aktif Öğrenme"))
+                  ],
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedCompetence = value.toString();
+                    });
+                  },
+                ),
+                EditButton(
+                  text: "Ekle",
+                  onTap: () {
+                    if (state.user.competenceHistory != null) {
+                      state.user.competenceHistory!.add(
+                        CompetenceHistory(
+                          compName: _selectedCompetence,
+                        ),
+                      );
+                    } else {
+                      state.user.competenceHistory = List.of(
+                        [
+                          CompetenceHistory(
+                            compName: _selectedCompetence,
+                          ),
+                        ],
+                      );
+                    }
+                    context
+                        .read<ProfileBloc>()
+                        .add(UpdateProfile(user: state.user));
+                  },
+                ),
+                SizedBox(
+                    height: 300,
+                    child: state.user.competenceHistory != null
+                        ? ListView.builder(
+                            itemCount: state.user.competenceHistory!.length,
+                            itemBuilder: (context, index) {
+                              final competence =
+                                  state.user.competenceHistory![index];
+                              return _competence(
+                                context,
+                                competence: competence.compName!,
+                                onPressed: () {},
+                              );
+                            },
+                          )
+                        : Container()),
+              ],
             ),
-            DropdownMenuItem(value: "C#", child: Text("C#")),
-            DropdownMenuItem(
-                value: "Aktif Öğrenme", child: Text("Aktif Öğrenme"))
-          ],
-          onChanged: (value) {
-            setState(() {
-              _selectedDropdownItem = value.toString();
-            });
-          },
-        ),
-        EditButton(
-          text: "Ekle",
-          onTap: () {
-            if (_selectedDropdownItem != null) {
-              setState(() {
-                _selectedCompetences.add(_selectedDropdownItem!);
-                _selectedDropdownItem = null;
-              });
-            }
-          },
-        ),
-        for (String competence in _selectedCompetences)
-          _competence(context, text: competence),
-      ],
+          );
+        }
+        return Container();
+      },
     );
   }
 }

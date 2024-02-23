@@ -4,9 +4,10 @@ import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/pages/profile/personal_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class Competence extends StatelessWidget {
-  const Competence({Key? key}) : super(key: key);
+class SocialMedia extends StatelessWidget {
+  const SocialMedia({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,20 +16,24 @@ class Competence extends StatelessWidget {
         if (state is ProfileLoaded) {
           final user = state.user;
           return ProfilWidget(
-              text: "Yetkinliklerim",
-              widget: user.competenceHistory != null
+              text: "Medya Hesaplarım",
+              widget: user.socialHistory != null
                   ? ListView.builder(
                       shrinkWrap: true,
-                      itemCount: user.competenceHistory!.length,
+                      itemCount: user.socialHistory!.length,
                       itemBuilder: (context, index) {
-                        final competence = user.competenceHistory![index];
-
-                        return Container(
-                          alignment: Alignment.centerLeft,
-                          child: AppTextTheme.small(
-                              competence.compName!,
-                              fontWeight: FontWeight.normal,
-                              context),
+                        final social = user.socialHistory![index];
+                        return Column(
+                          children: [
+                            AppTextTheme.small(
+                                social.socialName!,
+                                fontWeight: FontWeight.normal,
+                                context),
+                            AppTextTheme.small(
+                                social.socialURL!,
+                                fontWeight: FontWeight.normal,
+                                context),
+                          ],
                         );
                       },
                     )

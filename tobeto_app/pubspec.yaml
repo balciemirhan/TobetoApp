@@ -57,6 +57,7 @@ dependencies:
   file_picker: ^5.2.10
   font_awesome_flutter: ^10.7.0
   carousel_slider: ^4.2.1
+  url_launcher: ^6.2.5
 
 dev_dependencies:
   flutter_test:

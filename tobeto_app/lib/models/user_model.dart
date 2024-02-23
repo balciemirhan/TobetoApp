@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tobeto_app/models/user_profile_model/competence_history.dart';
 import 'package:tobeto_app/models/user_profile_model/education_history.dart';
+import 'package:tobeto_app/models/user_profile_model/language_history.dart';
+import 'package:tobeto_app/models/user_profile_model/social_history.dart';
 import 'package:tobeto_app/models/user_profile_model/work_history.dart';
 
 class UserModel {
@@ -21,6 +24,9 @@ class UserModel {
   String? address;
   List<EducationHistory>? educationHistory;
   List<WorkHistory>? workHistory;
+  List<CompetenceHistory>? competenceHistory;
+  List<LanguageHistory>? languageHistory;
+  List<SocialHistory>? socialHistory;
 
   UserModel({
     this.name,
@@ -40,6 +46,9 @@ class UserModel {
     this.address,
     this.educationHistory,
     this.workHistory,
+    this.competenceHistory,
+    this.languageHistory,
+    this.socialHistory,
   });
 
   // -------------------------------------------------
@@ -67,6 +76,15 @@ class UserModel {
           .toList(),
       workHistory: (map['workHistory'] as List?)
           ?.map((e) => WorkHistory.fromMap(e as Map<String, dynamic>))
+          .toList(),
+      competenceHistory: (map['competenceHistory'] as List?)
+          ?.map((e) => CompetenceHistory.fromMap(e as Map<String, dynamic>))
+          .toList(),
+      languageHistory: (map['languageHistory'] as List?)
+          ?.map((e) => LanguageHistory.fromMap(e as Map<String, dynamic>))
+          .toList(),
+      socialHistory: (map['socialHistory'] as List?)
+          ?.map((e) => SocialHistory.fromMap(e as Map<String, dynamic>))
           .toList(),
     );
   }
@@ -112,6 +130,9 @@ class UserModel {
       'address': address,
       'educationHistory': educationHistory?.map((e) => e.toMap()).toList(),
       'workHistory': workHistory?.map((e) => e.toMap()).toList(),
+      'competenceHistory': competenceHistory?.map((e) => e.toMap()).toList(),
+      'languageHistory': languageHistory?.map((e) => e.toMap()).toList(),
+      'socialHistory': socialHistory?.map((e) => e.toMap()).toList(),
     };
   }
 }

@@ -27,7 +27,7 @@ class _EducationEditState extends State<EducationEdit> {
   String? _selectededucationStatus;
   String? _selectedCity;
 
-  _competence(
+  _educationCard(
     BuildContext context, {
     required String status,
     required String school,
@@ -182,7 +182,7 @@ class _EducationEditState extends State<EducationEdit> {
                             itemBuilder: (context, index) {
                               final education =
                                   state.user.educationHistory![index];
-                              return _competence(
+                              return _educationCard(
                                 context,
                                 status: education.educationStatus!,
                                 school: education.schoolName!,
