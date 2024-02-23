@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // Bloc'ta event'ler, UI'dan kaynaklanan ve state'lerin değişmesine neden olan olaylardır.
 /* Örneğin, bir kullanıcı bir düğmeye tıkladığında, bu bir event'tir.
 Event'ler, Bloc'a gönderilir ve Bloc, event'lere göre state'leri günceller.
@@ -36,3 +37,27 @@ class CreateUser extends AuthEvent {
 // ------------- singOut -------------
 
 class UserOut extends AuthEvent {}
+
+// ------------- forgotPassword -------------
+
+class ForgotPassword extends AuthEvent {
+  String email;
+  ForgotPassword({
+    required this.email,
+  });
+}
+
+// ------------- changePassword -------------
+
+class ChangePassword extends AuthEvent {
+  String newPassword;
+  String confirmNewPassword;
+  ChangePassword({
+    required this.newPassword,
+    required this.confirmNewPassword,
+  });
+}
+
+// ------------- SignInWithGoogle -------------
+
+class SignInWithGoogle extends AuthEvent {}

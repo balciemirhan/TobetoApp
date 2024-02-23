@@ -22,9 +22,21 @@ class _WorkEditState extends State<WorkEdit> {
   final TextEditingController _positionController = TextEditingController();
   final TextEditingController _sectorController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
-  final TextEditingController _startDateController = TextEditingController();
-  final TextEditingController _endDateController = TextEditingController();
   String? _selectedCity;
+  DateTime? _selectedStartDate;
+  DateTime? _selectedEndDate;
+
+  void _onStartDateSelected(DateTime date) {
+    setState(() {
+      _selectedStartDate = date;
+    });
+  }
+
+  void _onEndDateSelected(DateTime date) {
+    setState(() {
+      _selectedEndDate = date;
+    });
+  }
 
   _workCard(
     BuildContext context, {
@@ -125,11 +137,15 @@ class _WorkEditState extends State<WorkEdit> {
                         _selectedCity = value;
                       });
                     }),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    EditSelectDate(text: "Giriş Tarihi"),
                     EditSelectDate(
+                      text: "Giriş Tarihi",
+                      onDateSelected: _onStartDateSelected,
+                    ),
+                    EditSelectDate(
+                      onDateSelected: _onEndDateSelected,
                       text: "Çıkış Tarihi",
                     )
                   ],
@@ -150,6 +166,8 @@ class _WorkEditState extends State<WorkEdit> {
                           position: _positionController.text,
                           sector: _sectorController.text,
                           workDescription: _descriptionController.text,
+                          startDate: _selectedStartDate,
+                          endDate: _selectedEndDate,
                         ),
                       );
                     } else {
@@ -161,6 +179,8 @@ class _WorkEditState extends State<WorkEdit> {
                             position: _positionController.text,
                             sector: _sectorController.text,
                             workDescription: _descriptionController.text,
+                            startDate: _selectedStartDate,
+                            endDate: _selectedEndDate,
                           ),
                         ],
                       );

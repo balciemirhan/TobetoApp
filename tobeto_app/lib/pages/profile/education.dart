@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
+import 'package:tobeto_app/config/constant/format/date_formatter.dart';
 import 'package:tobeto_app/pages/profile/personal_widget.dart';
 
 class Education extends StatelessWidget {
@@ -38,7 +39,7 @@ class Education extends StatelessWidget {
                               ],
                             ),
                             Text(
-                                "${education.startDate} - ${education.endDate}"),
+                                "${DateFormatter.dateFormatter.format(education.startDate ?? DateTime.now())} - ${DateFormatter.dateFormatter.format(education.endDate ?? DateTime.now())}"),
                           ],
                         );
                       },

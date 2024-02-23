@@ -17,7 +17,6 @@ import 'package:tobeto_app/pages/profile/foreign_language.dart';
 import 'package:tobeto_app/pages/profile/social_media.dart';
 import 'package:tobeto_app/pages/profile/activity_map.dart';
 import 'package:tobeto_app/pages/profile/rozet.dart';
-import 'package:tobeto_app/pages/profile_edit/education_edit.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);

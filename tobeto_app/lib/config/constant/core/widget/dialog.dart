@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
+import 'package:tobeto_app/config/constant/core/widget/my_dialog_button.dart';
+import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 
 class MyDialog extends StatelessWidget {
   final String title;
@@ -23,42 +27,51 @@ class MyDialog extends StatelessWidget {
         ),
       ),
       child: Container(
-        height: 200,
-        width: 200,
+        decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(12))),
+        height: 325,
+        width: 400,
         child: Column(
           children: [
             Expanded(
               child: Container(
-                width: 280,
-                color: color, // Use the provided color parameter here
+                width: 400,
+                color: color,
                 child: Image.asset(
+                  height: 50,
                   imagePath,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                 ),
               ),
             ),
             Expanded(
               child: Column(
                 children: [
-                  Text(title),
-                  Text(
-                      title), // You might want to change this line to display a different text
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          Colors.blue, // Use backgroundColor instead of primary
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 30,
-                      ),
-                    ),
-                    child: const Text(
-                      AppText.dialogYes,
-                      style: TextStyle(color: Colors.white),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.all(25.0),
+                    child: AppTextTheme.small(title, context),
                   ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      myDialogButton("Hayır", () => Navigator.of(context).pop(),
+                          color: Colors.white, textColor: Colors.black),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(left: 15, right: 15, top: 5),
+                        child: myDialogButton(
+                          "Evet",
+                          textColor: Colors.white,
+                          color: Colors.deepPurple,
+                          () {
+                            context.read<ProfileBloc>().add(DeleteProfile());
+                            Navigator.pushNamed(context, "/start");
+                          },
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
             ),

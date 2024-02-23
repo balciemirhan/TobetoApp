@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/pages/announcement_survey/announcement_item.dart';
 

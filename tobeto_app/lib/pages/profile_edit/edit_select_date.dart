@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class EditSelectDate extends StatefulWidget {
-  const EditSelectDate({Key? key, required this.text}) : super(key: key);
+  const EditSelectDate(
+      {Key? key, required this.text, required this.onDateSelected})
+      : super(key: key);
   final String text;
+  final void Function(DateTime) onDateSelected;
   @override
   _EditSelectDateState createState() => _EditSelectDateState();
 }
@@ -14,7 +17,7 @@ class _EditSelectDateState extends State<EditSelectDate> {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
+      firstDate: DateTime(1930),
       lastDate: DateTime(2100),
     );
 
@@ -22,6 +25,7 @@ class _EditSelectDateState extends State<EditSelectDate> {
       setState(() {
         _selectedDate = picked;
       });
+      widget.onDateSelected(_selectedDate!);
     }
   }
 

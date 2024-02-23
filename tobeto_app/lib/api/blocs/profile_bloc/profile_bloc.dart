@@ -51,7 +51,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   Future<void> _ondeleteProfile(
       DeleteProfile event, Emitter<ProfileState> emit) async {
     try {
-      await _userRepository.deleteUser(event.user);
+      await _userRepository.deleteUser(UserModel());
       emit(ProfileUpdated());
     } catch (e) {
       emit(ProfileError(errorMessage: (e.toString())));

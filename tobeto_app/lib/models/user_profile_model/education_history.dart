@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class EducationHistory {
   String? educationStatus;
   String? schoolName;
   String? department;
   String? city;
-  String? startDate;
-  String? endDate;
+  DateTime? startDate;
+  DateTime? endDate;
   EducationHistory({
     this.educationStatus,
     this.schoolName,
@@ -31,8 +33,8 @@ class EducationHistory {
       schoolName: map['schoolName'] ?? '',
       department: map['department'] ?? '' ?? '',
       city: map['city'] ?? '',
-      startDate: map['startDate'] ?? '',
-      endDate: map['endDate'] ?? '',
+      startDate: (map['startDate'] as Timestamp?)?.toDate(),
+      endDate: (map['endDate'] as Timestamp?)?.toDate(),
     );
   }
 }

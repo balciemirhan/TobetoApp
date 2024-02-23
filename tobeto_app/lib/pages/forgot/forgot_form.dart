@@ -1,5 +1,7 @@
-/* import 'package:flutter/material.dart';
-import 'package:tobeto_app/auth/forgot_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_app/api/blocs/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_app/api/blocs/auth_bloc/auth_event.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 import 'package:tobeto_app/config/constant/core/widget/auth_button.dart';
 import 'package:tobeto_app/config/constant/core/widget/my_textformfield.dart';
@@ -17,19 +19,19 @@ class ForgotPasswordForm extends StatefulWidget {
 }
 
 class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
-  final emailController = TextEditingController();
+  final _emailController = TextEditingController();
 
   @override
   void dispose() {
-    emailController.dispose();
+    _emailController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return NeuBox(
-      height: 300,
-      width: 300,
+      height: 325,
+      width: 325,
       child: Form(
         key: widget.formKey,
         child: Padding(
@@ -37,10 +39,14 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Text(
-                AppText.passwordResetLink,
-                style: TextStyle(fontSize: 15),
-                textWidthBasis: TextWidthBasis.longestLine,
+              const Padding(
+                padding: EdgeInsets.only(bottom: 20),
+                child: Text(
+                  textAlign: TextAlign.center,
+                  AppText.passwordResetLink,
+                  style: TextStyle(fontSize: 15),
+                  textWidthBasis: TextWidthBasis.longestLine,
+                ),
               ),
               MyTextformfield(
                 prefixIcon: const Icon(Icons.email_outlined),
@@ -51,14 +57,21 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
                   }
                   return null;
                 },
-                controller: emailController,
+                controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
               ),
-              AuthButton(
-                  formKey: widget.formKey,
-                  buttonTitle: AppText.passwordReset,
-                  auth: () => Forgot.passwordReset(
-                      context, emailController.text.trim()))
+              Padding(
+                padding: const EdgeInsets.only(top: 25),
+                child: AuthButton(
+                    formKey: widget.formKey,
+                    buttonTitle: AppText.passwordReset,
+                    auth: () async {
+                      context.read<AuthBloc>().add(
+                          ForgotPassword(email: _emailController.text.trim()));
+
+                      Navigator.pushNamed(context, "/start");
+                    }),
+              )
             ],
           ),
         ),
@@ -66,4 +79,3 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
     );
   }
 }
- */

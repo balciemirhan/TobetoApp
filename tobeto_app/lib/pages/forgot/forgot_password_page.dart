@@ -1,4 +1,4 @@
-/* import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:tobeto_app/pages/forgot/forgot_form.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
@@ -18,7 +18,7 @@ class ForgotPasswordPage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           leading: IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed("/authGate");
+                Navigator.of(context).pushNamed("/start");
               },
               icon: Icon(
                 Icons.arrow_back_ios_rounded,
@@ -47,4 +47,3 @@ class ForgotPasswordPage extends StatelessWidget {
     );
   }
 }
- */

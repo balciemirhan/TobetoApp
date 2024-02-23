@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
+
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 
 class ProfilWidget extends StatelessWidget {
@@ -9,7 +9,7 @@ class ProfilWidget extends StatelessWidget {
   final Widget widget;
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
+   // final double screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
       decoration: BoxDecoration(

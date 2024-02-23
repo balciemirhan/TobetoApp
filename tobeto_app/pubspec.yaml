@@ -58,6 +58,7 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   carousel_slider: ^4.2.1
   url_launcher: ^6.2.5
+  carousel_indicator: ^1.0.6
 
 dev_dependencies:
   flutter_test:
@@ -133,7 +134,8 @@ flutter:
     - assets/images/animation_circular.gif
     - assets/images/light_background.gif
     - assets/images/dark_background.gif
-
+    - assets/images/alert.gif
+    - assets/images/success.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tobeto_app/config/constant/core/widget/top_bar_widget_interval.dart';
 import 'package:tobeto_app/pages/announcement_survey/announcement_page.dart';

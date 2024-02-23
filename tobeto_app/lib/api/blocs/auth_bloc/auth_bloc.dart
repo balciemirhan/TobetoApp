@@ -33,6 +33,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<LoginUser>(_onLoginUser);
     on<CreateUser>(_onCreateUser);
     on<UserOut>(_onUserOut);
+    on<ForgotPassword>(_onForgotPassword);
+    on<ChangePassword>(_onChangePassword);
+    on<SignInWithGoogle>(_onSignInWithGoogle);
 
     // Kimlik doğrulama durumu değişikliklerini dinle:
     // eğer var ise Homepage dön.
@@ -50,6 +53,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   //  LoginUser olayını dinle ve başarılı olursa Authenticated i' yay.
   // emit =>  bir Bloc sınıfının durumunu güncellemek için kullanılır ve yalnızca Bloc sınıfının içinde kullanılabilir.
 
+  // ------------- loginUser -------------
+
   void _onLoginUser(LoginUser event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     try {
@@ -59,6 +64,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthError(message: "Giriş Başarısız"));
     }
   }
+
+  // ------------- createUser -------------
 
   void _onCreateUser(CreateUser event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
@@ -79,11 +86,47 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
+// ------------- singOut -------------
+
   void _onUserOut(UserOut event, Emitter<AuthState> emit) async {
     try {
       await _authRepository.userOut();
     } catch (e) {
       emit(AuthError(message: "Kayıt Başarısız..."));
+    }
+  }
+
+// ------------- forgotPassword -------------
+
+  void _onForgotPassword(ForgotPassword event, Emitter<AuthState> emit) async {
+    try {
+      await _authRepository.forgotPassword(event.email);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  // ------------- changePassword -------------
+
+  void _onChangePassword(ChangePassword event, Emitter<AuthState> emit) async {
+    try {
+      if (event.newPassword == event.newPassword) {
+        await _authRepository.changePassword(
+            event.newPassword, event.confirmNewPassword);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
+// ------------- signInWithGoogle -------------
+
+  void _onSignInWithGoogle(
+      SignInWithGoogle event, Emitter<AuthState> emit) async {
+    try {
+      await _authRepository.signInWithGoogle();
+    } catch (e) {
+      print(e);
     }
   }
 }

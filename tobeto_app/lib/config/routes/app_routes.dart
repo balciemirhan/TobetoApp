@@ -5,6 +5,7 @@ import 'package:tobeto_app/pages/calendar/calendar_page.dart';
 import 'package:tobeto_app/pages/catalog/catalog_page.dart';
 import 'package:tobeto_app/pages/course/course_view_page.dart';
 import 'package:tobeto_app/pages/curved/curved_button.dart';
+import 'package:tobeto_app/pages/forgot/forgot_password_page.dart';
 import 'package:tobeto_app/pages/home/home_page.dart';
 import 'package:tobeto_app/pages/login/login_page.dart';
 import 'package:tobeto_app/pages/note/note_page.dart';
@@ -15,6 +16,7 @@ import 'package:tobeto_app/pages/profile/profile_page.dart';
 import 'package:tobeto_app/pages/register/register_page.dart';
 import 'package:tobeto_app/pages/reviwes/reviwes_page.dart';
 import 'package:tobeto_app/pages/settings/setting_page.dart';
+import 'package:tobeto_app/pages/start/login_or_register.dart';
 import 'package:tobeto_app/pages/start/start_page.dart';
 import 'package:tobeto_app/pages/view_more/view_more_page.dart';
 
@@ -36,7 +38,7 @@ final class AppRoute {
   static const String loginOrRegister = "/loginOrRegister";
   static const String calendar = "/calendar";
   static const String setting = "/setting";
-  // static const String forgot = "/forgot";
+  static const String forgot = "/forgot";
   static const String catalog = "/catalog";
   static const String register = "/register";
   static const String personall = "/personal";
@@ -58,13 +60,14 @@ final class AppRoute {
     profiledit: (context) => const ProfileEditPage(),
     calendar: (context) => const CalendarPage(),
     setting: (context) => const SettingPage(),
-    //forgot: (context) => ForgotPasswordPage(),
+    forgot: (context) => ForgotPasswordPage(),
     catalog: (context) => const CatalogPage(),
     register: (context) => RegisterPage(),
     note: (context) => const NotePage(),
     reviews: (context) => const Revister(),
     start: (context) => const StartPage(),
     announcement: (context) => const AnnouncementSurveyPage(),
+    loginOrRegister: (context) => const LoginOrRegister()
   };
 }
 

@@ -4,7 +4,6 @@ import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
-import 'package:tobeto_app/models/user_model.dart';
 import 'package:tobeto_app/models/user_profile_model/education_history.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_dropdownField.dart';
@@ -26,6 +25,20 @@ class _EducationEditState extends State<EducationEdit> {
 
   String? _selectededucationStatus;
   String? _selectedCity;
+  DateTime? _selectedStartDate;
+  DateTime? _selectedEndDate;
+
+  void _onStartDateSelected(DateTime date) {
+    setState(() {
+      _selectedStartDate = date;
+    });
+  }
+
+  void _onEndDateSelected(DateTime date) {
+    setState(() {
+      _selectedEndDate = date;
+    });
+  }
 
   _educationCard(
     BuildContext context, {
@@ -136,12 +149,16 @@ class _EducationEditState extends State<EducationEdit> {
                     });
                   },
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    EditSelectDate(text: "Giriş Tarihi"),
+                    EditSelectDate(
+                      onDateSelected: _onStartDateSelected,
+                      text: "Giriş Tarihi",
+                    ),
                     EditSelectDate(
                       text: "Çıkış Tarihi",
+                      onDateSelected: _onEndDateSelected,
                     )
                   ],
                 ),
@@ -155,6 +172,8 @@ class _EducationEditState extends State<EducationEdit> {
                           schoolName: _schoolController.text,
                           department: _departmentController.text,
                           city: _selectedCity,
+                          startDate: _selectedStartDate,
+                          endDate: _selectedEndDate,
                         ),
                       );
                     } else {
@@ -165,6 +184,8 @@ class _EducationEditState extends State<EducationEdit> {
                             schoolName: _schoolController.text,
                             department: _departmentController.text,
                             city: _selectedCity,
+                            startDate: _selectedStartDate,
+                            endDate: _selectedEndDate,
                           )
                         ],
                       );
