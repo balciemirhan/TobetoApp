@@ -13,6 +13,7 @@ import 'package:tobeto_app/pages/announcement_survey/announcement_survey_page.da
 import 'package:tobeto_app/pages/onboard/onboarding_animation.dart';
 import 'package:tobeto_app/pages/profile_edit/profile_edit_page.dart';
 import 'package:tobeto_app/pages/profile/profile_page.dart';
+import 'package:tobeto_app/pages/quiz/quiz_start_page.dart';
 import 'package:tobeto_app/pages/register/register_page.dart';
 import 'package:tobeto_app/pages/reviwes/reviwes_page.dart';
 import 'package:tobeto_app/pages/settings/setting_page.dart';
@@ -46,6 +47,7 @@ final class AppRoute {
   static const String reviews = "/degerlendirmeler";
   static const String start = "/start";
   static const String announcement = "/announcement";
+  static const String quizStart = "/quizStart";
 
   static Map<String, AppRouteMapFunction> routes = {
     // onboard:(context) => const OnBoardScreen();
@@ -67,7 +69,8 @@ final class AppRoute {
     reviews: (context) => const Revister(),
     start: (context) => const StartPage(),
     announcement: (context) => const AnnouncementSurveyPage(),
-    loginOrRegister: (context) => const LoginOrRegister()
+    loginOrRegister: (context) => const LoginOrRegister(),
+    quizStart: (context) => const QuizStartPage(),
   };
 }
 

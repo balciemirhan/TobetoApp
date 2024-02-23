@@ -23,7 +23,7 @@ class Revister extends StatelessWidget {
             children: [
               _buildMainContent(),
               const SizedBox(height: 20),
-              _buildContainer(),
+              _buildContainer(context),
               const SizedBox(height: 20),
               _buildSecondRow(),
               const SizedBox(height: 20),
@@ -77,7 +77,7 @@ class Revister extends StatelessWidget {
     );
   }
 
-  Widget _buildContainer() {
+  Widget _buildContainer(BuildContext context) {
     return Container(
       width: 430,
       height: 160,
@@ -106,7 +106,9 @@ class Revister extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "/quizStart");
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.deepPurple,
               textStyle: const TextStyle(fontSize: 15),
