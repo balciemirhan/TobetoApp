@@ -4,35 +4,35 @@ import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
-import 'package:tobeto_app/models/user_model.dart';
-import 'package:tobeto_app/models/user_profile_model/education_history.dart';
+import 'package:tobeto_app/models/user_profile_model/work_history.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_dropdownField.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_select_date.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_textfield.dart';
 
-class EducationEdit extends StatefulWidget {
-  const EducationEdit({Key? key}) : super(key: key);
+class WorkEdit extends StatefulWidget {
+  const WorkEdit({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _EducationEditState();
+  _WorkEditState createState() => _WorkEditState();
 }
 
-class _EducationEditState extends State<EducationEdit> {
-  final TextEditingController _schoolController = TextEditingController();
-  final TextEditingController _departmentController = TextEditingController();
+class _WorkEditState extends State<WorkEdit> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _positionController = TextEditingController();
+  final TextEditingController _sectorController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _startDateController = TextEditingController();
   final TextEditingController _endDateController = TextEditingController();
-
-  String? _selectededucationStatus;
   String? _selectedCity;
 
-  _competence(
+  _workCard(
     BuildContext context, {
-    required String status,
-    required String school,
-    required String department,
+    required String name,
+    required String position,
+    required String sector,
     required String city,
+    required String description,
     required void Function()? onPressed,
   }) {
     return Container(
@@ -52,11 +52,13 @@ class _EducationEditState extends State<EducationEdit> {
             Column(
               children: [
                 AppTextTheme.small(
-                    status, fontWeight: FontWeight.normal, context),
+                    name, fontWeight: FontWeight.normal, context),
                 AppTextTheme.small(
-                    school, fontWeight: FontWeight.normal, context),
+                    position, fontWeight: FontWeight.normal, context),
                 AppTextTheme.small(
-                    department, fontWeight: FontWeight.normal, context),
+                    sector, fontWeight: FontWeight.normal, context),
+                AppTextTheme.small(
+                    description, fontWeight: FontWeight.normal, context),
               ],
             ),
             Column(
@@ -92,50 +94,37 @@ class _EducationEditState extends State<EducationEdit> {
           return SingleChildScrollView(
             child: Column(
               children: [
+                EditTextField(
+                  label: "Kurum Adı",
+                  keyboardType: TextInputType.text,
+                  controller: _nameController,
+                ),
+                EditTextField(
+                    label: "Pozisyon",
+                    keyboardType: TextInputType.text,
+                    controller: _positionController),
+                EditTextField(
+                    label: "Sektör",
+                    keyboardType: TextInputType.text,
+                    controller: _sectorController),
                 EditDropdownField(
-                    text: "Eğitim Durumu",
+                    text: "Şehir",
                     items: const [
-                      DropdownMenuItem(value: "Lisans", child: Text("Lisans")),
                       DropdownMenuItem(
-                          value: "Ön Lisans", child: Text("Ön Lisans")),
+                          value: "İstanbul", child: Text("İstanbul")),
+                      DropdownMenuItem(value: "Ankara", child: Text("Ankara")),
                       DropdownMenuItem(
-                          value: "Yüksek Lisans", child: Text("Yüksek Lisans")),
-                      DropdownMenuItem(
-                          value: "Doktora", child: Text("Doktora")),
+                          value: "Kocaeli", child: Text("Kocaeli")),
+                      DropdownMenuItem(value: "Bursa", child: Text("Bursa")),
+                      DropdownMenuItem(value: "Manisa", child: Text("Manisa")),
+                      DropdownMenuItem(value: "Bolu", child: Text("Bolu")),
+                      DropdownMenuItem(value: "Yalova", child: Text("Yalova")),
                     ],
                     onChanged: (value) {
                       setState(() {
-                        _selectededucationStatus = value;
+                        _selectedCity = value;
                       });
                     }),
-                EditTextField(
-                  label: "Okulun Adı",
-                  keyboardType: TextInputType.text,
-                  controller: _schoolController,
-                ),
-                EditTextField(
-                  label: "Bölüm",
-                  keyboardType: TextInputType.text,
-                  controller: _departmentController,
-                ),
-                EditDropdownField(
-                  text: "Şehir",
-                  items: const [
-                    DropdownMenuItem(
-                        value: "İstanbul", child: Text("İstanbul")),
-                    DropdownMenuItem(value: "Ankara", child: Text("Ankara")),
-                    DropdownMenuItem(value: "Kocaeli", child: Text("Kocaeli")),
-                    DropdownMenuItem(value: "Bursa", child: Text("Bursa")),
-                    DropdownMenuItem(value: "Manisa", child: Text("Manisa")),
-                    DropdownMenuItem(value: "Bolu", child: Text("Bolu")),
-                    DropdownMenuItem(value: "Yalova", child: Text("Yalova")),
-                  ],
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedCity = value;
-                    });
-                  },
-                ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -145,27 +134,34 @@ class _EducationEditState extends State<EducationEdit> {
                     )
                   ],
                 ),
+                EditTextField(
+                  label: "İş Açıklaması",
+                  keyboardType: TextInputType.text,
+                  controller: _descriptionController,
+                ),
                 EditButton(
                   text: "Ekle",
                   onTap: () {
-                    if (state.user.educationHistory != null) {
-                      state.user.educationHistory!.add(
-                        EducationHistory(
-                          educationStatus: _selectededucationStatus,
-                          schoolName: _schoolController.text,
-                          department: _departmentController.text,
+                    if (state.user.workHistory != null) {
+                      state.user.workHistory!.add(
+                        WorkHistory(
                           city: _selectedCity,
+                          organizationName: _nameController.text,
+                          position: _positionController.text,
+                          sector: _sectorController.text,
+                          workDescription: _descriptionController.text,
                         ),
                       );
                     } else {
-                      state.user.educationHistory = List.of(
+                      state.user.workHistory = List.of(
                         [
-                          EducationHistory(
-                            educationStatus: _selectededucationStatus,
-                            schoolName: _schoolController.text,
-                            department: _departmentController.text,
+                          WorkHistory(
                             city: _selectedCity,
-                          )
+                            organizationName: _nameController.text,
+                            position: _positionController.text,
+                            sector: _sectorController.text,
+                            workDescription: _descriptionController.text,
+                          ),
                         ],
                       );
                     }
@@ -176,18 +172,18 @@ class _EducationEditState extends State<EducationEdit> {
                 ),
                 SizedBox(
                     height: 300,
-                    child: state.user.educationHistory != null
+                    child: state.user.workHistory != null
                         ? ListView.builder(
-                            itemCount: state.user.educationHistory!.length,
+                            itemCount: state.user.workHistory!.length,
                             itemBuilder: (context, index) {
-                              final education =
-                                  state.user.educationHistory![index];
-                              return _competence(
+                              final work = state.user.workHistory![index];
+                              return _workCard(
                                 context,
-                                status: education.educationStatus!,
-                                school: education.schoolName!,
-                                department: education.department!,
-                                city: education.city!,
+                                description: work.workDescription!,
+                                name: work.organizationName!,
+                                position: work.position!,
+                                sector: work.sector!,
+                                city: work.city!,
                                 onPressed: () {},
                               );
                             },

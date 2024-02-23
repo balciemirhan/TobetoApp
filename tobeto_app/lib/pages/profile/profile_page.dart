@@ -12,7 +12,7 @@ import 'package:tobeto_app/pages/profile/about.dart';
 import 'package:tobeto_app/pages/profile/certificate.dart';
 import 'package:tobeto_app/pages/profile/competence.dart';
 import 'package:tobeto_app/pages/profile/education.dart';
-import 'package:tobeto_app/pages/profile/experience.dart';
+import 'package:tobeto_app/pages/profile/work.dart';
 import 'package:tobeto_app/pages/profile/foreignLanguage.dart';
 import 'package:tobeto_app/pages/profile/socialMedia.dart';
 import 'package:tobeto_app/pages/profile/activity_map.dart';
@@ -120,7 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               description: " ${user.description}",
                             ),
                             const Education(),
-                            const Experience(),
+                            const Work(),
                             const Competence(),
                             const ForeignLanguage(),
                             const Certificate(),

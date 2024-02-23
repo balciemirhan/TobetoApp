@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_app/pages/profile_edit/certificate_edit.dart';
 import 'package:tobeto_app/pages/profile_edit/competence_edit.dart';
 import 'package:tobeto_app/pages/profile_edit/education_edit.dart';
-import 'package:tobeto_app/pages/profile_edit/experience_edit.dart';
+import 'package:tobeto_app/pages/profile_edit/work_edit.dart';
 import 'package:tobeto_app/pages/profile_edit/foreign_language_edit.dart';
 import 'package:tobeto_app/pages/profile_edit/password_edit.dart';
 import 'package:tobeto_app/pages/profile_edit/person_edit.dart';
@@ -98,7 +98,7 @@ class ProfileEditPage extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             children: [
               PersonEdit(),
-              ExperienceEdit(),
+              WorkEdit(),
               EducationEdit(),
               CompetenceEdit(),
               CertificateEdit(),
