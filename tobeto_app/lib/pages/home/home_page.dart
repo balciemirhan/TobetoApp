@@ -12,6 +12,7 @@ import 'package:tobeto_app/config/constant/core/widget/drawer/my_advanced_drawer
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_appbar.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_drawer.dart';
 import 'package:tobeto_app/config/constant/format/collections.dart';
+import 'package:tobeto_app/data/announcement_data.dart';
 import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/pages/home/course_cards.dart';
 import 'package:tobeto_app/pages/home/home_header.dart';
@@ -33,6 +34,9 @@ class _HomePageState extends State<HomePage> {
     final double deviceH = mediaQueryData.size.height;
     final classesCollection =
         _firebaseFirestore.collection(Collections.classes);
+
+    final announcementCollection =
+        _firebaseFirestore.collection(Collections.announcement);
     /*  final courseCollection = _firebaseFirestore.collection(Collections.course);
     final catalogCourseCollection =
         _firebaseFirestore.collection(Collections.catalogCourse); */
@@ -154,7 +158,23 @@ class _HomePageState extends State<HomePage> {
                     label: const Text("firestore veri yükle..."),
                   ),
                   */
+                  // ------------ Firestore'a  announcement   veri yükleme ------------
 
+                  /* ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var announcement in announcementList) {
+                          await announcementCollection
+                              .add(announcement.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("firestore veri yükle..."),
+                  ),
+*/
                   // ------------ Kategoriler / Tümünü Gör ------------
 
                   const Padding(

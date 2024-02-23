@@ -6,6 +6,6 @@ class Collections {
   static const String note = "note";
   static const String classes = "classes";
   static const String exam = "exam";
-    static const String application= "application";
-
+  static const String application = "application";
+  static const String announcement = "announcement";
 }
