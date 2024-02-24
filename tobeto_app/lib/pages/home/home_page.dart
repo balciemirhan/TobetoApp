@@ -8,6 +8,7 @@ import 'package:tobeto_app/api/blocs/course_bloc/course_state.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
+import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_advanced_drawer.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_appbar.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_drawer.dart';
@@ -49,186 +50,192 @@ class _HomePageState extends State<HomePage> {
     return MyAdvancedDrawer(
         drawer: MyDrawer(),
         controller: drawerController,
-        child: Scaffold(
-          extendBody: true, // button
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 35),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  TopBar(drawerController: drawerController),
+        child: BackgroundImage(
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
 
-                  // ------------ Hoş Geldin Kullanıcı ------------
+            extendBody: true, // button
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 35),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    TopBar(drawerController: drawerController),
 
-                  BlocBuilder<ProfileBloc, ProfileState>(
-                    builder: (context, state) {
-                      if (state is ProfileInitial || state is ProfileUpdated) {
-                        context.read<ProfileBloc>().add(GetProfil());
-                      }
+                    // ------------ Hoş Geldin Kullanıcı ------------
 
-                      if (state is ProfileLoaded) {
-                        return HomeHeader(user: state.user);
-                      }
-                      return Container();
-                    },
-                  ),
-
-                  // ------------ Reklam Panosu ------------
-
-                  const Padding(
-                    padding: EdgeInsets.all(35),
-                    child: BillBoard(),
-                  ),
-
-                  // ------------ Firestore'a  course  veri yükleme ------------
-
-                  /*   ElevatedButton.icon(
-                    onPressed: () async {
-                      bool dataAdded = false;
-                      if (!dataAdded) {
-                        for (var course in courseList) {
-                          await courseCollection.add(course.toMap());
+                    BlocBuilder<ProfileBloc, ProfileState>(
+                      builder: (context, state) {
+                        if (state is ProfileInitial ||
+                            state is ProfileUpdated) {
+                          context.read<ProfileBloc>().add(GetProfil());
                         }
-                        dataAdded = true;
-                      }
-                    },
-                    icon: const Icon(Icons.upload),
-                    label: const Text("firestore veri yükle..."),
-                  ), */
 
-                  // ------------ Firestore'a  catalog   veri yükleme ------------
-                  /* ElevatedButton.icon(
-                    onPressed: () async {
-                      bool dataAdded = false;
-                      if (!dataAdded) {
-                        for (var catalogCourse in catalogCourseList) {
-                          await catalogCourseCollection
-                              .add(catalogCourse.toMap());
+                        if (state is ProfileLoaded) {
+                          return HomeHeader(user: state.user);
                         }
-                        dataAdded = true;
-                      }
-                    },
-                    icon: const Icon(Icons.upload),
-                    label: const Text("firestore veri yükle..."),
-                  ), */
+                        return Container();
+                      },
+                    ),
 
-                  // ------------ Firestore'a  classes   veri yükleme ------------
+                    // ------------ Reklam Panosu ------------
 
-                  /*ElevatedButton.icon(
-                    onPressed: () async {
-                      bool dataAdded = false;
-                      if (!dataAdded) {
-                        for (var classes in classesList) {
-                          await classesCollection.add(classes.toMap());
+                    const Padding(
+                      padding: EdgeInsets.all(35),
+                      child: BillBoard(),
+                    ),
+
+                    // ------------ Firestore'a  course  veri yükleme ------------
+
+                    /*   ElevatedButton.icon(
+                      onPressed: () async {
+                        bool dataAdded = false;
+                        if (!dataAdded) {
+                          for (var course in courseList) {
+                            await courseCollection.add(course.toMap());
+                          }
+                          dataAdded = true;
                         }
-                        dataAdded = true;
-                      }
-                    },
-                    icon: const Icon(Icons.upload),
-                    label: const Text("firestore veri yükle..."),
-                  ),*/
+                      },
+                      icon: const Icon(Icons.upload),
+                      label: const Text("firestore veri yükle..."),
+                    ), */
 
-                  //--------------------------*****EXAM VERİSİ YÜKLEME
-                  /*ElevatedButton.icon(
-                    onPressed: () async {
-                      bool dataAdded = false;
-                      if (!dataAdded) {
-                        for (var exam in examList) {
-                          await examCollection.add(exam.toMap());
+                    // ------------ Firestore'a  catalog   veri yükleme ------------
+                    /* ElevatedButton.icon(
+                      onPressed: () async {
+                        bool dataAdded = false;
+                        if (!dataAdded) {
+                          for (var catalogCourse in catalogCourseList) {
+                            await catalogCourseCollection
+                                .add(catalogCourse.toMap());
+                          }
+                          dataAdded = true;
                         }
-                        dataAdded = true;
-                      }
-                    },
-                    icon: const Icon(Icons.upload),
-                    label: const Text("firestore veri yükle..."),
-                  ),
-                  */
-                  /* ElevatedButton.icon(
-                    onPressed: () async {
-                      bool dataAdded = false;
-                      if (!dataAdded) {
-                        for (var application in applicationList) {
-                          await applicationCollection.add(application.toMap());
+                      },
+                      icon: const Icon(Icons.upload),
+                      label: const Text("firestore veri yükle..."),
+                    ), */
+
+                    // ------------ Firestore'a  classes   veri yükleme ------------
+
+                    /*ElevatedButton.icon(
+                      onPressed: () async {
+                        bool dataAdded = false;
+                        if (!dataAdded) {
+                          for (var classes in classesList) {
+                            await classesCollection.add(classes.toMap());
+                          }
+                          dataAdded = true;
                         }
-                        dataAdded = true;
-                      }
-                    },
-                    icon: const Icon(Icons.upload),
-                    label: const Text("firestore veri yükle..."),
-                  ),
-                  */
-                  // ------------ Firestore'a  announcement   veri yükleme ------------
+                      },
+                      icon: const Icon(Icons.upload),
+                      label: const Text("firestore veri yükle..."),
+                    ),*/
 
-                  /* ElevatedButton.icon(
-                    onPressed: () async {
-                      bool dataAdded = false;
-                      if (!dataAdded) {
-                        for (var announcement in announcementList) {
-                          await announcementCollection
-                              .add(announcement.toMap());
+                    //--------------------------*****EXAM VERİSİ YÜKLEME
+                    /*ElevatedButton.icon(
+                      onPressed: () async {
+                        bool dataAdded = false;
+                        if (!dataAdded) {
+                          for (var exam in examList) {
+                            await examCollection.add(exam.toMap());
+                          }
+                          dataAdded = true;
                         }
-                        dataAdded = true;
-                      }
-                    },
-                    icon: const Icon(Icons.upload),
-                    label: const Text("firestore veri yükle..."),
-                  ),
-*/
-                  // ------------ Kategoriler / Tümünü Gör ------------
+                      },
+                      icon: const Icon(Icons.upload),
+                      label: const Text("firestore veri yükle..."),
+                    ),
+                    */
+                    /* ElevatedButton.icon(
+                      onPressed: () async {
+                        bool dataAdded = false;
+                        if (!dataAdded) {
+                          for (var application in applicationList) {
+                            await applicationCollection.add(application.toMap());
+                          }
+                          dataAdded = true;
+                        }
+                      },
+                      icon: const Icon(Icons.upload),
+                      label: const Text("firestore veri yükle..."),
+                    ),
+                    */
+                    // ------------ Firestore'a  announcement   veri yükleme ------------
 
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                    child: CourseCardsTitle(),
-                  ),
+                    /* ElevatedButton.icon(
+                      onPressed: () async {
+                        bool dataAdded = false;
+                        if (!dataAdded) {
+                          for (var announcement in announcementList) {
+                            await announcementCollection
+                                .add(announcement.toMap());
+                          }
+                          dataAdded = true;
+                        }
+                      },
+                      icon: const Icon(Icons.upload),
+                      label: const Text("firestore veri yükle..."),
+                    ),
+          */
+                    // ------------ Kategoriler / Tümünü Gör ------------
 
-                  // ------------ Dinamik Card Tasarımı / Flutter - Java - Dart vs. ------------
+                    const Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                      child: CourseCardsTitle(),
+                    ),
 
-                  BlocBuilder<CourseBloc, CourseState>(
-                    builder: (context, state) {
-                      if (state is CourseInitial) {
-                        context.read<CourseBloc>().add(GetCourse());
-                      }
-                      if (state is CourseLoaded) {
-                        final List<Course> course = state.course;
-                        return Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: SizedBox(
-                            height: deviceH / 6,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: 5,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.all(11),
-                                  child: CourseCards(course: course[index]),
-                                );
-                              },
+                    // ------------ Dinamik Card Tasarımı / Flutter - Java - Dart vs. ------------
+
+                    BlocBuilder<CourseBloc, CourseState>(
+                      builder: (context, state) {
+                        if (state is CourseInitial) {
+                          context.read<CourseBloc>().add(GetCourse());
+                        }
+                        if (state is CourseLoaded) {
+                          final List<Course> course = state.course;
+                          return Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: SizedBox(
+                              height: deviceH / 6,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: 5,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.all(11),
+                                    child: CourseCards(course: course[index]),
+                                  );
+                                },
+                              ),
                             ),
-                          ),
-                        );
-                      }
-                      return Container();
-                    },
-                  ),
+                          );
+                        }
+                        return Container();
+                      },
+                    ),
 
-                  const Padding(padding: EdgeInsets.only(top: 20)),
+                    const Padding(padding: EdgeInsets.only(top: 20)),
 
-                  // ------------ Popüler Kurslar ------------
-                  /*   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                    child: PopularWidget(),
-                  ), */
+                    // ------------ Popüler Kurslar ------------
+                    /*   const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                      child: PopularWidget(),
+                    ), */
 
-                  // ------------ En son izlediğiniz ders ------------
-                  /*   const Padding(
-                    padding: EdgeInsets.all(35),
-                    child: LastCourseVideo(),
-                  ) */
+                    // ------------ En son izlediğiniz ders ------------
+                    /*   const Padding(
+                      padding: EdgeInsets.all(35),
+                      child: LastCourseVideo(),
+                    ) */
 
-                  //   bottomNavigationBari yani alt butonların yönetimi -->
-                  //CurvedNavBarWidget() ' da yönetiliyor.
-                ],
+                    //   bottomNavigationBari yani alt butonların yönetimi -->
+                    //CurvedNavBarWidget() ' da yönetiliyor.
+                  ],
+                ),
               ),
             ),
           ),

@@ -27,9 +27,9 @@ final class AppColor {
 
   // --------------------------- NeuBox Color Dark Theme ---------------------------
 
-  static const Color neuBoxColorDark = Color.fromARGB(255, 1, 5, 18);
-  static const Color neuBoxShadowColorBRDark = Colors.deepPurple;
-  static const Color neuBoxShadowColorTLDark = Colors.pink;
+  static const Color neuBoxColorDark = Color.fromARGB(255, 23, 10, 95);
+  static final Color neuBoxShadowColorBRDark = Colors.deepPurple.shade100;
+  static final Color neuBoxShadowColorTLDark = Colors.deepPurple.shade900;
 
   static const active0 = Color(0xFFCACACA);
   static const active1 = Color(0xFFB963F2);

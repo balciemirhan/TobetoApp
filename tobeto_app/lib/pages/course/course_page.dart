@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
@@ -11,61 +12,64 @@ class CoursePage extends StatelessWidget {
   final Course course;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Expanded(flex: 4, child: CourseImage(course: course)),
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      AppTextTheme.small(course.title, context),
-                      IconButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, "/note");
-                          },
-                          icon: const Icon(Icons.note_alt_outlined))
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      ProgressBarAnimation(
-                        progress: course.progress,
-                      ),
-                      const Spacer(),
-                      NeuBox(
-                        height: 40,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "${course.rating} ",
-                              style: const TextStyle(fontSize: 13),
-                            ),
-                            const Icon(
-                              Icons.star,
-                              size: 15,
-                              color: Colors.deepPurple,
-                            ),
-                          ],
+    return BackgroundImage(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Column(
+          children: [
+            Expanded(flex: 4, child: CourseImage(course: course)),
+            Expanded(
+              flex: 2,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        AppTextTheme.small(course.title, context),
+                        IconButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, "/note");
+                            },
+                            icon: const Icon(Icons.note_alt_outlined))
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        ProgressBarAnimation(
+                          progress: course.progress,
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        const Spacer(),
+                        NeuBox(
+                          height: 40,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "${course.rating} ",
+                                style: const TextStyle(fontSize: 13),
+                              ),
+                              const Icon(
+                                Icons.star,
+                                size: 15,
+                                color: Colors.deepPurple,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          const Expanded(flex: 7, child: TabBarExample())
-        ],
+            const Expanded(flex: 7, child: TabBarExample())
+          ],
+        ),
       ),
     );
   }

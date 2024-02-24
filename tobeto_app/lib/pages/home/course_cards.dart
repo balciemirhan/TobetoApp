@@ -29,17 +29,24 @@ class CourseCards extends StatelessWidget {
         Positioned(
           bottom: 0,
           child: Container(
-            alignment: Alignment.center,
-            width: 130,
-            height: 40,
-            decoration: const BoxDecoration(
-              color: Colors.white38,
-              borderRadius:
-                  BorderRadius.vertical(top: Radius.elliptical(40, 20)),
-            ),
-            child: AppTextTheme.xxSmall(course.title, context,
-                textAlign: TextAlign.center, fontWeight: FontWeight.normal),
-          ),
+              margin: const EdgeInsets.all(0.5),
+              alignment: Alignment.center,
+              width: 128,
+              height: 40,
+              decoration: const BoxDecoration(
+                color: Colors.white12,
+                borderRadius: BorderRadius.vertical(
+                    top: Radius.elliptical(40, 20),
+                    bottom: Radius.circular(12)),
+              ),
+              child: Text(
+                course.title,
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.center,
+              )),
         )
       ]),
     );

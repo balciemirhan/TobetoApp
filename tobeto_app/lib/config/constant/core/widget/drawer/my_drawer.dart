@@ -6,10 +6,12 @@ import 'package:tobeto_app/api/blocs/note_bloc/note_bloc.dart';
 import 'package:tobeto_app/api/blocs/note_bloc/note_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
+import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/customDilok.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/data/application.dart';
+import 'package:tobeto_app/models/user_model.dart';
 
 class MyDrawer extends StatelessWidget {
   MyDrawer({Key? key}) : super(key: key);
@@ -25,14 +27,27 @@ class MyDrawer extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             const Spacer(),
-            MyListTile(
-                key: _adSoyadKey,
-                title: "Ad Soyad",
-                photo: const Image(
-                    image: AssetImage(AppImage.profileImage), height: 60),
-                onTap: () {
-                  _showPopupMenu(context, _adSoyadKey);
-                }),
+            BlocBuilder<ProfileBloc, ProfileState>(
+              builder: (context, state) {
+                if (state is ProfileInitial || state is ProfileUpdated) {
+                  context.read<ProfileBloc>().add(GetProfil());
+                }
+                if (state is ProfileLoaded) {
+                  UserModel user = state.user;
+                  return MyListTile(
+                      key: _adSoyadKey,
+                      title: "${user.name} ${user.surname}" ?? "",
+                      photo: CircleAvatar(
+                          minRadius: 20,
+                          maxRadius: 35,
+                          backgroundImage: NetworkImage(user.profilePhoto!)),
+                      onTap: () {
+                        _showPopupMenu(context, _adSoyadKey);
+                      });
+                }
+                return Container();
+              },
+            ),
             const Spacer(),
             MyListTile(
               icon: const Icon(Icons.home_rounded),
@@ -107,7 +122,7 @@ class MyListTile extends StatelessWidget {
     this.image,
     this.photo,
   });
-  final Image? photo;
+  final Widget? photo;
   final String title;
 
   final void Function()? onTap;
