@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_app/api/blocs/announcement_bloc/announcement_bloc.dart';
 import 'package:tobeto_app/api/blocs/application_bloc/application_bloc.dart';
 import 'package:tobeto_app/api/blocs/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_app/api/blocs/calendar_bloc/calendar_bloc.dart';
@@ -9,6 +10,7 @@ import 'package:tobeto_app/api/blocs/course_bloc/course_bloc.dart';
 import 'package:tobeto_app/api/blocs/exam_bloc/exam_bloc.dart';
 import 'package:tobeto_app/api/blocs/note_bloc/note_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
+import 'package:tobeto_app/api/repositories/announcement_repository.dart';
 import 'package:tobeto_app/api/repositories/application_repository.dart';
 import 'package:tobeto_app/api/repositories/auth_repository.dart';
 import 'package:tobeto_app/api/repositories/calendar_repository.dart';
@@ -62,6 +64,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<NoteBloc>(
           create: (context) => NoteBloc(NoteRepository()),
+        ),
+        BlocProvider<AnnouncementBloc>(
+          create: (context) => AnnouncementBloc(AnnouncementRepository()),
         )
       ],
       child: MaterialApp(

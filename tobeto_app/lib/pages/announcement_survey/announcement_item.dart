@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:intl/intl.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/models/announcement_model.dart';
 
 class AnnouncementItem extends StatelessWidget {
-  const AnnouncementItem({Key? key, required this.title, required this.date})
+  const AnnouncementItem({Key? key, required this.announcement})
       : super(key: key);
-
-  final String title;
-  final DateTime date;
+  final AnnouncementModel announcement;
 
   @override
   Widget build(BuildContext context) {
-    String formattedDate = DateFormat('dd.MM.yyyy').format(date);
-
     return Container(
       margin: const EdgeInsets.all(15),
       child: NeuBox(
@@ -26,7 +22,7 @@ class AnnouncementItem extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: AppTextTheme.small(title, context,
+              child: AppTextTheme.small(announcement.title, context,
                   textAlign: TextAlign.center),
             ),
             const Spacer(
@@ -43,7 +39,7 @@ class AnnouncementItem extends StatelessWidget {
                       size: 18,
                     ),
                     const SizedBox(width: 8),
-                    AppTextTheme.xxSmall(formattedDate, context)
+                    AppTextTheme.xxSmall("${announcement.dateTime}", context)
                   ],
                 ),
                 Icon(

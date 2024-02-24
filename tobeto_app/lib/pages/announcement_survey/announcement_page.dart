@@ -1,7 +1,15 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_app/api/blocs/announcement_bloc/announcement_bloc.dart';
+import 'package:tobeto_app/api/blocs/announcement_bloc/announcement_event.dart';
+import 'package:tobeto_app/api/blocs/announcement_bloc/announcement_state.dart';
+import 'package:tobeto_app/api/blocs/catalog_bloc/catalog_state.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/models/announcement_model.dart';
+import 'package:tobeto_app/pages/announcement_survey/announcement_carousel.dart';
 import 'package:tobeto_app/pages/announcement_survey/announcement_item.dart';
 
 class AnnouncementPage extends StatelessWidget {
@@ -13,33 +21,21 @@ class AnnouncementPage extends StatelessWidget {
       children: [
         AppTextTheme.medium("Duyuru", context),
         const Spacer(),
-        CarouselSlider(
-            items: [
-              AnnouncementItem(
-                  title: "20 Şubat Kampüs Buluşması Hk.", date: DateTime.now()),
-              AnnouncementItem(title: "Mindset Anketi", date: DateTime.now()),
-              AnnouncementItem(
-                  title: "Ocak Ayı Tercih Formu Bilgilendirmesi",
-                  date: DateTime.now()),
-              AnnouncementItem(
-                  title: "11 Ocak Kampüs Buluşması", date: DateTime.now()),
-            ],
-            options: CarouselOptions(
-              height: 200,
-              aspectRatio: 16 / 9,
-              viewportFraction: 0.6,
-              initialPage: 0,
-              enableInfiniteScroll: true,
-              reverse: false,
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 6),
-              autoPlayAnimationDuration: const Duration(seconds: 6),
-              autoPlayCurve: Curves.fastOutSlowIn,
-              enlargeCenterPage: true,
-              enlargeFactor: 0.3,
-              onPageChanged: (index, reason) {},
-              scrollDirection: Axis.horizontal,
-            )),
+        BlocBuilder<AnnouncementBloc, AnnouncementState>(
+          builder: (context, state) {
+            if (state is AnnouncementInitial) {
+              context.read<AnnouncementBloc>().add(GetAnnouncement());
+            }
+            if (state is AnnouncementLoading) {
+              return const CircularProgressIndicator();
+            }
+            if (state is AnnouncementLoaded) {
+              final announcement = state.announcement;
+              return AnnouncementCarousel(announcement: announcement);
+            }
+            return Container();
+          },
+        ),
         const Spacer()
       ],
     );
