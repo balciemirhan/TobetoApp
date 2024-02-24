@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
+import 'package:tobeto_app/config/constant/format/date_formatter.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/announcement_model.dart';
 
@@ -46,7 +46,10 @@ class AnnouncementItem extends StatelessWidget {
                         size: 18,
                       ),
                       const SizedBox(width: 8),
-                      AppTextTheme.xxSmall("${announcement.dateTime}", context)
+                      AppTextTheme.xxSmall(
+                          DateFormatter.dateFormatter
+                              .format(announcement.dateTime ?? DateTime.now()),
+                          context)
                     ],
                   ),
                   Icon(

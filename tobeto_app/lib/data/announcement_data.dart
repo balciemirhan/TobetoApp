@@ -1,4 +1,3 @@
-import 'package:intl/intl.dart';
 import 'package:tobeto_app/models/announcement_model.dart';
 
 List<AnnouncementModel> announcementList = <AnnouncementModel>[

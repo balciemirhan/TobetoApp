@@ -17,7 +17,7 @@ class AnnouncementModel {
     return {
       'title': title,
       'text': text,
-      'dateTime': dateTime,
+      'dateTime': dateTime ?? DateTime.now(),
     };
   }
 

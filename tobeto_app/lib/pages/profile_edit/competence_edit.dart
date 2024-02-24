@@ -117,7 +117,12 @@ class _CompetenceEditState extends State<CompetenceEdit> {
                               return _competence(
                                 context,
                                 competence: competence.compName!,
-                                onPressed: () {},
+                                onPressed: () {
+                                  state.user.competenceHistory?.removeAt(index);
+                                  context.read<ProfileBloc>().add(
+                                        UpdateProfile(user: state.user),
+                                      );
+                                },
                               );
                             },
                           )

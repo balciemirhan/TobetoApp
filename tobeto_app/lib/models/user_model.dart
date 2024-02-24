@@ -27,6 +27,7 @@ class UserModel {
   List<CompetenceHistory>? competenceHistory;
   List<LanguageHistory>? languageHistory;
   List<SocialHistory>? socialHistory;
+  List<String>? certificates;
 
   UserModel({
     this.name,
@@ -49,6 +50,7 @@ class UserModel {
     this.competenceHistory,
     this.languageHistory,
     this.socialHistory,
+    this.certificates,
   });
 
   // -------------------------------------------------
@@ -86,6 +88,7 @@ class UserModel {
       socialHistory: (map['socialHistory'] as List?)
           ?.map((e) => SocialHistory.fromMap(e as Map<String, dynamic>))
           .toList(),
+      certificates: List<String>.from(map['certificates'] ?? []),
     );
   }
 
@@ -133,6 +136,7 @@ class UserModel {
       'competenceHistory': competenceHistory?.map((e) => e.toMap()).toList(),
       'languageHistory': languageHistory?.map((e) => e.toMap()).toList(),
       'socialHistory': socialHistory?.map((e) => e.toMap()).toList(),
+      'certificates': certificates
     };
   }
 }

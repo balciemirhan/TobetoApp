@@ -13,7 +13,6 @@ import 'package:tobeto_app/config/constant/core/widget/drawer/my_advanced_drawer
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_appbar.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_drawer.dart';
 import 'package:tobeto_app/config/constant/format/collections.dart';
-import 'package:tobeto_app/data/announcement_data.dart';
 import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/pages/home/course_cards.dart';
 import 'package:tobeto_app/pages/home/home_header.dart';
@@ -165,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                     */
                     // ------------ Firestore'a  announcement   veri yükleme ------------
 
-                    /* ElevatedButton.icon(
+                    /*   ElevatedButton.icon(
                       onPressed: () async {
                         bool dataAdded = false;
                         if (!dataAdded) {
@@ -178,8 +177,8 @@ class _HomePageState extends State<HomePage> {
                       },
                       icon: const Icon(Icons.upload),
                       label: const Text("firestore veri yükle..."),
-                    ),
-          */
+                    ), */
+
                     // ------------ Kategoriler / Tümünü Gör ------------
 
                     const Padding(

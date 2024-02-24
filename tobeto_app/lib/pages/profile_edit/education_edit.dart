@@ -209,7 +209,12 @@ class _EducationEditState extends State<EducationEdit> {
                                 school: education.schoolName!,
                                 department: education.department!,
                                 city: education.city!,
-                                onPressed: () {},
+                                onPressed: () {
+                                  state.user.educationHistory?.removeAt(index);
+                                  context.read<ProfileBloc>().add(
+                                        UpdateProfile(user: state.user),
+                                      );
+                                },
                               );
                             },
                           )

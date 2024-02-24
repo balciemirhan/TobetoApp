@@ -143,7 +143,12 @@ class _ForeignLanguageEditState extends State<ForeignLanguageEdit> {
                               context,
                               language: language.langName!,
                               level: language.langLevel!,
-                              onPressed: () {},
+                              onPressed: () {
+                                state.user.languageHistory?.removeAt(index);
+                                context.read<ProfileBloc>().add(
+                                      UpdateProfile(user: state.user),
+                                    );
+                              },
                             );
                           },
                         )

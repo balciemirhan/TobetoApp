@@ -22,6 +22,15 @@ class UpdateProfile extends ProfileEvent {
   UpdateProfile({required this.user, this.photo});
 }
 
+class UpdateUserCertificate extends ProfileEvent {
+  UserModel user;
+  File? file;
+  UpdateUserCertificate({
+    required this.user,
+    this.file,
+  });
+}
+
 class UploadProfilePhoto extends ProfileEvent {
   final File photo;
 
@@ -35,10 +44,13 @@ class DeleteProfile extends ProfileEvent {
 }
 
 class DeleteEducation extends ProfileEvent {
-  final EducationHistory educationHistory;
+  /* final EducationHistory educationHistory;
   DeleteEducation({
     required this.educationHistory,
-  });
+  }); */
+  final int index;
+
+  DeleteEducation({required this.index});
 }
 
 //---------- Temizle -----------------

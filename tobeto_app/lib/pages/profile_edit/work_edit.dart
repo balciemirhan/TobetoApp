@@ -204,7 +204,12 @@ class _WorkEditState extends State<WorkEdit> {
                                 position: work.position!,
                                 sector: work.sector!,
                                 city: work.city!,
-                                onPressed: () {},
+                                onPressed: () {
+                                  state.user.workHistory?.removeAt(index);
+                                  context.read<ProfileBloc>().add(
+                                        UpdateProfile(user: state.user),
+                                      );
+                                },
                               );
                             },
                           )

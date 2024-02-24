@@ -15,6 +15,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<UpdateProfile>(_onUpdateProfile);
     on<ClearState>(_onClear);
     on<DeleteProfile>(_ondeleteProfile);
+    on<UpdateUserCertificate>(_onUpdateUserCertificate);
   }
 // -------------------- Verileri getir - oku --------------------
 
@@ -41,6 +42,19 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         await _storageRepository
             .uploadPhoto(event.photo!); // fotoğrafı güncelle
       }
+      await _userRepository.updateUser(event.user);
+      emit(ProfileUpdated());
+    } catch (e) {
+      emit(ProfileError(errorMessage: (e.toString())));
+    }
+  }
+
+  Future<void> _onUpdateUserCertificate(
+      UpdateUserCertificate event, Emitter<ProfileState> emit) async {
+    emit(ProfileLoading());
+    try {
+      await _storageRepository.updateUserCertificate(event.user, event.file);
+
       await _userRepository.updateUser(event.user);
       emit(ProfileUpdated());
     } catch (e) {
