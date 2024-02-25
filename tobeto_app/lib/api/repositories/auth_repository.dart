@@ -73,4 +73,22 @@ class AuthRepository {
       print(e.message);
     }
   }
+
+  // ------------- signOutWithGoogle -------------
+
+  Future<void> googleSignOut() async {
+    await GoogleSignIn().signOut();
+  }
+
+  // ------------- deleteUserEmail -------------
+
+  Future<void> deleteUserEmail() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      // Kullanıcı `null` ise, fonksiyondan çıkmak için hemen `return` edin.
+      return;
+    }
+
+    await user.delete();
+  }
 }

@@ -37,11 +37,7 @@ class UploadProfilePhoto extends ProfileEvent {
   UploadProfilePhoto({required this.photo});
 }
 
-class DeleteProfile extends ProfileEvent {
-  final UserModel? user;
-
-  DeleteProfile({this.user});
-}
+class DeleteProfile extends ProfileEvent {}
 
 class DeleteEducation extends ProfileEvent {
   /* final EducationHistory educationHistory;

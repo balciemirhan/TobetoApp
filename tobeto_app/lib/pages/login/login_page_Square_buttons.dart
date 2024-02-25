@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/auth_bloc/auth_bloc.dart';
@@ -16,7 +17,8 @@ class LoginPageSquareButtons extends StatelessWidget {
         SquareAuthButtons(
           imagePath: AppImage.googleButtonImage,
           onTap: () {
-            context.read<AuthBloc>().add(SignInWithGoogle());
+            context.read<AuthBloc>().add(SignInWithGoogle(
+                email: GoogleAuthProvider.GOOGLE_SIGN_IN_METHOD));
           },
         ),
         const SizedBox(

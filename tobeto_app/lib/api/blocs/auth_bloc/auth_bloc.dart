@@ -36,6 +36,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<ForgotPassword>(_onForgotPassword);
     on<ChangePassword>(_onChangePassword);
     on<SignInWithGoogle>(_onSignInWithGoogle);
+    on<DeleteUserEmail>(_onDeleteUserEmail);
 
     // Kimlik doğrulama durumu değişikliklerini dinle:
     // eğer var ise Homepage dön.
@@ -86,11 +87,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-// ------------- singOut -------------
+// ------------- singOut / signOutWithGoogle -------------
 
   void _onUserOut(UserOut event, Emitter<AuthState> emit) async {
     try {
       await _authRepository.userOut();
+      await _authRepository.googleSignOut();
     } catch (e) {
       emit(AuthError(message: "Kayıt Başarısız..."));
     }
@@ -123,10 +125,30 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   void _onSignInWithGoogle(
       SignInWithGoogle event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
     try {
       await _authRepository.signInWithGoogle();
+      await _userRepository.addUser(
+        UserModel(
+            email: event.email,
+            profilePhoto:
+                "https://static.vecteezy.com/system/resources/previews/022/450/297/original/3d-minimal-purple-user-profile-avatar-icon-in-circle-white-frame-design-vector.jpg"),
+      );
+      emit(Authenticated(user: _firebaseAuth.currentUser));
     } catch (e) {
-      print(e);
+      emit(NotAuthenticated(errorMessage: e.toString()));
+    }
+  }
+
+  // ------------- deleteUserEmail -------------
+
+  Future<void> _onDeleteUserEmail(
+      DeleteUserEmail event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
+    try {
+      await _authRepository.deleteUserEmail();
+    } catch (e) {
+      emit(AuthError(message: "Hesabınız Silinemedi..!"));
     }
   }
 }

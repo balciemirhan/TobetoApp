@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tobeto_app/models/user_profile_model/certificate_model.dart';
 import 'package:tobeto_app/models/user_profile_model/competence_history.dart';
 import 'package:tobeto_app/models/user_profile_model/education_history.dart';
 import 'package:tobeto_app/models/user_profile_model/language_history.dart';
@@ -27,7 +28,8 @@ class UserModel {
   List<CompetenceHistory>? competenceHistory;
   List<LanguageHistory>? languageHistory;
   List<SocialHistory>? socialHistory;
-  List<String>? certificates;
+  List<String>? favorites;
+  List<Certificate>? certificates;
 
   UserModel({
     this.name,
@@ -50,6 +52,7 @@ class UserModel {
     this.competenceHistory,
     this.languageHistory,
     this.socialHistory,
+    this.favorites,
     this.certificates,
   });
 
@@ -88,7 +91,10 @@ class UserModel {
       socialHistory: (map['socialHistory'] as List?)
           ?.map((e) => SocialHistory.fromMap(e as Map<String, dynamic>))
           .toList(),
-      certificates: List<String>.from(map['certificates'] ?? []),
+      certificates: (map['certificates'] as List?)
+          ?.map((e) => Certificate.fromMap(e as Map<String, dynamic>))
+          .toList(),
+      favorites: List<String>.from(map['favorites'] ?? []),
     );
   }
 
@@ -136,7 +142,8 @@ class UserModel {
       'competenceHistory': competenceHistory?.map((e) => e.toMap()).toList(),
       'languageHistory': languageHistory?.map((e) => e.toMap()).toList(),
       'socialHistory': socialHistory?.map((e) => e.toMap()).toList(),
-      'certificates': certificates
+      'certificates': certificates?.map((e) => e.toMap()).toList(),
+      'favorites': favorites,
     };
   }
 }

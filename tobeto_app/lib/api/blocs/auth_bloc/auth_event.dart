@@ -60,4 +60,12 @@ class ChangePassword extends AuthEvent {
 
 // ------------- SignInWithGoogle -------------
 
-class SignInWithGoogle extends AuthEvent {}
+class SignInWithGoogle extends AuthEvent {
+  final String email;
+
+  SignInWithGoogle({required this.email});
+}
+
+// ------------- DeleteUserEmail -------------
+
+class DeleteUserEmail extends AuthEvent {}

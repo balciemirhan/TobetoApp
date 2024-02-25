@@ -59,6 +59,7 @@ dependencies:
   carousel_slider: ^4.2.1
   url_launcher: ^6.2.5
   carousel_indicator: ^1.0.6
+  open_file: ^3.3.2
 
 dev_dependencies:
   flutter_test:

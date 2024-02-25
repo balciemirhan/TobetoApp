@@ -25,7 +25,12 @@ class Authenticated extends AuthState {
   return homepage */
 }
 
-class NotAuthenticated extends AuthState {} //  --> giriş yapmadan önceki sayfa.
+class NotAuthenticated extends AuthState {
+  String? errorMessage;
+  NotAuthenticated({
+    this.errorMessage,
+  });
+} //  --> giriş yapmadan önceki sayfa.
 
 class AuthError extends AuthState {
   // ---> Error
