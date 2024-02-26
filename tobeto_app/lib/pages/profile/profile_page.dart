@@ -6,6 +6,7 @@ import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
 import 'package:tobeto_app/config/constant/core/widget/top_bar_widget.dart';
 import 'package:tobeto_app/config/constant/format/date_formatter.dart';
+import 'package:tobeto_app/config/constant/theme/color.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/models/user_model.dart';
@@ -45,6 +46,22 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    Brightness currentBrightness = Theme.of(context).brightness;
+    Color containerColor = currentBrightness == Brightness.light
+        ? Colors.grey.shade200
+        : AppColor.neuBoxColorDark;
+
+    Color shadowColor = currentBrightness == Brightness.light
+        ? Colors.grey.shade700
+        : Colors.white;
+
+    final double blurRadius;
+    if (currentBrightness == Brightness.light) {
+      blurRadius = 10; // Light theme blur radius
+    } else {
+      blurRadius = 5; // Dark theme blur radius
+    }
+
     return BackgroundImage(
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -59,8 +76,6 @@ class _ProfilePageState extends State<ProfilePage> {
             if (state is ProfileLoaded) {
               UserModel user = state.user;
               return Container(
-                padding: const EdgeInsets.only(top: 40),
-                //color: Colors.deepPurple.shade100,
                 child: Column(
                   children: [
                     TopBarWidget(
@@ -110,9 +125,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                                color: Colors.grey.shade700, blurRadius: 10)
+                                color: shadowColor, blurRadius: blurRadius)
                           ],
-                           color: Colors.grey[300],
+                          color: containerColor,
                           borderRadius: const BorderRadius.vertical(
                               top: Radius.circular(50)),
                         ),

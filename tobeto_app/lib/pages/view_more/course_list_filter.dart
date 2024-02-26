@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/data/course_data.dart';
@@ -76,7 +77,7 @@ class _CourseListState extends State<CourseListFilter> {
 
         // <---------- GridView (CourseItemVertical) ---------->
         SizedBox(
-          height: deviceH / 1.55,
+          height: deviceH / 1.48,
           child: filteredCourses.isNotEmpty
               ? GridView.builder(
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -84,7 +85,7 @@ class _CourseListState extends State<CourseListFilter> {
                     mainAxisExtent: 200,
                     childAspectRatio: 1,
                     crossAxisSpacing: 15,
-                    mainAxisSpacing: 15,
+                    mainAxisSpacing: 1,
                   ),
                   padding: const EdgeInsets.all(15),
                   itemCount: filteredCourses.length,

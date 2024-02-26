@@ -16,6 +16,7 @@ class AppText {
   static const String drawerNotice = "Duyuru ve Anket";
   static const String drawerCatalog = "Katalog";
   static const String drawerCalendar = "Takvim";
+  static const String drawerAdmin = "Admin";
   static const String drawerCopyRight = "© 2022 Tobeto";
   //static const String drawerSurvey = "Anketler";
 

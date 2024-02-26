@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:tobeto_app/config/constant/theme/color.dart';
 
 class MyAdvancedDrawer extends StatefulWidget {
   const MyAdvancedDrawer(
@@ -19,10 +20,15 @@ class MyAdvancedDrawer extends StatefulWidget {
 class _MyAdvancedDrawerState extends State<MyAdvancedDrawer> {
   @override
   Widget build(BuildContext context) {
+    Brightness currentBrightness = Theme.of(context).brightness;
+    Color containerColor = currentBrightness == Brightness.light
+        ? Colors.deepPurple.shade100
+        : const Color.fromARGB(255, 75, 37, 116);
+
     return AdvancedDrawer(
         backdrop: Container(
           decoration: BoxDecoration(
-              color: Colors.deepPurple.shade200,
+              color: containerColor,
               image: const DecorationImage(
                 colorFilter: ColorFilter.mode(
                     Color.fromARGB(255, 131, 95, 213), BlendMode.dstIn),

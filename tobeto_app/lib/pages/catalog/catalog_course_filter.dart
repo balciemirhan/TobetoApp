@@ -50,28 +50,38 @@ class _CatalogCourseListState extends State<CatalogCourseFilter> {
 
     return Column(
       children: [
-        Padding(
+        Container(
+          height: deviceH / 5,
+          decoration: BoxDecoration(
+              border: Border.all(),
+              borderRadius: BorderRadius.circular(20),
+              gradient: LinearGradient(
+                  colors: [Colors.white, Colors.deepPurple.shade200],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight)),
           padding: const EdgeInsets.all(16.0),
-          child: TextFieldFilter(
-            onChanged: (value) {
-              setState(() {
-                searchText = value; // Update the searchText variable
-                filterCatalogCourses();
-              });
-            },
-          ),
-        ),
-
-        // <---------- filterButtons ---------->
-
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              filterButton(0, AppText.all),
-              filterButton(1, AppText.softWare),
-              filterButton(2, AppText.softSkill),
-              filterButton(3, AppText.other),
+              TextFieldFilter(
+                onChanged: (value) {
+                  setState(() {
+                    searchText = value; // Update the searchText variable
+                    filterCatalogCourses();
+                  });
+                },
+              ),
+              // <---------- filterButtons ---------->
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  filterButton(0, AppText.all),
+                  filterButton(1, AppText.softWare),
+                  filterButton(2, AppText.softSkill),
+                  filterButton(3, AppText.other),
+                ],
+              ),
             ],
           ),
         ),
@@ -79,44 +89,41 @@ class _CatalogCourseListState extends State<CatalogCourseFilter> {
         // <---------- GridView (CourseItemVertical) ---------->
 
         SizedBox(
-          height: deviceH / 1.55,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: filteredCatalogCourses.isNotEmpty
-                ? GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 300,
-                      mainAxisExtent: 220,
-                      childAspectRatio: 1,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20,
-                    ),
-                    itemCount: filteredCatalogCourses.length,
-                    itemBuilder: (context, index) {
-                      final catalogCourse = filteredCatalogCourses[index];
-                      return CatalogCourseItem(catalogCourse: catalogCourse);
-                    },
-                  )
+          height: deviceH / 1.48,
+          child: filteredCatalogCourses.isNotEmpty
+              ? GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 300,
+                    mainAxisExtent: 180,
+                    childAspectRatio: 1,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                  ),
+                  padding: const EdgeInsets.all(15),
+                  itemCount: filteredCatalogCourses.length,
+                  itemBuilder: (context, index) {
+                    final catalogCourse = filteredCatalogCourses[index];
+                    return CatalogCourseItem(catalogCourse: catalogCourse);
+                  },
+                )
 
-                // <---------- Not found : ---------->
+              // <---------- Not found : ---------->
 
-                : const Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Center(
-                        child: Text(
-                          AppText.notFound,
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 22,
-                          ),
+              : const Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Center(
+                      child: Text(
+                        AppText.notFound,
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 22,
                         ),
                       ),
-                      Image(image: AssetImage(AppImage.notFoundImage))
-                    ],
-                  ),
-          ),
+                    ),
+                    Image(image: AssetImage(AppImage.notFoundImage))
+                  ],
+                ),
         ),
       ],
     );

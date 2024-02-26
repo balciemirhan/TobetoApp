@@ -21,13 +21,14 @@ final class AppColor {
 
   // --------------------------- NeuBox Color Light Theme---------------------------
 
-  static const Color neuBoxColorLight = Color(0xFFE0E0E0);
+  static final Color neuBoxColorLight = Colors.grey.shade300;
   static const Color neuBoxShadowColorBRLight = Color(0xFF9E9E9E);
   static const Color neuBoxShadowColorTLLight = Color(0xFFFFFFFF);
 
   // --------------------------- NeuBox Color Dark Theme ---------------------------
 
-  static const Color neuBoxColorDark = Color.fromARGB(255, 23, 10, 95);
+  static const Color neuBoxColorDark = Color.fromARGB(255, 72, 20, 128);
+  //Color.fromARGB(255, 23, 10, 95);
   static final Color neuBoxShadowColorBRDark = Colors.deepPurple.shade100;
   static final Color neuBoxShadowColorTLDark = Colors.deepPurple.shade900;
 

@@ -1,6 +1,7 @@
 // route = sayfa geçişleri yönetimi için kullanılır.
 // typedef = tanımlı fonksiyonlar. ( Widget fonskiyo'nun tanımını kısalttım.)
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/pages/admin/admin_page.dart';
 import 'package:tobeto_app/pages/calendar/calendar_page.dart';
 import 'package:tobeto_app/pages/catalog/catalog_page.dart';
 import 'package:tobeto_app/pages/course/course_view_page.dart';
@@ -48,6 +49,7 @@ final class AppRoute {
   static const String start = "/start";
   static const String announcement = "/announcement";
   static const String quizStart = "/quizStart";
+  static const String admin = "/admin";
 
   static Map<String, AppRouteMapFunction> routes = {
     // onboard:(context) => const OnBoardScreen();
@@ -71,6 +73,7 @@ final class AppRoute {
     announcement: (context) => const AnnouncementSurveyPage(),
     loginOrRegister: (context) => const LoginOrRegister(),
     quizStart: (context) => const QuizStartPage(),
+    admin: (context) => const AdminPage(),
   };
 }
 

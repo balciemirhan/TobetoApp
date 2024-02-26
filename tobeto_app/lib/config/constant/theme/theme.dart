@@ -11,7 +11,6 @@ class AppTheme {
     useMaterial3: true,
     colorScheme: const ColorScheme.light(
       background: AppColor.lightBg,
-
       /* primary: Color.fromARGB(255, 0, 0, 0),
       onBackground: Colors.blue,
       onPrimary: Colors.white, */

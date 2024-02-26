@@ -93,6 +93,11 @@ class MyDrawer extends StatelessWidget {
                         return CustomDialog(applicationList: applicationList);
                       });
                 }),
+            MyListTile(
+              icon: const Icon(Icons.admin_panel_settings),
+              title: AppText.drawerAdmin,
+              onTap: () => Navigator.of(context).pushNamed("/admin"),
+            ),
             const Spacer(flex: 2),
             DefaultTextStyle(
               style: const TextStyle(

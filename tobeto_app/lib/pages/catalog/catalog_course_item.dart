@@ -17,54 +17,56 @@ class CatalogCourseItem extends StatefulWidget {
 class _CatalogCourseItemState extends State<CatalogCourseItem> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(context, "/",
-              arguments: widget.catalogCourse.title);
-        },
-        child: Center(
-          child: NeuBox(
-            width: 200,
-            height: 200,
-            child: _buildCatalogContent(),
-          ),
-        ),
+    final MediaQueryData mediaQueryData = MediaQuery.of(context);
+    final double deviceH = mediaQueryData.size.height;
+    final double deviceW = mediaQueryData.size.width;
+
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, "/",
+            arguments: widget.catalogCourse.title);
+      },
+      child: NeuBox(
+        width: deviceW / 2,
+        child: _buildCatalogContent(),
       ),
     );
   }
 
   Widget _buildCatalogContent() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: Stack(children: [
-            Image(
-              image: AssetImage(
-                widget.catalogCourse.imagePath,
-              ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Stack(children: [
+      Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              colorFilter:
+                  const ColorFilter.mode(Colors.white10, BlendMode.color),
+              opacity: .4,
+              image: AssetImage(widget.catalogCourse.imagePath),
+            )),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            AppTextTheme.small(widget.catalogCourse.title, context,
+                textAlign: TextAlign.center),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AppTextTheme.small(widget.catalogCourse.title, context,
-                    fontWeight: FontWeight.normal, textAlign: TextAlign.center),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(widget.catalogCourse.lessonCount),
-                    const SizedBox(width: 10),
-                    Text(widget.catalogCourse.instructor),
-                  ],
-                ),
+                AppTextTheme.xxSmall(
+                    widget.catalogCourse.lessonCount,
+                    fontWeight: FontWeight.normal,
+                    context),
+                const SizedBox(width: 10),
+                AppTextTheme.xxSmall(widget.catalogCourse.instructor, context),
               ],
-            )
-          ]),
+            ),
+          ],
         ),
-      ],
-    );
+      )
+    ]);
   }
 }

@@ -27,23 +27,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
-    final classesCollection =
-        _firebaseFirestore.collection(Collections.classes);
-
-    final announcementCollection =
-        _firebaseFirestore.collection(Collections.announcement);
-    /*  final courseCollection = _firebaseFirestore.collection(Collections.course);
-    final catalogCourseCollection =
-        _firebaseFirestore.collection(Collections.catalogCourse); */
-    final examCollection = _firebaseFirestore.collection(Collections.exam);
-    final applicationCollection =
-        _firebaseFirestore.collection(Collections.application);
-    /* final double deviceW = mediaQueryData.size.width; */
+    final double deviceW = mediaQueryData.size.width;
 
     final drawerController = AdvancedDrawerController();
     return MyAdvancedDrawer(
@@ -52,189 +40,89 @@ class _HomePageState extends State<HomePage> {
         child: BackgroundImage(
           child: Scaffold(
             backgroundColor: Colors.transparent,
-
             extendBody: true, // button
             body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 35),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    TopBar(drawerController: drawerController),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TopBar(drawerController: drawerController),
 
-                    // ------------ Hoş Geldin Kullanıcı ------------
+                  // ------------ Hoş Geldin Kullanıcı ------------
 
-                    BlocBuilder<ProfileBloc, ProfileState>(
-                      builder: (context, state) {
-                        if (state is ProfileInitial ||
-                            state is ProfileUpdated) {
-                          context.read<ProfileBloc>().add(GetProfil());
-                        }
+                  BlocBuilder<ProfileBloc, ProfileState>(
+                    builder: (context, state) {
+                      if (state is ProfileInitial || state is ProfileUpdated) {
+                        context.read<ProfileBloc>().add(GetProfil());
+                      }
 
-                        if (state is ProfileLoaded) {
-                          return HomeHeader(user: state.user);
-                        }
-                        return Container();
-                      },
-                    ),
+                      if (state is ProfileLoaded) {
+                        return HomeHeader(user: state.user);
+                      }
+                      return Container();
+                    },
+                  ),
 
-                    // ------------ Reklam Panosu ------------
+                  // ------------ Reklam Panosu ------------
 
-                    const Padding(
-                      padding: EdgeInsets.all(35),
-                      child: BillBoard(),
-                    ),
+                  const Padding(
+                    padding: EdgeInsets.all(35),
+                    child: BillBoard(),
+                  ),
 
-                    // ------------ Firestore'a  course  veri yükleme ------------
+                  // ------------ Kategoriler / Tümünü Gör ------------
 
-                    /*   ElevatedButton.icon(
-                      onPressed: () async {
-                        bool dataAdded = false;
-                        if (!dataAdded) {
-                          for (var course in courseList) {
-                            await courseCollection.add(course.toMap());
-                          }
-                          dataAdded = true;
-                        }
-                      },
-                      icon: const Icon(Icons.upload),
-                      label: const Text("firestore veri yükle..."),
-                    ), */
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                    child: CourseCardsTitle(),
+                  ),
 
-                    // ------------ Firestore'a  catalog   veri yükleme ------------
-                    /* ElevatedButton.icon(
-                      onPressed: () async {
-                        bool dataAdded = false;
-                        if (!dataAdded) {
-                          for (var catalogCourse in catalogCourseList) {
-                            await catalogCourseCollection
-                                .add(catalogCourse.toMap());
-                          }
-                          dataAdded = true;
-                        }
-                      },
-                      icon: const Icon(Icons.upload),
-                      label: const Text("firestore veri yükle..."),
-                    ), */
+                  // ------------ Dinamik Card Tasarımı / Flutter - Java - Dart vs. ------------
 
-                    // ------------ Firestore'a  classes   veri yükleme ------------
-
-                    /*ElevatedButton.icon(
-                      onPressed: () async {
-                        bool dataAdded = false;
-                        if (!dataAdded) {
-                          for (var classes in classesList) {
-                            await classesCollection.add(classes.toMap());
-                          }
-                          dataAdded = true;
-                        }
-                      },
-                      icon: const Icon(Icons.upload),
-                      label: const Text("firestore veri yükle..."),
-                    ),*/
-
-                    //--------------------------*****EXAM VERİSİ YÜKLEME
-                    /*ElevatedButton.icon(
-                      onPressed: () async {
-                        bool dataAdded = false;
-                        if (!dataAdded) {
-                          for (var exam in examList) {
-                            await examCollection.add(exam.toMap());
-                          }
-                          dataAdded = true;
-                        }
-                      },
-                      icon: const Icon(Icons.upload),
-                      label: const Text("firestore veri yükle..."),
-                    ),
-                    */
-                    /* ElevatedButton.icon(
-                      onPressed: () async {
-                        bool dataAdded = false;
-                        if (!dataAdded) {
-                          for (var application in applicationList) {
-                            await applicationCollection.add(application.toMap());
-                          }
-                          dataAdded = true;
-                        }
-                      },
-                      icon: const Icon(Icons.upload),
-                      label: const Text("firestore veri yükle..."),
-                    ),
-                    */
-                    // ------------ Firestore'a  announcement   veri yükleme ------------
-
-                    /*   ElevatedButton.icon(
-                      onPressed: () async {
-                        bool dataAdded = false;
-                        if (!dataAdded) {
-                          for (var announcement in announcementList) {
-                            await announcementCollection
-                                .add(announcement.toMap());
-                          }
-                          dataAdded = true;
-                        }
-                      },
-                      icon: const Icon(Icons.upload),
-                      label: const Text("firestore veri yükle..."),
-                    ), */
-
-                    // ------------ Kategoriler / Tümünü Gör ------------
-
-                    const Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                      child: CourseCardsTitle(),
-                    ),
-
-                    // ------------ Dinamik Card Tasarımı / Flutter - Java - Dart vs. ------------
-
-                    BlocBuilder<CourseBloc, CourseState>(
-                      builder: (context, state) {
-                        if (state is CourseInitial) {
-                          context.read<CourseBloc>().add(GetCourse());
-                        }
-                        if (state is CourseLoaded) {
-                          final List<Course> course = state.course;
-                          return Padding(
-                            padding: const EdgeInsets.all(3.0),
-                            child: SizedBox(
-                              height: deviceH / 6,
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: 5,
-                                itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.all(11),
-                                    child: CourseCards(course: course[index]),
-                                  );
-                                },
-                              ),
+                  BlocBuilder<CourseBloc, CourseState>(
+                    builder: (context, state) {
+                      if (state is CourseInitial) {
+                        context.read<CourseBloc>().add(GetCourse());
+                      }
+                      if (state is CourseLoaded) {
+                        final List<Course> course = state.course;
+                        return Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: SizedBox(
+                            height: deviceH / 6,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: 5,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(11),
+                                  child: CourseCards(course: course[index]),
+                                );
+                              },
                             ),
-                          );
-                        }
-                        return Container();
-                      },
-                    ),
+                          ),
+                        );
+                      }
+                      return Container();
+                    },
+                  ),
 
-                    const Padding(padding: EdgeInsets.only(top: 20)),
+                  const Padding(padding: EdgeInsets.only(top: 20)),
 
-                    // ------------ Popüler Kurslar ------------
-                    /*   const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                      child: PopularWidget(),
-                    ), */
+                  // ------------ Popüler Kurslar ------------
+                  /*   const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                    child: PopularWidget(),
+                  ), */
 
-                    // ------------ En son izlediğiniz ders ------------
-                    /*   const Padding(
-                      padding: EdgeInsets.all(35),
-                      child: LastCourseVideo(),
-                    ) */
+                  // ------------ En son izlediğiniz ders ------------
+                  /*   const Padding(
+                    padding: EdgeInsets.all(35),
+                    child: LastCourseVideo(),
+                  ) */
 
-                    //   bottomNavigationBari yani alt butonların yönetimi -->
-                    //CurvedNavBarWidget() ' da yönetiliyor.
-                  ],
-                ),
+                  //   bottomNavigationBari yani alt butonların yönetimi -->
+                  //CurvedNavBarWidget() ' da yönetiliyor.
+                ],
               ),
             ),
           ),
