@@ -51,7 +51,7 @@ class MyTextformfield extends StatelessWidget {
               borderSide: BorderSide(color: Color(0xFF9E9E9E)),
             ),
             filled: true,
-            fillColor: const Color(0xFFE0E0E0),
+            fillColor: Colors.transparent,
             hintText: hintText,
             hintStyle: const TextStyle(color: Color(0xFF9E9E9E)),
             prefixIcon: prefixIcon,

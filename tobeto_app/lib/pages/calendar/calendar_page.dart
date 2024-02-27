@@ -56,6 +56,8 @@ class _CalendarPageState extends State<CalendarPage> {
                       eventsData = EventsData(classesList);
 
                       return Calendar(
+                        dayOfWeekStyle: const TextStyle(fontSize: 18),
+
                         //Takvim o haftayı gösteriyo
                         //Başlangıç gününü mevcut günün bulunduğu pazartesi seçmesini istedim
                         startOnMonday: true,

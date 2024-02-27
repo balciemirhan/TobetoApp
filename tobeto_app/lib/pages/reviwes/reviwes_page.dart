@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/reviwsList.dart';
 
 class Revister extends StatelessWidget {
@@ -6,29 +7,32 @@ class Revister extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return BackgroundImage(
+      child: Scaffold(
         backgroundColor: Colors.transparent,
-        title: Image.asset(
-          'assets/images/tobeto-logo.png',
-          height: 40,
-          width: 50,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: Image.asset(
+            'assets/images/tobeto-logo.png',
+            height: 40,
+            width: 50,
+          ),
+          automaticallyImplyLeading: false,
         ),
-        automaticallyImplyLeading: false,
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildMainContent(),
-              const SizedBox(height: 20),
-              _buildContainer(context),
-              const SizedBox(height: 20),
-              _buildSecondRow(),
-              const SizedBox(height: 20),
-              _buildSkillList(),
-            ],
+        body: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildMainContent(),
+                const SizedBox(height: 20),
+                _buildContainer(context),
+                const SizedBox(height: 20),
+                _buildSecondRow(),
+                const SizedBox(height: 20),
+                _buildSkillList(),
+              ],
+            ),
           ),
         ),
       ),

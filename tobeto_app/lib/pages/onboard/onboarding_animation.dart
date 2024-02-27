@@ -1,8 +1,8 @@
 import 'package:concentric_transition/concentric_transition.dart';
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/pages/login/login_page.dart';
 import 'package:tobeto_app/pages/onboard/onboard_data.dart';
 import 'package:tobeto_app/pages/onboard/onboard_page.dart';
+import 'package:tobeto_app/pages/start/start_page.dart';
 
 class OnboardingAnimation extends StatelessWidget {
   OnboardingAnimation({Key? key}) : super(key: key); // const hata verdi
@@ -23,7 +23,7 @@ class OnboardingAnimation extends StatelessWidget {
               if (currentIndex == pages.length - 1) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  MaterialPageRoute(builder: (context) => const StartPage()),
                 );
               } else {
                 _pageController.nextPage(

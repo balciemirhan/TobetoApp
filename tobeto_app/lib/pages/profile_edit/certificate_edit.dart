@@ -163,12 +163,11 @@ class _CertificateEditState extends State<CertificateEdit> {
                                     ? Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: GestureDetector(
-                                          onTap: () {
-                                            openFile(url: _selectedFile!.path);
-                                          },
-                                          child: Text(
-                                              " Dosya: ${_selectedFile!.hashCode}"),
-                                        ),
+                                            onTap: () {
+                                              openFile(
+                                                  url: _selectedFile!.path);
+                                            },
+                                            child: const Icon(Icons.download)),
                                       )
                                     : InkWell(
                                         onTap: () {
@@ -177,8 +176,7 @@ class _CertificateEditState extends State<CertificateEdit> {
                                                   .certificates![index].file
                                                   .toString());
                                         },
-                                        child: Text(
-                                            " Dosya: ${user.certificates![index].file?.hashCode}"),
+                                        child: const Icon(Icons.download),
                                       ),
                               ]),
                               trailing: IconButton(
