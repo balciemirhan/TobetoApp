@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/bookmark/bookmark_add.dart';
 import 'package:tobeto_app/pages/bookmark/bookmark_list.dart';
@@ -19,11 +20,11 @@ class _FavouritePageState extends State<BookmarkPage> {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
 
-    return Scaffold(
-      extendBody: true,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 35),
+    return BackgroundImage(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        extendBody: true,
+        body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -54,8 +55,8 @@ class _FavouritePageState extends State<BookmarkPage> {
             ],
           ),
         ),
+        // Add other widgets or configurations as needed
       ),
-      // Add other widgets or configurations as needed
     );
   }
 }

@@ -10,6 +10,7 @@ import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/customDilok.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
+import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/data/application.dart';
 import 'package:tobeto_app/models/user_model.dart';
 
@@ -49,11 +50,6 @@ class MyDrawer extends StatelessWidget {
               },
             ),
             const Spacer(),
-            MyListTile(
-              icon: const Icon(Icons.home_rounded),
-              title: AppText.drawerHome,
-              onTap: () => Navigator.of(context).pushNamed("/curved"),
-            ),
             MyListTile(
               icon: const Icon(Icons.reviews_rounded),
               title: AppText.drawerRating,
@@ -154,17 +150,12 @@ class MyListTile extends StatelessWidget {
             Container(
               child: photo,
             ),
-            Text(title),
+            AppTextTheme.xSmall(title, context, color: Colors.white),
           ],
         ),
         leading: icon ?? image,
-        titleTextStyle: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-            shadows: [
-              Shadow(blurRadius: 15, color: Colors.deepPurple),
-              Shadow(blurRadius: 5, color: Colors.black)
-            ]),
+        titleTextStyle:
+            const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
       ),
     );
   }

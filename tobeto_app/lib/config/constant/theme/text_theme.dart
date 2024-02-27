@@ -25,22 +25,23 @@ class AppTextTheme {
 
 // <---------------------------------- text xSmall ---------------------------------->
 
-  static textStyleXSmall(bool isLight, FontWeight fontWeight) {
+  static textStyleXSmall(bool isLight, FontWeight fontWeight, Color color) {
     return TextStyle(
       fontWeight: fontWeight,
       fontSize: 15,
       letterSpacing: 0.4,
-      color: isLight ? Colors.black : Colors.white,
+      color: color,
     );
   }
 
   static Widget xSmall(String text, BuildContext context,
-      {TextAlign? textAlign, FontWeight? fontWeight}) {
+      {TextAlign? textAlign, FontWeight? fontWeight, Color? color}) {
     final isLight = Theme.of(context).brightness == Brightness.light;
     return Text(
       text,
       textAlign: textAlign,
-      style: textStyleXSmall(isLight, fontWeight ?? FontWeight.bold),
+      style: textStyleXSmall(isLight, fontWeight ?? FontWeight.bold,
+          isLight ? Colors.black : Colors.white),
     );
   }
 
@@ -128,23 +129,43 @@ class AppTextTheme {
     );
   }
 
-  static textStyleFont(bool isLight, FontWeight fontWeight) {
-    return GoogleFonts.concertOne(
+  static textStyleLondrinaShadow(bool isLight) {
+    return GoogleFonts.londrinaShadow(
         textStyle: TextStyle(
-      fontWeight: fontWeight,
+      fontWeight: FontWeight.normal,
       fontSize: 30,
-      letterSpacing: 2,
+      letterSpacing: 3,
       color: isLight ? Colors.deepPurple.shade800 : Colors.white,
     ));
   }
 
-  static Widget font(String text, BuildContext context,
-      {TextAlign? textAlign, FontWeight? fontWeight}) {
+  static Widget londrinaShadow(String text, BuildContext context,
+      {TextAlign? textAlign}) {
     final isLight = Theme.of(context).brightness == Brightness.light;
     return Text(
       text,
       textAlign: textAlign,
-      style: textStyleFont(isLight, fontWeight ?? FontWeight.w600),
+      style: textStyleLondrinaShadow(isLight),
+    );
+  }
+
+  static textStyleLondrinaOutline(bool isLight, double fontSize) {
+    return GoogleFonts.londrinaOutline(
+        textStyle: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: fontSize,
+      letterSpacing: 3,
+      color: isLight ? Colors.deepPurple.shade800 : Colors.white70,
+    ));
+  }
+
+  static Widget londrinaOutline(String text, BuildContext context,
+      {TextAlign? textAlign, double? fontSize}) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
+    return Text(
+      text,
+      textAlign: textAlign,
+      style: textStyleLondrinaOutline(isLight, fontSize ?? 25),
     );
   }
 }

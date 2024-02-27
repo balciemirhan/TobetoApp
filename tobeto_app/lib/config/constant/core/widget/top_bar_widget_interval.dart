@@ -20,12 +20,15 @@ class TopBarWidgetInterval extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 30, left: 30, top: 50, bottom: 20),
+      padding: const EdgeInsets.only(right: 30, left: 30, top: 45, bottom: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(onPressed: () {}, icon: NeuBox(child: iconButton)),
-          AppTextTheme.large(titleText, context),
+          AppTextTheme.londrinaShadow(
+            titleText,
+            context,
+          ),
           NeuBox(child: leadingIcon ?? iconButton2)
         ],
       ),

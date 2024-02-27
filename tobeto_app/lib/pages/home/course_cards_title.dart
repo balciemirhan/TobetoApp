@@ -15,13 +15,14 @@ class CourseCardsTitle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          AppTextTheme.large(AppText.courseCategories, context),
-          InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed("/viewmore");
-              },
-              child: AppTextTheme.small(AppText.courseViewMore, context,
-                  fontWeight: FontWeight.normal)),
+          AppTextTheme.londrinaOutline(AppText.courses, context),
+          IconButton(
+            onPressed: () => Navigator.of(context).pushNamed("/viewmore"),
+            icon: const Icon(
+              Icons.keyboard_double_arrow_right_rounded,
+              size: 30,
+            ),
+          )
         ],
       ),
     );

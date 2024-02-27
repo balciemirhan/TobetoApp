@@ -24,7 +24,10 @@ class TopBarWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AppTextTheme.font(titleText, context),
+          AppTextTheme.londrinaShadow(
+            titleText,
+            context,
+          ),
           NeuBox(child: leadingIcon ?? widget)
         ],
       ),

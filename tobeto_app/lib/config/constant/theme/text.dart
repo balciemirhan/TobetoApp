@@ -6,13 +6,13 @@ class AppText {
   static const String tobeto = "Tobeto";
   static const String settings = "Ayarlar";
   static const String profile = "Profil";
-  static const String courses = "Kurslar";
+  static const String courses = "Egitimler";
 
 // --------------------------- Drawer ---------------------------
 
   static const String drawerNameSurname = "Ad Soyad";
   static const String drawerHome = "Anasayfa";
-  static const String drawerRating = "Değerlendirmeler";
+  static const String drawerRating = "Degerlendirmeler";
   static const String drawerNotice = "Duyuru ve Anket";
   static const String drawerCatalog = "Katalog";
   static const String drawerCalendar = "Takvim";
@@ -83,7 +83,6 @@ class AppText {
 
   // --------------------------- Course cards title ---------------------------
 
-  static const String courseCategories = "Kategoriler";
   static const String courseViewMore = "Tümünü Gör";
 
   // ---------------------------home header ---------------------------
