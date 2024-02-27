@@ -35,16 +35,23 @@ class _PersonEditState extends State<PersonEdit> {
   DateTime _dateOfBirth = DateTime.now();
   final DateFormat _dateFormat = DateFormat('dd/MM/yyyy');
 
+  bool _isImageSelectionInProgress = false;
+
   Future pickImage() async {
+    if (_isImageSelectionInProgress) {
+      return;
+    }
+
+    _isImageSelectionInProgress = true;
+
     final photo = await _picker.pickImage(source: ImageSource.gallery);
-    // resmi yüklemek => File türünde olucak.
-    // widgetin durmunu güncellemek gerek selectedImage değişkeni değiştirilebilir bir tür olan File nesnesidir.
-    //widget'ın durumu güncellenmeyecek ve kullanıcı arayüzü bir resmin seçildiğini yansıtmayacaktır.
-    setState(() {
-      if (photo != null) {
+    if (photo != null) {
+      setState(() {
         _selectedPhoto = File(photo.path);
-      }
-    });
+      });
+    }
+
+    _isImageSelectionInProgress = false;
   }
 
   @override

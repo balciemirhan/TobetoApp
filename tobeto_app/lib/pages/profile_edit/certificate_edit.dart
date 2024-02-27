@@ -27,8 +27,13 @@ class _CertificateEditState extends State<CertificateEdit> {
       TextEditingController();
   final TextEditingController __organisationNameController =
       TextEditingController();
-
+  bool _isFolderSelectionInProgress = false;
   Future<void> _pickPDF() async {
+    if (_isFolderSelectionInProgress) {
+      return;
+    }
+    _isFolderSelectionInProgress = true;
+
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['pdf', 'jpg', 'doc'],
@@ -39,6 +44,7 @@ class _CertificateEditState extends State<CertificateEdit> {
         _selectedFile = File(result.files.single.path!);
       });
     }
+    _isFolderSelectionInProgress = false;
   }
 
   Future openFile({required String url, String? fileName}) async {

@@ -27,45 +27,47 @@ class LoginPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         resizeToAvoidBottomInset: false,
-        body: Padding(
-          padding: EdgeInsets.only(
-              left: mWidth / 50, right: mWidth / 50, top: mHeight / 2.8),
-          child: Stack(
-            children: [
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    /* ----------------------- Login Form -----------------------  */
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(
+                left: mWidth / 50, right: mWidth / 50, top: mHeight / 2.8),
+            child: Stack(
+              children: [
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      /* ----------------------- Login Form -----------------------  */
 
-                    LoginForm(formkey: formKey),
+                      LoginForm(formkey: formKey),
 
-                    /* ----------------------- Login Divider -----------------------  */
+                      /* ----------------------- Login Divider -----------------------  */
 
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: mHeight / 25),
-                      child: const LoginDivider(),
-                    ),
-
-                    /* --------  Square Auth Buttons (Google / Apple Authentication) --------  */
-
-                    const LoginPageSquareButtons(),
-
-                    /* ----------------------- Login Now -----------------------  */
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 25),
-                      child: NowBottom(
-                        text: AppText.member,
-                        text2: AppText.registerNow,
-                        onTap: onTap,
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: mHeight / 25),
+                        child: const LoginDivider(),
                       ),
-                    )
-                    /* const LoginNow() */
-                  ],
+
+                      /* --------  Square Auth Buttons (Google / Apple Authentication) --------  */
+
+                      const LoginPageSquareButtons(),
+
+                      /* ----------------------- Login Now -----------------------  */
+
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 25),
+                        child: NowBottom(
+                          text: AppText.member,
+                          text2: AppText.registerNow,
+                          onTap: onTap,
+                        ),
+                      )
+                      /* const LoginNow() */
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

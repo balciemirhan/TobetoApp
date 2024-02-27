@@ -138,7 +138,7 @@ flutter:
     - assets/images/alert.gif
     - assets/images/success.gif
     - assets/images/catalog_image.png
-
+    - assets/images/purple_success.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
