@@ -31,8 +31,7 @@ class ProfileEditPage extends StatelessWidget {
                     },
                     icon: const Icon(FontAwesomeIcons.angleLeft)),
                 titleText: "",
-                iconButton2: IconButton(
-                    onPressed: () {}, icon: const Icon(FontAwesomeIcons.check)),
+                leadingIcon: const Icon(Icons.edit_note_rounded),
               ),
               TabBar(
                 splashBorderRadius: const BorderRadius.all(Radius.circular(30)),

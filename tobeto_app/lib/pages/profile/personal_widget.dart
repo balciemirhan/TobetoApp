@@ -9,7 +9,7 @@ class ProfilWidget extends StatelessWidget {
   final Widget widget;
   @override
   Widget build(BuildContext context) {
-   // final double screenWidth = MediaQuery.of(context).size.width;
+    // final double screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
       decoration: BoxDecoration(
@@ -19,7 +19,7 @@ class ProfilWidget extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       margin: const EdgeInsets.all(15),
       child: Column(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         children: [
           AppTextTheme.xSmall(text, context),
           const Padding(

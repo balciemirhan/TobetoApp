@@ -149,23 +149,23 @@ class AppTextTheme {
     );
   }
 
-  static textStyleLondrinaOutline(bool isLight, double fontSize) {
-    return GoogleFonts.londrinaOutline(
+  static textStyleConcertOne(bool isLight, double fontSize) {
+    return GoogleFonts.concertOne(
         textStyle: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: fontSize,
-      letterSpacing: 3,
+      letterSpacing: 1,
       color: isLight ? Colors.deepPurple.shade800 : Colors.white70,
     ));
   }
 
-  static Widget londrinaOutline(String text, BuildContext context,
+  static Widget concertOne(String text, BuildContext context,
       {TextAlign? textAlign, double? fontSize}) {
     final isLight = Theme.of(context).brightness == Brightness.light;
     return Text(
       text,
       textAlign: textAlign,
-      style: textStyleLondrinaOutline(isLight, fontSize ?? 25),
+      style: textStyleConcertOne(isLight, fontSize ?? 25),
     );
   }
 }

@@ -24,10 +24,10 @@ class Competence extends StatelessWidget {
                         final competence = user.competenceHistory![index];
 
                         return Container(
-                          alignment: Alignment.centerLeft,
-                          child: AppTextTheme.small(
-                              competence.compName!,
+                          alignment: Alignment.center,
+                          child: AppTextTheme.xSmall(
                               fontWeight: FontWeight.normal,
+                              competence.compName!,
                               context),
                         );
                       },

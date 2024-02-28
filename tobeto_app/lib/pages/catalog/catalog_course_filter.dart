@@ -50,38 +50,26 @@ class _CatalogCourseListState extends State<CatalogCourseFilter> {
 
     return Column(
       children: [
-        Container(
-          height: deviceH / 5,
-          decoration: BoxDecoration(
-              border: Border.all(),
-              borderRadius: BorderRadius.circular(20),
-              gradient: LinearGradient(
-                  colors: [Colors.white, Colors.deepPurple.shade200],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight)),
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextFieldFilter(
-                onChanged: (value) {
-                  setState(() {
-                    searchText = value; // Update the searchText variable
-                    filterCatalogCourses();
-                  });
-                },
-              ),
-              // <---------- filterButtons ---------->
+        TextFieldFilter(
+          onChanged: (value) {
+            setState(() {
+              searchText = value; // Update the searchText variable
+              filterCatalogCourses();
+            });
+          },
+        ),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  filterButton(0, AppText.all),
-                  filterButton(1, AppText.softWare),
-                  filterButton(2, AppText.softSkill),
-                  filterButton(3, AppText.other),
-                ],
-              ),
+        // <---------- filterButtons ---------->
+
+        Container(
+          margin: const EdgeInsets.all(20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              filterButton(0, AppText.all),
+              filterButton(1, AppText.softWare),
+              filterButton(2, AppText.softSkill),
+              filterButton(3, AppText.other),
             ],
           ),
         ),

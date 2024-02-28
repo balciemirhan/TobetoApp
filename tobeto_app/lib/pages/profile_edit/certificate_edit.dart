@@ -12,6 +12,7 @@ import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/user_model.dart';
 import 'package:tobeto_app/models/user_profile_model/certificate_model.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
+import 'package:tobeto_app/pages/profile_edit/edit_card.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_textfield.dart';
 
 class CertificateEdit extends StatefulWidget {
@@ -66,39 +67,28 @@ class _CertificateEditState extends State<CertificateEdit> {
     BuildContext context, {
     required String organisationName,
     required String certificaName,
-    required void Function()? onPressed,
+    required void Function() onPressed,
+    required void Function() onPressedIcon,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        gradient: LinearGradient(
-            colors: [Colors.deepPurple.shade300, Colors.deepPurple.shade100],
-            begin: Alignment.bottomRight,
-            end: Alignment.topLeft),
-      ),
-      width: MediaQuery.of(context).size.width * 0.7,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                AppTextTheme.small(
-                    organisationName, fontWeight: FontWeight.normal, context),
-                AppTextTheme.small(
-                    certificaName, fontWeight: FontWeight.normal, context),
-              ],
-            ),
-            IconButton(
-              onPressed: onPressed,
-              icon: Icon(
-                Icons.delete_rounded,
-                color: Colors.deepPurple.shade900,
-              ),
-            ),
-          ],
-        ),
+    return EditCard(
+      onPressed: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+              onPressed: onPressedIcon,
+              icon: const Icon(Icons.download_rounded)),
+          const Spacer(),
+          Column(
+            children: [
+              AppTextTheme.small(
+                  organisationName, fontWeight: FontWeight.normal, context),
+              AppTextTheme.small(
+                  certificaName, fontWeight: FontWeight.normal, context),
+            ],
+          ),
+          const Spacer()
+        ],
       ),
     );
   }
@@ -145,52 +135,6 @@ class _CertificateEditState extends State<CertificateEdit> {
                       child: const Icon(FontAwesomeIcons.filePdf),
                     ),
                   ),
-                  user.certificates != null
-                      ? ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: user.certificates!.length,
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                              leading: const Icon(FontAwesomeIcons.scroll),
-                              title: Column(children: [
-                                Text(
-                                  user.certificates![index].organisationName,
-                                ),
-                                const SizedBox(width: 10),
-                                Text(user.certificates![index].certicateName),
-                                const SizedBox(width: 10),
-                                _selectedFile != null
-                                    ? Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: GestureDetector(
-                                            onTap: () {
-                                              openFile(
-                                                  url: _selectedFile!.path);
-                                            },
-                                            child: const Icon(Icons.download)),
-                                      )
-                                    : InkWell(
-                                        onTap: () {
-                                          openFile(
-                                              url: user
-                                                  .certificates![index].file
-                                                  .toString());
-                                        },
-                                        child: const Icon(Icons.download),
-                                      ),
-                              ]),
-                              trailing: IconButton(
-                                  onPressed: () {
-                                    state.user.certificates?.removeAt(index);
-                                    context.read<ProfileBloc>().add(
-                                          UpdateProfile(user: state.user),
-                                        );
-                                  },
-                                  icon: const Icon(Icons.delete)),
-                            );
-                          },
-                        )
-                      : Container(),
                   EditButton(
                     text: "Sertifika Ekle",
                     onTap: () {
@@ -217,6 +161,32 @@ class _CertificateEditState extends State<CertificateEdit> {
                           user: state.user, file: _selectedFile));
                     },
                   ),
+                  user.certificates != null
+                      ? ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: user.certificates!.length,
+                          itemBuilder: (context, index) {
+                            return _certificateCard(
+                              context,
+                              organisationName:
+                                  user.certificates![index].organisationName,
+                              certificaName:
+                                  user.certificates![index].certicateName,
+                              onPressed: () {
+                                state.user.certificates?.removeAt(index);
+                                context.read<ProfileBloc>().add(
+                                      UpdateProfile(user: state.user),
+                                    );
+                              },
+                              onPressedIcon: () {
+                                openFile(
+                                    url: user.certificates![index].file
+                                        .toString());
+                              },
+                            );
+                          },
+                        )
+                      : Container(),
                 ],
               ),
             ),

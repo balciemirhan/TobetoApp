@@ -6,6 +6,7 @@ import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/user_profile_model/work_history.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
+import 'package:tobeto_app/pages/profile_edit/edit_card.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_dropdownField.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_select_date.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_textfield.dart';
@@ -45,49 +46,44 @@ class _WorkEditState extends State<WorkEdit> {
     required String sector,
     required String city,
     required String description,
-    required void Function()? onPressed,
+    required void Function() onPressed,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        gradient: LinearGradient(
-            colors: [Colors.deepPurple.shade300, Colors.deepPurple.shade100],
-            begin: Alignment.bottomRight,
-            end: Alignment.topLeft),
-      ),
-      width: MediaQuery.of(context).size.width * 0.7,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                AppTextTheme.small(
-                    name, fontWeight: FontWeight.normal, context),
-                AppTextTheme.small(
-                    position, fontWeight: FontWeight.normal, context),
-                AppTextTheme.small(
-                    sector, fontWeight: FontWeight.normal, context),
-                AppTextTheme.small(
-                    description, fontWeight: FontWeight.normal, context),
-              ],
-            ),
-            Column(
-              children: [
-                AppTextTheme.small(
-                    city, fontWeight: FontWeight.normal, context),
-              ],
-            ),
-            IconButton(
-              onPressed: onPressed,
-              icon: Icon(
-                Icons.delete_rounded,
-                color: Colors.deepPurple.shade900,
+    return EditCard(
+      onPressed: onPressed,
+      child: Column(
+        children: [
+          AppTextTheme.small(name, context, textAlign: TextAlign.center),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                constraints: const BoxConstraints(maxWidth: 100),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AppTextTheme.xSmall(position, context),
+                    const SizedBox(height: 10),
+                    AppTextTheme.xSmall(
+                        sector, fontWeight: FontWeight.normal, context),
+                    const SizedBox(height: 10),
+                    AppTextTheme.xSmall(
+                        city, fontWeight: FontWeight.normal, context),
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
+              Container(
+                constraints: const BoxConstraints(maxWidth: 200),
+                child: Column(
+                  children: [
+                    AppTextTheme.xSmall(
+                        description, fontWeight: FontWeight.normal, context),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

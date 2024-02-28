@@ -2,8 +2,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
+import 'package:tobeto_app/config/constant/core/widget/lottie_button.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 import 'package:tobeto_app/config/constant/core/widget/progress_bar_animation.dart';
+import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 
@@ -30,14 +32,17 @@ class CoursePage extends StatelessWidget {
                 child: Column(
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        AppTextTheme.small(course.title, context),
-                        IconButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, "/note");
-                            },
-                            icon: const Icon(Icons.note_alt_outlined))
+                        const LottieButton(
+                          url: AppImage.lottieFavourite,
+                        ),
+                        Container(
+                            constraints: const BoxConstraints(maxWidth: 250),
+                            child: AppTextTheme.small(course.title, context)),
+                        const LottieButton(
+                          url: AppImage.lottieSave,
+                        ),
                       ],
                     ),
                     const SizedBox(
@@ -50,22 +55,15 @@ class CoursePage extends StatelessWidget {
                         ),
                         const Spacer(),
                         NeuBox(
-                          height: 40,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "${course.rating} ",
-                                style: const TextStyle(fontSize: 13),
-                              ),
-                              const Icon(
-                                Icons.star,
-                                size: 15,
-                                color: Colors.deepPurple,
-                              ),
-                            ],
-                          ),
-                        ),
+                            height: 40,
+                            child: IconButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, "/note");
+                                },
+                                icon: const Icon(
+                                  Icons.note_alt_outlined,
+                                  color: Colors.deepPurple,
+                                ))),
                       ],
                     ),
                   ],
@@ -73,7 +71,7 @@ class CoursePage extends StatelessWidget {
               ),
             ),
             Expanded(
-                flex: 7,
+                flex: 6,
                 child: TabBarExample(
                   course: course,
                 ))

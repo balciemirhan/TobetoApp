@@ -77,23 +77,51 @@ class _PersonEditState extends State<PersonEdit> {
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
-                GestureDetector(
-                  onTap: () {
-                    pickImage();
-                  },
-                  child: _selectedPhoto != null
-                      ? CircleAvatar(
-                          radius: 70,
-                          backgroundImage: FileImage(_selectedPhoto!),
-                        )
-                      : user.profilePhoto != null
+                Row(
+                  children: [
+                    const Spacer(flex: 2),
+                    GestureDetector(
+                      onTap: () {
+                        pickImage();
+                      },
+                      child: _selectedPhoto != null
                           ? CircleAvatar(
                               radius: 70,
-                              backgroundImage: NetworkImage(user.profilePhoto!),
+                              backgroundImage: FileImage(_selectedPhoto!),
                             )
-                          : const Image(
-                              image: AssetImage(AppImage.profileImage),
-                            ),
+                          : user.profilePhoto != null
+                              ? CircleAvatar(
+                                  radius: 70,
+                                  backgroundImage:
+                                      NetworkImage(user.profilePhoto!),
+                                )
+                              : const Image(
+                                  image: AssetImage(AppImage.profileImage),
+                                ),
+                    ),
+                    const Spacer(),
+                    IconButton(
+                        onPressed: () {
+                          var profileBloc = context.read<ProfileBloc>();
+
+                          UserModel user = UserModel(
+                              name: _nameController.text,
+                              surname: _surNameController.text,
+                              phone: _phoneController.text,
+                              dateOfBirth: _dateOfBirth,
+                              tcNo: _tcController.text,
+                              city: _cityController.text,
+                              description: _descriptionController.text,
+                              email: _emailController.text);
+
+                          profileBloc.add(
+                              UpdateProfile(photo: _selectedPhoto, user: user));
+
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.check)),
+                    const Spacer()
+                  ],
                 ),
                 EditTextField(
                   label: "Adınız",
@@ -162,26 +190,6 @@ class _PersonEditState extends State<PersonEdit> {
                   keyboardType: TextInputType.text,
                   controller: _descriptionController,
                 ),
-                ElevatedButton(
-                    onPressed: () {
-                      var profileBloc = context.read<ProfileBloc>();
-
-                      UserModel user = UserModel(
-                          name: _nameController.text,
-                          surname: _surNameController.text,
-                          phone: _phoneController.text,
-                          dateOfBirth: _dateOfBirth,
-                          tcNo: _tcController.text,
-                          city: _cityController.text,
-                          description: _descriptionController.text,
-                          email: _emailController.text);
-
-                      profileBloc.add(
-                          UpdateProfile(photo: _selectedPhoto, user: user));
-
-                      Navigator.pop(context);
-                    },
-                    child: const Icon(Icons.upload))
               ],
             ),
           );

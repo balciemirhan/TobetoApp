@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:tobeto_app/pages/bookmark/bookmark_page.dart';
 import 'package:tobeto_app/pages/curved/curved_items.dart';
-
 import 'package:tobeto_app/pages/home/home_page.dart';
 import 'package:tobeto_app/pages/profile/profile_page.dart';
+import 'package:tobeto_app/pages/reviwes/reviwes_page.dart';
 
 class CurvedNavBarWidget extends StatefulWidget {
   const CurvedNavBarWidget({Key? key}) : super(key: key);
@@ -19,7 +18,7 @@ class _CurvedNavBarWidgetState extends State<CurvedNavBarWidget> {
   /*  final navigationKey = GlobalKey<CurvedNavigationBarState>(); */
   final List<Widget> pages = const [
     HomePage(),
-    BookmarkPage(),
+    RevisterPage(),
     ProfilePage(),
   ];
 

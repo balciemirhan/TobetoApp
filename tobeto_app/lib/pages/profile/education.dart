@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/format/date_formatter.dart';
+import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/pages/profile/personal_widget.dart';
 
 class Education extends StatelessWidget {
@@ -27,19 +28,42 @@ class Education extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(education.schoolName!),
-                                Text(education.department!),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(education.city!),
-                                Text(education.educationStatus!),
+                                Container(
+                                  constraints:
+                                      const BoxConstraints(maxWidth: 190),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      AppTextTheme.xSmall(
+                                          education.schoolName!, context),
+                                      AppTextTheme.xSmall(
+                                          education.department!, context),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  constraints:
+                                      const BoxConstraints(maxWidth: 110),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      AppTextTheme.xSmall(
+                                          education.educationStatus!, context),
+                                      AppTextTheme.xSmall(
+                                          education.city!, context),
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
                             Text(
                                 "${DateFormatter.dateFormatter.format(education.startDate ?? DateTime.now())} - ${DateFormatter.dateFormatter.format(education.endDate ?? DateTime.now())}"),
+                            const Divider()
                           ],
                         );
                       },

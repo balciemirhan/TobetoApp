@@ -3,7 +3,6 @@ import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 import 'package:tobeto_app/config/constant/theme/color.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/course_model.dart';
-import 'package:tobeto_app/pages/bookmark/bookmark_add.dart';
 
 class CourseItem extends StatefulWidget {
   const CourseItem({
@@ -73,10 +72,4 @@ class _CourseItemState extends State<CourseItem> {
       ),
     );
   }
-}
-
-// <----------------- BookMark ADD functions ----------------->
-
-void _addToBookMark(BuildContext context, Course course) {
-  BookMarkAdd.addToBookMark(course);
 }

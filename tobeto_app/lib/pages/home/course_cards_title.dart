@@ -15,7 +15,7 @@ class CourseCardsTitle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          AppTextTheme.londrinaOutline(AppText.courses, context),
+          AppTextTheme.concertOne(AppText.courses, context),
           IconButton(
             onPressed: () => Navigator.of(context).pushNamed("/viewmore"),
             icon: const Icon(

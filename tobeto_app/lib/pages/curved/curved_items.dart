@@ -7,7 +7,7 @@ List<Icon> curvedItems() {
       /* color: Colors.white, */
     ),
     const Icon(
-      Icons.bookmark,
+      Icons.reviews_rounded,
 
       /* color: Colors.white, */
     ),

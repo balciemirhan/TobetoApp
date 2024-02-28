@@ -13,7 +13,7 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: user.name != null
-            ? AppTextTheme.londrinaOutline("Hos Geldin, ${user.name}", context)
-            : AppTextTheme.londrinaOutline("Hos Geldin 👋", context));
+            ? AppTextTheme.concertOne("Hos Geldin, ${user.name}", context)
+            : AppTextTheme.concertOne("Hos Geldin 👋", context));
   }
 }

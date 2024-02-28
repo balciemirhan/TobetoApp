@@ -131,8 +131,6 @@ flutter:
     - assets/images/isBecerileri.jpg
     - assets/images/istKodluyor.jpg
     - assets/images/isYonetimiBecerileri.jpg
-    - assets/images/linkedin.png
-    - assets/images/github.png
     - assets/images/animation_circular.gif
     - assets/images/light_background.gif
     - assets/images/dark_background.gif
@@ -146,6 +144,12 @@ flutter:
     - assets/images/tobeto_play_billboard.gif
     - assets/images/tobeto_light_billboard.gif
     - assets/images/feedback.png
+    - assets/images/linkedin.png
+    - assets/images/github.png
+    - assets/images/twitter.png
+    - assets/images/behance.png
+    - assets/images/dribbble.png
+    - assets/images/instagram.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

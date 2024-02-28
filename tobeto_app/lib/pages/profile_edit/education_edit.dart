@@ -6,6 +6,7 @@ import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/user_profile_model/education_history.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
+import 'package:tobeto_app/pages/profile_edit/edit_card.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_dropdownField.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_select_date.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_textfield.dart';
@@ -46,47 +47,31 @@ class _EducationEditState extends State<EducationEdit> {
     required String school,
     required String department,
     required String city,
-    required void Function()? onPressed,
+    required void Function() onPressed,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        gradient: LinearGradient(
-            colors: [Colors.deepPurple.shade300, Colors.deepPurple.shade100],
-            begin: Alignment.bottomRight,
-            end: Alignment.topLeft),
-      ),
-      width: MediaQuery.of(context).size.width * 0.7,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
+    return EditCard(
+      onPressed: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            constraints: const BoxConstraints(maxWidth: 200),
+            child: Column(
               children: [
-                AppTextTheme.small(
+                AppTextTheme.xSmall(
                     status, fontWeight: FontWeight.normal, context),
-                AppTextTheme.small(
-                    school, fontWeight: FontWeight.normal, context),
-                AppTextTheme.small(
+                AppTextTheme.xSmall(school, context),
+                AppTextTheme.xSmall(
                     department, fontWeight: FontWeight.normal, context),
               ],
             ),
-            Column(
-              children: [
-                AppTextTheme.small(
-                    city, fontWeight: FontWeight.normal, context),
-              ],
-            ),
-            IconButton(
-              onPressed: onPressed,
-              icon: Icon(
-                Icons.delete_rounded,
-                color: Colors.deepPurple.shade900,
-              ),
-            ),
-          ],
-        ),
+          ),
+          Column(
+            children: [
+              AppTextTheme.xSmall(city, fontWeight: FontWeight.normal, context),
+            ],
+          ),
+        ],
       ),
     );
   }

@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/format/date_formatter.dart';
+import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/pages/profile/personal_widget.dart';
 
 class Work extends StatelessWidget {
@@ -24,24 +27,62 @@ class Work extends StatelessWidget {
                       final work = user.workHistory![index];
 
                       return Column(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(work.organizationName!),
-                              Text(work.position!),
-                            ],
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            child: AppTextTheme.xSmall(
+                                textAlign: TextAlign.center,
+                                work.organizationName!,
+                                context),
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(work.sector!),
-                              Text(work.city!),
+                              Container(
+                                constraints: const BoxConstraints(maxWidth: 70),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    AppTextTheme.xSmall(
+                                        textAlign: TextAlign.center,
+                                        work.position!,
+                                        context),
+                                    const SizedBox(height: 8),
+                                    AppTextTheme.xSmall(
+                                        textAlign: TextAlign.center,
+                                        work.sector!,
+                                        context),
+                                    const SizedBox(height: 8),
+                                    AppTextTheme.xSmall(
+                                        textAlign: TextAlign.center,
+                                        work.city!,
+                                        context),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              Container(
+                                constraints: const BoxConstraints(
+                                  maxWidth: 230,
+                                ),
+                                child: AppTextTheme.xSmall(
+                                    work.workDescription!,
+                                    fontWeight: FontWeight.normal,
+                                    context),
+                              ),
                             ],
                           ),
-                          Text(
-                              "${DateFormatter.dateFormatter.format(work.startDate ?? DateTime.now())} - ${DateFormatter.dateFormatter.format(work.endDate ?? DateTime.now())}"),
-                          Text(work.workDescription!)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: AppTextTheme.xSmall(
+                                "${DateFormatter.dateFormatter.format(work.startDate ?? DateTime.now())} - ${DateFormatter.dateFormatter.format(work.endDate ?? DateTime.now())}",
+                                context,
+                                fontWeight: FontWeight.normal),
+                          ),
+                          const Divider(),
                         ],
                       );
                     },

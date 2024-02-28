@@ -34,18 +34,11 @@ class Certificate extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final certificates = user.certificates![index];
                       return Container(
-                        height: 120,
-                        margin: const EdgeInsets.all(30),
-                        decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Colors.deepPurple, width: 3),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Icon(FontAwesomeIcons.building),
                                 AppTextTheme.xSmall(
@@ -55,7 +48,7 @@ class Certificate extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Icon(FontAwesomeIcons.scroll),
                                 AppTextTheme.xSmall(

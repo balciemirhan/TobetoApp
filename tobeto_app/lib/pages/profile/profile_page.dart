@@ -9,6 +9,7 @@ import 'package:tobeto_app/config/constant/format/date_formatter.dart';
 import 'package:tobeto_app/config/constant/theme/color.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
+import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/user_model.dart';
 import 'package:tobeto_app/pages/profile/about.dart';
 import 'package:tobeto_app/pages/profile/certificate.dart';
@@ -36,10 +37,7 @@ class _ProfilePageState extends State<ProfilePage> {
         const SizedBox(
           width: 10,
         ),
-        Text(
-            style: const TextStyle(
-                fontWeight: FontWeight.w900, color: Colors.black87),
-            text),
+        AppTextTheme.xSmall(text, context)
       ],
     );
   }

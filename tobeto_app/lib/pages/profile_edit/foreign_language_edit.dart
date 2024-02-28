@@ -6,6 +6,7 @@ import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/user_profile_model/language_history.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
+import 'package:tobeto_app/pages/profile_edit/edit_card.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_dropdownField.dart';
 
 class ForeignLanguageEdit extends StatefulWidget {
@@ -23,39 +24,21 @@ class _ForeignLanguageEditState extends State<ForeignLanguageEdit> {
     BuildContext context, {
     required String language,
     required String level,
-    required void Function()? onPressed,
+    required void Function() onPressed,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        gradient: LinearGradient(
-            colors: [Colors.deepPurple.shade300, Colors.deepPurple.shade100],
-            begin: Alignment.bottomRight,
-            end: Alignment.topLeft),
-      ),
-      width: MediaQuery.of(context).size.width * 0.7,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                AppTextTheme.small(
-                    language, fontWeight: FontWeight.normal, context),
-                AppTextTheme.small(
-                    level, fontWeight: FontWeight.normal, context),
-              ],
-            ),
-            IconButton(
-              onPressed: onPressed,
-              icon: Icon(
-                Icons.delete_rounded,
-                color: Colors.deepPurple.shade900,
-              ),
-            ),
-          ],
-        ),
+    return EditCard(
+      onPressed: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            children: [
+              AppTextTheme.small(language, context),
+              AppTextTheme.xSmall(
+                  level, fontWeight: FontWeight.normal, context),
+            ],
+          ),
+        ],
       ),
     );
   }

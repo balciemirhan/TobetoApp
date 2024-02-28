@@ -51,12 +51,6 @@ class MyDrawer extends StatelessWidget {
             ),
             const Spacer(),
             MyListTile(
-              icon: const Icon(Icons.reviews_rounded),
-              title: AppText.drawerRating,
-              onTap: () => Navigator.of(context).pushNamed(
-                  "/degerlendirmeler"), //bu değerlendirmelere gidicek
-            ),
-            MyListTile(
               icon: const Icon(Icons.notifications_rounded),
               title: AppText.drawerNotice,
               onTap: () => Navigator.of(context).pushNamed("/announcement"),
@@ -71,11 +65,6 @@ class MyDrawer extends StatelessWidget {
               title: AppText.drawerCalendar,
               onTap: () => Navigator.of(context).pushNamed("/calendar"),
             ),
-            MyListTile(
-                image: Image.asset("assets/images/tobeto-logo-white.png",
-                    width: 25),
-                title: AppText.tobeto,
-                onTap: () {}),
             MyListTile(
                 title: "Başvurularım",
                 image: Image.asset(
@@ -150,7 +139,7 @@ class MyListTile extends StatelessWidget {
             Container(
               child: photo,
             ),
-            AppTextTheme.xSmall(title, context, color: Colors.white),
+            Text(title),
           ],
         ),
         leading: icon ?? image,
@@ -161,7 +150,7 @@ class MyListTile extends StatelessWidget {
   }
 }
 
-enum _MenuValues { settings, exit }
+enum _MenuValues { exit }
 
 void _showPopupMenu(BuildContext context, GlobalKey buttonKey) async {
   final RenderBox buttonBox =
@@ -176,16 +165,12 @@ void _showPopupMenu(BuildContext context, GlobalKey buttonKey) async {
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     position: RelativeRect.fromLTRB(
       buttonBox.localToGlobal(Offset.zero).dx + offsetX,
-      buttonBox.localToGlobal(Offset.zero).dy,
+      buttonBox.localToGlobal(Offset.zero).dy + offsetY / 5,
       buttonBox.localToGlobal(buttonBox.size.bottomRight(Offset.zero)).dx,
       buttonBox.localToGlobal(buttonBox.size.bottomRight(Offset.zero)).dy +
           offsetY,
     ),
     items: [
-      const PopupMenuItem(
-        value: _MenuValues.settings,
-        child: Icon(Icons.settings),
-      ),
       const PopupMenuItem(
         value: _MenuValues.exit,
         child: Icon(Icons.exit_to_app_rounded),
@@ -201,9 +186,6 @@ void _showPopupMenu(BuildContext context, GlobalKey buttonKey) async {
 
 void _handleMenuSelection(BuildContext context, dynamic value) {
   switch (value) {
-    case _MenuValues.settings:
-      Navigator.of(context).pushNamed("/setting");
-      break;
     case _MenuValues.exit:
       context.read<ProfileBloc>().add(ClearState());
       context.read<AuthBloc>().add(UserOut());

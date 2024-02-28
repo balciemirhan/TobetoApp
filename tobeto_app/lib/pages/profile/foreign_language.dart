@@ -23,24 +23,28 @@ class ForeignLanguage extends StatelessWidget {
                       itemCount: user.languageHistory!.length,
                       itemBuilder: (context, index) {
                         final language = user.languageHistory![index];
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        return Column(
                           children: [
-                            const Icon(
-                              Icons.language,
-                            ),
-                            Column(
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                AppTextTheme.small(
-                                    language.langName!,
-                                    fontWeight: FontWeight.normal,
-                                    context),
-                                AppTextTheme.xSmall(
-                                    language.langLevel!,
-                                    fontWeight: FontWeight.normal,
-                                    context),
+                                const Icon(
+                                  Icons.language,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    AppTextTheme.xSmall(
+                                        language.langName!, context),
+                                    AppTextTheme.xxSmall(
+                                        language.langLevel!,
+                                        fontWeight: FontWeight.normal,
+                                        context),
+                                  ],
+                                ),
                               ],
-                            )
+                            ),
+                            const SizedBox(height: 15)
                           ],
                         );
                       },

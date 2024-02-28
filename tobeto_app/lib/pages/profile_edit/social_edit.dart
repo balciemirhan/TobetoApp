@@ -4,8 +4,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
+import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/user_profile_model/social_history.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
+import 'package:tobeto_app/pages/profile_edit/edit_card.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_dropdownField.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_textfield.dart';
 
@@ -19,6 +21,21 @@ class SocialEdit extends StatefulWidget {
 class _SocialEditState extends State<SocialEdit> {
   String? _selectedName;
   final TextEditingController _urlController = TextEditingController();
+  _social(
+    BuildContext context, {
+    required String social,
+    required void Function() onPressed,
+  }) {
+    return EditCard(
+      onPressed: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AppTextTheme.small(social, context),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +142,24 @@ class _SocialEditState extends State<SocialEdit> {
                     context
                         .read<ProfileBloc>()
                         .add(UpdateProfile(user: state.user));
-                  })
+                  }),
+              SizedBox(
+                  height: 300,
+                  child: state.user.socialHistory != null
+                      ? ListView.builder(
+                          itemCount: state.user.socialHistory!.length,
+                          itemBuilder: (context, index) {
+                            final social = state.user.socialHistory![index];
+                            return _social(context, social: social.socialName!,
+                                onPressed: () {
+                              state.user.socialHistory?.removeAt(index);
+                              context
+                                  .read<ProfileBloc>()
+                                  .add(UpdateProfile(user: state.user));
+                            });
+                          },
+                        )
+                      : Container())
             ],
           );
         }

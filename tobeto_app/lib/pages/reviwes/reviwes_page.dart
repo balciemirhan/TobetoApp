@@ -1,32 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/top_bar_widget_evaluat%C4%B1on.dart';
+import 'package:tobeto_app/config/constant/core/widget/top_bar_widget.dart';
+import 'package:tobeto_app/config/constant/core/widget/top_bar_widget_evaluat%C4%B1on.dart';
 import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/reviwsList.dart';
+import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/pages/reviwes/revist_model.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Revister extends StatelessWidget {
-  const Revister({Key? key}) : super(key: key);
+class RevisterPage extends StatelessWidget {
+  const RevisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BackgroundImage(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Center(
+        body: Container(
+          margin: const EdgeInsets.only(top: 50),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TopBarWidgetEvalution(
-                  iconButton: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(FontAwesomeIcons.angleLeft)),
-                ),
+                AppTextTheme.londrinaShadow("Kendini Degerlendir", context),
                 const SizedBox(height: 20),
                 _buildMainContent(),
                 const SizedBox(height: 20),
