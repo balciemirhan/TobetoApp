@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
-    final double deviceW = mediaQueryData.size.width;
+    // final double deviceW = mediaQueryData.size.width;
 
     final drawerController = AdvancedDrawerController();
     return MyAdvancedDrawer(

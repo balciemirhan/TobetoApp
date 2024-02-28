@@ -14,6 +14,11 @@ class Course {
   String? description;
   String? instructor;
   String? videoLink;
+  DateTime startDate;
+  DateTime endDate;
+  Duration spentTime;
+  Duration estimatedTime;
+  int videoCount;
 
   Course({
     required this.title,
@@ -26,6 +31,11 @@ class Course {
     this.description,
     this.instructor,
     this.videoLink,
+    required this.startDate,
+    required this.endDate,
+    required this.spentTime,
+    required this.estimatedTime,
+    required this.videoCount,
   });
 
   // verileri gönder.
@@ -42,6 +52,11 @@ class Course {
       'description': description,
       'instructor': instructor,
       'video': videoLink,
+      'startDate': startDate.millisecondsSinceEpoch,
+      'endDate': endDate.millisecondsSinceEpoch,
+      'spentTime': spentTime.inMilliseconds,
+      'estimatedTime': estimatedTime.inMilliseconds,
+      'videoCount': videoCount
     };
   }
 
@@ -59,6 +74,11 @@ class Course {
       description: map['description'] ?? '',
       instructor: map['instructor'] ?? '',
       videoLink: map["video"] ?? '',
+      startDate: DateTime.fromMillisecondsSinceEpoch(map['startDate']),
+      endDate: DateTime.fromMillisecondsSinceEpoch(map['endDate']),
+      spentTime: Duration(milliseconds: map['spentTime']),
+      estimatedTime: Duration(milliseconds: map['estimatedTime']),
+      videoCount: map['videoCount']?.toInt() ?? 0,
     );
   }
 }

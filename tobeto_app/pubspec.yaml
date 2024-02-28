@@ -139,6 +139,11 @@ flutter:
     - assets/images/success.gif
     - assets/images/catalog_image.png
     - assets/images/purple_success.gif
+    - assets/images/billboard_tobeto.gif
+    - assets/images/tobeto_billboard.gif
+    - assets/images/kodluyor_billboard.gif
+    - assets/images/tobeto_play_billboard.gif
+    - assets/images/tobeto_light_billboard.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

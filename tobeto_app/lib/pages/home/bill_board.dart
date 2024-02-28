@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 
 class BillBoard extends StatefulWidget {
@@ -19,20 +20,30 @@ class _BillBoardState extends State<BillBoard> {
 
   final List<Widget> _pages = [
     const Opacity(
-      opacity: .7,
+      opacity: 1,
       child: Flexible(
         child: Image(
           fit: BoxFit.cover,
           height: double.infinity,
           width: double.infinity,
           image: AssetImage(
-            "assets/images/billboard.gif",
+            "assets/images/tobeto_light_billboard.gif",
           ),
         ),
       ),
     ),
-    Container(height: 300, color: Colors.deepPurple),
-    Container(height: 300, color: Colors.blue),
+    const Flexible(
+      child: Flexible(
+        child: Image(
+          fit: BoxFit.cover,
+          height: double.infinity,
+          width: double.infinity,
+          image: AssetImage(
+            "assets/images/kodluyor_billboard.gif",
+          ),
+        ),
+      ),
+    ),
     Container(height: 300, color: Colors.green),
   ];
 

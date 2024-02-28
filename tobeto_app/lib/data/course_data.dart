@@ -6,9 +6,6 @@ import 'package:tobeto_app/models/course_model.dart';
   3 -> diğer
  */
 
-// firestore = haritalı
-// firestora dan gelirken fromMap => haritadan ilgili nesne ye dönüştür.
-
 List videoLink = [
   "https://cdn.cms.medianova.com/p/132/sp/13200/serveFlavor/entryId/0_402pg2wr/v/2/ev/10/flavorId/0_jpibng14/forceproxy/true/name/a.mp4",
   "https://cdn.cms.medianova.com/p/132/sp/13200/serveFlavor/entryId/0_1d1xnbrn/v/2/ev/10/flavorId/0_ccav4sj4/forceproxy/true/name/a.mp4",
@@ -25,6 +22,11 @@ List<Course> courseList = <Course>[
     progress: 100,
     filterNumber: 3,
     videoLink: videoLink[0],
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Eğitimlere Nasıl Katılırım?",
@@ -35,6 +37,11 @@ List<Course> courseList = <Course>[
     progress: 100,
     filterNumber: 3,
     videoLink: videoLink[1],
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Herkes İçin Kodlama - 2B",
@@ -45,6 +52,11 @@ List<Course> courseList = <Course>[
     progress: 100,
     filterNumber: 3,
     videoLink: videoLink[2],
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Hoşgeldin Buluşması - 2",
@@ -54,6 +66,11 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/hosgeldin.png",
     progress: 100,
     filterNumber: 3,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "İstanbul Kodluyor Proje Aşamaları",
@@ -63,6 +80,11 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/proje_asamalari.png",
     progress: 50,
     filterNumber: 3,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Mentör Buluşmaları",
@@ -72,6 +94,11 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/mentor.png",
     progress: 70,
     filterNumber: 3,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Mobil Geliştirici (Flutter) - 1B",
@@ -81,6 +108,11 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/mobil_1B.png",
     progress: 80,
     filterNumber: 1,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Mobil Geliştirme | Öğrenme Yolculuğu",
@@ -90,6 +122,11 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/mobil_ogrenme.png",
     progress: 90,
     filterNumber: 1,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Softskill: İletişim Becerileri",
@@ -99,6 +136,11 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/softskill.png",
     progress: 90,
     filterNumber: 2,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Softskill: İngilizce Beceriler",
@@ -108,6 +150,11 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/softskill.png",
     progress: 80,
     filterNumber: 2,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Softskill: İş Becerileri",
@@ -117,6 +164,11 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/softskill.png",
     progress: 80,
     filterNumber: 2,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Softskill: İş Yönetimi Becerileri 1",
@@ -126,6 +178,11 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/softskill.png",
     progress: 90,
     filterNumber: 2,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Softskill: İş Yönetimi Becerileri 2",
@@ -135,6 +192,11 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/softskill.png",
     progress: 40,
     filterNumber: 2,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Softskill: Kişisel Gelişim",
@@ -144,6 +206,11 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/softskill.png",
     progress: 90,
     filterNumber: 2,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
   Course(
     title: "Softskill: Planlama Becerileri",
@@ -153,5 +220,10 @@ List<Course> courseList = <Course>[
     imagePath: "assets/images/course_images/softskill.png",
     progress: 45,
     filterNumber: 2,
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+    spentTime: const Duration(days: 1),
+    estimatedTime: const Duration(days: 1),
+    videoCount: 1,
   ),
 ];
