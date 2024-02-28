@@ -15,10 +15,12 @@ import 'package:tobeto_app/pages/calendar/calendar_item.dart';
 class CalendarPage extends StatefulWidget {
   const CalendarPage({
     Key? key,
+    this.onMonthChanged,
   }) : super(key: key);
 
   @override
   State<CalendarPage> createState() => _CalendarPageState();
+  final ValueChanged<DateTime>? onMonthChanged;
 }
 
 class _CalendarPageState extends State<CalendarPage> {
@@ -75,7 +77,11 @@ class _CalendarPageState extends State<CalendarPage> {
                         isExpandable: false,
                         todayColor: Colors.red,
                         todayButtonText: "Bugüne Git",
-
+                        onMonthChanged: (day) {
+                          if (widget.onMonthChanged != null) {
+                            widget.onMonthChanged!(day);
+                          }
+                        },
                         eventsList: eventsData.baseList,
                         //Expandable kısmı  türkçeleştiriyor
                         locale: "tr_TR",

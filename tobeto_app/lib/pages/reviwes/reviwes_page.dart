@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/top_bar_widget.dart';
-import 'package:tobeto_app/config/constant/core/widget/top_bar_widget_evaluat%C4%B1on.dart';
+
 import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/reviwsList.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/pages/reviwes/revist_model.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RevisterPage extends StatelessWidget {
@@ -24,15 +22,13 @@ class RevisterPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AppTextTheme.londrinaShadow("Kendini Degerlendir", context),
-                const SizedBox(height: 20),
-                _buildMainContent(),
-                const SizedBox(height: 20),
+                const SizedBox(height: 15),
                 _buildContainer(context),
-                const SizedBox(height: 20),
+                const SizedBox(height: 15),
                 _buildSecondRow(),
-                const SizedBox(height: 20),
+                const SizedBox(height: 15),
                 _buildLists(),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
               ],
             ),
           ),
@@ -42,7 +38,8 @@ class RevisterPage extends StatelessWidget {
   }
 
   Widget _buildLists() {
-    return Padding(
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.symmetric(horizontal: 9),
       child: ListView.builder(
         shrinkWrap: true,
@@ -109,48 +106,6 @@ class RevisterPage extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildMainContent() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          "Yetenek",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.deepPurple[400],
-          ),
-          textAlign: TextAlign.center,
-        ),
-        const Text(
-          "lerini ücretsiz ölç,",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-          textAlign: TextAlign.center,
-        ),
-        Text(
-          "bilgi",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.deepPurple[400],
-          ),
-          textAlign: TextAlign.center,
-        ),
-        const Text(
-          "lerini test et",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-          textAlign: TextAlign.center,
         ),
       ],
     );

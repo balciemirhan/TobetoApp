@@ -40,7 +40,7 @@ class Work extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Container(
-                                constraints: const BoxConstraints(maxWidth: 70),
+                                constraints: const BoxConstraints(maxWidth: 90),
                                 child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -65,9 +65,7 @@ class Work extends StatelessWidget {
                               ),
                               const SizedBox(width: 10),
                               Container(
-                                constraints: const BoxConstraints(
-                                  maxWidth: 230,
-                                ),
+                                width: 210,
                                 child: AppTextTheme.xSmall(
                                     work.workDescription!,
                                     fontWeight: FontWeight.normal,

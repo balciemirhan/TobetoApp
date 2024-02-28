@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/config/constant/theme/image.dart';
-import 'package:tobeto_app/pages/onboard/onboard_model.dart';
+import 'package:tobeto_app/models/onboard_model.dart';
 
 final pages = [
   const PageData(

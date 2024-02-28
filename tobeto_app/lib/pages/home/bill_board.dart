@@ -1,9 +1,15 @@
 import 'dart:async';
 
 import 'package:carousel_indicator/carousel_indicator.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tobeto_app/config/constant/core/widget/drawer/application_showBottom.dart';
+import 'package:tobeto_app/config/constant/core/widget/drawer/customDilok.dart';
+
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
+import 'package:tobeto_app/config/constant/core/widget/snackbar_widget.dart';
+import 'package:tobeto_app/data/application.dart';
 
 class BillBoard extends StatefulWidget {
   const BillBoard({super.key});
@@ -33,18 +39,15 @@ class _BillBoardState extends State<BillBoard> {
       ),
     ),
     const Flexible(
-      child: Flexible(
-        child: Image(
-          fit: BoxFit.cover,
-          height: double.infinity,
-          width: double.infinity,
-          image: AssetImage(
-            "assets/images/kodluyor_billboard.gif",
-          ),
+      child: Image(
+        fit: BoxFit.cover,
+        height: double.infinity,
+        width: double.infinity,
+        image: AssetImage(
+          "assets/images/kodluyor_billboard.gif",
         ),
       ),
     ),
-    Container(height: 300, color: Colors.green),
   ];
 
   // -------------- Zamanlayıcı ve Geçiş efekti(curve:)  --------------

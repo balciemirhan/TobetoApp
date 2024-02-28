@@ -1,7 +1,7 @@
 import 'package:concentric_transition/concentric_transition.dart';
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/pages/login/login_page.dart';
-import 'package:tobeto_app/pages/onboard/onboard_data.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tobeto_app/data/onboard_data.dart';
 import 'package:tobeto_app/pages/onboard/onboard_page.dart';
 import 'package:tobeto_app/pages/start/start_page.dart';
 
@@ -23,6 +23,10 @@ class OnboardingAnimation extends StatelessWidget {
             onTap: () {
               final currentIndex = _pageController.page ?? 0;
               if (currentIndex == pages.length - 1) {
+                final prefs = SharedPreferences.getInstance();
+                prefs.then((value) {
+                  value.setBool('onboarding_completed', true);
+                });
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const StartPage()),

@@ -55,8 +55,7 @@ class SocialMedia extends StatelessWidget {
                               final Uri url = Uri.parse("${social.socialURL}");
 
                               if (!await canLaunchUrl(url)) {
-                                print(url.data);
-                                launchUrl(url);
+                                await launchUrl(url);
                               } else {
                                 snackBarMessage(context, "Geçersiz URL");
                               }

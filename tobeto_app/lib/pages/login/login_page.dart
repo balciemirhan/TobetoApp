@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/image.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/pages/login/login_divider.dart';
 import 'package:tobeto_app/pages/login/login_form.dart';
@@ -18,12 +17,15 @@ class LoginPage extends StatelessWidget {
     final double mHeight = mediaQueryData.size.height;
     final double mWidth = mediaQueryData.size.width;
 
-    //Brightness brightness = Theme.of(context).brightness;
+    Brightness currentBrightness = Theme.of(context).brightness;
+    String backgroundImage = currentBrightness == Brightness.light
+        ? "assets/images/tobeto_background.gif"
+        : "assets/images/login_dark.gif";
 
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
-              fit: BoxFit.cover, image: AssetImage(AppImage.loginBg))),
+              fit: BoxFit.cover, image: AssetImage(backgroundImage))),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         resizeToAvoidBottomInset: false,

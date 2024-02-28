@@ -13,6 +13,7 @@ import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/pages/course/course_about.dart';
 import 'package:tobeto_app/pages/course/course_image.dart';
 import 'package:tobeto_app/pages/course/course_videos.dart';
+import 'package:tobeto_app/pages/course/favori_button.dart';
 
 class CoursePage extends StatelessWidget {
   const CoursePage({Key? key, required this.course}) : super(key: key);
@@ -34,9 +35,10 @@ class CoursePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const LottieButton(
+                        const FavoriteButton(),
+                         const LottieButton(
                           url: AppImage.lottieFavourite,
-                        ),
+                        ), 
                         Container(
                             constraints: const BoxConstraints(maxWidth: 250),
                             child: AppTextTheme.small(course.title, context)),

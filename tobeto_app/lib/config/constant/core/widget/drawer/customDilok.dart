@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/application_bloc/application_bloc.dart';
 import 'package:tobeto_app/api/blocs/application_bloc/application_event.dart';
 import 'package:tobeto_app/api/blocs/application_bloc/application_state.dart';
+import 'package:tobeto_app/config/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/application_model.dart';
 
 class CustomDialog extends StatelessWidget {
@@ -13,6 +14,7 @@ class CustomDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return BlocBuilder<ApplicationBloc, ApplicationState>(
       builder: (context, state) {
         if (state is ApplicationInitial) {
@@ -33,8 +35,10 @@ class CustomDialog extends StatelessWidget {
           return Container(
             height: 200,
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.vertical(
+              color: theme.brightness == Brightness.light
+                  ? Colors.grey.shade200
+                  : Colors.deepPurple,
+              borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(20.0),
               ),
             ),
@@ -43,13 +47,16 @@ class CustomDialog extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Text(application.title, style: TextStyle(fontSize: 24)),
-                  Text(application.subtitle,style: TextStyle(fontWeight: FontWeight.bold),),
-                  Text(application.subtitle1),
-                  Text(application.state),
-                  ElevatedButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    child: const Text('Kapat'),
+                  AppTextTheme.xSmall(application.title, context),
+                  AppTextTheme.xSmall(application.subtitle, context),
+                  AppTextTheme.xSmall(application.subtitle1, context),
+                  AppTextTheme.xSmall(application.state, context),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12),
+                    child: ElevatedButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      child: const Text('Kapat'),
+                    ),
                   ),
                 ],
               ),
