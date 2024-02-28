@@ -32,8 +32,8 @@ class AnswerCard extends StatelessWidget {
                 color: isCorrectAnswer
                     ? Colors.green
                     : isWrongAnswer
-                        ? Colors.red
-                        : Colors.white,
+                        ? const Color.fromARGB(255, 255, 30, 14)
+                        : Color.fromARGB(99, 255, 255, 255),
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Row(
@@ -55,18 +55,19 @@ class AnswerCard extends StatelessWidget {
             )
           : Container(
               height: 70,
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(20.0),
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(25),
+                color: Color.fromARGB(99, 255, 255, 255),
+                borderRadius: BorderRadius.circular(40),
               ),
               child: Row(
                 children: [
                   Expanded(
                     child: Text(
                       question,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 16,
+                        color: const Color.fromARGB(255, 22, 15, 15),
                       ),
                     ),
                   ),

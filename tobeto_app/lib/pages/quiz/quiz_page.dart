@@ -55,7 +55,7 @@ class _QuizPageState extends State<QuizPage> {
     final question = questions[questionIndex];
 
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: const Color.fromARGB(255, 164, 117, 247),
       body: Padding(
         padding: const EdgeInsets.all(40.0),
         child: Column(
@@ -63,10 +63,7 @@ class _QuizPageState extends State<QuizPage> {
           children: [
             Text(
               question.question,
-              style: const TextStyle(
-                fontSize: 30,
-                color: Colors.white,
-              ),
+              style: const TextStyle(fontSize: 30, color: Colors.white),
               textAlign: TextAlign.center,
             ),
             ListView.builder(

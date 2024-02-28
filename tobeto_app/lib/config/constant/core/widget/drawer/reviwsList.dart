@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class ReviewsList extends StatelessWidget {
@@ -15,7 +13,7 @@ class ReviewsList extends StatelessWidget {
   final Image? photo;
   final String title;
   final void Function()? onTap;
-  final Icon? icon;
+  final Widget? icon; // Widget tipine değiştirildi
   final Image? image;
 
   @override
@@ -25,12 +23,7 @@ class ReviewsList extends StatelessWidget {
           const EdgeInsets.symmetric(horizontal: 20), // Yanlardan boşluk ekleme
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        gradient:const LinearGradient(
-          colors: [
-            Color.fromARGB(255, 77, 12, 216),
-            Color.fromARGB(255, 160, 139, 206)
-          ], // İki renkli border
-        ),
+        color: Color.fromARGB(255, 130, 106, 182),
       ),
       child: ListTile(
         onTap: onTap,
@@ -55,7 +48,7 @@ class ReviewsList extends StatelessWidget {
           onPressed: () {
             // Butona tıklandığında yapılacak işlem
           },
-          child:const Text('Başla'), // Buton metni
+          child: const Text('Başla'), // Buton metni
         ),
       ),
     );
