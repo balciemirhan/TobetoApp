@@ -13,6 +13,7 @@ import 'package:tobeto_app/config/constant/core/widget/drawer/my_advanced_drawer
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_appbar.dart';
 import 'package:tobeto_app/config/constant/core/widget/drawer/my_drawer.dart';
 import 'package:tobeto_app/config/constant/format/collections.dart';
+import 'package:tobeto_app/data/course_data.dart';
 import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/pages/home/course_cards.dart';
 import 'package:tobeto_app/pages/home/home_header.dart';
@@ -27,12 +28,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
     // final double deviceW = mediaQueryData.size.width;
-
+    final courseCollection = _firebaseFirestore.collection(Collections.course);
     final drawerController = AdvancedDrawerController();
     return MyAdvancedDrawer(
         drawer: MyDrawer(),
@@ -68,7 +70,20 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(35),
                     child: BillBoard(),
                   ),
-
+                  /*     ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var course in courseList) {
+                          await courseCollection.add(course.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("firestore veri yükle..."),
+                  ),
+ */
                   // ------------ Kategoriler / Tümünü Gör ------------
 
                   const Padding(

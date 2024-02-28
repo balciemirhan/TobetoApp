@@ -1,13 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
 import 'package:tobeto_app/config/constant/core/widget/progress_bar_animation.dart';
 import 'package:tobeto_app/config/constant/theme/text.dart';
 import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+
 import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/pages/course/course_about.dart';
 import 'package:tobeto_app/pages/course/course_image.dart';
+import 'package:tobeto_app/pages/course/course_videos.dart';
 
 class CoursePage extends StatelessWidget {
   const CoursePage({Key? key, required this.course}) : super(key: key);
@@ -125,8 +128,8 @@ class TabBarExample extends StatelessWidget {
           Expanded(
             child: TabBarView(
               children: [
-                const Center(
-                  child: Text(AppText.courseVideos),
+                Center(
+                  child: CourseVideos(course: course),
                 ),
                 Center(
                   child: Padding(

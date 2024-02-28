@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tobeto_app/api/blocs/providers/providers.dart';
 import 'package:tobeto_app/config/constant/theme/theme.dart';
 import 'package:tobeto_app/config/routes/app_routes.dart';
@@ -9,15 +10,18 @@ import 'package:tobeto_app/firebase_options.dart';
 Future<void> main() async {
   // Firebase'in mevcut platform için uygulamayı başlatması:
   WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final onboardingCompleted = prefs.getBool('onboarding_completed') ?? false;
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+  runApp(MyApp(onboardingCompleted: onboardingCompleted));
 }
 
 // Tüm navigator nesnelerine erişim.
 final navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final bool? onboardingCompleted;
+  const MyApp({Key? key, this.onboardingCompleted}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +50,8 @@ class MyApp extends StatelessWidget {
 
         // --------------------------- ROUTE ---------------------------
 
-        initialRoute: AppRoute.start,
+        initialRoute:
+            onboardingCompleted ?? false ? AppRoute.start : AppRoute.onboard,
         routes: AppRoute.routes,
       ),
     );

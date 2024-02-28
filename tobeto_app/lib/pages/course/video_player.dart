@@ -4,15 +4,15 @@ import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class CustomVideoPlayer extends StatefulWidget {
-  const CustomVideoPlayer(
-      {Key? key,
-      //required this.width,
-      //required this.height,
-      required this.videoLink})
-      : super(key: key);
+  const CustomVideoPlayer({
+    Key? key,
+    required this.videoUrlNotifier,
+    //required this.width,
+    //required this.height,
+  }) : super(key: key);
   //final double width;
   //final double height;
-  final String videoLink;
+  final ValueNotifier<String> videoUrlNotifier;
 
   @override
   State<CustomVideoPlayer> createState() => _CustomVideoPlayerState();
@@ -25,11 +25,11 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
     super.initState();
     flickManager = FlickManager(
       videoPlayerController: VideoPlayerController.networkUrl(
-        Uri.parse(widget.videoLink),
+        Uri.parse(widget.videoUrlNotifier.value),
       ),
       autoPlay: false,
     );
-    widget.videoLink;
+    widget.videoUrlNotifier.addListener((updateVideoUrl));
   }
 
   void updateVideoUrl() {
@@ -37,16 +37,16 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
       flickManager.dispose();
       flickManager = FlickManager(
         videoPlayerController: VideoPlayerController.networkUrl(
-          Uri.parse(widget.videoLink),
+          Uri.parse(widget.videoUrlNotifier.value),
         ),
-        autoPlay: false,
+        autoPlay: true,
       );
     });
   }
 
   @override
   void dispose() {
-    widget.videoLink;
+    widget.videoUrlNotifier.removeListener(updateVideoUrl);
     flickManager.dispose();
     super.dispose();
   }
@@ -67,7 +67,8 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
         decoration: BoxDecoration(
           boxShadow: const [BoxShadow(blurRadius: 10, color: Colors.black)],
           image: DecorationImage(
-              image: AssetImage(widget.videoLink), fit: BoxFit.cover),
+              image: AssetImage(widget.videoUrlNotifier.value),
+              fit: BoxFit.cover),
           borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(50),
             bottomRight: Radius.circular(50),

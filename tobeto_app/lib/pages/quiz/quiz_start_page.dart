@@ -34,7 +34,7 @@ class _QuizStartPageState extends State<QuizStartPage> {
                   BoxShadow(
                     color: Colors.black.withOpacity(0.2),
                     blurRadius: 6,
-                    offset: Offset(0, 4),
+                    offset: const Offset(0, 4),
                   ),
                 ],
               ),
@@ -56,8 +56,8 @@ class _QuizStartPageState extends State<QuizStartPage> {
                 style: TextStyle(fontSize: 20),
               ),
               style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(220, 240, 120, 190), // Opaklık eklendi
-                onPrimary: Colors.white,
+                //primary: Color.fromARGB(220, 240, 120, 190), // Opaklık eklendi
+                //onPrimary: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40), // Sol üst köşe

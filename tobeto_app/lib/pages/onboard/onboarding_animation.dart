@@ -1,5 +1,6 @@
 import 'package:concentric_transition/concentric_transition.dart';
 import 'package:flutter/material.dart';
+import 'package:tobeto_app/pages/login/login_page.dart';
 import 'package:tobeto_app/pages/onboard/onboard_data.dart';
 import 'package:tobeto_app/pages/onboard/onboard_page.dart';
 import 'package:tobeto_app/pages/start/start_page.dart';
@@ -13,6 +14,7 @@ class OnboardingAnimation extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: ConcentricPageView(
+        pageSnapping: false, // Sayfa Yakalama
         colors: pages.map((p) => p.bgColor).toList(),
         radius: screenWidth * 0.1,
         nextButtonBuilder: (context) => Padding(

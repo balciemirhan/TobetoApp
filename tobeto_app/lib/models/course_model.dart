@@ -13,7 +13,7 @@ class Course {
   int filterNumber;
   String? description;
   String? instructor;
-  String? videoLink;
+  List<Video> videoList;
   DateTime startDate;
   DateTime endDate;
   Duration spentTime;
@@ -30,7 +30,7 @@ class Course {
     required this.filterNumber,
     this.description,
     this.instructor,
-    this.videoLink,
+    required this.videoList,
     required this.startDate,
     required this.endDate,
     required this.spentTime,
@@ -50,8 +50,8 @@ class Course {
       'progress': progress,
       'filterNumber': filterNumber,
       'description': description,
+      'videoList': videoList.map((x) => x.toMap()).toList(),
       'instructor': instructor,
-      'video': videoLink,
       'startDate': startDate.millisecondsSinceEpoch,
       'endDate': endDate.millisecondsSinceEpoch,
       'spentTime': spentTime.inMilliseconds,
@@ -73,12 +73,47 @@ class Course {
       filterNumber: map['filterNumber'] ?? '',
       description: map['description'] ?? '',
       instructor: map['instructor'] ?? '',
-      videoLink: map["video"] ?? '',
+      videoList:
+          List<Video>.from(map['videoList']?.map((x) => Video.fromMap(x))),
       startDate: DateTime.fromMillisecondsSinceEpoch(map['startDate']),
       endDate: DateTime.fromMillisecondsSinceEpoch(map['endDate']),
       spentTime: Duration(milliseconds: map['spentTime']),
       estimatedTime: Duration(milliseconds: map['estimatedTime']),
       videoCount: map['videoCount']?.toInt() ?? 0,
+    );
+  }
+}
+
+class Video {
+  int id;
+  String videoTitle;
+  String link;
+  Duration duration;
+
+  Video({
+    required this.id,
+    required this.videoTitle,
+    required this.link,
+    required this.duration,
+  });
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'videoTitle': videoTitle,
+      'link': link,
+      'duration': duration
+          .inMilliseconds, // Duration'u inMilliseconds ile tamsayıya dönüştürüyoruz
+    };
+  }
+
+  factory Video.fromMap(Map<String, dynamic> map) {
+    return Video(
+      id: map['id'] ?? 0,
+      videoTitle: map['videoTitle'] ?? '',
+      link: map['link'] ?? '',
+      duration: Duration(
+          milliseconds: map['duration'] ??
+              0), // Duration'u inMilliseconds ile tamsayıdan oluşturuyoruz
     );
   }
 }

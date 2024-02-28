@@ -5,6 +5,7 @@ import 'package:tobeto_app/config/constant/core/widget/drawer/reviwsList.dart';
 import 'package:tobeto_app/pages/reviwes/revist_model.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Revister extends StatelessWidget {
   const Revister({Key? key}) : super(key: key);
@@ -54,6 +55,17 @@ class Revister extends StatelessWidget {
             final itemIndex = index ~/ 2; // Gerçek öğe indeksini hesapla
             final item = reviwestlisr[itemIndex];
             return ReviewsList(
+              trailing: ElevatedButton(
+                  onPressed: () {
+                    if (index == 0) {
+                      Navigator.pushNamed(context, "/quizStart");
+                    }
+                  },
+                  child: index == 0
+                      ? const Icon(
+                          Icons.lock_open) // İlk öğe için yıldız simgesi
+                      : const Icon(Icons
+                          .lock)), // Diğer öğeler için kilit simgesi// Diğer öğeler için kilit simgesi
               title: item.isim,
               onTap: () {
                 // onTap fonksiyonu tanımlanabilir
@@ -65,7 +77,7 @@ class Revister extends StatelessWidget {
               ),
             );
           } else {
-            return SizedBox(height: 20);
+            return const SizedBox(height: 20);
           }
         },
       ),
@@ -83,12 +95,12 @@ class Revister extends StatelessWidget {
             color: const Color.fromARGB(255, 160, 139, 206),
             borderRadius: BorderRadius.circular(40),
           ),
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "Yazılımda Başarı Testi",
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -96,7 +108,7 @@ class Revister extends StatelessWidget {
               ),
               Text(
                 "Çoktan seçmeli soruşar ile teknik bilgini test et",
-                style: const TextStyle(color: Colors.white, fontSize: 18),
+                style: TextStyle(color: Colors.white, fontSize: 18),
               ),
             ],
           ),
@@ -148,6 +160,15 @@ class Revister extends StatelessWidget {
   }
 
   Widget _buildContainer(BuildContext context) {
+    final Uri url = Uri.parse('https://form.jotform.com/240584391740963');
+
+    // ignore: no_leading_underscores_for_local_identifiers
+    Future<void> _launchUrl() async {
+      if (!await launchUrl(url)) {
+        throw Exception('Could not launch $url');
+      }
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 9),
       child: Container(
@@ -178,7 +199,8 @@ class Revister extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, "/quizStart");
+                _launchUrl();
+                //Navigator.pushNamed(context, "/quizStart");
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 154, 104, 241),
