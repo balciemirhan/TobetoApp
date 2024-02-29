@@ -31,7 +31,17 @@ class _BillBoardState extends State<BillBoard> {
       )),
     ),
     Container(
+      padding: const EdgeInsets.all(8),
       child: const ApplicationDialog(),
+    ),
+    Container(
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+        image: AssetImage(
+          "assets/images/kodluyor_billboard.gif",
+        ),
+        fit: BoxFit.cover,
+      )),
     ),
   ];
 
