@@ -14,7 +14,8 @@ class ViewMorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /* final double deviceW = mediaQueryData.size.width; */
+    final ThemeData theme = Theme.of(context);
+
     return BackgroundImage(
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -29,7 +30,13 @@ class ViewMorePage extends StatelessWidget {
                     },
                     icon: const Icon(Icons.arrow_back_ios_new_rounded)),
                 titleText: AppText.courses,
-                image: const Image(image: AssetImage(AppImage.course)),
+                image: Image(
+                  image: const AssetImage(AppImage.course),
+                  color: theme.brightness == Brightness.light
+                      ? Colors.black // Light theme color
+                      : Colors.white,
+                  height: 25,
+                ),
               ),
 
               //  <------- CourseListFilter (Search and Gridview (CourseItemVertical)) ------->

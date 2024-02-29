@@ -17,6 +17,8 @@ class ProfileEditPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return BackgroundImage(
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -31,8 +33,12 @@ class ProfileEditPage extends StatelessWidget {
                     },
                     icon: const Icon(FontAwesomeIcons.angleLeft)),
                 titleText: "",
-                image: const Image(
-                  image: AssetImage(AppImage.user),
+                image: Image(
+                  image: const AssetImage(AppImage.edit),
+                  color: theme.brightness == Brightness.light
+                      ? Colors.black // Light theme color
+                      : Colors.white,
+                  height: 25,
                 ),
               ),
               TabBar(

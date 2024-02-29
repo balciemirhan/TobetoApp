@@ -53,6 +53,10 @@ class _ProfilePageState extends State<ProfilePage> {
         ? Colors.grey.shade700
         : Colors.white;
 
+    Color editColor = currentBrightness == Brightness.light
+        ? Colors.deepPurple.shade700
+        : Colors.deepPurple.shade200;
+
     final double blurRadius;
     if (currentBrightness == Brightness.light) {
       blurRadius = 10; // Light theme blur radius
@@ -82,9 +86,11 @@ class _ProfilePageState extends State<ProfilePage> {
                         onTap: () {
                           Navigator.pushNamed(context, "/profiledit");
                         },
-                        child: const Image(
-                          image: AssetImage("assets/images/person.gif"),
+                        child: Image(
+                          image: const AssetImage(AppImage.edit),
+                          height: 25,
                           fit: BoxFit.cover,
+                          color: editColor,
                         ),
                       ),
                     ),

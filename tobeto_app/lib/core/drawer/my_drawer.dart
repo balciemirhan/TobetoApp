@@ -8,9 +8,7 @@ import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
 import 'package:tobeto_app/constant/theme/image.dart';
-import 'package:tobeto_app/pages/application/application_dialog.dart';
 import 'package:tobeto_app/constant/theme/text.dart';
-import 'package:tobeto_app/data/application.dart';
 import 'package:tobeto_app/models/user_model.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -75,17 +73,6 @@ class MyDrawer extends StatelessWidget {
               onTap: () => Navigator.of(context).pushNamed("/exam"),
             ),
             MyListTile(
-                title: "Başvurularım",
-                image: AppImage.application,
-                onTap: () {
-                  showBottomSheet(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return ApplicationDialog(
-                            applicationList: applicationList);
-                      });
-                }),
-            MyListTile(
               image: AppImage.admin,
               title: AppText.drawerAdmin,
               onTap: () => Navigator.of(context).pushNamed("/admin"),
@@ -147,8 +134,13 @@ class MyListTile extends StatelessWidget {
             ),
           ],
         ),
-        leading:
-            image != null ? Image(image: AssetImage(image!), height: 25) : null,
+        leading: image != null
+            ? Image(
+                image: AssetImage(image!),
+                height: 25,
+                color: Colors.white,
+              )
+            : null,
         titleTextStyle:
             const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
       ),

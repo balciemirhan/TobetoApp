@@ -22,6 +22,8 @@ class DrawerTopBar extends StatefulWidget {
 class _DrawerTopBarState extends State<DrawerTopBar> {
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Padding(
       padding: const EdgeInsets.only(right: 30, left: 30, top: 45),
       child: Row(
@@ -35,7 +37,12 @@ class _DrawerTopBarState extends State<DrawerTopBar> {
           AppTextTheme.londrinaShadow(widget.title ?? "", context),
           NeuBox(
             child: Image(
-              image: AssetImage(widget.image),
+              image: AssetImage(
+                widget.image,
+              ),
+              color: theme.brightness == Brightness.light
+                  ? Colors.black // Light theme color
+                  : Colors.white,
               height: 25,
             ),
           )
