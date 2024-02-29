@@ -5,16 +5,17 @@ import 'package:tobeto_app/constant/theme/text_theme.dart';
 class TopBarWidget extends StatelessWidget {
   const TopBarWidget({
     Key? key,
-    this.leadingIcon,
+    this.image,
     required this.titleText,
     this.iconButton,
-    this.iconButton2,
+    this.button,
   }) : super(key: key);
 
-  final Icon? leadingIcon;
+  final Image? image;
   final String titleText;
   final IconButton? iconButton;
-  final IconButton? iconButton2;
+
+  final Widget? button;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,7 +32,7 @@ class TopBarWidget extends StatelessWidget {
             titleText,
             context,
           ),
-          NeuBox(child: leadingIcon ?? iconButton2)
+          NeuBox(child: image ?? button)
         ],
       ),
     );

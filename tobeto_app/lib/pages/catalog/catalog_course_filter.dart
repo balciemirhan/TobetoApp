@@ -50,13 +50,16 @@ class _CatalogCourseListState extends State<CatalogCourseFilter> {
 
     return Column(
       children: [
-        TextFieldFilter(
-          onChanged: (value) {
-            setState(() {
-              searchText = value; // Update the searchText variable
-              filterCatalogCourses();
-            });
-          },
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: TextFieldFilter(
+            onChanged: (value) {
+              setState(() {
+                searchText = value; // Update the searchText variable
+                filterCatalogCourses();
+              });
+            },
+          ),
         ),
 
         // <---------- filterButtons ---------->

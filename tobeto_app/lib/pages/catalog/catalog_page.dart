@@ -31,7 +31,7 @@ class CatalogPage extends StatelessWidget {
                 DrawerTopBar(
                     drawerController: drawerController,
                     title: "Katalog",
-                    image: AppImage.tobetoLogo),
+                    image: AppImage.catalog),
 
                 //  <------- CourseListFilter (Search and Gridview (CourseItemVertical)) ------->
 

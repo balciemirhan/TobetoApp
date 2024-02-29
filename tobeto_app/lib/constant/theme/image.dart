@@ -55,6 +55,19 @@ class AppImage {
   static const String lottieNext =
       "https://lottie.host/2270e771-24cf-45cf-afb5-9179c2b775d8/bFmu0rdyVz.json";
 
+// -------------------- drawer images --------------------------
+
+  static const String home = "assets/images/drawer_images/home.png";
+  static const String announcement =
+      "assets/images/drawer_images/announcement.png";
+  static const String catalog = "assets/images/drawer_images/catalog.png";
+  static const String exam = "assets/images/drawer_images/exam.png";
+  static const String application =
+      "assets/images/drawer_images/application.png";
+  static const String admin = "assets/images/drawer_images/admin.png";
+  static const String course = "assets/images/drawer_images/course.png";
+  static const String edit = "assets/images/drawer_images/edit.png";
+
 /* const tobetoLightIcon = "assets/images/tobeto-logo.png";
 const tobetoDarkIcon = "assets/images/tobeto-logo-white.png";
 

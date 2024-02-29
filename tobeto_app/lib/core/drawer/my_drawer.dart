@@ -7,6 +7,7 @@ import 'package:tobeto_app/api/blocs/note_bloc/note_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
+import 'package:tobeto_app/constant/theme/image.dart';
 import 'package:tobeto_app/pages/application/application_dialog.dart';
 import 'package:tobeto_app/constant/theme/text.dart';
 import 'package:tobeto_app/data/application.dart';
@@ -49,36 +50,33 @@ class MyDrawer extends StatelessWidget {
             ),
             const Spacer(),
             MyListTile(
-              icon: const Icon(Icons.home),
+              image: AppImage.home,
               title: AppText.drawerHome,
               onTap: () => Navigator.of(context).pushNamed("/curved"),
             ),
             MyListTile(
-              icon: const Icon(Icons.notifications_rounded),
+              image: AppImage.announcement,
               title: AppText.drawerNotice,
               onTap: () => Navigator.of(context).pushNamed("/announcement"),
             ),
             MyListTile(
-              icon: const Icon(Icons.menu_book_rounded),
+              image: AppImage.catalog,
               title: AppText.drawerCatalog,
               onTap: () => Navigator.of(context).pushNamed("/catalog"),
             ),
             MyListTile(
-              icon: const Icon(Icons.calendar_month_rounded),
+              image: AppImage.calendar,
               title: AppText.drawerCalendar,
               onTap: () => Navigator.of(context).pushNamed("/calendar"),
             ),
             MyListTile(
-              icon: const Icon(Icons.quiz_rounded),
+              image: AppImage.exam,
               title: AppText.drawerExam,
               onTap: () => Navigator.of(context).pushNamed("/exam"),
             ),
             MyListTile(
                 title: "Başvurularım",
-                image: Image.asset(
-                  "assets/images/tobeto-logo-white.png",
-                  width: 25,
-                ),
+                image: AppImage.application,
                 onTap: () {
                   showBottomSheet(
                       context: context,
@@ -88,7 +86,7 @@ class MyDrawer extends StatelessWidget {
                       });
                 }),
             MyListTile(
-              icon: const Icon(Icons.admin_panel_settings),
+              image: AppImage.admin,
               title: AppText.drawerAdmin,
               onTap: () => Navigator.of(context).pushNamed("/admin"),
             ),
@@ -117,7 +115,6 @@ class MyListTile extends StatelessWidget {
     super.key,
     required this.title,
     this.onTap,
-    this.icon,
     this.image,
     this.photo,
   });
@@ -125,8 +122,8 @@ class MyListTile extends StatelessWidget {
   final String title;
 
   final void Function()? onTap;
-  final Icon? icon;
-  final Image? image;
+
+  final String? image;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -136,10 +133,7 @@ class MyListTile extends StatelessWidget {
           borderSide: const BorderSide(
             color: Colors.grey,
           )),
-      //LinearBorder(side: BorderSide(color: Colors.black)),
-      //Border.all(color: Colors.white, width: 2),
       elevation: 25,
-      surfaceTintColor: Colors.white,
       margin: const EdgeInsets.only(left: 10, right: 55, bottom: 10),
       child: ListTile(
         onTap: onTap,
@@ -148,10 +142,13 @@ class MyListTile extends StatelessWidget {
             Container(
               child: photo,
             ),
-            Text(title),
+            Text(
+              title,
+            ),
           ],
         ),
-        leading: icon ?? image,
+        leading:
+            image != null ? Image(image: AssetImage(image!), height: 25) : null,
         titleTextStyle:
             const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
       ),

@@ -25,7 +25,7 @@ class AnnouncementSurveyPage extends StatelessWidget {
           children: [
             DrawerTopBar(
               drawerController: drawerController,
-              image: AppImage.tobetoLogo,
+              image: AppImage.announcement,
             ),
             const Expanded(flex: 1, child: AnnouncementPage()),
             const Expanded(flex: 1, child: SurveyPage())

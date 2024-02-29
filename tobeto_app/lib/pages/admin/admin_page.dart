@@ -1,5 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:tobeto_app/constant/theme/image.dart';
+import 'package:tobeto_app/core/drawer/my_advanced_drawer.dart';
+import 'package:tobeto_app/core/drawer/my_appbar.dart';
+import 'package:tobeto_app/core/drawer/my_drawer.dart';
 import 'package:tobeto_app/core/widget/background_image.dart';
 import 'package:tobeto_app/constant/format/collections.dart';
 import 'package:tobeto_app/data/announcement_data.dart';
@@ -26,106 +31,123 @@ class AdminPage extends StatelessWidget {
     final examCollection = firebaseFirestore.collection(Collections.exam);
     final applicationCollection =
         firebaseFirestore.collection(Collections.application);
+    final drawerController = AdvancedDrawerController();
 
-    return BackgroundImage(
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // ------------ Firestore'a  course  veri yükleme ------------
+    return MyAdvancedDrawer(
+      drawer: MyDrawer(),
+      controller: drawerController,
+      child: BackgroundImage(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Column(
+            children: [
+              DrawerTopBar(
+                drawerController: drawerController,
+                image: AppImage.admin,
+              ),
+              const Spacer(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // ------------ Firestore'a  course  veri yükleme ------------
 
-            ElevatedButton.icon(
-              onPressed: () async {
-                bool dataAdded = false;
-                if (!dataAdded) {
-                  for (var course in courseList) {
-                    await courseCollection.add(course.toMap());
-                  }
-                  dataAdded = true;
-                }
-              },
-              icon: const Icon(Icons.upload),
-              label: const Text("Course Data"),
-            ),
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var course in courseList) {
+                          await courseCollection.add(course.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("Course Data"),
+                  ),
 
-            //------------ Firestore'a  catalog   veri yükleme ------------
-            ElevatedButton.icon(
-              onPressed: () async {
-                bool dataAdded = false;
-                if (!dataAdded) {
-                  for (var catalogCourse in catalogCourseList) {
-                    await catalogCourseCollection.add(catalogCourse.toMap());
-                  }
-                  dataAdded = true;
-                }
-              },
-              icon: const Icon(Icons.upload),
-              label: const Text("Catalog Course"),
-            ),
+                  //------------ Firestore'a  catalog   veri yükleme ------------
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var catalogCourse in catalogCourseList) {
+                          await catalogCourseCollection
+                              .add(catalogCourse.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("Catalog Course"),
+                  ),
 
-            // ------------ Firestore'a  classes   veri yükleme ------------
+                  // ------------ Firestore'a  classes   veri yükleme ------------
 
-            ElevatedButton.icon(
-              onPressed: () async {
-                bool dataAdded = false;
-                if (!dataAdded) {
-                  for (var classes in classesList) {
-                    await classesCollection.add(classes.toMap());
-                  }
-                  dataAdded = true;
-                }
-              },
-              icon: const Icon(Icons.upload),
-              label: const Text("Classes"),
-            ),
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var classes in classesList) {
+                          await classesCollection.add(classes.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("Classes"),
+                  ),
 
-            //--------------------------*****EXAM VERİSİ YÜKLEME
-            ElevatedButton.icon(
-              onPressed: () async {
-                bool dataAdded = false;
-                if (!dataAdded) {
-                  for (var exam in examList) {
-                    await examCollection.add(exam.toMap());
-                  }
-                  dataAdded = true;
-                }
-              },
-              icon: const Icon(Icons.upload),
-              label: const Text("Exam"),
-            ),
+                  //--------------------------*****EXAM VERİSİ YÜKLEME
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var exam in examList) {
+                          await examCollection.add(exam.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("Exam"),
+                  ),
 
-            ElevatedButton.icon(
-              onPressed: () async {
-                bool dataAdded = false;
-                if (!dataAdded) {
-                  for (var application in applicationList) {
-                    await applicationCollection.add(application.toMap());
-                  }
-                  dataAdded = true;
-                }
-              },
-              icon: const Icon(Icons.upload),
-              label: const Text("Application"),
-            ),
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var application in applicationList) {
+                          await applicationCollection.add(application.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("Application"),
+                  ),
 
-            // ------------ Firestore'a  announcement   veri yükleme ------------
+                  // ------------ Firestore'a  announcement   veri yükleme ------------
 
-            ElevatedButton.icon(
-              onPressed: () async {
-                bool dataAdded = false;
-                if (!dataAdded) {
-                  for (var announcement in announcementList) {
-                    await announcementCollection.add(announcement.toMap());
-                  }
-                  dataAdded = true;
-                }
-              },
-              icon: const Icon(Icons.upload),
-              label: const Text("Announcement"),
-            ),
-          ],
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      bool dataAdded = false;
+                      if (!dataAdded) {
+                        for (var announcement in announcementList) {
+                          await announcementCollection
+                              .add(announcement.toMap());
+                        }
+                        dataAdded = true;
+                      }
+                    },
+                    icon: const Icon(Icons.upload),
+                    label: const Text("Announcement"),
+                  ),
+                ],
+              ),
+              const Spacer(),
+            ],
+          ),
         ),
       ),
     );

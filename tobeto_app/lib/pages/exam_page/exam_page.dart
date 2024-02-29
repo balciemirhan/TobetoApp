@@ -31,7 +31,7 @@ class ExamPage extends StatelessWidget {
               DrawerTopBar(
                   drawerController: drawerController,
                   title: "Sinavlar",
-                  image: AppImage.tobetoLogo),
+                  image: AppImage.exam),
               const SizedBox(height: 40),
               BlocBuilder<ExamBloc, ExamState>(
                 builder: (context, state) {

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/course_bloc/course_bloc.dart';
 import 'package:tobeto_app/api/blocs/course_bloc/course_event.dart';
 import 'package:tobeto_app/api/blocs/course_bloc/course_state.dart';
+import 'package:tobeto_app/constant/theme/image.dart';
 import 'package:tobeto_app/core/widget/background_image.dart';
 import 'package:tobeto_app/core/widget/top_bar_widget_interval.dart';
 import 'package:tobeto_app/constant/theme/text.dart';
@@ -24,11 +25,11 @@ class ViewMorePage extends StatelessWidget {
               TopBarWidget(
                 iconButton: IconButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed("/curved");
+                      Navigator.pop(context);
                     },
-                    icon: const Icon(Icons.arrow_back)),
+                    icon: const Icon(Icons.arrow_back_ios_new_rounded)),
                 titleText: AppText.courses,
-                leadingIcon: const Icon(Icons.cast_for_education_rounded),
+                image: const Image(image: AssetImage(AppImage.course)),
               ),
 
               //  <------- CourseListFilter (Search and Gridview (CourseItemVertical)) ------->

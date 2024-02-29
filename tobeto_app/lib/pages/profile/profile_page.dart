@@ -78,11 +78,15 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     TopBarWidget(
                       titleText: AppText.profile,
-                      iconButton2: IconButton(
-                          onPressed: () {
-                            Navigator.of(context).pushNamed("/profiledit");
-                          },
-                          icon: const Icon(Icons.abc)),
+                      button: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, "/profiledit");
+                        },
+                        child: const Image(
+                          image: AssetImage("assets/images/person.gif"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                     Expanded(
                         flex: 2,
