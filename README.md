@@ -1,6 +1,14 @@
-<img width="500" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/120199233/8630ff60-e72a-49df-bab0-ef3127ba3dd8">
+<p align = "center" ><img width="500" alt="login page"  src=  "https://github.com/balciemirhan/TobetoApp/assets/120199233/8630ff60-e72a-49df-bab0-ef3127ba3dd8" class="right" > <p>
 
-# Giriş Cümlesi
+
+
+---
+
+
+Tobeto Eğitim Platformu, bilgiye erişimi kolaylaştırarak, öğrenmeyi her an her yerde mümkün kılmaya devam ediyor. Şimdi, bu misyonu bir adım daha ileri taşıyoruz! Tobeto Eğitim Platformu'nun mobil uygulaması, öğrencilere eğitim içeriklerini cebinde taşıma imkanı sunuyor.
+
+
+-----
 
 # Giriş
 [![Build Status](https://img.shields.io/travis/gitpoint/git-point.svg?style=flat-square)](https://travis-ci.org/gitpoint/git-point)
@@ -12,12 +20,12 @@
 
 ### Hızlı Erişim Menüsü
 
-- [Giriş Cümlesi](#giriş-cümlesi)
+
 - [Giriş](#giriş)
 - [UI Gösterimi](#ui-gösterimi)
 - [Kısa Bir Bakış](#kısa-bir-bakış)
 - [Özellikler](#özellikler)
-- [Klasörleme](#klasörleme)
+- [Bloc Pattern Klasörleme Yapısı](#bloc-pattern-klasörleme-yapısı)
 - [Kütüphaneler](#kütüphaneler)
 - [Katkıda Bulunanlar](#katkıda-bulunanlar)
 - [Geri Bildirim](#geri-bildirim)
@@ -26,14 +34,14 @@
 
 # UI Gösterimi
 
-<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/0d92da95-5fee-4b47-9638-fdcc7e811f2c">
+<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/0d92da95-5fee-4b47-9638-fdcc7e811f2c"><br/>
 
-<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/4fee4ccb-0c1b-4988-8ba6-839d628cdd1b">
+<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/4fee4ccb-0c1b-4988-8ba6-839d628cdd1b"><br/><br/>
 
 
-<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/1d5f66ca-ec32-40ab-ae54-4bd9be98055a">
+<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/1d5f66ca-ec32-40ab-ae54-4bd9be98055a"><br/>
 
-<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/82c2cd88-87f7-496b-8d06-aa8b35a46886">
+<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/82c2cd88-87f7-496b-8d06-aa8b35a46886"><br/>
 
 
 
@@ -47,15 +55,18 @@ Tobeto Mobil Uygulaması, Tobeto Eğitim Platformu'nun mobil versiyonudur. Kulla
 
 
 # Özellikler
--  Responsive tasarımla, her cihaza uygun kolay kullanım
 -  Dark mode özelliği ile göz yormayan tasarım
 -  Kolay profil yönetimi
--  Aktivite takip ekranı
 -  Duyuru ve anketlerden haberdar olmak
 -  Eğitimleri inceleme ve katılma
+-  Not sistemi
+-  Video izleme sistemi
+-  Takvim sistemi
+-  Quiz sistemi
+-  
 
 
-## Klosörleme
+## Bloc Pattern Klasörleme Yapısı
 ![Ekran Alıntısı](https://github.com/balciemirhan/TobetoApp/assets/120199233/e3abd3d7-2f0e-4b26-983a-5fad79fd5b20)
 
 
