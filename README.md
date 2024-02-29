@@ -1,4 +1,4 @@
-# Tobeto Mobil Uygulama Projesi
+<img width="500" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/120199233/8630ff60-e72a-49df-bab0-ef3127ba3dd8">
 
 # Giriş Cümlesi
 
@@ -25,8 +25,12 @@
 
 # UI Gösterimi
 
+<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/0d92da95-5fee-4b47-9638-fdcc7e811f2c">
+<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/4fee4ccb-0c1b-4988-8ba6-839d628cdd1b">
+<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/1d5f66ca-ec32-40ab-ae54-4bd9be98055a">
+<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/82c2cd88-87f7-496b-8d06-aa8b35a46886">
 
-<img width="500" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/120199233/8630ff60-e72a-49df-bab0-ef3127ba3dd8">
+
 
 
 # Kısa Bir Bakış
