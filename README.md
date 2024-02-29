@@ -10,11 +10,10 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 [![Gitter chat](https://img.shields.io/badge/chat-on_gitter-008080.svg?style=flat-square)](https://gitter.im/git-point)
 
-- [Introduction](#introduction)
 - [Giriş Cümlesi](#giriş-cümlesi)
 - [Giriş](#giriş)
 - [UI Gösterimi](#ui-gösterimi)
-- [Kısa Bir Bakış](#kısabirbakıs)
+- [Kısa Bir Bakış](#kısa-bir-bakıs)
 - [Özellikler](#özelikler)
 - [Klasörleme](#klasörleme)
 - [Kütüphaneler](#kütüphaneler)
