@@ -15,11 +15,11 @@
 - [Giriş](#giriş)
 - [UI Gösterimi](#ui-gösterimi)
 - [Kısa Bir Bakış](#kısabirbakıs)
-- [ Özellikler](#özelikler)
-- [Klosörleme](#klosorleme-)
-- [Kütüpahneler](#kütüpahaneler)
-- [Katkıda Bulunanlar](#katkıdabulunanlar)
-- [Geri Bildirim](#geribildirimler)
+- [Özellikler](#özelikler)
+- [Klasörleme](#klasörleme)
+- [Kütüphaneler](#kütüphaneler)
+- [Katkıda Bulunanlar](#katkıda-bulunanlar)
+- [Geri Bildirim](#geri-bildirim)
 
 
 
@@ -55,7 +55,7 @@ Tobeto Mobil Uygulaması, Tobeto Eğitim Platformu'nun mobil versiyonudur. Kulla
 ![Ekran Alıntısı](https://github.com/balciemirhan/TobetoApp/assets/120199233/e3abd3d7-2f0e-4b26-983a-5fad79fd5b20)
 
 
-## Kütüpahneler
+## Kütüphaneler
 * cupertino_icons: ^1.0.2
 * lottie: ^2.7.0
 * google_fonts: ^6.1.0
