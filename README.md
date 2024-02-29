@@ -13,7 +13,7 @@
 - [Giriş Cümlesi](#giriş-cümlesi)
 - [Giriş](#giriş)
 - [UI Gösterimi](#ui-gösterimi)
-- [Kısa Bir Bakış](#kısa-bir-bakıs)
+- [Kısa Bir Bakış](#kisa-bir-bakis)
 - [Özellikler](#özelikler)
 - [Klasörleme](#klasörleme)
 - [Kütüphaneler](#kütüphaneler)
