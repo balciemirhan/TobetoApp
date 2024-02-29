@@ -14,7 +14,7 @@
 - [Giriş](#giriş)
 - [UI Gösterimi](#ui-gösterimi)
 - [Kısa Bir Bakış](#kisa-bir-bakis)
-- [Özellikler](#özelikler)
+- [Özellikler](#özellikler)
 - [Klasörleme](#klasörleme)
 - [Kütüphaneler](#kütüphaneler)
 - [Katkıda Bulunanlar](#katkıda-bulunanlar)
