@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
-import 'package:tobeto_app/config/constant/format/collections.dart';
+import 'package:tobeto_app/core/widget/background_image.dart';
+import 'package:tobeto_app/constant/format/collections.dart';
 import 'package:tobeto_app/data/announcement_data.dart';
 import 'package:tobeto_app/data/application.dart';
 import 'package:tobeto_app/data/catalog_course_data.dart';

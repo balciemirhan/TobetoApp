@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/announcement_bloc/announcement_bloc.dart';
 import 'package:tobeto_app/api/blocs/announcement_bloc/announcement_event.dart';
 import 'package:tobeto_app/api/blocs/announcement_bloc/announcement_state.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 import 'package:tobeto_app/pages/announcement_survey/announcement_carousel.dart';
 
 class AnnouncementPage extends StatelessWidget {

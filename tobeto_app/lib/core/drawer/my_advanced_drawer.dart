@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:tobeto_app/config/constant/theme/color.dart';
 
 class MyAdvancedDrawer extends StatefulWidget {
   const MyAdvancedDrawer(

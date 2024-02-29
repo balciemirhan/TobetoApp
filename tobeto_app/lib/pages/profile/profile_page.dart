@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
-import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
-import 'package:tobeto_app/config/constant/core/widget/top_bar_widget.dart';
-import 'package:tobeto_app/config/constant/format/date_formatter.dart';
-import 'package:tobeto_app/config/constant/theme/color.dart';
-import 'package:tobeto_app/config/constant/theme/image.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/core/widget/background_image.dart';
+import 'package:tobeto_app/constant/format/date_formatter.dart';
+import 'package:tobeto_app/constant/theme/color.dart';
+import 'package:tobeto_app/constant/theme/image.dart';
+import 'package:tobeto_app/constant/theme/text.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
+import 'package:tobeto_app/core/widget/top_bar_widget_interval.dart';
 import 'package:tobeto_app/models/user_model.dart';
 import 'package:tobeto_app/pages/profile/about.dart';
 import 'package:tobeto_app/pages/profile/certificate.dart';
@@ -77,12 +77,13 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Column(
                   children: [
                     TopBarWidget(
-                        widget: IconButton(
-                            onPressed: () {
-                              Navigator.of(context).pushNamed("/profiledit");
-                            },
-                            icon: const Icon(Icons.edit)),
-                        titleText: AppText.profile),
+                      titleText: AppText.profile,
+                      iconButton2: IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pushNamed("/profiledit");
+                          },
+                          icon: const Icon(Icons.abc)),
+                    ),
                     Expanded(
                         flex: 2,
                         child: Row(

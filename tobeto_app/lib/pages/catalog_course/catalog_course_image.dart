@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
-import 'package:tobeto_app/config/constant/theme/image.dart';
+import 'package:tobeto_app/core/widget/neu_box.dart';
 import 'package:tobeto_app/models/catalog_course_model.dart';
-import 'package:tobeto_app/config/constant/core/widget/lottie_button.dart';
 
 class CatalogCourseImage extends StatelessWidget {
   const CatalogCourseImage({Key? key, required this.catalogCourse})

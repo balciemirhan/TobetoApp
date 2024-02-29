@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/image.dart';
+import 'package:tobeto_app/constant/theme/image.dart';
 
 class MenuItems extends StatelessWidget {
   const MenuItems({Key? key}) : super(key: key);

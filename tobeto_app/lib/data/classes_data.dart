@@ -1,4 +1,4 @@
-import 'package:tobeto_app/config/constant/theme/color.dart';
+import 'package:tobeto_app/constant/theme/color.dart';
 import 'package:tobeto_app/models/classes_model.dart';
 
 List<Classes> classesList = <Classes>[

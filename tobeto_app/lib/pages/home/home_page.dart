@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,12 +7,11 @@ import 'package:tobeto_app/api/blocs/course_bloc/course_state.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
-import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
-import 'package:tobeto_app/config/constant/core/widget/drawer/my_advanced_drawer.dart';
-import 'package:tobeto_app/config/constant/core/widget/drawer/my_appbar.dart';
-import 'package:tobeto_app/config/constant/core/widget/drawer/my_drawer.dart';
-import 'package:tobeto_app/config/constant/format/collections.dart';
-import 'package:tobeto_app/data/course_data.dart';
+import 'package:tobeto_app/core/widget/background_image.dart';
+import 'package:tobeto_app/core/drawer/my_advanced_drawer.dart';
+import 'package:tobeto_app/core/drawer/my_appbar.dart';
+import 'package:tobeto_app/core/drawer/my_drawer.dart';
+import 'package:tobeto_app/constant/theme/image.dart';
 import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/pages/home/course_cards.dart';
 import 'package:tobeto_app/pages/home/home_header.dart';
@@ -28,13 +26,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
     // final double deviceW = mediaQueryData.size.width;
-    final courseCollection = _firebaseFirestore.collection(Collections.course);
+
     final drawerController = AdvancedDrawerController();
     return MyAdvancedDrawer(
         drawer: MyDrawer(),
@@ -47,7 +44,10 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  TopBar(drawerController: drawerController),
+                  DrawerTopBar(
+                    drawerController: drawerController,
+                    image: AppImage.tobetoLogo,
+                  ),
 
                   // ------------ Hoş Geldin Kullanıcı ------------
 
@@ -70,21 +70,8 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(35),
                     child: BillBoard(),
                   ),
-                  /*     ElevatedButton.icon(
-                    onPressed: () async {
-                      bool dataAdded = false;
-                      if (!dataAdded) {
-                        for (var course in courseList) {
-                          await courseCollection.add(course.toMap());
-                        }
-                        dataAdded = true;
-                      }
-                    },
-                    icon: const Icon(Icons.upload),
-                    label: const Text("firestore veri yükle..."),
-                  ),
- */
-                  // ------------ Kategoriler / Tümünü Gör ------------
+
+                  // ------------ Kurslar / Tümünü Gör ------------
 
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
@@ -120,23 +107,6 @@ class _HomePageState extends State<HomePage> {
                       return Container();
                     },
                   ),
-
-                  const Padding(padding: EdgeInsets.only(top: 20)),
-
-                  // ------------ Popüler Kurslar ------------
-                  /*   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                    child: PopularWidget(),
-                  ), */
-
-                  // ------------ En son izlediğiniz ders ------------
-                  /*   const Padding(
-                    padding: EdgeInsets.all(35),
-                    child: LastCourseVideo(),
-                  ) */
-
-                  //   bottomNavigationBari yani alt butonların yönetimi -->
-                  //CurvedNavBarWidget() ' da yönetiliyor.
                 ],
               ),
             ),

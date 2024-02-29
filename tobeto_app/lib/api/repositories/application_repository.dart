@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tobeto_app/config/constant/format/collections.dart';
+import 'package:tobeto_app/constant/format/collections.dart';
 import 'package:tobeto_app/models/application_model.dart';
-
 
 class ApplicationRepostiory {
   Future<List<Application>> getApplication() async {

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/user_profile_model/education_history.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_card.dart';
@@ -21,8 +21,6 @@ class EducationEdit extends StatefulWidget {
 class _EducationEditState extends State<EducationEdit> {
   final TextEditingController _schoolController = TextEditingController();
   final TextEditingController _departmentController = TextEditingController();
-  final TextEditingController _startDateController = TextEditingController();
-  final TextEditingController _endDateController = TextEditingController();
 
   String? _selectededucationStatus;
   String? _selectedCity;

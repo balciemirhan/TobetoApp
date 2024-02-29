@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/constant/theme/color.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 
 class CourseDetailsAbout extends StatelessWidget {
   final IconData icon;
@@ -14,11 +15,15 @@ class CourseDetailsAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 212, 193, 245),
+            color: theme.brightness == Brightness.light
+                ? AppColor.neuBoxColorLight // Light theme color
+                : AppColor.neuBoxColorDark, // Dark theme color
             border: Border.all(color: Colors.white),
             borderRadius: BorderRadius.circular(12)),
         child: Padding(
@@ -32,9 +37,9 @@ class CourseDetailsAbout extends StatelessWidget {
                 Icon(icon),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: AppTextTheme.small(title, context),
+                  child: AppTextTheme.xSmall(title, context),
                 ),
-                AppTextTheme.small(description, context),
+                AppTextTheme.xSmall(description, context),
               ],
             ),
           ),

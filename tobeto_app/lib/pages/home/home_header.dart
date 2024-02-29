@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/user_model.dart';
 
 class HomeHeader extends StatelessWidget {

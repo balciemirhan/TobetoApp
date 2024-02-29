@@ -4,12 +4,7 @@ import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobeto_app/config/constant/core/widget/drawer/application_showBottom.dart';
-import 'package:tobeto_app/config/constant/core/widget/drawer/customDilok.dart';
-
-import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
-import 'package:tobeto_app/config/constant/core/widget/snackbar_widget.dart';
-import 'package:tobeto_app/data/application.dart';
+import 'package:tobeto_app/core/widget/neu_box.dart';
 
 class BillBoard extends StatefulWidget {
   const BillBoard({super.key});
@@ -79,7 +74,7 @@ class _BillBoardState extends State<BillBoard> {
         NeuBox(
           height: 200,
           width: 350,
-          child: Container(
+          child: SizedBox(
             height: 150,
             width: 300,
             child: PageView(

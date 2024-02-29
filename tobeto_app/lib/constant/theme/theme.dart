@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/color.dart';
+import 'package:tobeto_app/constant/theme/color.dart';
 
 class AppTheme {
   AppTheme._();

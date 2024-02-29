@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
+import 'package:tobeto_app/constant/theme/text.dart';
 
 ScaffoldFeatureController<SnackBar, SnackBarClosedReason> snackBarMessage(
     context, String content,

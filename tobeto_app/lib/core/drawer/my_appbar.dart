@@ -1,20 +1,25 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
-import 'package:tobeto_app/config/constant/theme/image.dart';
+import 'package:tobeto_app/core/widget/neu_box.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 
-class TopBar extends StatefulWidget {
-  const TopBar({
+class DrawerTopBar extends StatefulWidget {
+  const DrawerTopBar({
     Key? key,
     required this.drawerController,
+    required this.image,
+    this.title,
   }) : super(key: key);
   final AdvancedDrawerController drawerController;
+  final String image;
+  final String? title;
+
   @override
-  State<TopBar> createState() => _TopBarState();
+  State<DrawerTopBar> createState() => _DrawerTopBarState();
 }
 
-class _TopBarState extends State<TopBar> {
+class _DrawerTopBarState extends State<DrawerTopBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,9 +32,10 @@ class _TopBarState extends State<TopBar> {
                 widget.drawerController.showDrawer();
               },
               icon: const NeuBox(child: Icon(Icons.menu))),
-          const NeuBox(
+          AppTextTheme.londrinaShadow(widget.title ?? "", context),
+          NeuBox(
             child: Image(
-              image: AssetImage(AppImage.tobetoLogo),
+              image: AssetImage(widget.image),
               height: 25,
             ),
           )

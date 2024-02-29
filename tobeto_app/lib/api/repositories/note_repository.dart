@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:tobeto_app/config/constant/format/collections.dart';
+import 'package:tobeto_app/constant/format/collections.dart';
 import 'package:tobeto_app/models/note_model.dart';
 
 class NoteRepository {

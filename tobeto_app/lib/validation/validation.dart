@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:tobeto_app/config/constant/core/widget/snackbar_widget.dart';
+import 'package:tobeto_app/core/widget/snackbar_widget.dart';
 
 const validRegister = {
   'email-already-in-use': 'E-posta Zaten Kullanılıyor',

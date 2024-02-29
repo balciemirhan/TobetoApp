@@ -8,7 +8,7 @@ import 'package:open_file/open_file.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/user_model.dart';
 import 'package:tobeto_app/models/user_profile_model/certificate_model.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';

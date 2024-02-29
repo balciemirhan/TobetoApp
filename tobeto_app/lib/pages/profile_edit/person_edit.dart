@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
-import 'package:tobeto_app/config/constant/theme/image.dart';
+import 'package:tobeto_app/constant/theme/image.dart';
 import 'package:tobeto_app/models/user_model.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_dropdownField.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_textfield.dart';
@@ -79,26 +79,6 @@ class _PersonEditState extends State<PersonEdit> {
               children: [
                 Row(
                   children: [
-                    const Spacer(flex: 2),
-                    GestureDetector(
-                      onTap: () {
-                        pickImage();
-                      },
-                      child: _selectedPhoto != null
-                          ? CircleAvatar(
-                              radius: 70,
-                              backgroundImage: FileImage(_selectedPhoto!),
-                            )
-                          : user.profilePhoto != null
-                              ? CircleAvatar(
-                                  radius: 70,
-                                  backgroundImage:
-                                      NetworkImage(user.profilePhoto!),
-                                )
-                              : const Image(
-                                  image: AssetImage(AppImage.profileImage),
-                                ),
-                    ),
                     const Spacer(),
                     IconButton(
                         onPressed: () {
@@ -119,8 +99,32 @@ class _PersonEditState extends State<PersonEdit> {
 
                           Navigator.pop(context);
                         },
-                        icon: const Icon(Icons.check)),
-                    const Spacer()
+                        icon: const Icon(
+                          Icons.check_circle_rounded,
+                          size: 35,
+                          color: Colors.deepPurple,
+                        )),
+                    const Spacer(),
+                    GestureDetector(
+                      onTap: () {
+                        pickImage();
+                      },
+                      child: _selectedPhoto != null
+                          ? CircleAvatar(
+                              radius: 70,
+                              backgroundImage: FileImage(_selectedPhoto!),
+                            )
+                          : user.profilePhoto != null
+                              ? CircleAvatar(
+                                  radius: 70,
+                                  backgroundImage:
+                                      NetworkImage(user.profilePhoto!),
+                                )
+                              : const Image(
+                                  image: AssetImage(AppImage.profileImage),
+                                ),
+                    ),
+                    const Spacer(flex: 3),
                   ],
                 ),
                 EditTextField(

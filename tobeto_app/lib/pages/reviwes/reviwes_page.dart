@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
-import 'package:tobeto_app/config/constant/core/widget/drawer/reviwsList.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
-import 'package:tobeto_app/pages/reviwes/revist_model.dart';
+import 'package:tobeto_app/core/widget/background_image.dart';
+import 'package:tobeto_app/pages/reviwes/reviwes_list.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
+import 'package:tobeto_app/models/revist_model.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -48,7 +48,7 @@ class RevisterPage extends StatelessWidget {
           if (index.isEven) {
             final itemIndex = index ~/ 2; // Gerçek öğe indeksini hesapla
             final item = reviwestlisr[itemIndex];
-            return ReviewsList(
+            return ReviwesList(
               trailing: ElevatedButton(
                   onPressed: () {
                     if (index == 0) {

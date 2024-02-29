@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
-import 'package:tobeto_app/config/constant/theme/color.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/constant/theme/color.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/course_model.dart';
 
 class CourseItem extends StatefulWidget {

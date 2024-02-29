@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
-import 'package:tobeto_app/config/constant/format/date_formatter.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/core/widget/neu_box.dart';
+import 'package:tobeto_app/constant/format/date_formatter.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/announcement_model.dart';
 
 class AnnouncementItem extends StatelessWidget {

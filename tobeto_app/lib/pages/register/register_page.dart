@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/now_bottom.dart';
-import 'package:tobeto_app/config/constant/theme/image.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
+import 'package:tobeto_app/core/widget/now_bottom.dart';
+import 'package:tobeto_app/constant/theme/image.dart';
+import 'package:tobeto_app/constant/theme/text.dart';
 import 'package:tobeto_app/pages/register/register_form.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -15,7 +15,7 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           height: mediaQuery.height,
           child: Stack(

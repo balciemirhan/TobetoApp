@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
-import 'package:tobeto_app/config/constant/core/widget/top_bar_widget.dart';
-import 'package:tobeto_app/config/constant/core/widget/top_bar_widget_interval.dart';
+import 'package:tobeto_app/core/widget/background_image.dart';
+import 'package:tobeto_app/core/widget/top_bar_widget_interval.dart';
 import 'package:tobeto_app/pages/profile_edit/certificate_edit.dart';
 import 'package:tobeto_app/pages/profile_edit/competence_edit.dart';
 import 'package:tobeto_app/pages/profile_edit/education_edit.dart';
@@ -24,7 +23,7 @@ class ProfileEditPage extends StatelessWidget {
           length: 8,
           child: Column(
             children: [
-              TopBarWidgetInterval(
+              TopBarWidget(
                 iconButton: IconButton(
                     onPressed: () {
                       Navigator.pop(context);

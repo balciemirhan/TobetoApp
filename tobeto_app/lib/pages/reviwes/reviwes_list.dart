@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ReviewsList extends StatelessWidget {
-  const ReviewsList({
+class ReviwesList extends StatelessWidget {
+  const ReviwesList({
     Key? key,
     required this.title,
     this.onTap,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobeto_app/config/constant/theme/image.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
+import 'package:tobeto_app/constant/theme/image.dart';
+import 'package:tobeto_app/constant/theme/text.dart';
 import 'package:tobeto_app/data/course_data.dart';
 import 'package:tobeto_app/models/course_model.dart';
-import 'package:tobeto_app/config/constant/core/widget/textfield_filter.dart';
+import 'package:tobeto_app/core/widget/textfield_filter.dart';
 import 'package:tobeto_app/pages/view_more/course_item.dart';
 
 class CourseListFilter extends StatefulWidget {

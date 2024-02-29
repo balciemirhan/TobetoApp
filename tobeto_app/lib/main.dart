@@ -2,9 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tobeto_app/api/blocs/providers/providers.dart';
-import 'package:tobeto_app/config/constant/theme/theme.dart';
-import 'package:tobeto_app/config/routes/app_routes.dart';
+import 'package:tobeto_app/configuration/providers/providers.dart';
+import 'package:tobeto_app/constant/theme/theme.dart';
+import 'package:tobeto_app/configuration/routes/app_routes.dart';
 import 'package:tobeto_app/firebase_options.dart';
 
 Future<void> main() async {

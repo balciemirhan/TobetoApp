@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/core/widget/neu_box.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/catalog_course_model.dart';
 
 class CatalogCourseItem extends StatefulWidget {
@@ -18,7 +18,6 @@ class _CatalogCourseItemState extends State<CatalogCourseItem> {
   @override
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
-    final double deviceH = mediaQueryData.size.height;
     final double deviceW = mediaQueryData.size.width;
 
     return GestureDetector(

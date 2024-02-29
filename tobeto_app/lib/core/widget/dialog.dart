@@ -4,8 +4,8 @@ import 'package:tobeto_app/api/blocs/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_app/api/blocs/auth_bloc/auth_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
-import 'package:tobeto_app/config/constant/core/widget/my_dialog_button.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/core/widget/my_dialog_button.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 
 class MyDialog extends StatelessWidget {
   final String title;

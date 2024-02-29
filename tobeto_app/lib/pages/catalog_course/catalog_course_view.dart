@@ -3,11 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/catalog_bloc/catalog_bloc.dart';
 import 'package:tobeto_app/api/blocs/catalog_bloc/catalog_event.dart';
 import 'package:tobeto_app/api/blocs/catalog_bloc/catalog_state.dart';
-import 'package:tobeto_app/data/catalog_course_data.dart';
-import 'package:tobeto_app/data/course_data.dart';
 import 'package:tobeto_app/models/catalog_course_model.dart';
 import 'package:tobeto_app/pages/catalog_course/catalog_course_page.dart';
-import 'package:tobeto_app/pages/course/course_page.dart';
 
 class CatalogCourseViewPage extends StatelessWidget {
   const CatalogCourseViewPage({Key? key}) : super(key: key);

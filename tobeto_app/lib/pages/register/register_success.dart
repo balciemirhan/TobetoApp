@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/my_dialog_button.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/core/widget/my_dialog_button.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 
 class MyDialogSuccess extends StatelessWidget {
   final String title;

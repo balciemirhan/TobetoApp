@@ -7,10 +7,8 @@ import 'package:tobeto_app/api/blocs/note_bloc/note_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_state.dart';
-import 'package:tobeto_app/config/constant/core/widget/drawer/customDilok.dart';
-import 'package:tobeto_app/config/constant/theme/image.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/pages/application/application_dialog.dart';
+import 'package:tobeto_app/constant/theme/text.dart';
 import 'package:tobeto_app/data/application.dart';
 import 'package:tobeto_app/models/user_model.dart';
 
@@ -51,6 +49,11 @@ class MyDrawer extends StatelessWidget {
             ),
             const Spacer(),
             MyListTile(
+              icon: const Icon(Icons.home),
+              title: AppText.drawerHome,
+              onTap: () => Navigator.of(context).pushNamed("/curved"),
+            ),
+            MyListTile(
               icon: const Icon(Icons.notifications_rounded),
               title: AppText.drawerNotice,
               onTap: () => Navigator.of(context).pushNamed("/announcement"),
@@ -80,7 +83,8 @@ class MyDrawer extends StatelessWidget {
                   showBottomSheet(
                       context: context,
                       builder: (BuildContext context) {
-                        return CustomDialog(applicationList: applicationList);
+                        return ApplicationDialog(
+                            applicationList: applicationList);
                       });
                 }),
             MyListTile(

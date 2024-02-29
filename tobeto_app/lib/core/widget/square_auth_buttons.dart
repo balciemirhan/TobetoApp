@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
+import 'package:tobeto_app/core/widget/neu_box.dart';
 
 class SquareAuthButtons extends StatelessWidget {
   const SquareAuthButtons({

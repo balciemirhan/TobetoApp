@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 
 class ProfilWidget extends StatelessWidget {
   const ProfilWidget({Key? key, required this.text, required this.widget})

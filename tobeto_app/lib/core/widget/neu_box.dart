@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/theme/color.dart';
+import 'package:tobeto_app/constant/theme/color.dart';
 
 class NeuBox extends StatelessWidget {
   const NeuBox({Key? key, this.child, this.width, this.height})

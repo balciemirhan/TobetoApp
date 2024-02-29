@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
-import 'package:tobeto_app/config/constant/theme/text.dart';
-import 'package:tobeto_app/config/constant/theme/text_theme.dart';
+import 'package:tobeto_app/core/widget/neu_box.dart';
+import 'package:tobeto_app/constant/theme/text.dart';
+import 'package:tobeto_app/constant/theme/text_theme.dart';
 
 class PopularWidget extends StatelessWidget {
   const PopularWidget({Key? key}) : super(key: key);
