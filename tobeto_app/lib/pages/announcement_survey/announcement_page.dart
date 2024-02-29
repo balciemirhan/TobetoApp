@@ -13,7 +13,7 @@ class AnnouncementPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AppTextTheme.concertOne("Duyuru", context),
+        AppTextTheme.londrinaShadow("Duyuru", context),
         const Spacer(),
         BlocBuilder<AnnouncementBloc, AnnouncementState>(
           builder: (context, state) {

@@ -23,7 +23,7 @@ class _CatalogCourseItemState extends State<CatalogCourseItem> {
 
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, "/",
+        Navigator.pushNamed(context, "/catalogCourse",
             arguments: widget.catalogCourse.title);
       },
       child: NeuBox(

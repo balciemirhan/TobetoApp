@@ -7,11 +7,16 @@ class ForgotPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Brightness currentBrightness = Theme.of(context).brightness;
+    String backgroundImage = currentBrightness == Brightness.light
+        ? "assets/images/forgot_background.png"
+        : "assets/images/forgot_dark.png";
+
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
         fit: BoxFit.cover,
-        image: AssetImage("assets/images/forgot_background.png"),
+        image: AssetImage(backgroundImage),
       )),
       child: Scaffold(
         appBar: AppBar(

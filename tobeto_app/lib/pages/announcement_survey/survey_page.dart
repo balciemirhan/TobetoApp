@@ -14,7 +14,7 @@ class SurveyPage extends StatelessWidget {
             fit: BoxFit.contain,
             "https://lottie.host/2bda282a-2542-404a-8faf-a93864c85de2/LgucCImMo2.json"),
         Column(children: [
-          AppTextTheme.concertOne("Anket", context),
+          AppTextTheme.londrinaShadow("Anket", context),
         ])
       ],
     );

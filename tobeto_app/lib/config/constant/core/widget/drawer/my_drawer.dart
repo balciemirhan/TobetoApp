@@ -66,6 +66,11 @@ class MyDrawer extends StatelessWidget {
               onTap: () => Navigator.of(context).pushNamed("/calendar"),
             ),
             MyListTile(
+              icon: const Icon(Icons.quiz_rounded),
+              title: AppText.drawerExam,
+              onTap: () => Navigator.of(context).pushNamed("/exam"),
+            ),
+            MyListTile(
                 title: "Başvurularım",
                 image: Image.asset(
                   "assets/images/tobeto-logo-white.png",

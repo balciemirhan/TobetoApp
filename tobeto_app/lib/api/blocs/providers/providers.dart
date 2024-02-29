@@ -38,7 +38,7 @@ final classesBlocProvider = BlocProvider<ClassesBloc>(
 );
 
 final examBlocProvider = BlocProvider<ExamBloc>(
-  create: (context) => ExamBloc(ExamRepostiory()),
+  create: (context) => ExamBloc(ExamRepository()),
 );
 
 final applicationBlocProvider = BlocProvider<ApplicationBloc>(
