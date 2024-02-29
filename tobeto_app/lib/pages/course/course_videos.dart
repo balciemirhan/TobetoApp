@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_app/data/course_data.dart';
 import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/pages/course/course_video_tile.dart';
 
@@ -13,10 +12,18 @@ class CourseVideos extends StatefulWidget {
 
 class _CourseVideosState extends State<CourseVideos> {
   int selectedVideoIndex = 0;
-  final videoUrlNotifier =
-      ValueNotifier<String>(courseList[3].videoList[1].link);
+
+  late final ValueNotifier<String> videoUrlNotifier;
+
+  @override
+  void initState() {
+    videoUrlNotifier = ValueNotifier<String>(widget.course.videoList[0].link);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    //print(videoUrlNotifier.value);
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
@@ -26,7 +33,9 @@ class _CourseVideosState extends State<CourseVideos> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
+                //print(videoUrlNotifier.value);
                 videoUrlNotifier.value = widget.course.videoList[index].link;
+                //print(videoUrlNotifier.value);
                 setState(() {
                   selectedVideoIndex =
                       index; // Seçili video indeksini güncelleyin

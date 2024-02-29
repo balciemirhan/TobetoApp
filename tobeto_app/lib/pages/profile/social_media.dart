@@ -53,11 +53,16 @@ class SocialMedia extends StatelessWidget {
                             ),
                             onTap: () async {
                               final Uri url = Uri.parse("${social.socialURL}");
-
                               if (!await canLaunchUrl(url)) {
-                                await launchUrl(url);
-                              } else {
-                                snackBarMessage(context, "Geçersiz URL");
+                                try {
+                                  bool launched = await launchUrl(url);
+                                  if (!launched) {
+                                    snackBarMessage(context, "Geçersiz URL");
+                                  }
+                                } catch (e) {
+                                  snackBarMessage(context,
+                                      "Lüttfen  geçerli bir URL girin.");
+                                }
                               }
                             },
                           );

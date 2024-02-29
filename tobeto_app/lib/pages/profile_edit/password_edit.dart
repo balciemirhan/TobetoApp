@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_app/api/blocs/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_app/api/blocs/auth_bloc/auth_event.dart';
 import 'package:tobeto_app/config/constant/core/widget/dialog.dart';
+import 'package:tobeto_app/config/constant/core/widget/snackbar_widget.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_button.dart';
 import 'package:tobeto_app/pages/profile_edit/edit_textfield.dart';
 
@@ -26,14 +27,32 @@ class PasswordEdit extends StatelessWidget {
           controller: _confirmNewPasswordController,
         ),
         EditButton(
-            text: "Şifre Değiştir",
-            onTap: () {
-              context.read<AuthBloc>().add(ChangePassword(
-                  newPassword: _newPasswordController.text.trim(),
-                  confirmNewPassword:
-                      _confirmNewPasswordController.text.trim()));
-              Navigator.pushNamed(context, "/start");
-            }),
+          text: "Şifre Değiştir",
+          onTap: () {
+            {
+              if (_newPasswordController.text.isEmpty ||
+                  _confirmNewPasswordController.text.isEmpty) {
+                snackBarMessage(context, "Şifreler Boş Olamaz!");
+              } else if (_newPasswordController.text !=
+                  _confirmNewPasswordController.text) {
+                snackBarMessage(context, "Şifreler Eşleşmiyor!");
+              } else {
+                context.read<AuthBloc>().add(ChangePassword(
+                    newPassword: _newPasswordController.text.trim(),
+                    confirmNewPassword:
+                        _confirmNewPasswordController.text.trim()));
+                snackBarMessage(context, "Şifre başarıyla değiştirildi.",
+                    color: Colors.green);
+                snackBarMessage(context, "Ana sayfaya yönlendiriliyorsunuz...",
+                    color: Colors.deepPurple);
+                Future.delayed(const Duration(seconds: 7), () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, "/curved", (route) => false);
+                });
+              }
+            }
+          },
+        ),
         EditButton(
           text: "Üyeliği Sonlandır",
           color: Colors.redAccent,

@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import 'package:tobeto_app/config/constant/core/widget/background_image.dart';
 import 'package:tobeto_app/config/constant/core/widget/lottie_button.dart';
 import 'package:tobeto_app/config/constant/core/widget/neu_box.dart';
@@ -13,7 +12,6 @@ import 'package:tobeto_app/models/course_model.dart';
 import 'package:tobeto_app/pages/course/course_about.dart';
 import 'package:tobeto_app/pages/course/course_image.dart';
 import 'package:tobeto_app/pages/course/course_videos.dart';
-import 'package:tobeto_app/pages/course/favori_button.dart';
 
 class CoursePage extends StatelessWidget {
   const CoursePage({Key? key, required this.course}) : super(key: key);
@@ -25,7 +23,7 @@ class CoursePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         body: Column(
           children: [
-            Expanded(flex: 4, child: CourseImage(course: course)),
+            Expanded(flex: 4, child: CourseVideos(course: course)),
             Expanded(
               flex: 2,
               child: Padding(
@@ -35,10 +33,9 @@ class CoursePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const FavoriteButton(),
-                         const LottieButton(
+                        const LottieButton(
                           url: AppImage.lottieFavourite,
-                        ), 
+                        ),
                         Container(
                             constraints: const BoxConstraints(maxWidth: 250),
                             child: AppTextTheme.small(course.title, context)),
