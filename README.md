@@ -10,6 +10,8 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 [![Gitter chat](https://img.shields.io/badge/chat-on_gitter-008080.svg?style=flat-square)](https://gitter.im/git-point)
 
+### Hızlı Erişim Menüsü
+
 - [Giriş Cümlesi](#giriş-cümlesi)
 - [Giriş](#giriş)
 - [UI Gösterimi](#ui-gösterimi)
@@ -26,6 +28,7 @@
 
 <img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/0d92da95-5fee-4b47-9638-fdcc7e811f2c">
 <img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/4fee4ccb-0c1b-4988-8ba6-839d628cdd1b">
+
 <img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/1d5f66ca-ec32-40ab-ae54-4bd9be98055a">
 <img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/82c2cd88-87f7-496b-8d06-aa8b35a46886">
 
@@ -48,7 +51,6 @@ Tobeto Mobil Uygulaması, Tobeto Eğitim Platformu'nun mobil versiyonudur. Kulla
 -  Duyuru ve anketlerden haberdar olmak
 -  Eğitimleri inceleme ve katılma
 
-<img width="700" alt="login page" src="https://github.com/balciemirhan/TobetoApp/assets/120199233/e8432588-f7f3-4433-9684-a6d1085f0ab7">
 
 ## Klosörleme
 ![Ekran Alıntısı](https://github.com/balciemirhan/TobetoApp/assets/120199233/e3abd3d7-2f0e-4b26-983a-5fad79fd5b20)
