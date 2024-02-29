@@ -23,11 +23,7 @@ class TopBarWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          if (iconButton != null)
-            IconButton(
-              onPressed: () {},
-              icon: NeuBox(child: iconButton),
-            ),
+          if (iconButton != null) NeuBox(child: iconButton),
           AppTextTheme.londrinaShadow(
             titleText,
             context,
