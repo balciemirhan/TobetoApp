@@ -11,9 +11,9 @@
 [![Gitter chat](https://img.shields.io/badge/chat-on_gitter-008080.svg?style=flat-square)](https://gitter.im/git-point)
 
 - [Introduction](#introduction)
-- [Giriş Cümlesi](#giriş_cümlesi)
+- [Giriş Cümlesi](#giriş-cümlesi)
 - [Giriş](#giriş)
-- [UI Gösterimi](#uı_gösterimi)
+- [UI Gösterimi](#uı-gösterimi)
 - [Kısa Bir Bakış](#kısabirbakıs)
 - [ Özellikler](#özelikler)
 - [Klosörleme](#klosorleme-)
