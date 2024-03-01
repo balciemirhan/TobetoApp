@@ -10,7 +10,7 @@ Tobeto Eğitim Platformu, bilgiye erişimi kolaylaştırarak, öğrenmeyi her an
 
 -----
 
-# Giriş
+## Giriş
 [![Build Status](https://img.shields.io/travis/gitpoint/git-point.svg?style=flat-square)](https://travis-ci.org/gitpoint/git-point)
 [![Coveralls](https://img.shields.io/coveralls/github/gitpoint/git-point.svg?style=flat-square)](https://coveralls.io/github/gitpoint/git-point)
 [![All Contributors](https://img.shields.io/badge/all_contributors-73-orange.svg?style=flat-square)](./CONTRIBUTORS.md)
@@ -24,6 +24,7 @@ Tobeto Eğitim Platformu, bilgiye erişimi kolaylaştırarak, öğrenmeyi her an
 - [Giriş](#giriş)
 - [UI Gösterimi](#ui-gösterimi)
 - [Kısa Bir Bakış](#kısa-bir-bakış)
+- [Kullanılan Teknolojiler](#kullanılan-teknolojiler)
 - [Özellikler](#özellikler)
 - [Bloc Pattern Klasörleme Yapısı](#bloc-pattern-klasörleme-yapısı)
 - [Kütüphaneler](#kütüphaneler)
@@ -32,7 +33,7 @@ Tobeto Eğitim Platformu, bilgiye erişimi kolaylaştırarak, öğrenmeyi her an
 
 
 
-# UI Gösterimi
+## UI Gösterimi
 
 <img width="500" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/0d92da95-5fee-4b47-9638-fdcc7e811f2c"><br/>
 
@@ -46,15 +47,27 @@ Tobeto Eğitim Platformu, bilgiye erişimi kolaylaştırarak, öğrenmeyi her an
 
 
 
-# Kısa Bir Bakış
+## Kısa Bir Bakış
 Tobeto Mobil Uygulaması, Tobeto Eğitim Platformu'nun mobil versiyonudur. Kullanıcıların yüksek kaliteli ve etkileşimli bir deneyimle eğitim içeriklerine ve Tobeto'nun diğer özelliklerine anında erişim sağlar.
 ## Backers [![Backers on Open Collective](https://opencollective.com/git-point/backers/badge.svg)](#backers)
 
 
-![Animation_-_1709242147458](https://github.com/balciemirhan/TobetoApp/assets/120199233/908756cc-0d52-402e-b146-7a119cf0fdb6)
+![Animation_-_1709242147458](https://github.com/balciemirhan/TobetoApp/assets/120199233/908756cc-0d52-402e-b146-7a119cf0fdb6)![Animation_-_1709294655620](https://github.com/mehtapaygun/TobetoApp/assets/103212238/4c4f3281-3041-415f-930c-66fc152a4c76)
 
 
-# Özellikler
+## Kullanılan Teknolojiler
+### Bloc Pattern
+Flutter'da BLoC (Business Logic Component) deseni kullanarak veri yönetimi sağladım. Bu desen, uygulamanın iş mantığını, kullanıcı arayüzünden ve dış dünyadan ayrı olarak yönetmeme olanak tanır. BLoC, verileri akışlar halinde yönetir, bu da uygulamanın durumunu güncellemek ve verilerle etkileşimde bulunmak için etkili bir yol sağlar. Bu sayede, uygulama daha düzenli, ölçeklenebilir ve bakımı daha kolay hale gelir. BLoC desenini kullanarak, uygulamanın farklı bileşenleri arasında veri akışını sağlamak ve kullanıcı etkileşimlerine yanıt vermek için bir aracı olarak kullanıyorum.
+### Firebase
+Firebase'i kullanarak uygulamada kullanıcı girişi ve hesap oluşturmayı Authentication (Kimlik Doğrulama) servisiyle yönetiyorum. Bu servis, kullanıcıların e-posta/şifre, telefon numarası, Google, Facebook gibi çeşitli kimlik doğrulama yöntemleriyle uygulamaya giriş yapmasını sağlar. Ayrıca, yeni kullanıcı hesapları oluşturmak için de bu servisi kullanıyorum.
+
+Verileri saklamak ve senkronize etmek için Firestore veritabanını kullanıyorum. Firestore, bulut tabanlı, NoSQL veritabanıdır ve gerçek zamanlı veri senkronizasyonunu destekler. Bu, uygulama kullanıcıları arasında anlık güncellemeler sağlar ve çevrimdışı kullanım için veri senkronizasyonunu kolaylaştırır.
+
+Firebase Storage, uygulamada kullanılan resimler gibi medya dosyalarını depolamak için kullanılan bir servistir. Bu servis, resimleri yüklemek, saklamak ve indirmek için kullanılır. Firebase Storage, yüksek performanslı, güvenli ve ölçeklenebilir bir şekilde medya dosyalarını yönetmeme olanak sağlar. Bu da uygulama içindeki resimlerin güvenli bir şekilde depolanmasını ve kullanıcıların ihtiyaç duyduğunda erişebilmesini sağlar.
+
+
+
+## Özellikler
 -  Dark mode özelliği ile göz yormayan tasarım
 -  Kolay profil yönetimi
 -  Duyuru ve anketlerden haberdar olmak
@@ -63,10 +76,14 @@ Tobeto Mobil Uygulaması, Tobeto Eğitim Platformu'nun mobil versiyonudur. Kulla
 -  Video izleme sistemi
 -  Takvim sistemi
 -  Quiz sistemi
--  
 
 
-## Bloc Pattern Klasörleme Yapısı
+## Klasörleme Yapısı
+### Sayfa Yapısı
+![2024-03-01-removebg-preview](https://github.com/mehtapaygun/TobetoApp/assets/103212238/06cd42a8-f778-41df-942b-482e0cd87139)
+
+
+### Bloc Pattern 
 ![Ekran Alıntısı](https://github.com/balciemirhan/TobetoApp/assets/120199233/e3abd3d7-2f0e-4b26-983a-5fad79fd5b20)
 
 
