@@ -39,6 +39,7 @@ class _HomePageState extends State<HomePage> {
         child: BackgroundImage(
           child: Scaffold(
             backgroundColor: Colors.transparent,
+            extendBody: true, // button
             body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

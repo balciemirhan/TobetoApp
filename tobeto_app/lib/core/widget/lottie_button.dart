@@ -39,13 +39,6 @@ class _LottieButtonState extends State<LottieButton>
     return value;
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    _setSaveState(save);
-    _controller.dispose();
-  }
-
   bool save = false;
 
   @override
@@ -60,12 +53,9 @@ class _LottieButtonState extends State<LottieButton>
           save = !save;
           if (save) {
             _controller.forward();
-            
           } else {
             _controller.reverse();
           }
-
-
         },
         child: Lottie.network(widget.url,
             controller: _controller, height: 50, width: 50),

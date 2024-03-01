@@ -63,14 +63,14 @@ class MyDrawer extends StatelessWidget {
               onTap: () => Navigator.of(context).pushNamed("/catalog"),
             ),
             MyListTile(
-              image: AppImage.calendar,
-              title: AppText.drawerCalendar,
-              onTap: () => Navigator.of(context).pushNamed("/calendar"),
-            ),
-            MyListTile(
               image: AppImage.exam,
               title: AppText.drawerExam,
               onTap: () => Navigator.of(context).pushNamed("/exam"),
+            ),
+            MyListTile(
+              image: AppImage.calendar,
+              title: AppText.drawerCalendar,
+              onTap: () => Navigator.of(context).pushNamed("/calendar"),
             ),
             MyListTile(
               image: AppImage.admin,
