@@ -12,12 +12,22 @@ import 'package:tobeto_app/core/widget/neu_box.dart';
 import 'package:tobeto_app/constant/theme/image.dart';
 import 'package:tobeto_app/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/exam_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ExamPage extends StatelessWidget {
   const ExamPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final Uri url = Uri.parse('https://form.jotform.com/240604305130944');
+
+    // ignore: no_leading_underscores_for_local_identifiers
+    Future<void> _launchUrl() async {
+      if (!await launchUrl(url)) {
+        throw Exception('Could not launch $url');
+      }
+    }
+
     final drawerController = AdvancedDrawerController();
 
     return MyAdvancedDrawer(
@@ -89,7 +99,9 @@ class ExamPage extends StatelessWidget {
                                   ),
                                   actions: [
                                     TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          _launchUrl();
+                                        },
                                         child: const Text("Başla")),
                                     TextButton(
                                       onPressed: () {

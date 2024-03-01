@@ -25,7 +25,7 @@ class _BillBoardState extends State<BillBoard> {
       decoration: const BoxDecoration(
           image: DecorationImage(
         image: AssetImage(
-          "assets/images/tobeto_light_billboard.gif",
+          "assets/images/tobeto_billboard.gif",
         ),
         fit: BoxFit.cover,
       )),
