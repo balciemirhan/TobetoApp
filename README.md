@@ -34,14 +34,14 @@ Tobeto Eğitim Platformu, bilgiye erişimi kolaylaştırarak, öğrenmeyi her an
 
 # UI Gösterimi
 
-<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/0d92da95-5fee-4b47-9638-fdcc7e811f2c"><br/>
+<img width="500" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/0d92da95-5fee-4b47-9638-fdcc7e811f2c"><br/>
 
-<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/4fee4ccb-0c1b-4988-8ba6-839d628cdd1b"><br/><br/>
+<img width="500" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/4fee4ccb-0c1b-4988-8ba6-839d628cdd1b"><br/><br/>
 
 
-<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/1d5f66ca-ec32-40ab-ae54-4bd9be98055a"><br/>
+<img width="500" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/1d5f66ca-ec32-40ab-ae54-4bd9be98055a"><br/>
 
-<img width="700" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/82c2cd88-87f7-496b-8d06-aa8b35a46886"><br/>
+<img width="500" alt="login page" src=  "https://github.com/balciemirhan/TobetoApp/assets/103212238/82c2cd88-87f7-496b-8d06-aa8b35a46886"><br/>
 
 
 
