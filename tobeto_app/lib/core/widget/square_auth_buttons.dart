@@ -18,12 +18,10 @@ class SquareAuthButtons extends StatelessWidget {
       child: NeuBox(
         height: 70,
         width: 70,
-        child: Container(
-          child: Center(
-            child: Image(
-              image: AssetImage(imagePath),
-              height: 35,
-            ),
+        child: Center(
+          child: Image(
+            image: AssetImage(imagePath),
+            height: 35,
           ),
         ),
       ),

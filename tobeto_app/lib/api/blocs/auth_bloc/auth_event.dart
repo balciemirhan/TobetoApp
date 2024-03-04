@@ -1,15 +1,11 @@
 abstract class AuthEvent {}
 
-// ------------- loginUser -------------
-
 class LoginUser extends AuthEvent {
   final String email;
   final String password;
 
   LoginUser({required this.email, required this.password});
 }
-
-// ------------- createUser -------------
 
 class CreateUser extends AuthEvent {
   final String email;
@@ -25,11 +21,7 @@ class CreateUser extends AuthEvent {
   });
 }
 
-// ------------- singOut -------------
-
 class UserOut extends AuthEvent {}
-
-// ------------- forgotPassword -------------
 
 class ForgotPassword extends AuthEvent {
   String email;
@@ -37,8 +29,6 @@ class ForgotPassword extends AuthEvent {
     required this.email,
   });
 }
-
-// ------------- changePassword -------------
 
 class ChangePassword extends AuthEvent {
   String newPassword;
@@ -49,14 +39,10 @@ class ChangePassword extends AuthEvent {
   });
 }
 
-// ------------- SignInWithGoogle -------------
-
 class SignInWithGoogle extends AuthEvent {
   final String email;
 
   SignInWithGoogle({required this.email});
 }
-
-// ------------- DeleteUserEmail -------------
 
 class DeleteUserEmail extends AuthEvent {}

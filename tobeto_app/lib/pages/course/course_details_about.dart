@@ -22,8 +22,8 @@ class CourseDetailsAbout extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             color: theme.brightness == Brightness.light
-                ? AppColor.neuBoxColorLight // Light theme color
-                : AppColor.neuBoxColorDark, // Dark theme color
+                ? AppColor.neuBoxColorLight
+                : AppColor.neuBoxColorDark,
             border: Border.all(color: Colors.white),
             borderRadius: BorderRadius.circular(12)),
         child: Padding(

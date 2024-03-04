@@ -1,5 +1,3 @@
-// route = sayfa geçişleri yönetimi için kullanılır.
-// typedef = tanımlı fonksiyonlar. ( Widget fonskiyo'nun tanımını kısalttım.)
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/pages/admin/admin_page.dart';
 import 'package:tobeto_app/pages/calendar/calendar_page.dart';
@@ -25,7 +23,7 @@ import 'package:tobeto_app/pages/view_more/view_more_page.dart';
 typedef AppRouteMapFunction = Widget Function(BuildContext context);
 
 final class AppRoute {
-  const AppRoute._(); // Gizlilik için yapıldı
+  const AppRoute._();
 
   static const String onboard = "/onboard";
   static const String login = "/login";
@@ -37,7 +35,6 @@ final class AppRoute {
   static const String viewmore = "/viewmore";
   static const String course = "/course";
   static const String catalogCourse = "/catalogCourse";
-
   static const String profiledit = "/profiledit";
   static const String loginOrRegister = "/loginOrRegister";
   static const String calendar = "/calendar";
@@ -54,8 +51,6 @@ final class AppRoute {
   static const String exam = "/exam";
 
   static Map<String, AppRouteMapFunction> routes = {
-    // onboard:(context) => const OnBoardScreen();
-
     login: (context) => LoginPage(),
     home: (context) => const HomePage(),
     onboard: (context) => OnboardingAnimation(),
@@ -64,7 +59,6 @@ final class AppRoute {
     viewmore: (context) => const ViewMorePage(),
     course: (context) => const CourseViewPage(),
     catalogCourse: (context) => const CatalogCourseViewPage(),
-
     profiledit: (context) => const ProfileEditPage(),
     calendar: (context) => const CalendarPage(),
     forgot: (context) => ForgotPasswordPage(),
@@ -79,7 +73,3 @@ final class AppRoute {
     exam: (context) => const ExamPage(),
   };
 }
-
-//  ekstradan ekledigim routelar daha sonradan yapicagimiz işlemler için.
-// Navigator.of(context).pushNamed("/login") yapabilmek icin (sayfa geçişi)
-// İlk ekrana geri dönmek için Navigator.pop()işlevi kullanın.

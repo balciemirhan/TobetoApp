@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-// Kullanıcıya özel notlar oluşturmak için userId alanını kullanıyoruz.
 class Note {
-  String? userId; // userId = auth_current!.uid;
-  String? noteId; // = document (doc.id) = noteId; güncelleme ve silme
+  String? userId;
+  String? noteId;
   String? note;
   Timestamp? timestamp;
 
@@ -13,8 +12,6 @@ class Note {
     this.timestamp,
     this.noteId,
   });
-
-// haritalanmış(map) lenmiş verileri çekerken de Note sınıfına çeviriyor.Bu sayede verilerimizi kullanabiliyoruz.
   factory Note.fromMap(Map<String, dynamic> json) {
     return Note(
       userId: json['userId'] ?? "",
@@ -23,7 +20,7 @@ class Note {
       noteId: json['noteId'] ?? "",
     );
   }
-  //verileri haritalandır ve firestore aktar.
+
   Map<String, dynamic> toMap() {
     return {
       'userId': userId,

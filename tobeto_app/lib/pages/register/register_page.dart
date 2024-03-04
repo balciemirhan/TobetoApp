@@ -21,7 +21,6 @@ class RegisterPage extends StatelessWidget {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              /* ----------------------- Image / Decore -----------------------  */
               Positioned(
                 top: 0,
                 left: 0,
@@ -49,13 +48,7 @@ class RegisterPage extends StatelessWidget {
                       image: const AssetImage(AppImage.registerCatProfile),
                     ),
                   ),
-
-                  /* ----------------------- Register Form -----------------------  */
-
                   RegisterForm(formKey: formKey),
-
-                  /* ----------------------- Register Now -----------------------  */
-
                   Padding(
                     padding: EdgeInsets.only(top: mediaQuery.height / 15),
                     child: NowBottom(

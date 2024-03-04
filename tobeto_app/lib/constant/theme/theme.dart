@@ -4,16 +4,11 @@ import 'package:tobeto_app/constant/theme/color.dart';
 class AppTheme {
   AppTheme._();
 
-  /* ------------- Light Theme ------------- */
-
   static final ThemeData lightMode = ThemeData(
     brightness: Brightness.light,
     useMaterial3: true,
     colorScheme: const ColorScheme.light(
       background: AppColor.lightBg,
-      /* primary: Color.fromARGB(255, 0, 0, 0),
-      onBackground: Colors.blue,
-      onPrimary: Colors.white, */
     ),
   );
 
@@ -24,9 +19,6 @@ class AppTheme {
     useMaterial3: true,
     colorScheme: const ColorScheme.dark(
       background: Color.fromARGB(255, 2, 7, 22),
-      /* primary: Color.fromARGB(255, 255, 255, 255),
-      onBackground: Colors.deepPurple,
-      onPrimary: Colors.black, */
     ),
   );
 }

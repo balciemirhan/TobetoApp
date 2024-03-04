@@ -1,11 +1,3 @@
-
-
-
-// Modellerimi, HomePage üzerinden CategoryItem ile döndürüp ekran'a yansıtıyorum.
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-// Modellerimi, HomePage üzerinden CategoryItem ile döndürüp ekran'a yansıtıyorum.
-
-// attığın veri çekttiğin veri int =int
 class CatalogCourse {
   String title;
   String lessonCount;
@@ -18,7 +10,7 @@ class CatalogCourse {
   String instructor;
   String? videoLink;
 
- CatalogCourse({
+  CatalogCourse({
     required this.title,
     required this.lessonCount,
     required this.money,
@@ -30,8 +22,6 @@ class CatalogCourse {
     required this.instructor,
     this.videoLink,
   });
-
-  // verileri gönder.
 
   Map<String, dynamic> toMap() {
     return {
@@ -47,8 +37,6 @@ class CatalogCourse {
       'video': videoLink,
     };
   }
-
-  // verileri al.
 
   factory CatalogCourse.fromMap(Map<String, dynamic> map) {
     return CatalogCourse(

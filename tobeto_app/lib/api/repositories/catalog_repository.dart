@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:tobeto_app/constant/format/collections.dart';
 import 'package:tobeto_app/models/catalog_course_model.dart';
 

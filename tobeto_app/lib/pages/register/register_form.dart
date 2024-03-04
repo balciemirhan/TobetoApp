@@ -21,12 +21,6 @@ class _RegisterFormState extends State<RegisterForm> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-//butona atamak için oluşturduğum fonksiyon. => register()
-
-/* ----------------------- Register Function -----------------------  */
-
-// ----------  controller'ı , form süreci sonrası imha et. ----------
-
   @override
   void dispose() {
     emailController.dispose();
@@ -42,8 +36,6 @@ class _RegisterFormState extends State<RegisterForm> {
       key: widget.formKey,
       child: Column(
         children: [
-          /* ----------------------- MyTextformfields -----------------------  */
-
           MyTextformfield(
             controller: emailController,
             hintText: AppText.email,
@@ -83,9 +75,6 @@ class _RegisterFormState extends State<RegisterForm> {
               return null;
             },
           ),
-
-          /* ----------------------- Auth Button -----------------------  */
-
           Padding(
             padding: EdgeInsets.only(top: mediaQuery.height / 12),
             child: AuthButton(

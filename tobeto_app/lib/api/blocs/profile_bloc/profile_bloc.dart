@@ -17,30 +17,24 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<DeleteProfile>(_ondeleteProfile);
     on<UpdateUserCertificate>(_onUpdateUserCertificate);
   }
-// -------------------- Verileri getir - oku --------------------
 
   Future<void> _onGetProfile(
       GetProfil event, Emitter<ProfileState> emit) async {
-    emit(ProfileLoading()); // circular progress indicator
+    emit(ProfileLoading());
     try {
-      // profil bilgilerinbi getiren fonksiyon
       UserModel user = await _userRepository.getUser(UserModel());
-      // getirilen fonksiyon yay.UI yay.
       emit(ProfileLoaded(user: user));
     } catch (e) {
       emit(ProfileError(errorMessage: e.toString()));
     }
   }
 
-  // -------------------- Verileri güncelle--------------------
-  // Burada hem kullanıcı'nın profile bilgilerini hem de resmini güncelleme işlemi yaptırıyorum.
   Future<void> _onUpdateProfile(
       UpdateProfile event, Emitter<ProfileState> emit) async {
     emit(ProfileLoading());
     try {
       if (event.photo != null) {
-        await _storageRepository
-            .uploadPhoto(event.photo!); // fotoğrafı güncelle
+        await _storageRepository.uploadPhoto(event.photo!);
       }
       await _userRepository.updateUser(event.user);
       emit(ProfileUpdated());
@@ -73,7 +67,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   }
 
   void _onClear(ClearState event, Emitter<ProfileState> emit) {
-    emit(
-        ProfileInitial()); // ClearState eventi alındığında state'i Initial olarak ayarlıyor
+    emit(ProfileInitial());
   }
 }

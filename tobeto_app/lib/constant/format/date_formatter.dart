@@ -1,6 +1,3 @@
-// dd/aa/yyyy/saat
-// dd/aa/yyyy formatlayacağız.
-
 import 'package:intl/intl.dart';
 
 class DateFormatter {

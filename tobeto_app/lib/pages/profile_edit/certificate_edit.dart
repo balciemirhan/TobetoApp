@@ -49,7 +49,6 @@ class _CertificateEditState extends State<CertificateEdit> {
   }
 
   Future openFile({required String url, String? fileName}) async {
-    //final name = fileName ?? url.split('/').last;
     final file = await pickFile();
     if (file == null) return;
     OpenFile.open(file.path);
@@ -97,9 +96,7 @@ class _CertificateEditState extends State<CertificateEdit> {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(
       builder: (context, state) {
-        if (state is ProfileInitial || state is ProfileUpdated) {
-          //context.read<ProfileBloc>().add(GetProfil());
-        }
+        if (state is ProfileInitial || state is ProfileUpdated) {}
         if (state is ProfileLoading) {
           return const Center(child: CircularProgressIndicator());
         }

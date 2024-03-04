@@ -16,37 +16,36 @@ class NeuBox extends StatelessWidget {
     final double blurRadius;
     final Offset offset;
 
-    // Set blur radius and offset based on the current theme
     if (theme.brightness == Brightness.light) {
-      blurRadius = 15.0; // Light theme blur radius
-      offset = const Offset(5, 5); // Light theme offset
+      blurRadius = 15.0;
+      offset = const Offset(5, 5);
     } else {
-      blurRadius = 2.0; // Dark theme blur radius
-      offset = const Offset(1, 2); // Dark theme offset
+      blurRadius = 2.0;
+      offset = const Offset(1, 2);
     }
 
     return Container(
       constraints: BoxConstraints(
-        minHeight: height ?? 50, // Set a minimum height as fallback
+        minHeight: height ?? 50,
         maxWidth: width ?? 50,
       ),
       decoration: BoxDecoration(
         color: theme.brightness == Brightness.light
-            ? AppColor.neuBoxColorLight // Light theme color
-            : AppColor.neuBoxColorDark, // Dark theme color
+            ? AppColor.neuBoxColorLight
+            : AppColor.neuBoxColorDark,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
             color: theme.brightness == Brightness.light
-                ? AppColor.neuBoxShadowColorBRLight // Light theme shadow color
-                : AppColor.neuBoxShadowColorBRDark, // Dark theme shadow color
+                ? AppColor.neuBoxShadowColorBRLight
+                : AppColor.neuBoxShadowColorBRDark,
             blurRadius: blurRadius,
             offset: offset,
           ),
           BoxShadow(
             color: theme.brightness == Brightness.light
-                ? AppColor.neuBoxShadowColorTLLight // Light theme shadow color
-                : AppColor.neuBoxShadowColorTLDark, // Dark theme shadow color
+                ? AppColor.neuBoxShadowColorTLLight
+                : AppColor.neuBoxShadowColorTLDark,
             blurRadius: blurRadius,
             offset: -offset,
           ),

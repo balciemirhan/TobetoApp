@@ -11,8 +11,6 @@ class AnnouncementModel {
     this.dateTime,
   });
 
-  // verileri gönder.
-
   Map<String, dynamic> toMap() {
     return {
       'title': title,
@@ -20,8 +18,6 @@ class AnnouncementModel {
       'dateTime': dateTime ?? DateTime.now(),
     };
   }
-
-  // verileri al.
 
   factory AnnouncementModel.fromMap(Map<String, dynamic> map) {
     return AnnouncementModel(

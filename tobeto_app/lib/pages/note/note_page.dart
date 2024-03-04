@@ -35,7 +35,7 @@ class NotePage extends StatelessWidget {
               image: Image(
                 image: const AssetImage(AppImage.exam),
                 color: theme.brightness == Brightness.light
-                    ? Colors.black // Light theme color
+                    ? Colors.black
                     : Colors.white,
                 height: 25,
               ),
@@ -64,7 +64,7 @@ class NotePage extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             color: theme.brightness == Brightness.light
-                                ? AppColor.neuBoxColorLight // Light theme color
+                                ? AppColor.neuBoxColorLight
                                 : AppColor.neuBoxColorDark,
                           ),
                           margin: const EdgeInsets.all(15),
@@ -99,8 +99,7 @@ class NotePage extends StatelessWidget {
                                                         note: Note(
                                                       userId:
                                                           auth.currentUser!.uid,
-                                                      noteId: note
-                                                          .noteId, // güncelleme işlemi
+                                                      noteId: note.noteId,
                                                       note: noteController.text,
                                                     )));
                                                 noteController.clear();

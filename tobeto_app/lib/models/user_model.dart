@@ -7,7 +7,7 @@ import 'package:tobeto_app/models/user_profile_model/social_history.dart';
 import 'package:tobeto_app/models/user_profile_model/work_history.dart';
 
 class UserModel {
-  String? userId; // doc.set => id'yi alır.
+  String? userId;
   String? name;
   String? surname;
   String? description;
@@ -18,7 +18,6 @@ class UserModel {
   String? phone;
   String? profilePhoto;
   DateTime? dateOfBirth;
-  // yeni eklenenler:
   String? tcNo;
   String? country;
   String? city;
@@ -56,9 +55,6 @@ class UserModel {
     this.certificates,
   });
 
-  // -------------------------------------------------
-
-  // ------------------------- (firestore bilgi çekme:) -------------------------
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
       userId: map['userId'] ?? "",
@@ -98,14 +94,6 @@ class UserModel {
     );
   }
 
-  // ------------------------- (firestore bilgi gönderme:) -------------------------
-
-  // Map<k,v> = entries
-  // Map<k = key
-  // Map<v = value
-
-  // filtreleme:::
-
   Map<String, dynamic> toMap() {
     final classMap = _createMap();
     final Map<String, dynamic> map = {};
@@ -117,10 +105,7 @@ class UserModel {
     return map;
   }
 
-  // filtereleeme nin amacı: firestor'a null olanları kaydetme.
-
   Map<String, dynamic> _createMap() {
-    // value = email.textcontroller
     return {
       'userId': userId,
       'email': email,

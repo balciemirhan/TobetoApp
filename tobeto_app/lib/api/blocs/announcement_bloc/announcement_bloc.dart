@@ -8,10 +8,6 @@ class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
   final AnnouncementRepository _announcementRepository;
   AnnouncementBloc(this._announcementRepository)
       : super(AnnouncementInitial()) {
-    // Initial === if(state is CourseInitial)
-    //{context.read<CourseBloc>.add(GetCourse)   }
-
-    // istek atılıyor...
     on<GetAnnouncement>(_onGetAnnouncement);
   }
 
@@ -20,8 +16,7 @@ class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
     emit(AnnouncementLoading());
     try {
       final List<AnnouncementModel> announcement =
-          await _announcementRepository.getAnnouncement(); // verilerimi getir
-      // getirilen verilerimi de yayınla
+          await _announcementRepository.getAnnouncement();
       emit(AnnouncementLoaded(announcement: announcement));
     } catch (e) {
       emit(AnnouncementError(message: "Hata!!!"));

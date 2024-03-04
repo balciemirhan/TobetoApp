@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:tobeto_app/core/widget/background_image.dart';
 import 'package:tobeto_app/core/widget/lottie_button.dart';
@@ -157,13 +156,10 @@ class _CoursePageState extends State<CoursePage> {
                                   itemBuilder: (context, index) {
                                     return GestureDetector(
                                       onTap: () {
-                                        //print(videoUrlNotifier.value);
                                         videoUrlNotifier.value =
                                             widget.course.videoList[index].link;
-                                        //print(videoUrlNotifier.value);
                                         setState(() {
-                                          selectedVideoIndex =
-                                              index; // Seçili video indeksini güncelleyin
+                                          selectedVideoIndex = index;
                                         });
                                       },
                                       child: Container(

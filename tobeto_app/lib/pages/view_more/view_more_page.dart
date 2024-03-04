@@ -33,14 +33,11 @@ class ViewMorePage extends StatelessWidget {
                 image: Image(
                   image: const AssetImage(AppImage.course),
                   color: theme.brightness == Brightness.light
-                      ? Colors.black // Light theme color
+                      ? Colors.black
                       : Colors.white,
                   height: 25,
                 ),
               ),
-
-              //  <------- CourseListFilter (Search and Gridview (CourseItemVertical)) ------->
-
               BlocBuilder<CourseBloc, CourseState>(
                 builder: (context, state) {
                   if (state is CourseInitial) {

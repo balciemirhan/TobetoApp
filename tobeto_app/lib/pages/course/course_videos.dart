@@ -23,7 +23,6 @@ class _CourseVideosState extends State<CourseVideos> {
 
   @override
   Widget build(BuildContext context) {
-    //print(videoUrlNotifier.value);
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
@@ -33,19 +32,16 @@ class _CourseVideosState extends State<CourseVideos> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                //print(videoUrlNotifier.value);
                 videoUrlNotifier.value = widget.course.videoList[index].link;
-                //print(videoUrlNotifier.value);
                 setState(() {
-                  selectedVideoIndex =
-                      index; // Seçili video indeksini güncelleyin
+                  selectedVideoIndex = index;
                 });
               },
               child: Card(
                 elevation: 3,
                 color: selectedVideoIndex == index
                     ? const Color.fromARGB(255, 202, 198, 198)
-                    : Colors.white, // Seçili öğe mavi olarak belirlenir
+                    : Colors.white,
                 child: CourseListTile(
                   video: widget.course.videoList[index],
                   icon: const Icon(Icons.play_arrow),
@@ -59,7 +55,3 @@ class _CourseVideosState extends State<CourseVideos> {
     );
   }
 }
-
-
-/* 
-GestureDetector öğesi tıklandığında, videoUrlNotifier üzerindeki değeri güncelleyerek seçili video URL'sini değiştiriyoruz. Ardından, CustomVideoPlayer widget'ını bu yeni URL ile oluşturarak videonun oynatılmasını sağlayabilirsiniz. */

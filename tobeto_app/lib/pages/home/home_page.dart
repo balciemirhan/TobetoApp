@@ -30,7 +30,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
-    // final double deviceW = mediaQueryData.size.width;
 
     final drawerController = AdvancedDrawerController();
     return MyAdvancedDrawer(
@@ -39,7 +38,7 @@ class _HomePageState extends State<HomePage> {
         child: BackgroundImage(
           child: Scaffold(
             backgroundColor: Colors.transparent,
-            extendBody: true, // button
+            extendBody: true,
             body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,9 +47,6 @@ class _HomePageState extends State<HomePage> {
                     drawerController: drawerController,
                     image: AppImage.tobetoLogo,
                   ),
-
-                  // ------------ Hoş Geldin Kullanıcı ------------
-
                   BlocBuilder<ProfileBloc, ProfileState>(
                     builder: (context, state) {
                       if (state is ProfileInitial || state is ProfileUpdated) {
@@ -63,23 +59,14 @@ class _HomePageState extends State<HomePage> {
                       return Container();
                     },
                   ),
-
-                  // ------------ Reklam Panosu ------------
-
                   const Padding(
                     padding: EdgeInsets.all(35),
                     child: BillBoard(),
                   ),
-
-                  // ------------ Kurslar / Tümünü Gör ------------
-
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                     child: CourseCardsTitle(),
                   ),
-
-                  // ------------ Dinamik Card Tasarımı / Flutter - Java - Dart vs. ------------
-
                   BlocBuilder<CourseBloc, CourseState>(
                     builder: (context, state) {
                       if (state is CourseInitial) {

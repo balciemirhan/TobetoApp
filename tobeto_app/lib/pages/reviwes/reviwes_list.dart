@@ -14,15 +14,14 @@ class ReviwesList extends StatelessWidget {
   final Image? photo;
   final String title;
   final void Function()? onTap;
-  final Widget? icon; // Widget tipine değiştirildi
+  final Widget? icon;
   final Image? image;
   final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:
-          const EdgeInsets.symmetric(horizontal: 20), // Yanlardan boşluk ekleme
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: const Color.fromARGB(255, 130, 106, 182),

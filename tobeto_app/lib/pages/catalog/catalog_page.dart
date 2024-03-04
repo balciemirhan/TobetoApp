@@ -32,9 +32,6 @@ class CatalogPage extends StatelessWidget {
                     drawerController: drawerController,
                     title: "Katalog",
                     image: AppImage.catalog),
-
-                //  <------- CourseListFilter (Search and Gridview (CourseItemVertical)) ------->
-
                 BlocBuilder<CatalogBloc, CatalogState>(
                   builder: (context, state) {
                     if (state is CatalogInitial) {

@@ -15,7 +15,6 @@ class CourseItem extends StatefulWidget {
 }
 
 class _CourseItemState extends State<CourseItem> {
-/*   get index => courseList; */
   @override
   Widget build(BuildContext context) {
     Brightness currentBrightness = Theme.of(context).brightness;

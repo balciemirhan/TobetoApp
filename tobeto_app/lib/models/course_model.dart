@@ -1,8 +1,3 @@
-// Modellerimi, HomePage üzerinden CategoryItem ile döndürüp ekran'a yansıtıyorum.
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-// Modellerimi, HomePage üzerinden CategoryItem ile döndürüp ekran'a yansıtıyorum.
-
-// attığın veri çekttiğin veri int =int
 class Course {
   String title;
   String lessonCount;
@@ -37,9 +32,6 @@ class Course {
     required this.estimatedTime,
     required this.videoCount,
   });
-
-  // verileri gönder.
-
   Map<String, dynamic> toMap() {
     return {
       'title': title,
@@ -59,8 +51,6 @@ class Course {
       'videoCount': videoCount
     };
   }
-
-  // verileri al.
 
   factory Course.fromMap(Map<String, dynamic> map) {
     return Course(
@@ -101,8 +91,7 @@ class Video {
       'id': id,
       'videoTitle': videoTitle,
       'link': link,
-      'duration': duration
-          .inMilliseconds, // Duration'u inMilliseconds ile tamsayıya dönüştürüyoruz
+      'duration': duration.inMilliseconds,
     };
   }
 
@@ -111,9 +100,7 @@ class Video {
       id: map['id'] ?? 0,
       videoTitle: map['videoTitle'] ?? '',
       link: map['link'] ?? '',
-      duration: Duration(
-          milliseconds: map['duration'] ??
-              0), // Duration'u inMilliseconds ile tamsayıdan oluşturuyoruz
+      duration: Duration(milliseconds: map['duration'] ?? 0),
     );
   }
 }

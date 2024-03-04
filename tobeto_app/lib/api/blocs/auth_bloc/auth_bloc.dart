@@ -23,26 +23,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<ChangePassword>(_onChangePassword);
     on<SignInWithGoogle>(_onSignInWithGoogle);
     on<DeleteUserEmail>(_onDeleteUserEmail);
-    // on<Current>(_onCurrent);
 
     _firebaseAuth.authStateChanges().listen((user) {
       if (user != null) {
-        emit(Authenticated(user: user));
+        (Authenticated(user: user));
       } else {
-        emit((NotAuthenticated()));
+        ((NotAuthenticated()));
       }
     });
   }
-
-/*   void _onCurrent(Current event, Emitter<AuthState> emit) async {
-    if (_firebaseAuth.currentUser != null) {
-      emit(Authenticated(user: _firebaseAuth.currentUser));
-    } else {
-      emit(AuthInitial());
-    }
-  } */
-
-  // ------------- loginUser -------------
 
   void _onLoginUser(LoginUser event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
@@ -55,8 +44,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               validLogin[e.code] ?? "Lütfen Geçerli Bir Değer Girin"));
     }
   }
-
-  // ------------- createUser -------------
 
   void _onCreateUser(CreateUser event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
@@ -81,8 +68,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-// ------------- singOut -------------
-
   void _onUserOut(UserOut event, Emitter<AuthState> emit) async {
     try {
       await _authRepository.userOut();
@@ -92,17 +77,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-// ------------- forgotPassword -------------
-
   void _onForgotPassword(ForgotPassword event, Emitter<AuthState> emit) async {
     try {
       await _authRepository.forgotPassword(event.email);
-    } catch (e) {
-      print(e);
-    }
+    } catch (e) {}
   }
-
-  // ------------- changePassword -------------
 
   void _onChangePassword(ChangePassword event, Emitter<AuthState> emit) async {
     try {
@@ -114,8 +93,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       print(e);
     }
   }
-
-// ------------- signInWithGoogle -------------
 
   void _onSignInWithGoogle(
       SignInWithGoogle event, Emitter<AuthState> emit) async {
@@ -133,8 +110,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(NotAuthenticated(errorMessage: e.toString()));
     }
   }
-
-// ------------- deleteUserEmail -------------
 
   Future<void> _onDeleteUserEmail(
       DeleteUserEmail event, Emitter<AuthState> emit) async {

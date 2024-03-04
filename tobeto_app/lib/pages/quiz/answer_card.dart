@@ -33,14 +33,13 @@ class AnswerCard extends StatelessWidget {
                     ? Colors.green
                     : isWrongAnswer
                         ? const Color.fromARGB(255, 255, 30, 14)
-                        : Color.fromARGB(99, 255, 255, 255),
+                        : const Color.fromARGB(99, 255, 255, 255),
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Row(
                 children: [
                   Expanded(
                     child: SingleChildScrollView(
-                      // ScrollView ile içeriğin taşması durumunda kaydırma eklendi
                       scrollDirection: Axis.horizontal,
                       child: Text(
                         question,
@@ -57,7 +56,7 @@ class AnswerCard extends StatelessWidget {
               height: 70,
               padding: const EdgeInsets.all(20.0),
               decoration: BoxDecoration(
-                color: Color.fromARGB(99, 255, 255, 255),
+                color: const Color.fromARGB(99, 255, 255, 255),
                 borderRadius: BorderRadius.circular(40),
               ),
               child: Row(
@@ -65,9 +64,9 @@ class AnswerCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       question,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
-                        color: const Color.fromARGB(255, 22, 15, 15),
+                        color: Color.fromARGB(255, 22, 15, 15),
                       ),
                     ),
                   ),

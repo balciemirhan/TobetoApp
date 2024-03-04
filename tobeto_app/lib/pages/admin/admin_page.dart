@@ -50,8 +50,6 @@ class AdminPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // ------------ Firestore'a  course  veri yükleme ------------
-
                   ElevatedButton.icon(
                     onPressed: () async {
                       bool dataAdded = false;
@@ -65,8 +63,6 @@ class AdminPage extends StatelessWidget {
                     icon: const Icon(Icons.upload),
                     label: const Text("Course Data"),
                   ),
-
-                  //------------ Firestore'a  catalog   veri yükleme ------------
                   ElevatedButton.icon(
                     onPressed: () async {
                       bool dataAdded = false;
@@ -81,9 +77,6 @@ class AdminPage extends StatelessWidget {
                     icon: const Icon(Icons.upload),
                     label: const Text("Catalog Course"),
                   ),
-
-                  // ------------ Firestore'a  classes   veri yükleme ------------
-
                   ElevatedButton.icon(
                     onPressed: () async {
                       bool dataAdded = false;
@@ -97,8 +90,6 @@ class AdminPage extends StatelessWidget {
                     icon: const Icon(Icons.upload),
                     label: const Text("Classes"),
                   ),
-
-                  //--------------------------*****EXAM VERİSİ YÜKLEME
                   ElevatedButton.icon(
                     onPressed: () async {
                       bool dataAdded = false;
@@ -112,7 +103,6 @@ class AdminPage extends StatelessWidget {
                     icon: const Icon(Icons.upload),
                     label: const Text("Exam"),
                   ),
-
                   ElevatedButton.icon(
                     onPressed: () async {
                       bool dataAdded = false;
@@ -126,9 +116,6 @@ class AdminPage extends StatelessWidget {
                     icon: const Icon(Icons.upload),
                     label: const Text("Application"),
                   ),
-
-                  // ------------ Firestore'a  announcement   veri yükleme ------------
-
                   ElevatedButton.icon(
                     onPressed: () async {
                       bool dataAdded = false;

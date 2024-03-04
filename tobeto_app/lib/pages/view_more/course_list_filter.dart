@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:tobeto_app/constant/theme/image.dart';
 import 'package:tobeto_app/constant/theme/text.dart';
 import 'package:tobeto_app/data/course_data.dart';
@@ -14,21 +13,15 @@ class CourseListFilter extends StatefulWidget {
   State createState() => _CourseListState();
 }
 
-// courseList = fakedata
-// course = fire
 class _CourseListState extends State<CourseListFilter> {
   String searchText = "";
   List<Course> filteredCourses = [];
-  int selectedFilter = 0; // Başlangıçta filtre olmadığını temsil eder
-
+  int selectedFilter = 0;
   @override
-  // Başlangıçta Tüm kurslar gözüksün
   void initState() {
     super.initState();
     filteredCourses = widget.course;
   }
-
-  // <---------- Filter Systems ---------->
 
   void filterCourses() {
     setState(() {
@@ -45,8 +38,6 @@ class _CourseListState extends State<CourseListFilter> {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
 
-    // <---------- TextFieldFilter (Search) ---------->
-
     return Column(
       children: [
         Padding(
@@ -54,15 +45,12 @@ class _CourseListState extends State<CourseListFilter> {
           child: TextFieldFilter(
             onChanged: (value) {
               setState(() {
-                searchText = value; // Update the searchText variable
+                searchText = value;
                 filterCourses();
               });
             },
           ),
         ),
-
-        // <---------- filterButtons ---------->
-
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
@@ -74,8 +62,6 @@ class _CourseListState extends State<CourseListFilter> {
             ],
           ),
         ),
-
-        // <---------- GridView (CourseItemVertical) ---------->
         SizedBox(
           height: deviceH / 1.48,
           child: filteredCourses.isNotEmpty
@@ -94,9 +80,6 @@ class _CourseListState extends State<CourseListFilter> {
                     return CourseItem(course: course);
                   },
                 )
-
-              // <---------- Not found : ---------->
-
               : const Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -117,18 +100,12 @@ class _CourseListState extends State<CourseListFilter> {
     );
   }
 
-  // <---------- filterButton Area ---------->
-
-  // <---------- filterButtons Color and Text color Changes with Map Function ---------->
-
   Map<int, Color> filterButtonColors = {
     1: Colors.grey.shade200,
     2: Colors.grey.shade200,
     3: Colors.grey.shade200,
     0: Colors.deepPurple,
   };
-
-  // <---------- filterButton ---------->
 
   Widget filterButton(int filter, String text) {
     Color textColor = filterButtonColors[filter] == Colors.grey.shade200

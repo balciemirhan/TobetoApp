@@ -1,11 +1,5 @@
 import 'package:tobeto_app/models/catalog_course_model.dart';
 
-/* filterNumber:
-  1 -> code
-  2 -> softskill
-  3 -> diğer
- */
-
 List<CatalogCourse> catalogCourseList = <CatalogCourse>[
   CatalogCourse(
       title: "Dinle, Anla, İfade Et: Etkili İletişim Gelişim Yolculuğu",

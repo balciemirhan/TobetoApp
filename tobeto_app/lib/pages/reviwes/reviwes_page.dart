@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:tobeto_app/core/widget/background_image.dart';
 import 'package:tobeto_app/pages/reviwes/reviwes_list.dart';
 import 'package:tobeto_app/constant/theme/text_theme.dart';
 import 'package:tobeto_app/models/revist_model.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 
 class RevisterPage extends StatelessWidget {
@@ -46,7 +44,7 @@ class RevisterPage extends StatelessWidget {
         itemCount: reviwestlisr.length * 2 - 1,
         itemBuilder: (context, index) {
           if (index.isEven) {
-            final itemIndex = index ~/ 2; // Gerçek öğe indeksini hesapla
+            final itemIndex = index ~/ 2;
             final item = reviwestlisr[itemIndex];
             return ReviwesList(
               trailing: ElevatedButton(
@@ -56,18 +54,14 @@ class RevisterPage extends StatelessWidget {
                     }
                   },
                   child: index == 0
-                      ? const Icon(
-                          Icons.lock_open) // İlk öğe için yıldız simgesi
-                      : const Icon(Icons
-                          .lock)), // Diğer öğeler için kilit simgesi// Diğer öğeler için kilit simgesi
+                      ? const Icon(Icons.lock_open)
+                      : const Icon(Icons.lock)),
               title: item.isim,
-              onTap: () {
-                // onTap fonksiyonu tanımlanabilir
-              },
+              onTap: () {},
               icon: Image.asset(
                 'assets/images/feedback.png',
-                width: 45, // Genişlik
-                height: 45, // Yükseklik
+                width: 45,
+                height: 45,
               ),
             );
           } else {
@@ -152,7 +146,6 @@ class RevisterPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 _launchUrl();
-                //Navigator.pushNamed(context, "/quizStart");
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 154, 104, 241),

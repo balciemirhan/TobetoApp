@@ -32,8 +32,6 @@ class CatalogCourseViewPage extends StatelessWidget {
             index =
                 catalogCourse.indexWhere((element) => element.title == args);
           }
-
-          //ModalRoute sayfanın özel verilerini almak için kullanılır bunu da settings.arguments ile yapar
           final pageController = PageController(initialPage: index ?? 0);
 
           return PageView.builder(

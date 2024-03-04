@@ -8,7 +8,6 @@ import 'package:tobeto_app/configuration/routes/app_routes.dart';
 import 'package:tobeto_app/firebase_options.dart';
 
 Future<void> main() async {
-  // Firebase'in mevcut platform için uygulamayı başlatması:
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
   final onboardingCompleted = prefs.getBool('onboarding_completed') ?? false;
@@ -16,7 +15,6 @@ Future<void> main() async {
   runApp(MyApp(onboardingCompleted: onboardingCompleted));
 }
 
-// Tüm navigator nesnelerine erişim.
 final navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
@@ -41,15 +39,9 @@ class MyApp extends StatelessWidget {
         navigatorKey: navigatorKey,
         title: 'Education App',
         debugShowCheckedModeBanner: false,
-
-        // --------------------------- THEME ---------------------------
-
         theme: AppTheme.lightMode,
         darkTheme: AppTheme.darkMode,
         themeMode: ThemeMode.system,
-
-        // --------------------------- ROUTE ---------------------------
-
         initialRoute:
             onboardingCompleted ?? false ? AppRoute.start : AppRoute.onboard,
         routes: AppRoute.routes,

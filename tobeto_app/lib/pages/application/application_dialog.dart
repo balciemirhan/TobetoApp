@@ -20,14 +20,12 @@ class ApplicationDialog extends StatelessWidget {
           );
         }
         if (state is ApplicationLoading) {
-          // Yükleme durumunda ilerleme çubuğunu göster
           return const Center(
             child: CircularProgressIndicator(),
           );
         }
         if (state is ApplicationLoaded) {
-          final List<Application> application =
-              state.application; // applicationList'den ilk öğeyi alıyoruz
+          final List<Application> application = state.application;
           return Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,7 +40,6 @@ class ApplicationDialog extends StatelessWidget {
           );
         }
         if (state is ApplicationError) {
-          // Hata durumunda hata mesajını göster
           return Center(
             child: Text(state.message),
           );

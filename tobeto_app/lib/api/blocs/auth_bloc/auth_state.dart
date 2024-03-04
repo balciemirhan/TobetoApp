@@ -4,11 +4,10 @@ abstract class AuthState {}
 
 class AuthInitial extends AuthState {}
 
-class AuthLoading extends AuthState {} // ---> başlangıç
+class AuthLoading extends AuthState {}
 
 class Authenticated extends AuthState {
-  // ---> giriş yap
-  User? user; // kullanıcının user verir. Buna göre de giriş izni.
+  User? user;
   String? message;
   final bool? isNewUser;
   Authenticated({
@@ -16,19 +15,15 @@ class Authenticated extends AuthState {
     this.message,
     this.isNewUser = false,
   });
-
-/*   state is  Authenticated
-  return homepage */
 }
 
 class NotAuthenticated extends AuthState {
   final String? errorMessage;
 
   NotAuthenticated({this.errorMessage});
-} //  --> giriş yapmadan önceki sayfa.
+}
 
 class AuthError extends AuthState {
-  // ---> Error
   final String message;
 
   AuthError({required this.message});

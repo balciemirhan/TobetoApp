@@ -46,30 +46,25 @@ class ExamPage extends StatelessWidget {
               BlocBuilder<ExamBloc, ExamState>(
                 builder: (context, state) {
                   if (state is ExamInitial) {
-                    // İlk durumda sınavları getirme işlemini başlat
                     context.read<ExamBloc>().add(GetExam());
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
                   if (state is ExamLoading) {
-                    // Yükleme durumunda ilerleme çubuğunu göster
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
                   if (state is ExamLoaded) {
-                    // Veri yüklendikten sonra UI'ı güncelle
                     final List<Exam> exams = state.exam;
                     return Column(
                       children: exams.map((exam) {
                         return GestureDetector(
                           onTap: () {
-                            // Tıklandığında showDialog fonksiyonunu kullanarak bir dialog göster
                             showDialog(
                               context: context,
                               builder: (BuildContext context) {
-                                // AlertDialog oluşturun
                                 return AlertDialog(
                                   title: AppTextTheme.small(exam.name, context,
                                       textAlign: TextAlign.center),
@@ -105,7 +100,6 @@ class ExamPage extends StatelessWidget {
                                         child: const Text("Başla")),
                                     TextButton(
                                       onPressed: () {
-                                        // Dialog kapatılacak
                                         Navigator.of(context).pop();
                                       },
                                       child: const Text("Kapat"),
@@ -139,7 +133,6 @@ class ExamPage extends StatelessWidget {
                     );
                   }
                   if (state is ExamError) {
-                    // Hata durumunda hata mesajını göster
                     return Center(
                       child: Text(state.message),
                     );

@@ -5,7 +5,6 @@ import 'package:tobeto_app/models/course_model.dart';
 class CourseCards extends StatelessWidget {
   const CourseCards({Key? key, required this.course}) : super(key: key);
 
-  // Category modellerimi çağırıyorum'ki kullanabileyim.
   final Course course;
 
   @override

@@ -10,11 +10,7 @@ class LoginOrRegister extends StatefulWidget {
 }
 
 class _LoginOrRegisterState extends State<LoginOrRegister> {
-  // Başlangıçta giriş sayfasını göster
-
   bool showLoginPage = true;
-
-// oturum açma arasında geçiş yapma ( Login page - Register Page)
 
   void togglePages() {
     setState(

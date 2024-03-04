@@ -6,7 +6,7 @@ import 'package:tobeto_app/pages/onboard/onboard_page.dart';
 import 'package:tobeto_app/pages/start/start_page.dart';
 
 class OnboardingAnimation extends StatelessWidget {
-  OnboardingAnimation({Key? key}) : super(key: key); // const hata verdi
+  OnboardingAnimation({Key? key}) : super(key: key);
 
   final PageController _pageController = PageController();
   @override
@@ -14,7 +14,7 @@ class OnboardingAnimation extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: ConcentricPageView(
-        pageSnapping: false, // Sayfa Yakalama
+        pageSnapping: false,
         colors: pages.map((p) => p.bgColor).toList(),
         radius: screenWidth * 0.1,
         nextButtonBuilder: (context) => Padding(

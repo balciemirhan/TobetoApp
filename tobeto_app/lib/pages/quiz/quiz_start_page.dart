@@ -17,10 +17,6 @@ class _QuizStartPageState extends State<QuizStartPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            /*  Image.asset(
-              "assets/quiz-logo.png",
-              width: 300,
-            ), */
             const SizedBox(
               height: 20,
             ),
@@ -56,18 +52,16 @@ class _QuizStartPageState extends State<QuizStartPage> {
                 style: TextStyle(fontSize: 20),
               ),
               style: ElevatedButton.styleFrom(
-                //primary: Color.fromARGB(220, 240, 120, 190), // Opaklık eklendi
-                //onPrimary: Colors.white,
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40), // Sol üst köşe
-                    bottomRight: Radius.circular(40), // Sağ alt köşe
+                    topLeft: Radius.circular(40),
+                    bottomRight: Radius.circular(40),
                   ),
                 ),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                shadowColor: Colors.black.withOpacity(0.3), // Gölge eklendi
-                elevation: 5, // Gölge yüksekliği
+                shadowColor: Colors.black.withOpacity(0.3),
+                elevation: 5,
               ),
             )
           ],

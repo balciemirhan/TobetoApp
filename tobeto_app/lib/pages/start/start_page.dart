@@ -4,10 +4,8 @@ import 'package:tobeto_app/api/blocs/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_app/api/blocs/auth_bloc/auth_state.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_bloc.dart';
 import 'package:tobeto_app/api/blocs/profile_bloc/profile_event.dart';
-
 import 'package:tobeto_app/core/widget/snackbar_widget.dart';
 import 'package:tobeto_app/pages/register/register_success.dart';
-
 import 'package:tobeto_app/pages/start/login_or_register.dart';
 
 class StartPage extends StatelessWidget {
@@ -22,8 +20,6 @@ class StartPage extends StatelessWidget {
         }
 
         if (state is Authenticated && state.isNewUser!) {
-          // Kayıt başarılı olduğunda alert dialog göster.
-
           showDialog(
               context: context,
               builder: (context) => MyDialogSuccess(
@@ -33,7 +29,6 @@ class StartPage extends StatelessWidget {
                   closeText: "Kapat",
                   closePressed: () => Navigator.pop(context)));
         } else if (state is NotAuthenticated && state.errorMessage != null) {
-          // Herhangi bir hata var ise snackBarMessage göster.
           snackBarMessage(context, state.errorMessage!);
         }
       },

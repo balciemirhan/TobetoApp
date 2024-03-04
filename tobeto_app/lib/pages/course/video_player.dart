@@ -7,11 +7,7 @@ class CustomVideoPlayer extends StatefulWidget {
   const CustomVideoPlayer({
     Key? key,
     required this.videoUrlNotifier,
-    //required this.width,
-    //required this.height,
   }) : super(key: key);
-  //final double width;
-  //final double height;
   final ValueNotifier<String> videoUrlNotifier;
 
   @override

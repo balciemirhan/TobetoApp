@@ -6,7 +6,7 @@ ElevatedButton myDialogButton(
   return ElevatedButton(
     onPressed: onPressed,
     style: ElevatedButton.styleFrom(
-      backgroundColor: color, // Use backgroundColor instead of primary
+      backgroundColor: color,
       padding: const EdgeInsets.symmetric(
         horizontal: 30,
       ),

@@ -19,11 +19,8 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-// text editin controller:
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
-// ----------  controller'ı , form süreci sonrası imha et. ----------
 
   @override
   void dispose() {
@@ -34,8 +31,6 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    // Oluşturduğum MyTextformfield'ları Form'a sarmaladım 'ki formun key aracı ile validate olabilsinler
-    // ve takip edilebilsinler.
     return Form(
       key: widget.formkey,
       child: Column(
@@ -53,13 +48,7 @@ class _LoginFormState extends State<LoginForm> {
             },
           ),
           const SizedBox(height: 15),
-
-          /* ----------------------- Password Textfield -----------------------  */
-
           buildPasswordFormField(),
-
-          /* --------------------------Forgot area ------------- */
-
           Padding(
             padding: const EdgeInsets.only(top: 8, bottom: 8, right: 18),
             child: Container(
@@ -71,9 +60,6 @@ class _LoginFormState extends State<LoginForm> {
                   child: const Text(AppText.forgetText)),
             ),
           ),
-
-          /* ----------------------- Auth Button -----------------------  */
-
           AuthButton(
               formKey: widget.formkey,
               buttonTitle: AppText.loginButtonTitle,
@@ -89,8 +75,6 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
-
-  /* ----------------------- Password Textfield -----------------------  */
 
   Widget buildPasswordFormField() {
     bool isPasswordVisible = true;

@@ -11,26 +11,15 @@ class StorageRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  //  ---------------- Photo Seçtirme islemi ----------------
-
   Future uploadPhoto(File photoUrl) async {
-// Upload işlemini gerçekleştirirken kullanıcı'nın bilgisini'de alalım.
-
     User? loggedInUser = _auth.currentUser!;
 
-// Fotoğrafı göndermeden önce referens verilmesi gerek:
     final reference =
         _firebaseStorage.ref().child('profileImages/${loggedInUser.uid}.png');
 
-// .putFile(resmi yükleme işlemi)
-// Resmi yükleme işlemi: ---> kullanıcıdan aldığımız image
-
     await reference.putFile(photoUrl);
-// Yükleme işlemi tamamlandıktan sonra, alt dizindeki dosyanın indirme URL'sini alabilirsiniz:
-// İndirme Url'ni  Firestore'a kaydetmek için alıyorum.
 
     final downloadUrl = await reference.getDownloadURL();
-// users --> koleksiyonuna ekleyebilirsin.
     await _firestore
         .collection(Collections.users)
         .doc(loggedInUser.uid)
@@ -39,8 +28,6 @@ class StorageRepository {
       "userId": loggedInUser.uid,
     });
   }
-
-  //   ---------------- Dosya Seçtirme islemi ----------------
 
   Future<void> updateUserCertificate(UserModel userModel, File? file) async {
     final user =
@@ -53,9 +40,6 @@ class StorageRepository {
       await ref.putFile(file);
       final url = await ref.getDownloadURL();
       user.update({"certicafes": url});
-    } /* else { 
-      user.update(
-          UserModel(certificates: [...userModel.certificates!]).toMap());
-    } */
+    }
   }
 }

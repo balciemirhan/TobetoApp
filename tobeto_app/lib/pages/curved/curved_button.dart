@@ -14,8 +14,6 @@ class CurvedNavBarWidget extends StatefulWidget {
 
 class _CurvedNavBarWidgetState extends State<CurvedNavBarWidget> {
   int currentIndex = 0;
-
-  /*  final navigationKey = GlobalKey<CurvedNavigationBarState>(); */
   final List<Widget> pages = const [
     HomePage(),
     RevisterPage(),
@@ -30,8 +28,6 @@ class _CurvedNavBarWidgetState extends State<CurvedNavBarWidget> {
     return Scaffold(
         extendBody: true,
         body: pages[currentIndex],
-        /* body: Center(child: Text('${currentIndex}')), */
-
         bottomNavigationBar: Theme(
           data: Theme.of(context)
               .copyWith(iconTheme: const IconThemeData(color: Colors.white)),

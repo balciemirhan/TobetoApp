@@ -17,16 +17,13 @@ class CatalogCourseFilter extends StatefulWidget {
 class _CatalogCourseListState extends State<CatalogCourseFilter> {
   String searchText = "";
   List<CatalogCourse> filteredCatalogCourses = [];
-  int selectedFilter = 0; // Başlangıçta filtre olmadığını temsil eder
+  int selectedFilter = 0;
 
   @override
-  // Başlangıçta Tüm kurslar gözüksün
   void initState() {
     super.initState();
     filteredCatalogCourses = widget.catalog;
   }
-
-  // <---------- Filter Systems ---------->
 
   void filterCatalogCourses() {
     setState(() {
@@ -46,8 +43,6 @@ class _CatalogCourseListState extends State<CatalogCourseFilter> {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceH = mediaQueryData.size.height;
 
-    // <---------- TextFieldFilter (Search) ---------->
-
     return Column(
       children: [
         Padding(
@@ -55,15 +50,12 @@ class _CatalogCourseListState extends State<CatalogCourseFilter> {
           child: TextFieldFilter(
             onChanged: (value) {
               setState(() {
-                searchText = value; // Update the searchText variable
+                searchText = value;
                 filterCatalogCourses();
               });
             },
           ),
         ),
-
-        // <---------- filterButtons ---------->
-
         Container(
           margin: const EdgeInsets.all(20),
           child: Row(
@@ -76,9 +68,6 @@ class _CatalogCourseListState extends State<CatalogCourseFilter> {
             ],
           ),
         ),
-
-        // <---------- GridView (CourseItemVertical) ---------->
-
         SizedBox(
           height: deviceH / 1.48,
           child: filteredCatalogCourses.isNotEmpty
@@ -97,9 +86,6 @@ class _CatalogCourseListState extends State<CatalogCourseFilter> {
                     return CatalogCourseItem(catalogCourse: catalogCourse);
                   },
                 )
-
-              // <---------- Not found : ---------->
-
               : const Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -120,18 +106,12 @@ class _CatalogCourseListState extends State<CatalogCourseFilter> {
     );
   }
 
-  // <---------- filterButton Area ---------->
-
-  // <---------- filterButtons Color and Text color Changes with Map Function ---------->
-
   Map<int, Color> filterButtonColors = {
     1: Colors.grey.shade200,
     2: Colors.grey.shade200,
     3: Colors.grey.shade200,
     0: Colors.deepPurple,
   };
-
-  // <---------- filterButton ---------->
 
   Widget filterButton(int filter, String text) {
     Color textColor = filterButtonColors[filter] == Colors.grey.shade200

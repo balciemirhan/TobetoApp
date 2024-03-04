@@ -14,27 +14,15 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
     on<ClearNote>(_onClearNote);
   }
 
-// ------------------------ Note ekleme  ------------------------
-
-/* Kullanıcı yeni bir not ekler.
-Uygulama, not ekleme işlemini Firestore'a kaydeder.
-Not ekleme işlemi başarılı olduktan sonra uygulama, başlangıç durumuna geçer.
-Başlangıç durumu, Firestore'dan yeni eklenen notu da içerecek şekilde güncellenir.
-Kullanıcı, yeni eklenen notun da dahil olduğu güncellenmiş notlar listesini görür. */
-
   Future<void> _onAddNote(NoteAdd event, Emitter<NoteState> emit) async {
     emit(NoteLoading());
     try {
       await _noteRepository.addNote(event.note);
       emit(NoteInitial());
-      //emit(NoteAdded());
-      // Veritabanında kaydedildiğini gösterdiğine dair state yayınla...
     } catch (e) {
       emit(NoteError(e.toString()));
     }
   }
-
-  // ------------------------ Note okuma / çekme / yansıtma ------------------------
 
   Future<void> _onGetNote(NoteGet event, Emitter<NoteState> emit) async {
     emit(NoteLoading());
@@ -45,8 +33,6 @@ Kullanıcı, yeni eklenen notun da dahil olduğu güncellenmiş notlar listesini
       emit(NoteError(e.toString()));
     }
   }
-
-  // ------------------------ Note Güncelleme ------------------------
 
   Future<void> _onUpdateNote(NoteUpdate event, Emitter<NoteState> emit) async {
     emit(NoteLoading());

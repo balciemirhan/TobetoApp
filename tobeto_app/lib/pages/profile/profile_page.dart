@@ -59,9 +59,9 @@ class _ProfilePageState extends State<ProfilePage> {
 
     final double blurRadius;
     if (currentBrightness == Brightness.light) {
-      blurRadius = 10; // Light theme blur radius
+      blurRadius = 10;
     } else {
-      blurRadius = 5; // Dark theme blur radius
+      blurRadius = 5;
     }
 
     return BackgroundImage(

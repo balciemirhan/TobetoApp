@@ -1,10 +1,10 @@
 class Exam {
-  String name; // sınavın ismi
-  String examClass; // sınavın 2b mi 2c ?
-  String examType; // çokatn seçmeli demek
-  String content; // içerik Sevgili Adayımız, ile başlayan
-  int questionNumber; // soru sayısı
-  int time; // sıanıvın zamanı
+  String name;
+  String examClass;
+  String examType;
+  String content;
+  int questionNumber;
+  int time;
 
   Exam({
     required this.name,
@@ -15,7 +15,6 @@ class Exam {
     required this.time,
   });
 
-  // firesttore veri gönderirken kullanıyoruz.
   Map<String, dynamic> toMap() {
     return {
       'name': name,
@@ -27,7 +26,6 @@ class Exam {
     };
   }
 
-  // firestore 'dan veri çek.
   factory Exam.fromMap(Map<String, dynamic> map) {
     return Exam(
       name: map['name'] ?? "",

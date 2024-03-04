@@ -36,7 +36,7 @@ class ProfileEditPage extends StatelessWidget {
                 image: Image(
                   image: const AssetImage(AppImage.edit),
                   color: theme.brightness == Brightness.light
-                      ? Colors.black // Light theme color
+                      ? Colors.black
                       : Colors.white,
                   height: 25,
                 ),

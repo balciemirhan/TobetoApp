@@ -20,7 +20,6 @@ class PersonEdit extends StatefulWidget {
 }
 
 class _PersonEditState extends State<PersonEdit> {
-  final List<String> _selectedCompetences = [];
   String? _selectedDropdownItem;
   final ImagePicker _picker = ImagePicker();
   File? _selectedPhoto;
@@ -58,9 +57,7 @@ class _PersonEditState extends State<PersonEdit> {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(
       builder: (context, state) {
-        if (state is ProfileInitial) {
-          //  context.read<ProfileBloc>().add(FetchProfileInfo());
-        }
+        if (state is ProfileInitial) {}
         if (state is ProfileLoaded) {
           UserModel user = state.user;
           _nameController.text = user.name ?? '';
@@ -149,15 +146,13 @@ class _PersonEditState extends State<PersonEdit> {
                   onTap: () async {
                     DateTime? pickedDate = await showDatePicker(
                       context: context,
-                      firstDate: DateTime(1930), // en erken tarihi.
-                      initialDate:
-                          _dateOfBirth, // Tarihi seçici ilk açıldığında görüntülenen başlangıç noktasıdır.
+                      firstDate: DateTime(1930),
+                      initialDate: _dateOfBirth,
                       lastDate: DateTime.now(),
                     );
                     if (pickedDate != null) {
                       _dateController.text = _dateFormat.format(pickedDate);
                       _dateOfBirth = pickedDate;
-                      //_dateFormat dd/MM/yyyy biçiminde ise veriyi alabiliyorum.
                     }
                   },
                 ),

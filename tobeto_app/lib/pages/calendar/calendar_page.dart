@@ -62,11 +62,7 @@ class _CalendarPageState extends State<CalendarPage> {
 
                         return Calendar(
                           dayOfWeekStyle: const TextStyle(fontSize: 18),
-
-                          //Takvim o haftayı gösteriyo
-                          //Başlangıç gününü mevcut günün bulunduğu pazartesi seçmesini istedim
                           startOnMonday: true,
-                          //Hafta günlerinin kısaltmalarını buraya giriyoruz.
                           weekDays: const [
                             "Pzt",
                             "Sal",
@@ -76,7 +72,6 @@ class _CalendarPageState extends State<CalendarPage> {
                             "Cmt",
                             "Paz"
                           ],
-                          //Bulunduğu günü ay görünümüne büyütmek için
                           isExpandable: false,
                           todayColor: Colors.red,
                           todayButtonText: "Bugüne Git",
@@ -86,11 +81,8 @@ class _CalendarPageState extends State<CalendarPage> {
                             }
                           },
                           eventsList: eventsData.baseList,
-                          //Expandable kısmı  türkçeleştiriyor
                           locale: "tr_TR",
-                          //AllDay evenet text'ini set ediyoruz
                           allDayEventText: "Tüm gün",
-                          //Çoklu gün etkinliği son gün gösterimini set ediyoruz
                           multiDayEndText: "Son gün",
                           isExpanded: true,
                           eventTileHeight:

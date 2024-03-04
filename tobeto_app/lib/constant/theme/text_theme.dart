@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTextTheme {
-  // <---------------------------------- text xxSmall ---------------------------------->
-
   static textStylexXSmall(bool isLight, FontWeight fontWeight) {
     return TextStyle(
       fontWeight: fontWeight,
@@ -22,8 +20,6 @@ class AppTextTheme {
       style: textStylexXSmall(isLight, fontWeight ?? FontWeight.bold),
     );
   }
-
-// <---------------------------------- text xSmall ---------------------------------->
 
   static textStyleXSmall(bool isLight, FontWeight fontWeight, Color color) {
     return TextStyle(
@@ -45,8 +41,6 @@ class AppTextTheme {
     );
   }
 
-// <---------------------------------- text Small ---------------------------------->
-
   static textStyleSmall(bool isLight, FontWeight fontWeight) {
     return TextStyle(
       fontWeight: fontWeight,
@@ -65,8 +59,6 @@ class AppTextTheme {
       style: textStyleSmall(isLight, fontWeight ?? FontWeight.bold),
     );
   }
-
-// <---------------------------------- text Medium ---------------------------------->
 
   static textStyleMedium(bool isLight, FontWeight fontWeight) {
     return TextStyle(
@@ -87,8 +79,6 @@ class AppTextTheme {
     );
   }
 
-// <---------------------------------- text Large ---------------------------------->
-
   static textStyleLarge(bool isLight, FontWeight fontWeight) {
     return TextStyle(
       fontWeight: fontWeight,
@@ -107,8 +97,6 @@ class AppTextTheme {
       style: textStyleLarge(isLight, fontWeight ?? FontWeight.bold),
     );
   }
-
-  // <---------------------------------- text Xlarge ---------------------------------->
 
   static textStyleXLarge(bool isLight, FontWeight fontWeight) {
     return TextStyle(

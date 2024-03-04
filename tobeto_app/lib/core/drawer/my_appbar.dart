@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:tobeto_app/core/widget/neu_box.dart';
@@ -41,7 +40,7 @@ class _DrawerTopBarState extends State<DrawerTopBar> {
                 widget.image,
               ),
               color: theme.brightness == Brightness.light
-                  ? Colors.black // Light theme color
+                  ? Colors.black
                   : Colors.white,
               height: 25,
             ),

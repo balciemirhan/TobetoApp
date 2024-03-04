@@ -39,23 +39,12 @@ class LoginPage extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      /* ----------------------- Login Form -----------------------  */
-
                       LoginForm(formkey: formKey),
-
-                      /* ----------------------- Login Divider -----------------------  */
-
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: mHeight / 25),
                         child: const LoginDivider(),
                       ),
-
-                      /* --------  Square Auth Buttons (Google / Apple Authentication) --------  */
-
                       const LoginPageSquareButtons(),
-
-                      /* ----------------------- Login Now -----------------------  */
-
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 25),
                         child: NowBottom(
@@ -64,7 +53,6 @@ class LoginPage extends StatelessWidget {
                           onTap: onTap,
                         ),
                       )
-                      /* const LoginNow() */
                     ],
                   ),
                 ),

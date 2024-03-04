@@ -34,11 +34,9 @@ class MyTextformfield extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: TextFormField(
-          /*   autovalidateMode: AutovalidateMode.onUserInteraction,  validator yerine geçer */
-          /*    textInputAction: TextInputAction.next,  */
           autocorrect: autocorrect ?? false,
           keyboardType: keyboardType,
-          onSaved: onSaved, // controller ile aynı işlev
+          onSaved: onSaved,
           validator: validator,
           controller: controller,
           obscureText: obscureText ?? false,

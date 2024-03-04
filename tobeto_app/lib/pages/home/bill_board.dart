@@ -1,9 +1,6 @@
 import 'dart:async';
-
 import 'package:carousel_indicator/carousel_indicator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:tobeto_app/core/widget/neu_box.dart';
 import 'package:tobeto_app/pages/application/application_dialog.dart';
 
@@ -17,8 +14,6 @@ class BillBoard extends StatefulWidget {
 class _BillBoardState extends State<BillBoard> {
   int pageIndex = 0;
   final PageController _pageController = PageController(initialPage: 0);
-
-  // -------------- Slayt Sayfaları --------------
 
   final List<Widget> _pages = [
     Container(
@@ -44,8 +39,6 @@ class _BillBoardState extends State<BillBoard> {
       )),
     ),
   ];
-
-  // -------------- Zamanlayıcı ve Geçiş efekti(curve:)  --------------
 
   Timer? timer;
 
